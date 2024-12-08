@@ -23,8 +23,9 @@
 #include "window.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
+#include "constants/vars.h"
 
-#define STARTER_MON_COUNT   3
+#define STARTER_MON_COUNT   27
 
 // Position of the sprite of the selected starter Pokémon
 #define STARTER_PKMN_POS_X (DISPLAY_WIDTH / 2)
@@ -96,14 +97,14 @@ static const struct WindowTemplate sWindowTemplate_StarterLabel =
     .baseBlock = 0x0274
 };
 
-static const u8 sPokeballCoords[STARTER_MON_COUNT][2] =
+static const u8 sPokeballCoords[3][2] =
 {
     {60, 64},
     {120, 88},
     {180, 64},
 };
 
-static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
+static const u8 sStarterLabelCoords[3][2] =
 {
     {0, 9},
     {16, 10},
@@ -112,10 +113,35 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
 
 static const u16 sStarterMon[STARTER_MON_COUNT] =
 {
+    SPECIES_BULBASAUR,
+    SPECIES_CHARMANDER,
+    SPECIES_SQUIRTLE,
+    SPECIES_CHIKORITA,
+    SPECIES_CYNDAQUIL,
+    SPECIES_TOTODILE,
     SPECIES_TREECKO,
     SPECIES_TORCHIC,
     SPECIES_MUDKIP,
+    SPECIES_TURTWIG,
+    SPECIES_CHIMCHAR,
+    SPECIES_PIPLUP,
+    SPECIES_SNIVY,
+    SPECIES_TEPIG,
+    SPECIES_OSHAWOTT,
+    SPECIES_CHESPIN,
+    SPECIES_FENNEKIN,
+    SPECIES_FROAKIE,
+    SPECIES_ROWLET,
+    SPECIES_LITTEN,
+    SPECIES_POPPLIO,
+    SPECIES_GROOKEY,
+    SPECIES_SCORBUNNY,
+    SPECIES_SOBBLE,
+    SPECIES_SPRIGATITO,
+    SPECIES_FUECOCO,
+    SPECIES_QUAXLY,
 };
+
 
 static const struct BgTemplate sBgTemplates[3] =
 {
@@ -350,9 +376,10 @@ static const struct SpriteTemplate sSpriteTemplate_StarterCircle =
 // .text
 u16 GetStarterPokemon(u16 chosenStarterId)
 {
-    if (chosenStarterId > STARTER_MON_COUNT)
-        chosenStarterId = 0;
-    return sStarterMon[chosenStarterId];
+    int result = chosenStarterId + 3 * VarGet(VAR_STARTER_REGION);
+    if (result > STARTER_MON_COUNT)
+        result = 0;
+    return sStarterMon[result];
 }
 
 static void VblankCB_StarterChoose(void)
@@ -508,7 +535,7 @@ static void Task_HandleStarterChooseInput(u8 taskId)
         gTasks[taskId].tStarterSelection--;
         gTasks[taskId].func = Task_MoveStarterChooseCursor;
     }
-    else if (JOY_NEW(DPAD_RIGHT) && selection < STARTER_MON_COUNT - 1)
+    else if (JOY_NEW(DPAD_RIGHT) && selection < 3 - 1)
     {
         gTasks[taskId].tStarterSelection++;
         gTasks[taskId].func = Task_MoveStarterChooseCursor;

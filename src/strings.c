@@ -1569,3 +1569,13 @@ const u8 gText_AM[] = _("AM");
 const u8 gText_PM[] = _("PM");
 const u8 gText_Relearn[] = _("{START_BUTTON} RELEARN"); // future note: don't decap this, because it mimics the summary screen BG graphics which will not get decapped
 const u8 gText_Rename[] = _("RENAME");
+
+const u8 gText_Kanto[] = _("KANTO");
+const u8 gText_Johto[] = _("JOHTO");
+//const u8 gText_Hoenn[] = _("HOENN");
+const u8 gText_Sinnoh[] = _("SINNOH");
+const u8 gText_Unova[] = _("UNOVA");
+const u8 gText_Kalos[] = _("KALOS");
+const u8 gText_Alola[] = _("ALOLA");
+const u8 gText_Galar[] = _("GALAR");
+const u8 gText_Paldea[] = _("PALDEA");

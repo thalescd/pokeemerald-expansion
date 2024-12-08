@@ -765,7 +765,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
 
     [SPECIES_TOUCANNON] =
     {
-        .baseHP        = 80,
+        .baseHP        = 90,
         .baseAttack    = 120,
         .baseDefense   = 75,
         .baseSpeed     = 60,
@@ -781,7 +781,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FLYING),
-        .abilities = { ABILITY_KEEN_EYE, ABILITY_SKILL_LINK, ABILITY_SHEER_FORCE },
+        .abilities = { ABILITY_KEEN_EYE, ABILITY_SKILL_LINK, ABILITY_UNBURDEN },
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("Toucannon"),
         .cryId = CRY_TOUCANNON,
