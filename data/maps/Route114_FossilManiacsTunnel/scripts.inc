@@ -6,7 +6,7 @@ Route114_FossilManiacsTunnel_MapScripts::
 	.byte 0
 
 Route114_FossilManiacsTunnel_OnTransition:
-	call_if_set FLAG_SYS_GAME_CLEAR, Route114_FossilManiacsTunnel_EventScript_MoveFossilManiac
+	call_if_set FLAG_BADGE06_GET, Route114_FossilManiacsTunnel_EventScript_MoveFossilManiac
 	end
 
 Route114_FossilManiacsTunnel_EventScript_MoveFossilManiac::
@@ -15,7 +15,7 @@ Route114_FossilManiacsTunnel_EventScript_MoveFossilManiac::
 	return
 
 Route114_FossilManiacsTunnel_OnLoad:
-	call_if_unset FLAG_SYS_GAME_CLEAR, Route114_FossilManiacsTunnel_EventScript_CloseDesertUnderpass
+	call_if_unset FLAG_BADGE06_GET, Route114_FossilManiacsTunnel_EventScript_CloseDesertUnderpass
 	end
 
 Route114_FossilManiacsTunnel_EventScript_CloseDesertUnderpass::
