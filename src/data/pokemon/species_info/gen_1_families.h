@@ -7323,10 +7323,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_POLIWRATH] =
     {
         .baseHP        = 90,
-        .baseAttack    = P_UPDATED_STATS >= GEN_6 ? 95 : 85,
-        .baseDefense   = 95,
+        .baseAttack    = P_UPDATED_STATS >= GEN_6 ? 100 : 85,
+        .baseDefense   = 100,
         .baseSpeed     = 70,
-        .baseSpAttack  = 70,
+        .baseSpAttack  = 60,
         .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_WATER, TYPE_FIGHTING),
         .catchRate = 45,
@@ -7346,7 +7346,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1),
-        .abilities = { ABILITY_WATER_ABSORB, ABILITY_DAMP, ABILITY_SWIFT_SWIM },
+        .abilities = { ABILITY_WATER_ABSORB, ABILITY_IRON_FIST, ABILITY_SWIFT_SWIM },
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = TRUE,
         .speciesName = _("Poliwrath"),
