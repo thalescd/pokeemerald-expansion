@@ -52,7 +52,51 @@
     F(SKILL_SWAP) \
     F(SNATCH) \
     F(OVERHEAT) \
-	F(SNARL)
+    F(PSYSHOCK) \
+    F(FOCUS_BLAST) \
+    F(ENERGY_BALL) \
+    F(FALSE_SWIPE) \
+    F(STOMPING_TANTRUM) \
+    F(FLING) \
+    F(ELECTROWEB) \
+    F(WILL_O_WISP) \
+    F(ACROBATICS) \
+    F(INCINERATE) \
+    F(EXPLOSION) \
+    F(SHADOW_CLAW) \
+    F(PAYBACK) \
+    F(RETALIATE) \
+    F(DOUBLE_EDGE) \
+    F(ROCK_POLISH) \
+    F(DRAIN_PUNCH) \
+    F(STONE_EDGE) \
+    F(VOLT_SWITCH) \
+    F(THUNDER_WAVE) \
+    F(GYRO_BALL) \
+    F(SWORDS_DANCE) \
+    F(STRUGGLE_BUG) \
+    F(PSYCHIC_NOISE) \
+    F(BULLDOZE) \
+    F(TRIPLE_AXEL) \
+    F(ROCK_SLIDE) \
+    F(X_SCISSOR) \
+    F(DRAGON_TAIL) \
+    F(INFESTATION) \
+    F(POISON_JAB) \
+    F(HIGH_HORSEPOWER) \
+    F(GRASS_KNOT) \
+    F(SWAGGER) \
+    F(SLEEP_TALK) \
+    F(U_TURN) \
+    F(AIR_CUTTER) \
+    F(FLASH_CANNON) \
+    F(TRICK_ROOM) \
+    F(WILD_CHARGE) \
+    F(THROAT_CHOP) \
+    F(SNARL) \
+    F(DARK_PULSE) \
+    F(DAZZLING_GLEAM) \
+    F(BODY_PRESS)
 
 #define FOREACH_HM(F) \
     F(CUT) \
