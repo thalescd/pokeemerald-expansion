@@ -311,7 +311,7 @@ script PlayersHouse_2F_EventScript_StarterRegionChooser{
 	} else {
 		lock
 		message("Favorite starter region")
-    	multichoicegrid(0, 0, MULTI_REGION, 3, 0)
+    	multichoicegrid(0, 0, MULTI_REGION, 3, 1)
 		copyvar(VAR_STARTER_REGION, VAR_RESULT)
     	closemessage
 		release

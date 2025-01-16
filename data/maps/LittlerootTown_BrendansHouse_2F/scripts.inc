@@ -617,7 +617,7 @@ PlayersHouse_2F_EventScript_StarterRegionChooser::
 # 313 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	message PlayersHouse_2F_EventScript_StarterRegionChooser_Text_0
 # 314 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	multichoicegrid 0, 0, MULTI_REGION, 3, 0
+	multichoicegrid 0, 0, MULTI_REGION, 3, 1
 # 315 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	copyvar VAR_STARTER_REGION, VAR_RESULT
 # 316 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
