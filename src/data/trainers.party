@@ -235,7 +235,11 @@ Carvanha
 Level: 10
 
 Murkrow
+Ability: Insomnia
 Level: 11
+Docile Nature
+- Pursuit
+- Gust
 
 === TRAINER_MARCEL ===
 Name: MARCEL
@@ -6372,16 +6376,16 @@ Double Battle: No
 AI: Check Bad Move
 
 Magikarp
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Magikarp
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Magikarp
 Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Wishiwashi
+Level: 8
+
+Finneon
+Level: 9
+Ability: Storm Drain
+IVs: 0 Atk  
 
 === TRAINER_CLAUDE ===
 Name: CLAUDE
