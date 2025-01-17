@@ -3446,6 +3446,7 @@ static const u16 sChimcharEggMoveLearnset[] = {
     MOVE_FOCUS_PUNCH,
     MOVE_SUBMISSION,
     MOVE_POWER_UP_PUNCH,
+    MOVE_PYRO_BALL,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_CHIMCHAR
