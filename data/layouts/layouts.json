@@ -4410,6 +4410,16 @@
       "secondary_tileset": "gTileset_MysteryEventsHouse",
       "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/map.bin"
+    },
+    {
+      "id": "LAYOUT_SCORCHED_SLAB_B1F",
+      "name": "ScorchedSlab_B1F_Layout",
+      "width": 35,
+      "height": 34,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/ScorchedSlab_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/ScorchedSlab_B1F/map.bin"
     }
   ]
 }
