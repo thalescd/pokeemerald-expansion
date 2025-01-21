@@ -22,6 +22,7 @@ EventScript_CutTreeDown:: @ fallthrough
 	applymovement VAR_LAST_TALKED, Movement_CutTreeDown
 	waitmovement 0
 	removeobject VAR_LAST_TALKED
+	special RockSmashWildEncounter
 	releaseall
 	end
 

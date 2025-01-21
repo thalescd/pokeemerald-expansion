@@ -4792,7 +4792,7 @@ static const struct LevelUpMove sChikoritaLevelUpLearnset[] = {
     LEVEL_UP_MOVE(34, MOVE_GIGA_DRAIN),
     LEVEL_UP_MOVE(37, MOVE_AROMATHERAPY),
     LEVEL_UP_MOVE(41, MOVE_SOLAR_BEAM),
-    LEVEL_UP_MOVE(45, MOVE_SAP_SEED),
+    LEVEL_UP_MOVE(45, MOVE_SAPPY_SEED),
     LEVEL_UP_END
 };
 
@@ -4816,7 +4816,7 @@ static const struct LevelUpMove sBayleefLevelUpLearnset[] = {
     LEVEL_UP_MOVE(41, MOVE_GIGA_DRAIN),
     LEVEL_UP_MOVE(45, MOVE_AROMATHERAPY),
     LEVEL_UP_MOVE(50, MOVE_SOLAR_BEAM),
-    LEVEL_UP_MOVE(55, MOVE_SAP_SEED),
+    LEVEL_UP_MOVE(55, MOVE_SAPPY_SEED),
     LEVEL_UP_END
 };
 
@@ -4843,7 +4843,7 @@ static const struct LevelUpMove sMeganiumLevelUpLearnset[] = {
     LEVEL_UP_MOVE(44, MOVE_GIGA_DRAIN),
     LEVEL_UP_MOVE(48, MOVE_AROMATHERAPY),
     LEVEL_UP_MOVE(54, MOVE_SOLAR_BEAM),
-    LEVEL_UP_MOVE(60, MOVE_SAP_SEED),
+    LEVEL_UP_MOVE(60, MOVE_SAPPY_SEED),
     LEVEL_UP_END
 };
 #endif //P_FAMILY_CHIKORITA
@@ -5061,6 +5061,7 @@ static const struct LevelUpMove sHoothootLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sNoctowlLevelUpLearnset[] = {
+    //MOVE_OBLIVION_WING
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
     LEVEL_UP_MOVE( 1, MOVE_PECK),
@@ -5297,6 +5298,7 @@ static const struct LevelUpMove sNatuLevelUpLearnset[] = {
 
 static const struct LevelUpMove sXatuLevelUpLearnset[] = {
     //lumina crash
+    //MOVE_OBLIVION_WING
     LEVEL_UP_MOVE( 0, MOVE_AIR_SLASH),
     LEVEL_UP_MOVE( 1, MOVE_AIR_SLASH),
     LEVEL_UP_MOVE( 1, MOVE_TAILWIND),
