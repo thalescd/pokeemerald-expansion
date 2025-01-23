@@ -11946,6 +11946,8 @@ F_TRAINER_FEMALE |
 #line 4822
             .species = SPECIES_ZUBAT,
             .gender = TRAINER_MON_RANDOM_GENDER,
+#line 4822
+            .heldItem = ITEM_CHERI_BERRY,
 #line 4825
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 4823
