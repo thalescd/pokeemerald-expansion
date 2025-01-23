@@ -22,7 +22,7 @@ DewfordTown_EventScript_Briney::
 	lock
 	faceplayer
 	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, DewfordTown_EventScript_ReturnToPetalburgPrompt
-	goto_if_unset FLAG_BADGE02_GET, DewfordTown_EventScript_ReturnToPetalburgPrompt
+	goto_if_unset FLAG_BADGE02_GET, DewfordTown_EventScript_ReturnToPetalburgBadgePrompt
 	message DewfordTown_Text_WhereAreWeBound
 	waitmessage
 	multichoicedefault 21, 6, MULTI_BRINEY_ON_DEWFORD, 2, FALSE
@@ -57,6 +57,13 @@ DewfordTown_EventScript_ReturnToPetalburgPrompt::
 	msgbox DewfordTown_Text_SetSailBackToPetalburg, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, DewfordTown_EventScript_SailBackToPetalburg
 	msgbox DewfordTown_Text_GoDeliverIllBeWaiting, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_EventScript_ReturnToPetalburgBadgePrompt::
+	msgbox DewfordTown_Text_SetSailBackToPetalburgBadge, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, DewfordTown_EventScript_SailBackToPetalburg
+	msgbox DewfordTown_Text_GoDeliverIllBeWaitingBadge, MSGBOX_DEFAULT
 	release
 	end
 
@@ -670,6 +677,12 @@ DewfordTown_Text_SetSailBackToPetalburg:
 	.string "Or were you meaning to sail back to\n"
 	.string "PETALBURG?$"
 
+DewfordTown_Text_SetSailBackToPetalburgBadge:
+	.string "MR. BRINEY: Have you got your\n"
+	.string "second badge?\p"
+	.string "Or were you meaning to sail back to\n"
+	.string "PETALBURG?$"
+
 DewfordTown_Text_PetalburgWereSettingSail2:
 	.string "MR. BRINEY: PETALBURG it is, then!\p"
 	.string "Anchors aweigh!\n"
@@ -678,6 +691,10 @@ DewfordTown_Text_PetalburgWereSettingSail2:
 DewfordTown_Text_GoDeliverIllBeWaiting:
 	.string "MR. BRINEY: Then you go on and deliver\n"
 	.string "the LETTER. I'll be waiting.$"
+
+DewfordTown_Text_GoDeliverIllBeWaitingBadge:
+	.string "MR. BRINEY: Then you go on and prepare\n"
+	.string "yourself. I'll be here waiting.$"
 
 DewfordTown_Text_BrineyLandedInDewford:
 	.string "MR. BRINEY: Ahoy!\n"
