@@ -2029,12 +2029,12 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
 
     [SPECIES_LYCANROC_MIDNIGHT] =
     {
-        .baseHP        = 85,
+        .baseHP        = 80,
         .baseAttack    = 115,
-        .baseDefense   = 75,
-        .baseSpeed     = 82,
+        .baseDefense   = 70,
+        .baseSpeed     = 97,
         .baseSpAttack  = 55,
-        .baseSpDefense = 75,
+        .baseSpDefense = 70,
         .types = MON_TYPES(TYPE_ROCK),
         .catchRate = 90,
         .expYield = 170,
