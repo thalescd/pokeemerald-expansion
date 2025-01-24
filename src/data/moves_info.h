@@ -10077,10 +10077,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             "The user swings its tail\n"
             "like a wave to attack."),
         .effect = EFFECT_HIT,
-        .power = 90,
+        .power = 60,
         .type = TYPE_WATER,
-        .accuracy = 95,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 15,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,

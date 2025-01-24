@@ -3185,8 +3185,12 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Machop
-Level: 13
+Timburr
+Level: 17
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+
+Croagunk
+Level: 17
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 
 === TRAINER_HITOSHI ===
@@ -4809,7 +4813,7 @@ Pic: Leader Roxanne
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
 Geodude-Alola @ Smooth Rock  
 Ability: Sturdy  
@@ -4850,32 +4854,52 @@ Class: Leader
 Pic: Leader Brawly
 Gender: Male
 Music: Male
-Items: Super Potion / Super Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Machop
-Level: 16
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Karate Chop
-- Low Kick
-- Seismic Toss
-- Bulk Up
-
-Meditite
-Level: 16
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Focus Punch
-- Light Screen
-- Reflect
-- Bulk Up
-
-Makuhita @ Sitrus Berry
-Level: 19
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Pawmo @ Liechi Berry
+Ability: Iron Fist
+Level: 18
+Jolly Nature
+- Spark
 - Arm Thrust
-- Vital Throw
-- Reversal
+- Bite
+- Endure
+
+Monferno @ Expert Belt
+Ability: Beast Boost
+Level: 19
+Adamant Nature
+- Fire Punch
+- Mach Punch
+- Retaliate
+- Bulk Up
+
+Scraggy @ Berry Juice
+Ability: Shed Skin
+Level: 19
+Careful Nature
+- Knock Off
+- Brick Break
+- Counter
+- Bulk Up
+
+Qwilfish @ Black Sludge
+Ability: Intimidate
+Level: 18
+Adamant Nature
+- Aqua Tail
+- Barb Barrage
+- Fell Stinger
+- Self-Destruct
+
+Hariyama @ Black Belt
+Ability: Guts
+Level: 20
+Adamant Nature
+- Force Palm
+- Body Slam
+- Bullet Punch
 - Bulk Up
 
 === TRAINER_WATTSON_1 ===
@@ -6417,16 +6441,16 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Magikarp
-Level: 10
+Wingull
+Level: 15
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Tentacool
-Level: 7
+Chinchou
+Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Magikarp
-Level: 10
+Purrloin
+Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_NED ===
@@ -6438,8 +6462,12 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Tentacool
-Level: 11
+Finneon
+Level: 16
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+Slowpoke
+Level: 16
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
 === TRAINER_DALE ===
@@ -7899,8 +7927,8 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Meditite
-Level: 13
+Flamigo
+Level: 18
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 === TRAINER_CYNDY_1 ===
@@ -10625,7 +10653,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Machop
-Level: 13
+Level: 17
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Pancham
+Level: 17
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_LILITH ===
@@ -10638,7 +10670,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Meditite
-Level: 13
+Level: 17
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+
+Mankey
+Level: 17
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 === TRAINER_CRISTIAN ===
