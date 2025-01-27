@@ -1375,3 +1375,23 @@ SlateportCity_Text_TakingBattleTentChallenge:
 	.string "After all, a tough TRAINER is\n"
 	.string "the perfect fit for the BATTLE TENT!\p"
 	.string "Give it your best effort!$"
+
+SlateportCity_EventScript_TravelingTM::
+	lock
+	faceplayer
+	message SlateportCity_Text_TravelingTM
+	waitmessage
+	pokemart SlateportCity_Pokemart_TravelingTM
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+SlateportCity_Pokemart_TravelingTM:
+	.2byte ITEM_TM10
+	.2byte ITEM_TM73
+	.2byte ITEM_TM76
+	pokemartlistend
+
+SlateportCity_Text_TravelingTM:
+	.string "Welcome to the traveling TM shop!$"
