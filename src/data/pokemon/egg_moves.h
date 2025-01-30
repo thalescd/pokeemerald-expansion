@@ -692,6 +692,7 @@ static const u16 sPonytaEggMoveLearnset[] = {
     MOVE_CAPTIVATE,
     MOVE_ALLY_SWITCH,
     MOVE_HIGH_HORSEPOWER,
+    MOVE_VOLT_TACKLE,
     MOVE_UNAVAILABLE,
 };
 #if P_GALARIAN_FORMS
