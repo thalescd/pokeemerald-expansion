@@ -10932,15 +10932,38 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check Bad Move
+AI: Smart Trainer
 
-Lotad
-Level: 13
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+Staravia @ Rawst Berry
+Ability: Intimidate
+Level: 16
+- Wing Attack
+- Quick Attack
+- Double Team
 
-Torchic
+Phanpy @ Oran Berry
+Ability: Pickup
 Level: 15
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Bulldoze
+- Rock Smash
+- Rapid Spin
+- Rock Tomb
+
+Nuzleaf @ Pecha Berry
+Ability: Early Bird
+Level: 16
+- Bullet Seed
+- Air Cutter
+- Snarl
+- Rock Tomb
+
+Combusken @ Cheri Berry
+Ability: Blaze
+Level: 17
+- Flame Charge
+- Double Kick
+- Rock Tomb
+- Quick Attack
 
 === TRAINER_BRENDAN_RUSTBORO_MUDKIP ===
 Name: BRENDAN
@@ -10949,15 +10972,38 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check Bad Move
+AI: Smart Trainer
 
-Wingull
-Level: 13
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+Staravia @ Rawst Berry
+Ability: Intimidate
+Level: 16
+- Wing Attack
+- Quick Attack
+- Double Team
 
-Treecko
+Phanpy @ Oran Berry
+Ability: Pickup
 Level: 15
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Bulldoze
+- Rock Smash
+- Rapid Spin
+- Rock Tomb
+
+Buizel @ Pecha Berry
+Ability: Swift Swim
+Level: 16
+- Pursuit
+- Sonic Boom
+- Water Gun
+- Quick Attack
+
+Grovyle @ Cheri Berry
+Ability: Overgrow
+Level: 17
+- Mega Drain
+- Fury Cutter
+- Rock Tomb
+- Quick Attack
 
 === TRAINER_PAXTON ===
 Name: PAXTON
@@ -11056,15 +11102,37 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Slugma
-Level: 13
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+Staravia @ Rawst Berry
+Ability: Intimidate
+Level: 16
+- Wing Attack
+- Quick Attack
+- Double Team
 
-Mudkip
+Phanpy @ Oran Berry
+Ability: Pickup
 Level: 15
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Bulldoze
+- Rock Smash
+- Rapid Spin
+- Rock Tomb
+
+Darumaka @ Pecha Berry
+Ability: Hustle
+Level: 16
+- Incinerate
+- Bite
+- Rock Tomb
+
+Marshtomp @ Cheri Berry
+Ability: Torrent
+Level: 17
+- Water Gun
+- Rock Smash
+- Rock Tomb
+- Mud Shot
 
 === TRAINER_MAY_RUSTBORO_MUDKIP ===
 Name: MAY
@@ -11073,15 +11141,38 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Force Setup First Turn
+AI: Smart Trainer
 
-Wingull
-Level: 13
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+Staravia @ Rawst Berry
+Ability: Intimidate
+Level: 16
+- Wing Attack
+- Quick Attack
+- Double Team
 
-Treecko
+Phanpy @ Oran Berry
+Ability: Pickup
 Level: 15
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Bulldoze
+- Rock Smash
+- Rapid Spin
+- Rock Tomb
+
+Buizel @ Pecha Berry
+Ability: Swift Swim
+Level: 16
+- Pursuit
+- Sonic Boom
+- Water Gun
+- Quick Attack
+
+Grovyle @ Cheri Berry
+Ability: Overgrow
+Level: 17
+- Mega Drain
+- Fury Cutter
+- Rock Tomb
+- Quick Attack
 
 === TRAINER_MAXIE_MAGMA_HIDEOUT ===
 Name: MAXIE
@@ -14217,15 +14308,38 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Lotad
-Level: 13
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+Staravia @ Rawst Berry
+Ability: Intimidate
+Level: 16
+- Wing Attack
+- Quick Attack
+- Double Team
 
-Torchic
+Phanpy @ Oran Berry
+Ability: Pickup
 Level: 15
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Bulldoze
+- Rock Smash
+- Rapid Spin
+- Rock Tomb
+
+Nuzleaf @ Pecha Berry
+Ability: Early Bird
+Level: 16
+- Bullet Seed
+- Air Cutter
+- Snarl
+- Rock Tomb
+
+Combusken @ Cheri Berry
+Ability: Blaze
+Level: 17
+- Flame Charge
+- Double Kick
+- Rock Tomb
+- Quick Attack
 
 === TRAINER_MAY_RUSTBORO_TORCHIC ===
 Name: MAY
@@ -14234,15 +14348,37 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Torkoal
-Level: 13
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+Staravia @ Rawst Berry
+Ability: Intimidate
+Level: 16
+- Wing Attack
+- Quick Attack
+- Double Team
 
-Mudkip
+Phanpy @ Oran Berry
+Ability: Pickup
 Level: 15
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Bulldoze
+- Rock Smash
+- Rapid Spin
+- Rock Tomb
+
+Darumaka @ Pecha Berry
+Ability: Hustle
+Level: 16
+- Incinerate
+- Bite
+- Rock Tomb
+
+Marshtomp @ Cheri Berry
+Ability: Torrent
+Level: 17
+- Water Gun
+- Rock Smash
+- Rock Tomb
+- Mud Shot
 
 === TRAINER_ROXANNE_2 ===
 Name: ROXANNE
