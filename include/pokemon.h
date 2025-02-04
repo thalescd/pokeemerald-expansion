@@ -3,6 +3,7 @@
 
 #include "sprite.h"
 #include "constants/items.h"
+#include "constants/regions.h"
 #include "constants/region_map_sections.h"
 #include "constants/map_groups.h"
 #include "contest_effect.h"
@@ -824,6 +825,7 @@ u8 GetItemEffectParamOffset(u32 battler, u16 itemId, u8 effectByte, u8 effectBit
 u8 *UseStatIncreaseItem(u16 itemId);
 u8 GetNature(struct Pokemon *mon);
 u8 GetNatureFromPersonality(u32 personality);
+u32 GetGMaxTargetSpecies(u32 species);
 u16 GetEvolutionTargetSpecies(struct Pokemon *mon, enum EvolutionMode mode, u16 evolutionItem, struct Pokemon *tradePartner);
 bool8 IsMonPastEvolutionLevel(struct Pokemon *mon);
 u16 NationalPokedexNumToSpecies(u16 nationalNum);
@@ -911,5 +913,7 @@ void UpdateDaysPassedSinceFormChange(u16 days);
 void TrySetDayLimitToFormChange(struct Pokemon *mon);
 u32 CheckDynamicMoveType(struct Pokemon *mon, u32 move, u32 battler);
 uq4_12_t GetDynamaxLevelHPMultiplier(u32 dynamaxLevel, bool32 inverseMultiplier);
+u32 GetRegionalFormByRegion(u32 species, u32 region);
+bool32 IsSpeciesForeignRegionalForm(u32 species, u32 currentRegion);
 
 #endif // GUARD_POKEMON_H

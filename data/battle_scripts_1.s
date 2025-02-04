@@ -322,7 +322,7 @@ BattleScript_MoveSwitchOpenPartyScreen:
 	printstring STRINGID_EMPTYSTRING3
 	waitmessage 1
 	printstring STRINGID_SWITCHINMON
-	switchinanim BS_ATTACKER, TRUE
+	switchinanim BS_ATTACKER, FALSE, TRUE
 	waitstate
 	switchineffects BS_ATTACKER
 BattleScript_MoveSwitchEnd:
@@ -469,7 +469,7 @@ BattleScript_EffectRevivalBlessingSendOut:
 	getswitchedmondata BS_SCRIPTING
 	switchindataupdate BS_SCRIPTING
 	hpthresholds BS_SCRIPTING
-	switchinanim BS_SCRIPTING, FALSE
+	switchinanim BS_SCRIPTING, FALSE, FALSE
 	waitstate
 	switchineffects BS_SCRIPTING
 	goto BattleScript_MoveEnd
@@ -777,7 +777,7 @@ BattleScript_EffectFlingConsumeBerry:
 	restorebattleritem BS_TARGET
 BattleScript_FlingEnd:
 	tryfaintmon BS_TARGET
-	trysymbiosis
+	trysymbiosis BS_ATTACKER
 	goto BattleScript_MoveEnd
 
 BattleScript_FlingFailConsumeItem::
@@ -1238,8 +1238,8 @@ BattleScript_MoveEffectBugBite::
 	consumeberry BS_ATTACKER, FALSE
 	bicword gHitMarker, HITMARKER_DISABLE_ANIMATION
 	setbyte sBERRY_OVERRIDE, 0
-	trysymbiosis
 	restoretarget
+    trysymbiosis BS_TARGET
 	return
 
 BattleScript_MoveEffectCoreEnforcer::
@@ -1568,7 +1568,7 @@ BattleScript_EffectBestow::
 	waitanimation
 	printstring STRINGID_BESTOWITEMGIVING
 	waitmessage B_WAIT_TIME_LONG
-	trysymbiosis
+	trysymbiosis BS_ATTACKER
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectAfterYou::
@@ -1798,25 +1798,17 @@ BattleScript_EffectFinalGambit::
 	jumpifmovehadnoeffect BattleScript_MoveEnd
 	goto BattleScript_MoveEnd
 
-BattleScript_EffectHitSwitchTarget::
-	call BattleScript_EffectHit_Ret
-	tryfaintmon BS_TARGET
-	jumpiffainted BS_TARGET, TRUE, BattleScript_MoveEnd
-	jumpifability BS_TARGET, ABILITY_SUCTION_CUPS, BattleScript_AbilityPreventsPhasingOut
-	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_MoveEnd
-	jumpifstatus3 BS_TARGET, STATUS3_ROOTED, BattleScript_PrintMonIsRooted
-	jumpiftargetdynamaxed BattleScript_HitSwitchTargetDynamaxed
-	tryhitswitchtarget BattleScript_MoveEnd
+BattleScript_TryHitSwitchTarget::
 	forcerandomswitch BattleScript_HitSwitchTargetForceRandomSwitchFailed
-	goto BattleScript_MoveEnd
+	return
 
-BattleScript_HitSwitchTargetDynamaxed:
+BattleScript_HitSwitchTargetDynamaxed::
 	printstring STRINGID_MOVEBLOCKEDBYDYNAMAX
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_HitSwitchTargetForceRandomSwitchFailed:
 	hitswitchtargetfailed
 	setbyte sSWITCH_CASE, B_SWITCH_NORMAL
-	goto BattleScript_MoveEnd
+	return
 
 BattleScript_EffectToxicThread::
 	setstatchanger STAT_SPEED, 1, TRUE
@@ -2390,7 +2382,7 @@ BattleScript_EffectHealingWish::
 	trytoclearprimalweather
 	flushtextbox
 	printstring STRINGID_SWITCHINMON
-	switchinanim BS_ATTACKER, TRUE
+	switchinanim BS_ATTACKER, FALSE, TRUE
 	waitstate
 	switchineffects BS_ATTACKER
 .endif
@@ -4386,7 +4378,7 @@ BattleScript_EffectBatonPass::
 	trytoclearprimalweather
 	flushtextbox
 	printstring STRINGID_SWITCHINMON
-	switchinanim BS_ATTACKER, TRUE
+	switchinanim BS_ATTACKER, FALSE, TRUE
 	waitstate
 	switchineffects BS_ATTACKER
 	goto BattleScript_MoveEnd
@@ -5492,7 +5484,7 @@ BattleScript_FaintedMonTryChoose:
 	flushtextbox
 	printstring STRINGID_SWITCHINMON
 	hidepartystatussummary BS_ATTACKER
-	switchinanim BS_ATTACKER, 0
+	switchinanim BS_ATTACKER, FALSE, FALSE
 	waitstate
 	setbyte sSHIFT_SWITCHED, 1
 BattleScript_FaintedMonSendOutNew:
@@ -5504,7 +5496,7 @@ BattleScript_FaintedMonSendOutNew:
 	flushtextbox
 	printstring STRINGID_SWITCHINMON
 	hidepartystatussummary BS_FAINTED
-	switchinanim BS_FAINTED, FALSE
+	switchinanim BS_FAINTED, FALSE, FALSE
 	waitstate
 	resetplayerfainted
 	trytrainerslidelastonmsg BS_FAINTED
@@ -5538,7 +5530,7 @@ BattleScript_HandleFaintedMonLoop::
 	flushtextbox
 	printstring STRINGID_SWITCHINMON
 	hidepartystatussummary BS_FAINTED
-	switchinanim BS_FAINTED, FALSE
+	switchinanim BS_FAINTED, FALSE, FALSE
 	waitstate
 	switchineffects BS_FAINTED_MULTIPLE_1
 	jumpifbytenotequal gBattlerFainted, gBattlersCount, BattleScript_HandleFaintedMonLoop
@@ -5763,7 +5755,7 @@ BattleScript_DoSwitchOut::
 	flushtextbox
 	printstring STRINGID_SWITCHINMON
 	hidepartystatussummary BS_ATTACKER
-	switchinanim BS_ATTACKER, FALSE
+	switchinanim BS_ATTACKER, FALSE, FALSE
 	waitstate
 	switchineffects BS_ATTACKER
 	moveendcase MOVEEND_STATUS_IMMUNITY_ABILITIES
@@ -6080,7 +6072,7 @@ BattleScript_RoarSuccessSwitch::
 	switchindataupdate BS_TARGET
 	trytoclearprimalweather
 	flushtextbox
-	switchinanim BS_TARGET, FALSE
+	switchinanim BS_TARGET, FALSE, FALSE
 	waitstate
 	printstring STRINGID_PKMNWASDRAGGEDOUT
 	switchineffects BS_TARGET
@@ -6773,6 +6765,12 @@ BattleScript_PrintMonIsRooted::
 	printstring STRINGID_PKMNANCHOREDITSELF
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_PrintMonIsRootedRet::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNANCHOREDITSELF
+	waitmessage B_WAIT_TIME_LONG
+	return
 
 BattleScript_AtkDefDown::
 	setbyte sSTAT_ANIM_PLAYED, FALSE
@@ -7648,7 +7646,7 @@ BattleScript_EmergencyExitNoPopUp::
 	switchindataupdate BS_TARGET
 	hpthresholds BS_TARGET
 	printstring STRINGID_SWITCHINMON
-	switchinanim BS_TARGET, TRUE
+	switchinanim BS_TARGET, FALSE, TRUE
 	waitstate
 	switchineffects BS_TARGET
 BattleScript_EmergencyExitRet:
@@ -7821,8 +7819,12 @@ BattleScript_IntimidateEffect:
 	printstring STRINGID_PKMNCUTSATTACKWITH
 BattleScript_IntimidateEffect_WaitString:
 	waitmessage B_WAIT_TIME_LONG
+	saveattacker
+	savetarget
 	copybyte sBATTLER, gBattlerTarget
 	call BattleScript_TryIntimidateHoldEffects
+	restoreattacker
+	restoretarget
 BattleScript_IntimidateLoopIncrement:
 	addbyte gBattlerTarget, 1
 	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_IntimidateLoop
@@ -8251,11 +8253,15 @@ BattleScript_FlashFireBoost::
 	goto BattleScript_MoveEnd
 
 BattleScript_AbilityPreventsPhasingOut::
+	call BattleScript_AbilityPreventsPhasingOutRet
+	goto BattleScript_MoveEnd
+
+BattleScript_AbilityPreventsPhasingOutRet::
 	pause B_WAIT_TIME_SHORT
-	call BattleScript_AbilityPopUp
+	call BattleScript_AbilityPopUpTarget
 	printstring STRINGID_PKMNANCHORSITSELFWITH
 	waitmessage B_WAIT_TIME_LONG
-	goto BattleScript_MoveEnd
+	return
 
 BattleScript_AbilityNoStatLoss::
 	pause B_WAIT_TIME_SHORT
@@ -9617,7 +9623,7 @@ BattleScript_EjectButtonActivates::
 	trytoclearprimalweather
 	flushtextbox
 	printstring 0x3
-	switchinanim BS_SCRIPTING 0x1
+	switchinanim BS_SCRIPTING, FALSE, TRUE
 	waitstate
 	switchineffects BS_SCRIPTING
 BattleScript_EjectButtonEnd:
@@ -9981,7 +9987,7 @@ BattleScript_DynamaxBegins::
 	returnatktoball
 	pause B_WAIT_TIME_SHORT
 	returntoball BS_SCRIPTING, TRUE
-	switchinanim BS_SCRIPTING, TRUE
+	switchinanim BS_SCRIPTING, TRUE, TRUE
 	updatedynamax
 	playanimation BS_SCRIPTING, B_ANIM_DYNAMAX_GROWTH
 	waitanimation

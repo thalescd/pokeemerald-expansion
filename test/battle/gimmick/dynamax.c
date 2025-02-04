@@ -458,7 +458,6 @@ SINGLE_BATTLE_TEST("(DYNAMAX) Max Moves deal 1/4 damage through protect", s16 da
     }
 }
 
-//  This test will fail if it's the first test a thread runs
 SINGLE_BATTLE_TEST("(DYNAMAX) Max Moves don't bypass Max Guard")
 {
     GIVEN {
@@ -1203,7 +1202,22 @@ DOUBLE_BATTLE_TEST("(DYNAMAX) G-Max Terror traps both opponents")
     }
 }
 
-TO_DO_BATTLE_TEST("(DYNAMAX) Baton Pass passes G-Max Terror's escape prevention effect");
+SINGLE_BATTLE_TEST("(DYNAMAX) Baton Pass passes G-Max Terror's escape prevention effect")
+{
+    GIVEN {
+        ASSUME(gMovesInfo[MOVE_G_MAX_TERROR].argument == MAX_EFFECT_MEAN_LOOK);
+        PLAYER(SPECIES_GENGAR) { GigantamaxFactor(TRUE); }
+        OPPONENT(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WYNAUT);
+    } WHEN {
+        TURN { MOVE(player, MOVE_LICK, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_BATON_PASS); SEND_OUT(opponent, 1); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_G_MAX_TERROR, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_BATON_PASS, opponent);
+    } THEN {
+        EXPECT(opponent->status2 & STATUS2_ESCAPE_PREVENTION);
+    }
+}
 
 DOUBLE_BATTLE_TEST("(DYNAMAX) G-Max Meltdown torments both opponents for 3 turns")
 {
@@ -1536,7 +1550,6 @@ SINGLE_BATTLE_TEST("(DYNAMAX) Moxie clones can be triggered by Max Moves faintin
     }
 }
 
-//  This test will fail if it's the first test a thread runs
 SINGLE_BATTLE_TEST("(DYNAMAX) Max Attacks prints a message when hitting into Max Guard")
 {
     GIVEN {
