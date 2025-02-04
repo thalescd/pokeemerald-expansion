@@ -366,6 +366,7 @@ static const u16 sOddishEggMoveLearnset[] = {
     MOVE_NATURE_POWER,
     MOVE_AFTER_YOU,
     MOVE_STRENGTH_SAP,
+    MOVE_APPLE_ACID,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_ODDISH
@@ -1489,6 +1490,7 @@ static const u16 sChikoritaEggMoveLearnset[] = {
     MOVE_REFRESH,
     MOVE_HEAL_PULSE,
     MOVE_GRASSY_TERRAIN,
+    MOVE_WISH,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_CHIKORITA
