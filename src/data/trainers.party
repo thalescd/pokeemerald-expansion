@@ -3185,7 +3185,7 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Timburr
+Mienfoo
 Level: 17
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 
@@ -6072,7 +6072,7 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Machop
+Stufful
 Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
@@ -6441,7 +6441,7 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Wingull
+Chewtle
 Level: 15
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
@@ -6462,7 +6462,7 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Finneon
+Goldeen
 Level: 16
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
@@ -7914,8 +7914,8 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Meditite
-Level: 13
+Pinsir
+Level: 18
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 
 === TRAINER_LAURA ===
@@ -10686,8 +10686,8 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Makuhita
-Level: 13
+Farfetch’d-Galar  
+Level: 18
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 === TRAINER_SYLVIA ===
@@ -12436,21 +12436,23 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Tropius
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Staraptor
+Ability: Intimidate
 
-Slugma
-Level: 32
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Vaporeon
+Ability: Water Absorb
 
-Pelipper
-Level: 32
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Ceruledge
+Ability: Flash Fire
 
-Grovyle
-Level: 34
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Great Tusk
+Ability: Protosynthesis
+
+Goodra-Hisui
+Ability: Sap Sipper
+
+Sceptile
+Ability: Overgrow
 
 === TRAINER_BRENDAN_LILYCOVE_TREECKO ===
 Name: BRENDAN
@@ -12486,21 +12488,31 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Tropius
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Staraptor  
+Ability: Intimidate  
+Tera Type: Normal  
 
-Ludicolo
-Level: 32
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Flareon  
+Ability: Flash Fire  
+Tera Type: Fire  
 
-Slugma
-Level: 32
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Sinistcha  
+Ability: Hospitality  
+Tera Type: Grass  
 
-Marshtomp
-Level: 34
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Great Tusk  
+Ability: Protosynthesis  
+Tera Type: Ground  
+
+Goodra-Hisui  
+Ability: Sap Sipper  
+Tera Type: Steel  
+
+Swampert  
+Ability: Torrent  
+Tera Type: Water  
+
+
 
 === TRAINER_MAY_LILYCOVE_MUDKIP ===
 Name: MAY
@@ -12536,21 +12548,29 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Tropius
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Staraptor  
+Ability: Intimidate  
+Tera Type: Normal  
 
-Pelipper
-Level: 32
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Leafeon  
+Ability: Leaf Guard  
+Tera Type: Grass  
 
-Ludicolo
-Level: 32
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Basculegion (M)  
+Ability: Swift Swim  
+Tera Type: Water  
 
-Combusken
-Level: 34
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Great Tusk  
+Ability: Protosynthesis  
+Tera Type: Ground  
+
+Goodra-Hisui  
+Ability: Sap Sipper  
+Tera Type: Steel  
+
+Blaziken  
+Ability: Blaze  
+Tera Type: Fire  
 
 === TRAINER_MAY_LILYCOVE_TORCHIC ===
 Name: MAY
@@ -13141,7 +13161,7 @@ Items: Full Restore
 Double Battle: No
 AI: Check Bad Move
 
-Glameow
+Fennekin
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
