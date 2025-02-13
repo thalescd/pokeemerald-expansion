@@ -402,9 +402,12 @@ Music: Aqua
 Double Battle: No
 AI: Check Bad Move
 
-Carvanha
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Noibat
+Ability: Infiltrator
+Level: 20
+
+Remoraid
+Level: 20
 
 === TRAINER_GRUNT_MUSEUM_2 ===
 Name: GRUNT
@@ -415,13 +418,12 @@ Music: Aqua
 Double Battle: No
 AI: Check Bad Move
 
-Zubat
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 Carvanha
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 20
+
+Mightyena
+Ability: Intimidate
+Level: 20
 
 === TRAINER_GRUNT_SPACE_CENTER_1 ===
 Name: GRUNT
@@ -1053,13 +1055,11 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Azurill
-Level: 12
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Horsea
+Level: 18
 
-Azurill
-Level: 12
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Popplio
+Level: 18
 
 === TRAINER_AUSTINA ===
 Name: AUSTINA
@@ -1164,13 +1164,8 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Zigzagoon
-Level: 13
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-- Sand Attack
-- Headbutt
-- Tail Whip
-- Surf
+Sandygast
+Level: 19
 
 === TRAINER_SIMON ===
 Name: SIMON
@@ -1182,12 +1177,10 @@ Double Battle: No
 AI: Check Bad Move
 
 Azurill
-Level: 12
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 18
 
-Marill
-Level: 12
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Munchlax
+Level: 18
 
 === TRAINER_CHARLIE ===
 Name: CHARLIE
@@ -9019,13 +9012,13 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Wingull
-Level: 12
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Crabrawler
+Level: 18
+Ability: Iron Fist
 
-Machop
-Level: 12
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Farfetch’d
+Level: 18
+Ability: Inner Focus
 
 === TRAINER_EDMOND ===
 Name: EDMOND
@@ -9036,9 +9029,9 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Wingull
-Level: 13
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Pidgeotto
+Ability: Tangled Feet
+Level: 19
 
 === TRAINER_ERNEST_1 ===
 Name: ERNEST
@@ -9066,17 +9059,14 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Wingull
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Dottler
+Level: 18
 
-Machop
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Fletchinder
+Level: 18
 
-Tentacool
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Bibarel
+Level: 18
 
 === TRAINER_PHILLIP ===
 Name: PHILLIP
@@ -12037,9 +12027,11 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Goldeen
-Level: 13
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Steenee
+Level: 18
+
+Nidorina
+Level: 18
 
 === TRAINER_GERALD ===
 Name: GERALD
@@ -12511,8 +12503,6 @@ Tera Type: Steel
 Swampert  
 Ability: Torrent  
 Tera Type: Water  
-
-
 
 === TRAINER_MAY_LILYCOVE_MUDKIP ===
 Name: MAY
@@ -13195,9 +13185,8 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Marill
-Level: 13
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Wartortle
+Level: 19
 
 === TRAINER_CHANDLER ===
 Name: CHANDLER
@@ -13208,13 +13197,11 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Tentacool
-Level: 12
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Electrike
+Level: 18
 
 Tentacool
-Level: 12
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 18
 
 === TRAINER_KALEB ===
 Name: KALEB
