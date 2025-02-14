@@ -404,10 +404,10 @@ AI: Check Bad Move
 
 Noibat
 Ability: Infiltrator
-Level: 20
+Level: 21
 
 Remoraid
-Level: 20
+Level: 21
 
 === TRAINER_GRUNT_MUSEUM_2 ===
 Name: GRUNT
@@ -419,11 +419,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Carvanha
-Level: 20
+Level: 21
 
 Mightyena
 Ability: Intimidate
-Level: 20
+Level: 21
 
 === TRAINER_GRUNT_SPACE_CENTER_1 ===
 Name: GRUNT
