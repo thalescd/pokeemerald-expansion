@@ -90579,7 +90579,8 @@
       "MOVE_U_TURN",
       "MOVE_SUBSTITUTE",
       "MOVE_WILD_CHARGE",
-      "MOVE_CONFIDE"
+      "MOVE_CONFIDE",
+	  "MOVE_CUT"
     ],
     "EggMoves": [
       "MOVE_DISARMING_VOICE",
