@@ -11,7 +11,7 @@
     F(HAIL) \
     F(BULK_UP) \
     F(BULLET_SEED) \
-    F(HIDDEN_POWER) \
+    F(TRAILBLAZE) \
     F(SUNNY_DAY) \
     F(TAUNT) \
     F(ICE_BEAM) \
