@@ -232,7 +232,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Carvanha
-Level: 10
+Level: 11
+Adamant Nature
+- Assurance
+- Aqua Jet
+- Poison Fang
 
 Murkrow
 Ability: Insomnia
@@ -330,9 +334,17 @@ AI: Check Bad Move
 
 Carvanha
 Level: 16
+Adamant Nature
+- Bite
+- Aqua Jet
+- Poison Fang
 
 Murkrow
+Ability: Insomnia
 Level: 16
+Docile Nature
+- Pursuit
+- Wing Attack
 
 Grimer-Alola
 Ability: Poison Touch
@@ -14052,9 +14064,38 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Stunfisk
+Kricketune
+Ability: Technician
 Level: 13
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Sticky Web
+- Slash
+- Fury Cutter
+
+Sandygast @ Oran Berry
+Ability: Water Compaction
+Level: 14
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Sand Tomb
+- Absorb
+- Astonish
+
+Mawile
+Ability: Intimidate
+Level: 13
+Adamant Nature
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Metal Burst
+- Fire Fang
+- Rock Smash
+
+Munchlax @ Salac Berry
+Ability: Gluttony
+Level: 14
+Jolly Nature
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 31 Spe
+- Headbutt
+- Belly Drum
 
 === TRAINER_JOHNSON ===
 Name: JOHNSON
