@@ -4822,7 +4822,7 @@ AI: Smart Trainer
 
 Geodude-Alola @ Smooth Rock  
 Ability: Sturdy  
-Level: 14  
+Level: 15
 - Rock Tomb  
 - Spark  
 - Bulldoze  
@@ -4838,7 +4838,7 @@ Level: 14
 
 Lileep  
 Ability: Storm Drain  
-Level: 13  
+Level: 15
 IVs: 0 Atk  
 - Ancient Power  
 - Acid  
@@ -4864,7 +4864,7 @@ AI: Smart Trainer
 
 Pawmo @ Liechi Berry
 Ability: Iron Fist
-Level: 18
+Level: 20
 Jolly Nature
 - Spark
 - Arm Thrust
@@ -4873,7 +4873,7 @@ Jolly Nature
 
 Monferno @ Expert Belt
 Ability: Beast Boost
-Level: 19
+Level: 20
 Adamant Nature
 - Fire Punch
 - Mach Punch
@@ -4882,7 +4882,7 @@ Adamant Nature
 
 Scraggy @ Berry Juice
 Ability: Shed Skin
-Level: 19
+Level: 20
 Careful Nature
 - Knock Off
 - Brick Break
@@ -4891,7 +4891,7 @@ Careful Nature
 
 Qwilfish @ Black Sludge
 Ability: Intimidate
-Level: 18
+Level: 19
 Adamant Nature
 - Aqua Tail
 - Barb Barrage
@@ -4913,41 +4913,66 @@ Class: Leader
 Pic: Leader Wattson
 Gender: Male
 Music: Male
-Items: Super Potion / Super Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Voltorb
-Level: 20
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Rollout
-- Spark
-- Self Destruct
-- Shock Wave
+Magneton @ Custap Berry
+Ability: Sturdy
+Level: 30
+Modest Nature
+IVs: 0 Atk
+- Discharge
+- Flash Cannon
+- Volt Switch
+- Tri Attack
 
-Electrike
-Level: 20
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Shock Wave
-- Leer
-- Quick Attack
-- Howl
+Electrode-Hisui @ Assault Vest
+Ability: Static
+Level: 30
+Modest Nature
+IVs: 0 Atk
+- Giga Drain
+- Discharge
+- Volt Switch
+- Electro Ball
 
-Magneton
-Level: 22
-IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
-- Supersonic
-- Shock Wave
+Orthworm @ Sitrus Berry
+Ability: Earth Eater
+Level: 29
+Adamant Nature
+- Coil
+- Iron Head
+- Rock Blast
+- Stomping Tantrum
+
+Emolga
+Ability: Wind Power
+Level: 30
+Adamant Nature
+- Zippy Zap
+- Acrobatics
+- U-turn
+- Roost
+
+Lanturn @ Leftovers
+Ability: Water Absorb
+Level: 30
+Modest Nature
+IVs: 0 Atk
+- Bubble Beam
+- Discharge
+- Ice Beam
 - Thunder Wave
-- Sonic Boom
 
-Manectric @ Sitrus Berry
-Level: 24
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Quick Attack
-- Thunder Wave
-- Shock Wave
-- Howl
+Manectric @ Expert Belt
+Ability: Intimidate
+Level: 30
+Timid Nature
+IVs: 0 Atk
+- Discharge
+- Flame Burst
+- Volt Switch
+- Signal Beam
 
 === TRAINER_FLANNERY_1 ===
 Name: FLANNERY
@@ -5740,13 +5765,11 @@ Music: Twins
 Double Battle: No
 AI: Check Bad Move
 
-Plusle @ Oran Berry
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Pikachu @ Light Ball
+Level: 20
 
-Minun @ Oran Berry
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Chatot @ Oran Berry
+Level: 20
 
 === TRAINER_ISABEL_2 ===
 Name: ISABEL
@@ -13224,13 +13247,22 @@ Music: Twins
 Double Battle: No
 AI: Check Bad Move
 
-Minun @ Oran Berry
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Thwackey @ Oran Berry
+Ability: Overgrow
+Level: 20
+Adamant Nature
+- Fake Out
+- Razor Leaf
+- Double Hit
+- Assurance
 
-Plusle @ Oran Berry
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Drowzee @ Oran Berry
+Ability: Insomnia
+Level: 20
+Relaxed Nature
+- Psybeam
+- Poison Gas
+- Headbutt
 
 === TRAINER_JOSEPH ===
 Name: JOSEPH

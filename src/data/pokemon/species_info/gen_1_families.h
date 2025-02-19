@@ -5312,7 +5312,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS),
-        .abilities = { ABILITY_CHLOROPHYLL, ABILITY_NONE, ABILITY_RUN_AWAY },
+        .abilities = { ABILITY_CHLOROPHYLL, ABILITY_RUN_AWAY, ABILITY_LEAF_GUARD },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Oddish"),
         .cryId = CRY_ODDISH,
@@ -5376,7 +5376,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS),
-        .abilities = { ABILITY_CHLOROPHYLL, ABILITY_NONE, ABILITY_STENCH },
+        .abilities = { ABILITY_CHLOROPHYLL, ABILITY_STENCH, ABILITY_LEAF_GUARD },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Gloom"),
         .cryId = CRY_GLOOM,
@@ -5460,7 +5460,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS),
-        .abilities = { ABILITY_CHLOROPHYLL, ABILITY_NONE, ABILITY_EFFECT_SPORE },
+        .abilities = { ABILITY_CHLOROPHYLL, ABILITY_EFFECT_SPORE, ABILITY_LEAF_GUARD },
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Vileplume"),
         .cryId = CRY_VILEPLUME,
@@ -5543,7 +5543,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS),
-        .abilities = { ABILITY_CHLOROPHYLL, ABILITY_NONE, ABILITY_HEALER },
+        .abilities = { ABILITY_CHLOROPHYLL, ABILITY_DANCER, ABILITY_TRIAGE },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Bellossom"),
         .cryId = CRY_BELLOSSOM,
@@ -10633,7 +10633,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
-        .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE },
+        .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_LEVITATE },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Gastly"),
         .cryId = CRY_GASTLY,
@@ -10697,7 +10697,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
-        .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE },
+        .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_LEVITATE },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Haunter"),
         .cryId = CRY_HAUNTER,
@@ -10746,7 +10746,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     },
 
 #if P_UPDATED_ABILITIES >= GEN_7
-#define GENGAR_ABILITIES {ABILITY_CURSED_BODY, ABILITY_NONE, ABILITY_NONE}
+#define GENGAR_ABILITIES {ABILITY_LEVITATE, ABILITY_NONE, ABILITY_CURSED_BODY}
 #else
 #define GENGAR_ABILITIES {ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE}
 #endif
