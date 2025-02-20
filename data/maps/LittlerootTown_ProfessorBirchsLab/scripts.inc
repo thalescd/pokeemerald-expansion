@@ -533,7 +533,6 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedex::
 LittlerootTown_ProfessorBirchsLab_EventScript_RivalGiveItems::
 	giveitem ITEM_POKE_BALL, 10
 	giveitem ITEM_EXP_SHARE, 1
-	giveitem ITEM_ENDLESS_CANDY, 1
 	setflag FLAG_EXP_SHARE_ACTIVE
 	return
 
