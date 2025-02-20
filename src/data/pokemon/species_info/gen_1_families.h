@@ -15987,7 +15987,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
                                 {EVO_ITEM, ITEM_MOON_STONE, SPECIES_UMBREON},
                                 {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_LEAFEON},
                                 {EVO_ITEM, ITEM_ICE_STONE, SPECIES_GLACEON},
-                                {EVO_ITEM, ITEM_SHINY_STONE, SPECIES_GLACEON},
+                                {EVO_ITEM, ITEM_SHINY_STONE, SPECIES_GLACEON}),
     },
 
 #if P_GIGANTAMAX_FORMS
