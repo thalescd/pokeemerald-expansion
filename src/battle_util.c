@@ -9314,6 +9314,7 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageCalculationData *
     // attacker's abilities
     switch (atkAbility)
     {
+    case ABILITY_EXPERTISE:
     case ABILITY_TECHNICIAN:
         if (basePower <= 60)
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));

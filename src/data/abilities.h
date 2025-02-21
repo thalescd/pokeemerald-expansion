@@ -2408,4 +2408,11 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeSwapped = TRUE,
         .cantBeTraced = TRUE,
     },
+
+    [ABILITY_EXPERTISE] =
+    {
+        .name = _("Expertise"),
+        .description = COMPOUND_STRING("Expert in weaker moves."),
+        .aiRating = 8,
+    },
 };
