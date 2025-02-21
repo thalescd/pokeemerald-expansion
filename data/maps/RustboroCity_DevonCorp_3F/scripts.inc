@@ -251,13 +251,6 @@ RustboroCity_DevonCorp_3F_Text_ThankYouForDeliveringLetter:
 	.string "It should help you, a TRAINER.$"
 
 RustboroCity_DevonCorp_3F_Text_ExplainItem:
-	.string "MR. STONE: A POKéMON holding that\n"
-	.string "LUCKY EGG will be given some more\l"
-	.string "EXP Points from battle.\p"
-	.string "I would say LUCKY EGG is quite useful\n"
-	.string "for raising POKéMON.$"
-
-RustboroCity_DevonCorp_3F_Text_ExplainItem:
 	.string "MR. STONE: This is still a prototype,\n"
 	.string "so don't feel pressured to use it if\n"
 	.string "you don’t want to."
