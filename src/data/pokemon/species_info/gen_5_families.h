@@ -2269,7 +2269,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sWoobatLevelUpLearnset,
         .teachableLearnset = sWoobatTeachableLearnset,
         .eggMoveLearnset = sWoobatEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_FRIENDSHIP, 0, SPECIES_SWOOBAT}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 22, SPECIES_SWOOBAT}),
     },
 
     [SPECIES_SWOOBAT] =
@@ -3229,7 +3229,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         )
         .levelUpLearnset = sSwadloonLevelUpLearnset,
         .teachableLearnset = sSwadloonTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_FRIENDSHIP, 0, SPECIES_LEAVANNY}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_LEAVANNY}),
     },
 
     [SPECIES_LEAVANNY] =
@@ -3367,7 +3367,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sVenipedeLevelUpLearnset,
         .teachableLearnset = sVenipedeTeachableLearnset,
         .eggMoveLearnset = sVenipedeEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 22, SPECIES_WHIRLIPEDE}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_WHIRLIPEDE}),
     },
 
     [SPECIES_WHIRLIPEDE] =
@@ -9492,7 +9492,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .friendship = 70,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS),
-        .abilities = { ABILITY_STATIC, ABILITY_LIMBER, ABILITY_SAND_VEIL },
+        .abilities = { ABILITY_STATIC, ABILITY_EMERGENCY_EXIT, ABILITY_SAND_VEIL },
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Stunfisk"),
         .cryId = CRY_STUNFISK,

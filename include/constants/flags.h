@@ -295,7 +295,7 @@
 #define FLAG_RECEIVED_TM_THIEF               0x10D
 #define FLAG_CONTEST_SKETCH_CREATED          0x10E  // Set but never read
 #define FLAG_EVIL_TEAM_ESCAPED_STERN_SPOKE   0x10F
-#define FLAG_RECEIVED_LUCKY_EGG              0x110
+#define FLAG_RECEIVED_DEVON_CORP_ITEM        0x110
 #define FLAG_POKERUS_EXPLAINED               0x111
 #define FLAG_RECEIVED_RUNNING_SHOES          0x112
 #define FLAG_RECEIVED_QUICK_CLAW             0x113

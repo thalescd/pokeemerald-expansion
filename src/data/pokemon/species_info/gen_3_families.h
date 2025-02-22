@@ -4328,7 +4328,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .levelUpLearnset = sAronLevelUpLearnset,
         .teachableLearnset = sAronTeachableLearnset,
         .eggMoveLearnset = sAronEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 32, SPECIES_LAIRON}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 22, SPECIES_LAIRON}),
     },
 
     [SPECIES_LAIRON] =
@@ -5265,7 +5265,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .levelUpLearnset = sBudewLevelUpLearnset,
         .teachableLearnset = sBudewTeachableLearnset,
         .eggMoveLearnset = sBudewEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_FRIENDSHIP_DAY, 0, SPECIES_ROSELIA}),
+        .evolutions = EVOLUTION({EVO_LEVEL_DAY, 20, SPECIES_ROSELIA}),
     },
 #endif //P_GEN_4_CROSS_EVOS
 
@@ -6338,7 +6338,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE),
     #if P_UPDATED_ABILITIES >= GEN_4
-        .abilities = { ABILITY_OWN_TEMPO, ABILITY_TANGLED_FEET, ABILITY_CONTRARY },
+        .abilities = { ABILITY_OWN_TEMPO, ABILITY_CONTRARY, ABILITY_DANCER },
     #else
         .abilities = { ABILITY_OWN_TEMPO, ABILITY_NONE, ABILITY_CONTRARY },
     #endif
@@ -8907,7 +8907,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .levelUpLearnset = sChinglingLevelUpLearnset,
         .teachableLearnset = sChinglingTeachableLearnset,
         .eggMoveLearnset = sChinglingEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_FRIENDSHIP_NIGHT, 0, SPECIES_CHIMECHO}),
+        .evolutions = EVOLUTION({EVO_LEVEL_NIGHT, 20, SPECIES_CHIMECHO}),
     },
 #endif //P_GEN_4_CROSS_EVOS
 

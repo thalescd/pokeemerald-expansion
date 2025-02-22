@@ -151,7 +151,7 @@ RustboroCity_DevonCorp_3F_Movement_PlayerApproachDesk:
 RustboroCity_DevonCorp_3F_EventScript_MrStone::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_LUCKY_EGG, RustboroCity_DevonCorp_3F_EventScript_MrStoneAfterFavor
+	goto_if_set FLAG_RECEIVED_DEVON_CORP_ITEM, RustboroCity_DevonCorp_3F_EventScript_MrStoneAfterFavor
 	goto_if_set FLAG_DELIVERED_STEVEN_LETTER, RustboroCity_DevonCorp_3F_EventScript_GiveLuckyEgg
 	msgbox RustboroCity_DevonCorp_3F_Text_CountingOnYou, MSGBOX_DEFAULT
 	closemessage
@@ -162,10 +162,10 @@ RustboroCity_DevonCorp_3F_EventScript_MrStone::
 
 RustboroCity_DevonCorp_3F_EventScript_GiveLuckyEgg::
 	msgbox RustboroCity_DevonCorp_3F_Text_ThankYouForDeliveringLetter, MSGBOX_DEFAULT
-	giveitem ITEM_LUCKY_EGG
+	giveitem ITEM_ENDLESS_CANDY
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_LUCKY_EGG
-	msgbox RustboroCity_DevonCorp_3F_Text_ExplainLuckyEgg, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_DEVON_CORP_ITEM
+	msgbox RustboroCity_DevonCorp_3F_Text_ExplainItem, MSGBOX_DEFAULT
 	closemessage
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
@@ -250,12 +250,15 @@ RustboroCity_DevonCorp_3F_Text_ThankYouForDeliveringLetter:
 	.string "This is my way of thanking you.\n"
 	.string "It should help you, a TRAINER.$"
 
-RustboroCity_DevonCorp_3F_Text_ExplainLuckyEgg:
-	.string "MR. STONE: A POKéMON holding that\n"
-	.string "LUCKY EGG will be given some more\l"
-	.string "EXP Points from battle.\p"
-	.string "I would say LUCKY EGG is quite useful\n"
-	.string "for raising POKéMON.$"
+RustboroCity_DevonCorp_3F_Text_ExplainItem:
+	.string "MR. STONE: This is still a prototype,\n"
+	.string "so don't feel pressured to use it if\n"
+	.string "you don’t want to."
+	.string "It's called ENDLESS CANDY.\n"
+	.string "It's like a RARE CANDY, but endless!\n"
+	.string "Unlike the original candies though,\n"
+	.string "it won’t let your POKéMON outgrow\n"
+	.string "your capacity as a trainer.$"
 
 RustboroCity_DevonCorp_3F_Text_NotFamiliarWithTrends:
 	.string "MR. STONE: Since my youth, I've immersed\n"

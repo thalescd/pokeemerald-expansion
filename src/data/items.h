@@ -2042,6 +2042,23 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_DynamaxCandy,
     },
 
+    [ITEM_ENDLESS_CANDY] =
+    {
+        .name = _("Endless Candy"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Raises the level\n"
+            "of a Pokémon by\n"
+            "one."),
+        .importance = 1,    
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
+        .effect = gItemEffect_RareCandy,
+        .iconPic = gItemIcon_RareCandy,
+        .iconPalette = gItemIconPalette_RareCandy,
+    },
+
 // Medicinal Flutes
 
     [ITEM_BLUE_FLUTE] =
@@ -11429,7 +11446,7 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_VOLT_SWITCH,
     },
 
     [ITEM_TM73] =
