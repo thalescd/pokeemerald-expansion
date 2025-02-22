@@ -252,12 +252,12 @@ RustboroCity_DevonCorp_3F_Text_ThankYouForDeliveringLetter:
 
 RustboroCity_DevonCorp_3F_Text_ExplainItem:
 	.string "MR. STONE: This is still a prototype,\n"
-	.string "so don't feel pressured to use it if\n"
-	.string "you don’t want to."
+	.string "so don't feel pressured to use it if\l"
+	.string "you don’t want to.\p"
 	.string "It's called ENDLESS CANDY.\n"
-	.string "It's like a RARE CANDY, but endless!\n"
+	.string "It's like a RARE CANDY, but endless!\p"
 	.string "Unlike the original candies though,\n"
-	.string "it won’t let your POKéMON outgrow\n"
+	.string "it won’t let your POKéMON outgrow\l"
 	.string "your capacity as a trainer.$"
 
 RustboroCity_DevonCorp_3F_Text_NotFamiliarWithTrends:

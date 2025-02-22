@@ -634,4 +634,4 @@ PlayersHouse_2F_EventScript_StarterRegionChooser_1:
 
 PlayersHouse_2F_EventScript_StarterRegionChooser_Text_0:
 # 313 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	.string "Favorite starter region$"
+	.string "Select your favorite starter region:$"

@@ -310,7 +310,7 @@ script PlayersHouse_2F_EventScript_StarterRegionChooser{
 		call(PlayersHouse_2F_EventScript_GameCube)
 	} else {
 		lock
-		message("Favorite starter region")
+		message("Select your favorite starter region:")
     	multichoicegrid(0, 0, MULTI_REGION, 3, 1)
 		copyvar(VAR_STARTER_REGION, VAR_RESULT)
     	closemessage
