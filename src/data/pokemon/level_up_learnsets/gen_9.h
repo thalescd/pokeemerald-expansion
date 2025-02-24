@@ -10395,9 +10395,8 @@ static const struct LevelUpMove sBidoofLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sBibarelLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 0, MOVE_WATER_GUN),
+    LEVEL_UP_MOVE( 0, MOVE_AQUA_JET),
     LEVEL_UP_MOVE( 1, MOVE_WATER_GUN),
-    LEVEL_UP_MOVE( 1, MOVE_AQUA_JET),
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
     LEVEL_UP_MOVE( 5, MOVE_DEFENSE_CURL),
