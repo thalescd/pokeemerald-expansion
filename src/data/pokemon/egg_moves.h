@@ -1999,6 +1999,7 @@ static const u16 sSnubbullEggMoveLearnset[] = {
     MOVE_DOUBLE_EDGE,
     MOVE_MIMIC,
     MOVE_FAKE_TEARS,
+    MOVE_OBSTRUCT,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_SNUBBULL

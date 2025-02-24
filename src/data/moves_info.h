@@ -13224,7 +13224,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             "act. May cause flinching."),
         .effect = EFFECT_HIT,
         .power = 60,
-        .type = TYPE_PSYCHIC,
+        .type = TYPE_FAIRY,
         .accuracy = 100,
         .pp = 25,
         .target = MOVE_TARGET_SELECTED,

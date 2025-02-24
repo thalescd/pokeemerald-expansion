@@ -2143,7 +2143,10 @@ AI: Check Bad Move
 Snubbull @ Oran Berry
 Ability: Intimidate
 Level: 10
-IVs: 0 Atk / 0 SpA / 0 Spe
+- Bite
+- Fire Fang
+- Ice Fang
+- Thunder Fang
 
 === TRAINER_DAPHNE ===
 Name: DAPHNE
@@ -2541,14 +2544,41 @@ Class: Rich Boy
 Pic: Rich Boy
 Gender: Male
 Music: Rich
-Items: Full Restore
 Double Battle: No
-AI: Check Bad Move
+AI: Smart Trainer 
 
-Houndour @ Oran Berry
+Kricketune
+Ability: Technician
+Level: 11
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Sticky Web
+- Slash
+- Fury Cutter
+
+Sandygast @ Oran Berry
+Ability: Water Compaction
 Level: 12
-Timid Nature
-IVs: 0 HP / 0 Def / 0 SpD
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Sand Tomb
+- Absorb
+- Astonish
+
+Mawile
+Ability: Intimidate
+Level: 11
+Adamant Nature
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Metal Claw
+- Fire Fang
+- Rock Smash
+
+Munchlax @ Salac Berry
+Ability: Gluttony
+Level: 12
+Jolly Nature
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 31 Spe
+- Headbutt
+- Belly Drum
 
 === TRAINER_MOLLIE ===
 Name: MOLLIE
@@ -14096,38 +14126,8 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Kricketune
-Ability: Technician
+Stunfisk
 Level: 13
-IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-- Sticky Web
-- Slash
-- Fury Cutter
-
-Sandygast @ Oran Berry
-Ability: Water Compaction
-Level: 14
-IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-- Sand Tomb
-- Absorb
-- Astonish
-
-Mawile
-Ability: Intimidate
-Level: 13
-Adamant Nature
-IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-- Metal Burst
-- Fire Fang
-- Rock Smash
-
-Munchlax @ Salac Berry
-Ability: Gluttony
-Level: 14
-Jolly Nature
-IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 31 Spe
-- Headbutt
-- Belly Drum
 
 === TRAINER_JOHNSON ===
 Name: JOHNSON
