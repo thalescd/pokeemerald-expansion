@@ -12215,7 +12215,7 @@ F_TRAINER_FEMALE |
 #line 4920
             .ability = ABILITY_STURDY,
 #line 4921
-            .lvl = 30,
+            .lvl = 29,
 #line 4922
             .nature = NATURE_MODEST,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -12238,7 +12238,7 @@ F_TRAINER_FEMALE |
 #line 4930
             .ability = ABILITY_STATIC,
 #line 4931
-            .lvl = 30,
+            .lvl = 29,
 #line 4932
             .nature = NATURE_MODEST,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -12247,7 +12247,7 @@ F_TRAINER_FEMALE |
                 MOVE_GIGA_DRAIN,
                 MOVE_DISCHARGE,
                 MOVE_VOLT_SWITCH,
-                MOVE_ELECTRO_BALL,
+                MOVE_FOUL_PLAY,
             },
             },
             {
@@ -12261,7 +12261,7 @@ F_TRAINER_FEMALE |
 #line 4940
             .ability = ABILITY_EARTH_EATER,
 #line 4941
-            .lvl = 29,
+            .lvl = 28,
 #line 4942
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -12282,7 +12282,7 @@ F_TRAINER_FEMALE |
 #line 4949
             .ability = ABILITY_WIND_POWER,
 #line 4950
-            .lvl = 30,
+            .lvl = 29,
 #line 4951
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -12305,7 +12305,7 @@ F_TRAINER_FEMALE |
 #line 4958
             .ability = ABILITY_WATER_ABSORB,
 #line 4959
-            .lvl = 30,
+            .lvl = 29,
 #line 4960
             .nature = NATURE_MODEST,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -12328,7 +12328,7 @@ F_TRAINER_FEMALE |
 #line 4968
             .ability = ABILITY_INTIMIDATE,
 #line 4969
-            .lvl = 30,
+            .lvl = 29,
 #line 4970
             .nature = NATURE_TIMID,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,

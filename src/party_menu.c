@@ -5598,7 +5598,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
     u8 isCandyConsumed = gItemsInfo[gSpecialVar_ItemId].importance == 0;
 
     sInitialLevel = GetMonData(mon, MON_DATA_LEVEL);
-    if (!B_RARE_CANDY_CAP && isCandyConsumed || sInitialLevel < GetCurrentLevelCap())
+    if ((!B_RARE_CANDY_CAP && isCandyConsumed) || sInitialLevel < GetCurrentLevelCap())
     {
         BufferMonStatsToTaskData(mon, arrayPtr);
         cannotUseEffect = ExecuteTableBasedItemEffect(mon, *itemPtr, gPartyMenu.slotId, 0);
