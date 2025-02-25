@@ -5022,7 +5022,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY),
     #if P_UPDATED_ABILITIES >= GEN_6
-        .abilities = { ABILITY_CUTE_CHARM, ABILITY_COMPETITIVE, ABILITY_FRISK },
+        .abilities = { ABILITY_CUTE_CHARM, ABILITY_COMPETITIVE, ABILITY_HUGE_POWER },
     #else
         .abilities = { ABILITY_CUTE_CHARM, ABILITY_NONE, ABILITY_FRISK },
     #endif
@@ -8859,7 +8859,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .teachableLearnset = sPonytaTeachableLearnset,
         .eggMoveLearnset = sPonytaEggMoveLearnset,
         .formSpeciesIdTable = sPonytaFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_RAPIDASH}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_RAPIDASH}),
     },
 
     [SPECIES_RAPIDASH] =

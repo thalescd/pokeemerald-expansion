@@ -10994,23 +10994,21 @@ Ability: Intimidate
 Level: 16
 - Wing Attack
 - Quick Attack
-- Double Team
 
-Phanpy @ Oran Berry
-Ability: Pickup
-Level: 15
-- Bulldoze
-- Rock Smash
-- Rapid Spin
-- Rock Tomb
-
-Nuzleaf @ Pecha Berry
-Ability: Early Bird
+Petilil @ Pecha Berry
+Ability: Own Tempo
 Level: 16
-- Bullet Seed
-- Air Cutter
-- Snarl
+- Mega Drain
+- Stun Spore
+- Magical Leaf
+- Cut
+
+Aron @ Quick Claw
+Ability: Sturdy
+Level: 15
 - Rock Tomb
+- Metal Claw
+- Headbutt
 
 Combusken @ Cheri Berry
 Ability: Blaze
@@ -11019,6 +11017,7 @@ Level: 17
 - Double Kick
 - Rock Tomb
 - Quick Attack
+
 
 === TRAINER_BRENDAN_RUSTBORO_MUDKIP ===
 Name: BRENDAN
@@ -11034,23 +11033,22 @@ Ability: Intimidate
 Level: 16
 - Wing Attack
 - Quick Attack
-- Double Team
 
-Phanpy @ Oran Berry
+Buizel @ Oran Berry
+Ability: Swift Swim
+Level: 16
+- Water Gun
+- Sonic Boom
+- Rock Tomb
+- Quick Attack
+
+Phanpy @ Pecha Berry
 Ability: Pickup
 Level: 15
 - Bulldoze
-- Rock Smash
-- Rapid Spin
 - Rock Tomb
-
-Buizel @ Pecha Berry
-Ability: Swift Swim
-Level: 16
-- Pursuit
-- Sonic Boom
-- Water Gun
-- Quick Attack
+- Rapid Spin
+- Rock Smash
 
 Grovyle @ Cheri Berry
 Ability: Overgrow
@@ -11164,22 +11162,20 @@ Ability: Intimidate
 Level: 16
 - Wing Attack
 - Quick Attack
-- Double Team
 
-Phanpy @ Oran Berry
-Ability: Pickup
-Level: 15
-- Bulldoze
-- Rock Smash
-- Rapid Spin
-- Rock Tomb
-
-Darumaka @ Pecha Berry
+Darumaka @ Oran Berry
 Ability: Hustle
 Level: 16
 - Incinerate
 - Bite
 - Rock Tomb
+
+Jangmo-o @ Pecha Berry
+Ability: Soundproof
+Level: 15
+- Headbutt
+- Rock Tomb
+- Rock Smash
 
 Marshtomp @ Cheri Berry
 Ability: Torrent
@@ -11203,23 +11199,22 @@ Ability: Intimidate
 Level: 16
 - Wing Attack
 - Quick Attack
-- Double Team
 
-Phanpy @ Oran Berry
+Buizel @ Oran Berry
+Ability: Swift Swim
+Level: 16
+- Water Gun
+- Sonic Boom
+- Rock Tomb
+- Quick Attack
+
+Phanpy @ Pecha Berry
 Ability: Pickup
 Level: 15
 - Bulldoze
-- Rock Smash
-- Rapid Spin
 - Rock Tomb
-
-Buizel @ Pecha Berry
-Ability: Swift Swim
-Level: 16
-- Pursuit
-- Sonic Boom
-- Water Gun
-- Quick Attack
+- Rapid Spin
+- Rock Smash
 
 Grovyle @ Cheri Berry
 Ability: Overgrow
@@ -14395,23 +14390,21 @@ Ability: Intimidate
 Level: 16
 - Wing Attack
 - Quick Attack
-- Double Team
 
-Phanpy @ Oran Berry
-Ability: Pickup
-Level: 15
-- Bulldoze
-- Rock Smash
-- Rapid Spin
-- Rock Tomb
-
-Nuzleaf @ Pecha Berry
-Ability: Early Bird
+Petilil @ Pecha Berry
+Ability: Own Tempo
 Level: 16
-- Bullet Seed
-- Air Cutter
-- Snarl
+- Mega Drain
+- Stun Spore
+- Magical Leaf
+- Cut
+
+Aron @ Quick Claw
+Ability: Sturdy
+Level: 15
 - Rock Tomb
+- Metal Claw
+- Headbutt
 
 Combusken @ Cheri Berry
 Ability: Blaze
@@ -14435,22 +14428,20 @@ Ability: Intimidate
 Level: 16
 - Wing Attack
 - Quick Attack
-- Double Team
 
-Phanpy @ Oran Berry
-Ability: Pickup
-Level: 15
-- Bulldoze
-- Rock Smash
-- Rapid Spin
-- Rock Tomb
-
-Darumaka @ Pecha Berry
+Darumaka @ Oran Berry
 Ability: Hustle
 Level: 16
 - Incinerate
 - Bite
 - Rock Tomb
+
+Jangmo-o @ Pecha Berry
+Ability: Soundproof
+Level: 15
+- Headbutt
+- Rock Tomb
+- Rock Smash
 
 Marshtomp @ Cheri Berry
 Ability: Torrent
