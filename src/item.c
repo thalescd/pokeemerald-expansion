@@ -910,7 +910,17 @@ u32 ItemId_GetHoldEffectParam(u32 itemId)
 
 const u8 *ItemId_GetDescription(u16 itemId)
 {
-    return gItemsInfo[SanitizeItemId(itemId)].description;
+    //const u8 *description = gItemsInfo[SanitizeItemId(itemId)].description;
+    if(ItemId_GetPocket(itemId) != POCKET_TM_HM)
+        return gItemsInfo[SanitizeItemId(itemId)].description;
+    else
+    {
+        return GetMoveName(ItemId_GetSecondaryId(itemId));
+        //static u8 buffer[64];
+        //StringCopy(buffer, description);
+        //const u8 *tmDescription = (const u8 *) StringAppend(buffer, GetMoveName(ItemId_GetSecondaryId(itemId)));
+        //return tmDescription;
+    }
 }
 
 u8 ItemId_GetImportance(u16 itemId)
