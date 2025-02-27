@@ -10564,10 +10564,7 @@ const struct Item gItemsInfo[] =
     {
         .name = _("TM10"),
         .price = 3000,
-        .description = COMPOUND_STRING(
-            "The user attacks\n"
-            "suddenly. Raises\n"
-            "Speed."),
+        .description = sQuestionMarksDesc, // Todo
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -11035,19 +11032,16 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_AERIAL_ACE,
     },
 
-    [ITEM_TM_TORMENT] =
+    [ITEM_TM_ROUND] =
     {
         .name = _("TM41"),
         .price = 3000,
-        .description = COMPOUND_STRING(
-            "Prevents the foe\n"
-            "from using the same\n"
-            "move in a row."),
+        .description = sQuestionMarksDesc, // Todo
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_TORMENT,
+        .secondaryId = MOVE_ROUND,
     },
 
     [ITEM_TM_FACADE] =
@@ -11573,10 +11567,7 @@ const struct Item gItemsInfo[] =
     {
         .name = _("TM83"),
         .price = 3000,
-        .description = COMPOUND_STRING(
-            "The foe is trapped\n"
-            "and attacked for\n"
-            "some turns."),
+        .description = sQuestionMarksDesc, // Todo
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -11720,10 +11711,7 @@ const struct Item gItemsInfo[] =
     {
         .name = _("TM95"),
         .price = 3000,
-        .description = COMPOUND_STRING(
-            "Yells as if it is\n"
-            "ranting. Reduces\n"
-            "target's Sp. Atk."),
+        .description = sQuestionMarksDesc, // Todo
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,

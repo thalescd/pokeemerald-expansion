@@ -1569,6 +1569,7 @@ static const u16 sHoothootEggMoveLearnset[] = {
     MOVE_DEFOG,
     MOVE_MEAN_LOOK,
     MOVE_HURRICANE,
+    MOVE_ESPER_WING,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_HOOTHOOT

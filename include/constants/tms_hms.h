@@ -42,7 +42,7 @@
     F(FIRE_BLAST) \
     F(ROCK_TOMB) \
     F(AERIAL_ACE) \
-    F(TORMENT) \
+    F(ROUND) \
     F(FACADE) \
     F(SECRET_POWER) \
     F(REST) \
