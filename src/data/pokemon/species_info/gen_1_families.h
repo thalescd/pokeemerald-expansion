@@ -454,7 +454,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sCharmeleonLevelUpLearnset,
         .teachableLearnset = sCharmeleonTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_CHARIZARD}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_CHARIZARD},
+                                {EVO_ITEM_HOLD_NIGHT, ITEM_DRAGON_FANG, SPECIES_CHARIZARD_MEGA_X}),
     },
 
     [SPECIES_CHARIZARD] =
@@ -530,11 +531,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_CHARIZARD_MEGA_X] =
     {
         .baseHP        = 78,
-        .baseAttack    = 130,
-        .baseDefense   = 111,
+        .baseAttack    = 109,
+        .baseDefense   = 95,
         .baseSpeed     = 100,
-        .baseSpAttack  = 130,
-        .baseSpDefense = 85,
+        .baseSpAttack  = 74,
+        .baseSpDefense = 78,
         .types = MON_TYPES(TYPE_FIRE, TYPE_DRAGON),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_8) ? 317 : 285,
@@ -544,7 +545,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_TOUGH_CLAWS, ABILITY_TOUGH_CLAWS, ABILITY_TOUGH_CLAWS },
+        .abilities = { ABILITY_BLAZE, ABILITY_NONE, ABILITY_TOUGH_CLAWS },
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("Charizard"),
         .cryId = CRY_CHARIZARD_MEGA_X,

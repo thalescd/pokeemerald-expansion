@@ -1124,7 +1124,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             "Stingers on the forelegs\n"
             "jab the foe twice."),
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 45,
         .type = TYPE_POISON,
         .accuracy = 100,
         .pp = 10,
