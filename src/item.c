@@ -15,6 +15,7 @@
 #include "battle_pyramid.h"
 #include "battle_pyramid_bag.h"
 #include "graphics.h"
+#include "move.h"
 #include "constants/battle.h"
 #include "constants/items.h"
 #include "constants/moves.h"

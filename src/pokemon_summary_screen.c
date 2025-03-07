@@ -4011,6 +4011,7 @@ static void PrintMovePowerAndAccuracy(u16 moveIndex)
     if (moveIndex != 0)
     {
         FillWindowPixelRect(PSS_LABEL_WINDOW_MOVES_POWER_ACC, PIXEL_FILL(0), 53, 0, 19, 32);
+        u32 power = GetMovePower(moveIndex);
 
         if (moveIndex == MOVE_RETURN)
         {
@@ -4022,7 +4023,7 @@ static void PrintMovePowerAndAccuracy(u16 moveIndex)
             ConvertIntToDecimalStringN(gStringVar1, (10 * (MAX_FRIENDSHIP - monFriendship) / 25), STR_CONV_MODE_RIGHT_ALIGN, 3);
             text = gStringVar1;
         }
-        else if (gMovesInfo[moveIndex].power < 2)
+        else if (power < 2)
         {
             text = gText_ThreeDashes;
         }
