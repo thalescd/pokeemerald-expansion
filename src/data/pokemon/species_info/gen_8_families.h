@@ -2993,10 +2993,10 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
     [SPECIES_CRAMORANT] =
     {
         .baseHP        = 70,
-        .baseAttack    = 85,
-        .baseDefense   = 55,
+        .baseAttack    = 90,
+        .baseDefense   = 65,
         .baseSpeed     = 85,
-        .baseSpAttack  = 85,
+        .baseSpAttack  = 90,
         .baseSpDefense = 95,
         .types = MON_TYPES(TYPE_FLYING, TYPE_WATER),
         .catchRate = 45,

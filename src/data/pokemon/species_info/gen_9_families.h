@@ -1149,7 +1149,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         )
         .levelUpLearnset = sPawmoLevelUpLearnset,
         .teachableLearnset = sPawmoTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_OVERWORLD_STEPS, 1000, SPECIES_PAWMOT}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_PAWMO}),
     },
 
     [SPECIES_PAWMOT] =
@@ -6702,9 +6702,9 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
 #if P_FAMILY_IRON_VALIANT
     [SPECIES_IRON_VALIANT] =
     {
-        .baseHP        = 74,
-        .baseAttack    = 130,
-        .baseDefense   = 90,
+        .baseHP        = 68,
+        .baseAttack    = 120,
+        .baseDefense   = 60,
         .baseSpeed     = 116,
         .baseSpAttack  = 120,
         .baseSpDefense = 60,
@@ -6718,7 +6718,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .friendship = 0,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_QUARK_DRIVE, ABILITY_NONE, ABILITY_NONE },
+        .abilities = { ABILITY_JUSTIFIED, ABILITY_PIXILATE, ABILITY_QUARK_DRIVE },
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Iron Valiant"),
         .cryId = CRY_IRON_VALIANT,
