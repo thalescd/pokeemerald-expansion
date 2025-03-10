@@ -77,11 +77,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_GROVYLE] =
     {
         .baseHP        = 50,
-        .baseAttack    = 65,
-        .baseDefense   = 45,
+        .baseAttack    = 75,
+        .baseDefense   = 40,
         .baseSpeed     = 95,
         .baseSpAttack  = 85,
-        .baseSpDefense = 65,
+        .baseSpDefense = 60,
         .types = MON_TYPES(TYPE_GRASS),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 142 : 141,

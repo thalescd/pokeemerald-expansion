@@ -658,13 +658,11 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Shroomish
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Spritzee
+Level: 20
 
 Roselia
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 20
 
 === TRAINER_ROSE_1 ===
 Name: ROSE
@@ -1188,10 +1186,10 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Azurill
+Mime Jr.
 Level: 18
 
-Munchlax
+Flaffy
 Level: 18
 
 === TRAINER_CHARLIE ===
@@ -2545,7 +2543,7 @@ Pic: Rich Boy
 Gender: Male
 Music: Rich
 Double Battle: No
-AI: Smart Trainer 
+AI: Smart Trainer, Ace Pokemon
 
 Kricketune
 Ability: Technician
@@ -2555,13 +2553,13 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Slash
 - Fury Cutter
 
-Sandygast @ Oran Berry
-Ability: Water Compaction
+Swinub @ Oran Berry
+Ability: Thick Fat
 Level: 12
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-- Sand Tomb
-- Absorb
-- Astonish
+- Ice Shard
+- Mud Shot
+- Snore
 
 Mawile
 Ability: Intimidate
@@ -4160,10 +4158,11 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Abra
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Hidden Power
+Kadabra
+Level: 21
+
+Gastly
+Level: 21
 
 === TRAINER_PRESTON ===
 Name: PRESTON
@@ -4932,6 +4931,7 @@ Hariyama @ Black Belt
 Ability: Guts
 Level: 20
 Adamant Nature
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Force Palm
 - Body Slam
 - Bullet Punch
@@ -5239,13 +5239,13 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Spritzee
+Milcery
 Level: 14
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 
 Wooper
 Level: 14
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 
 === TRAINER_TED ===
 Name: TED
@@ -5626,9 +5626,11 @@ Music: Twins
 Double Battle: No
 AI: Check Bad Move
 
+Skwovet @ Oran Berry
+Level: 20
+
 Skitty @ Oran Berry
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 20
 
 === TRAINER_COLTON ===
 Name: COLTON
@@ -6434,17 +6436,14 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Magikarp
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Shellos-East
+Level: 20
 
-Tentacool
-Level: 10
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Arrokuda
+Level: 21
 
-Magikarp
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Bibarel
+Level: 22
 
 === TRAINER_IVAN ===
 Name: IVAN
@@ -6456,14 +6455,14 @@ Double Battle: No
 AI: Check Bad Move
 
 Magikarp
-Level: 7
+Level: 9
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Wishiwashi
-Level: 8
+Level: 10
 
 Finneon
-Level: 9
+Level: 11
 Ability: Storm Drain
 IVs: 0 Atk  
 
@@ -8902,13 +8901,11 @@ Music: Twins
 Double Battle: Yes
 AI: Check Bad Move
 
-Plusle
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Lombre
+Level: 21
 
-Minun
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nuzleaf
+Level: 21
 
 === TRAINER_AMY_AND_LIV_2 ===
 Name: AMY & LIV
@@ -9123,13 +9120,13 @@ Double Battle: No
 AI: Check Bad Move
 
 Dottler
-Level: 18
+Level: 19
 
 Fletchinder
-Level: 18
+Level: 19
 
-Bibarel
-Level: 18
+Raticate
+Level: 20
 
 === TRAINER_PHILLIP ===
 Name: PHILLIP
@@ -9464,13 +9461,23 @@ Music: Suspicious
 Double Battle: No
 AI: Check Bad Move
 
-Lombre
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Dunsparce
+Level: 20
 
-Nuzleaf
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Vanillite
+Level: 20
+
+Drifloon
+Level: 20
+
+Toedscool
+Level: 20
+
+Dewpider
+Level: 20
+
+Fearow
+Level: 20
 
 === TRAINER_HECTOR ===
 Name: HECTOR
@@ -9648,19 +9655,45 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Staravia @ Rawst Berry
+Ability: Intimidate
+Level: 22
+- Wing Attack
+- Quick Attack
+- Steel Wing
 
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Buizel @ Pecha Berry
+Ability: Swift Swim
+Level: 22
+- Aqua Jet
+- Bite
+- Rock Tomb
+- Quick Attack
 
-Grovyle
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Goomy @ Quick Claw
+Ability: Sap Sipper
+Level: 21
+- Dragon Breath
+- Chilling Water
+- Sludge
+
+Phanpy @ Soft Sand
+Ability: Pickup
+Level: 22
+- Bulldoze
+- Rock Tomb
+- Rapid Spin
+- Rock Smash
+
+Grovyle @ Cheri Berry
+Ability: Overgrow
+Level: 23
+- Leaf Blade
+- Fury Cutter
+- Rock Tomb
+- Quick Attack
 
 === TRAINER_BRENDAN_ROUTE_119_MUDKIP ===
 Name: BRENDAN
@@ -9783,19 +9816,45 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Lombre
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Staravia @ Rawst Berry
+Ability: Intimidate
+Level: 22
+- Wing Attack
+- Quick Attack
+- Steel Wing
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Darumaka @ Oran Berry
+Ability: Hustle
+Level: 22
+- Fire Fang
+- Bite
+- Rock Tomb
 
-Marshtomp
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Tinkatink @ Cheri Berry
+Ability: Mold Breaker
+Level: 21
+- Metal Claw
+- Rock Smash
+- Thunder Wave
+- Rock Tomb
+
+Jangmo-o @ Pecha Berry
+Ability: Soundproof
+Level: 22
+- Headbutt
+- Rock Tomb
+- Rock Smash
+- Dragon Tail
+
+Marshtomp @ Quick Claw
+Ability: Torrent
+Level: 23
+- Water Pulse
+- Rock Smash
+- Rock Tomb
+- Mud Shot
 
 === TRAINER_BRENDAN_ROUTE_119_TORCHIC ===
 Name: BRENDAN
@@ -9838,19 +9897,45 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Staravia @ Rawst Berry
+Ability: Intimidate
+Level: 22
+- Wing Attack
+- Quick Attack
+- Steel Wing
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Buizel @ Pecha Berry
+Ability: Swift Swim
+Level: 22
+- Aqua Jet
+- Bite
+- Rock Tomb
+- Quick Attack
 
-Grovyle
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Goomy @ Quick Claw
+Ability: Sap Sipper
+Level: 21
+- Dragon Breath
+- Chilling Water
+- Sludge
+
+Phanpy @ Soft Sand
+Ability: Pickup
+Level: 22
+- Bulldoze
+- Rock Tomb
+- Rapid Spin
+- Rock Smash
+
+Grovyle @ Cheri Berry
+Ability: Overgrow
+Level: 23
+- Leaf Blade
+- Fury Cutter
+- Rock Tomb
+- Quick Attack
 
 === TRAINER_MAY_ROUTE_119_MUDKIP ===
 Name: MAY
@@ -9973,19 +10058,45 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Lombre
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Staravia @ Rawst Berry
+Ability: Intimidate
+Level: 22
+- Wing Attack
+- Quick Attack
+- Steel Wing
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Darumaka @ Oran Berry
+Ability: Hustle
+Level: 22
+- Fire Fang
+- Bite
+- Rock Tomb
 
-Marshtomp
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Tinkatink @ Cheri Berry
+Ability: Mold Breaker
+Level: 21
+- Metal Claw
+- Rock Smash
+- Thunder Wave
+- Rock Tomb
+
+Jangmo-o @ Pecha Berry
+Ability: Soundproof
+Level: 22
+- Headbutt
+- Rock Tomb
+- Rock Smash
+- Dragon Tail
+
+Marshtomp @ Quick Claw
+Ability: Torrent
+Level: 23
+- Water Pulse
+- Rock Smash
+- Rock Tomb
+- Mud Shot
 
 === TRAINER_MAY_ROUTE_119_TORCHIC ===
 Name: MAY
@@ -13346,13 +13457,11 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Electrike
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Tadbulb
+Level: 21
 
-Voltorb
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Pawniard
+Level: 21
 
 === TRAINER_ALYSSA ===
 Name: ALYSSA
@@ -13363,9 +13472,11 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Magnemite
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Raboot
+Level: 21
+
+Ponyta
+Level: 21
 
 === TRAINER_MARCOS ===
 Name: MARCOS
@@ -13376,9 +13487,21 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Voltorb
-Level: 15
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Voltorb-Hisui @ Oran Berry
+Ability: Aftermath
+Level: 22
+- Electro Ball
+- Charge Beam
+- Swift
+- Mega Drain
+
+Loudred
+Ability: Soundproof
+Level: 22
+- Uproar
+- Bite
+- Water Pulse
+- Fire Punch
 
 === TRAINER_RHETT ===
 Name: RHETT
@@ -13389,9 +13512,20 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Makuhita
-Level: 15
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Mienfoo
+Ability: Inner Focus
+Level: 22
+- Fake Out
+- Drain Punch
+- Aerial Ace
+- U-turn
+
+Linoone-Galar @ Liechi Berry
+Ability: Gluttony
+Level: 22
+- Headbutt
+- Night Slash
+- Pin Missile
 
 === TRAINER_TYRON ===
 Name: TYRON
