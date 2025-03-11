@@ -1189,7 +1189,7 @@ AI: Check Bad Move
 Mime Jr.
 Level: 18
 
-Flaffy
+Flaaffy
 Level: 18
 
 === TRAINER_CHARLIE ===
@@ -2543,7 +2543,7 @@ Pic: Rich Boy
 Gender: Male
 Music: Rich
 Double Battle: No
-AI: Smart Trainer, Ace Pokemon
+AI: Smart Trainer / Ace Pokemon
 
 Kricketune
 Ability: Technician
@@ -12432,11 +12432,52 @@ Pic: Wally
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Ralts
-Level: 16
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+Roselia
+Ability: Poison Point
+Level: 23
+Modest Nature
+IVs: 0 Atk
+- Mega Drain
+- Venoshock
+- Stun Spore
+- Magical Leaf
+
+Fletchinder
+Ability: Flame Body
+Level: 23
+Adamant Nature
+- Flame Charge
+- Aerial Ace
+- Steel Wing
+- Quick Attack
+
+Krabby
+Ability: Hyper Cutter
+Level: 23
+Adamant Nature
+- Razor Shell
+- Vise Grip
+- Metal Claw
+- Mud Shot
+
+Elekid
+Ability: Static
+Level: 22
+- Shock Wave
+- Karate Chop
+- Swift
+- Thunder Wave
+
+Kirlia
+Ability: Trace
+Level: 24
+Modest Nature
+IVs: 0 Atk
+- Psybeam
+- Draining Kiss
+- Magical Leaf
 
 === TRAINER_WALLY_VR_2 ===
 Name: WALLY
