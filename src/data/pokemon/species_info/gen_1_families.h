@@ -12012,17 +12012,18 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .teachableLearnset = sSteelixTeachableLearnset,
         .formSpeciesIdTable = sSteelixFormSpeciesIdTable,
         .formChangeTable = sSteelixFormChangeTable,
+        .evolutions = EVOLUTION({EVO_MOVE, MOVE_MAGNET_RISE, SPECIES_STEELIX_MEGA}),
     },
 
 #if P_MEGA_EVOLUTIONS
     [SPECIES_STEELIX_MEGA] =
     {
-        .baseHP        = 75,
-        .baseAttack    = 125,
-        .baseDefense   = 230,
+        .baseHP        = 80,
+        .baseAttack    = 110,
+        .baseDefense   = 215,
         .baseSpeed     = 30,
         .baseSpAttack  = 55,
-        .baseSpDefense = 95,
+        .baseSpDefense = 70,
         .types = MON_TYPES(TYPE_STEEL, TYPE_GROUND),
         .catchRate = 25,
         .expYield = 214,
@@ -12033,7 +12034,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
-        .abilities = { ABILITY_SAND_FORCE, ABILITY_SAND_FORCE, ABILITY_SAND_FORCE },
+        .abilities = { ABILITY_ROCK_HEAD, ABILITY_MAGNET_PULL, ABILITY_SHEER_FORCE },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Steelix"),
         .cryId = CRY_STEELIX_MEGA,

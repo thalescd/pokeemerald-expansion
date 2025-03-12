@@ -152,7 +152,7 @@ RustboroCity_DevonCorp_3F_EventScript_MrStone::
 	lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_DEVON_CORP_ITEM, RustboroCity_DevonCorp_3F_EventScript_MrStoneAfterFavor
-	goto_if_set FLAG_DELIVERED_STEVEN_LETTER, RustboroCity_DevonCorp_3F_EventScript_GiveLuckyEgg
+	goto_if_set FLAG_DELIVERED_STEVEN_LETTER, RustboroCity_DevonCorp_3F_EventScript_GiveEndlessCandy
 	msgbox RustboroCity_DevonCorp_3F_Text_CountingOnYou, MSGBOX_DEFAULT
 	closemessage
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
@@ -160,7 +160,7 @@ RustboroCity_DevonCorp_3F_EventScript_MrStone::
 	release
 	end
 
-RustboroCity_DevonCorp_3F_EventScript_GiveLuckyEgg::
+RustboroCity_DevonCorp_3F_EventScript_GiveEndlessCandy::
 	msgbox RustboroCity_DevonCorp_3F_Text_ThankYouForDeliveringLetter, MSGBOX_DEFAULT
 	giveitem ITEM_ENDLESS_CANDY
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
