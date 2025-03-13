@@ -849,6 +849,7 @@ static const u16 sGrimerAlolaEggMoveLearnset[] = {
     MOVE_SPIT_UP,
     MOVE_STOCKPILE,
     MOVE_SWALLOW,
+    MOVE_MUD_SHOT,
     MOVE_UNAVAILABLE,
 };
 #endif //P_ALOLAN_FORMS
