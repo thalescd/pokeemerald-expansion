@@ -23,7 +23,6 @@ RustboroCity_Mart_Pokemart_Basic:
 	.2byte ITEM_SUPER_POTION
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_PARALYZE_HEAL
-	.2byte ITEM_ESCAPE_ROPE
 	.2byte ITEM_REPEL
 	.2byte ITEM_X_SPEED
 	.2byte ITEM_X_ATTACK
@@ -45,7 +44,6 @@ RustboroCity_Mart_Pokemart_Expanded:
 	.2byte ITEM_SUPER_POTION
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_PARALYZE_HEAL
-	.2byte ITEM_ESCAPE_ROPE
 	.2byte ITEM_REPEL
 	.2byte ITEM_X_SPEED
 	.2byte ITEM_X_ATTACK
@@ -64,6 +62,24 @@ RustboroCity_Mart_EventScript_BugCatcher::
 	msgbox RustboroCity_Mart_Text_GettingEscapeRopeJustInCase, MSGBOX_NPC
 	end
 
+RustboroCity_Mart_EventScript_Promotion::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_RUSTBORO_MART_ITEM, RustboroCity_Mart_EventScript_PromotionAfter
+	msgbox RustboroCity_Mart_Text_GiveItemPromotion, MSGBOX_DEFAULT
+	giveitem ITEM_TM54
+	setflag FLAG_RECEIVED_RUSTBORO_MART_ITEM
+	msgbox RustboroCity_Mart_Text_AfterItemPromotion, MSGBOX_DEFAULT
+	goto RustboroCity_Mart_EventScript_PromotionAfter
+	end
+	
+RustboroCity_Mart_EventScript_PromotionAfter::
+	msgbox RustboroCity_Mart_Text_ExplainItem, MSGBOX_DEFAULT
+	closemessage
+	waitmovement 0
+	release
+	end
+
 RustboroCity_Mart_Text_BuyingHealsInCaseOfShroomish:
 	.string "I'm buying some PARLYZ HEALS and\n"
 	.string "ANTIDOTES.\p"
@@ -77,8 +93,27 @@ RustboroCity_Mart_Text_ShouldBuySuperPotionsInstead:
 	.string "instead of ordinary POTIONS.$"
 
 RustboroCity_Mart_Text_GettingEscapeRopeJustInCase:
-	.string "I'm getting an ESCAPE ROPE just in\n"
-	.string "case I get lost in a cave.\p"
+	.string "I'm searching for an ESCAPE ROPE\n"
+	.string "just in case I get lost in a cave.\p"
 	.string "I just need to use it to get back to\n"
-	.string "the entrance.$"
+	.string "the entrance.\p"
+	.string "It seems they don't sell it anymore.$"
+	
+RustboroCity_Mart_Text_GiveItemPromotion:
+	.string "Excuse me, Trainer over there.\n"
+	.string "Do you have a minute?\p"
+	.string "You know, sometimes moves are too\n"
+	.string "strong to catch a POKéMON.\p"
+	.string "You end up making a Pokémon faint\n"
+	.string "even when you don't want to.\p"
+	.string "For such common problem, use this!$"
 
+RustboroCity_Mart_Text_ExplainItem:
+	.string "False Swipe is a very handy move.\p"
+	.string "No matter how many times it's used on\n"
+	.string "the opposing Pokémon, it won't cause\l"
+	.string "the Pokémon to faint!$"
+
+RustboroCity_Mart_Text_AfterItemPromotion:
+	.string "I'm offering it for free right now.\n"
+	.string "This is a limited-time promotion!$"

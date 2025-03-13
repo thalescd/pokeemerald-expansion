@@ -232,6 +232,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Carvanha
+Ability: Rough Skin
 Level: 11
 Adamant Nature
 - Assurance
@@ -241,7 +242,7 @@ Adamant Nature
 Murkrow
 Ability: Insomnia
 Level: 11
-Docile Nature
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 - Pursuit
 - Gust
 
@@ -349,6 +350,10 @@ Docile Nature
 Grimer-Alola
 Ability: Poison Touch
 Level: 17
+- Poison Fang
+- Bite
+- Mud Shot
+- Shadow Sneak
 
 === TRAINER_GRUNT_WEATHER_INST_1 ===
 Name: GRUNT
@@ -4868,7 +4873,6 @@ Level: 14
 Lileep  
 Ability: Storm Drain  
 Level: 15
-IVs: 0 Atk  
 - Ancient Power  
 - Acid  
 - Mega Drain  
@@ -11662,20 +11666,16 @@ Double Battle: No
 AI: Check Bad Move
 
 Caterpie
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 7
 
 Weedle
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 7
 
 Nymble
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 7
 
 Spinarak
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 7
 
 === TRAINER_JOSE ===
 Name: JOSE

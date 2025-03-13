@@ -27,6 +27,27 @@ MauvilleCity_Mart_Pokemart:
 	.2byte ITEM_X_ACCURACY
 	pokemartlistend
 
+MauvilleCity_Mart_EventScript_TM_Clerk::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart MauvilleCity_Mart_Pokemart_TM
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+MauvilleCity_Mart_Pokemart_TM:
+	.2byte ITEM_TM_VENOSHOCK
+	.2byte ITEM_TM_AERIAL_ACE
+	.2byte ITEM_TM_LOW_SWEEP
+	.2byte ITEM_TM57
+	.2byte ITEM_TM67
+	.2byte ITEM_TM78
+	.2byte ITEM_TM82
+	pokemartlistend
+
 MauvilleCity_Mart_EventScript_ExpertM::
 	msgbox MauvilleCity_Mart_Text_ItemsToTemporarilyElevateStats, MSGBOX_NPC
 	end

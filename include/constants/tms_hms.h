@@ -7,7 +7,7 @@
     F(WATER_PULSE) \
     F(CALM_MIND) \
     F(ROAR) \
-    F(TOXIC) \
+    F(VENOSHOCK) \
     F(HAIL) \
     F(BULK_UP) \
     F(BULLET_SEED) \
@@ -50,7 +50,7 @@
     F(THIEF) \
     F(STEEL_WING) \
     F(SKILL_SWAP) \
-    F(SNATCH) \
+    F(LOW_SWEEP) \
     F(OVERHEAT) \
     F(PSYSHOCK) \
     F(FOCUS_BLAST) \
