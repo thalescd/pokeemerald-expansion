@@ -21,6 +21,21 @@ RustboroCity_Flat2_2F_EventScript_GavePremierBall::
 	release
 	end
 
+RustboroCity_Flat2_2F_EventScript_FloatStoneGuy::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_FLOAT_STONE_RUSTBORO, RustboroCity_Flat2_2F_EventScript_GaveFloatStone
+	msgbox RustboroCity_Flat2_2F_Text_GiveFloatStone, MSGBOX_DEFAULT
+	giveitem ITEM_FLOAT_STONE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_FLOAT_STONE_RUSTBORO
+	goto RustboroCity_Flat2_2F_EventScript_GaveFloatStone
+
+RustboroCity_Flat2_2F_EventScript_GaveFloatStone::
+	msgbox RustboroCity_Flat2_2F_Text_ExplainFloatStone, MSGBOX_DEFAULT
+	release
+	end
+
 RustboroCity_Flat2_2F_Text_DevonWasTinyInOldDays:
 	.string "Way back in the old days, DEVON was just\n"
 	.string "a teeny, tiny company.$"
@@ -35,3 +50,15 @@ RustboroCity_Flat2_2F_Text_GoingToWorkAtDevonToo:
 	.string "When I grow up, I'm going to work for\n"
 	.string "DEVON, too.$"
 
+RustboroCity_Flat2_2F_Text_GiveFloatStone:
+	.string "My dad's a real ace in the DEVON\n"
+	.string "CORPORATION, I'll have you know!\l"
+	.string "It's no wonder I'm aa ace myself!\p"
+	.string "Here, I'll give you something that\n"
+	.string "an ACE TRAINER like me uses!$"
+
+RustboroCity_Flat2_2F_Text_ExplainFloatStone:
+	.string "If you have a POKéMON hold a Float Stone,\n"
+	.string "its weight will be halved.\p"
+	.string "Although it looks like it'll be a while before you\n"
+	.string "can use something like this as well as i can.$"
