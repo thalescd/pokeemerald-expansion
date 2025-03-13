@@ -53,7 +53,7 @@ RustboroCity_Flat2_2F_Text_GoingToWorkAtDevonToo:
 RustboroCity_Flat2_2F_Text_GiveFloatStone:
 	.string "My dad's a real ace in the DEVON\n"
 	.string "CORPORATION, I'll have you know!\l"
-	.string "It's no wonder I'm aa ace myself!\p"
+	.string "It's no wonder I'm an ace myself!\p"
 	.string "Here, I'll give you something that\n"
 	.string "an ACE TRAINER like me uses!$"
 
