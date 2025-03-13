@@ -1149,7 +1149,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         )
         .levelUpLearnset = sPawmoLevelUpLearnset,
         .teachableLearnset = sPawmoTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_PAWMO}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_PAWMOT}),
     },
 
     [SPECIES_PAWMOT] =

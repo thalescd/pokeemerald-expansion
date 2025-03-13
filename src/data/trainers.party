@@ -678,17 +678,14 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Roselia
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Gloom
+Level: 22
 
-Shroomish
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Skiploom
+Level: 22
 
 Roselia
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 22
 
 === TRAINER_FELIX ===
 Name: FELIX
@@ -3420,19 +3417,10 @@ Double Battle: No
 AI: Check Bad Move
 
 Electrike
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Quick Attack
-- Thunder Wave
-- Spark
-- Leer
+Level: 24
 
 Voltorb
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Charge
-- Shock Wave
-- Screech
+Level: 24
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_7 ===
 Name: GRUNT
@@ -3473,13 +3461,11 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Voltorb
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Luxio
+Level: 25
 
-Magnemite
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Oricorio-Pom-Pom
+Level: 25
 
 === TRAINER_FERNANDO_1 ===
 Name: FERNANDO
@@ -3507,13 +3493,8 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Magnemite
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Whismur
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Chatot
+Level: 25
 
 === TRAINER_DALTON_2 ===
 Name: DALTON
@@ -4051,12 +4032,10 @@ Double Battle: No
 AI: Check Bad Move
 
 Dustox
-Level: 16
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Level: 23
 
 Beautifly
-Level: 16
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Level: 23
 
 === TRAINER_JEFFREY_2 ===
 Name: JEFFREY
@@ -5493,20 +5472,11 @@ Music: Twins
 Double Battle: Yes
 AI: Check Bad Move
 
-Zigzagoon
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Growl
-- Tail Whip
-- Headbutt
-- Odor Sleuth
+Sneasel
+Level: 22
 
-Makuhita
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
-- Focus Energy
-- Arm Thrust
+Applin
+Level: 22
 
 === TRAINER_ANNA_AND_MEG_2 ===
 Name: ANNA & MEG
@@ -5804,7 +5774,7 @@ AI: Check Bad Move
 Pikachu @ Light Ball
 Level: 20
 
-Chatot @ Oran Berry
+Snover @ Oran Berry
 Level: 20
 
 === TRAINER_ISABEL_2 ===
@@ -6157,21 +6127,11 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Zigzagoon
-Level: 17
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Headbutt
-- Sand Attack
-- Growl
-- Thunderbolt
-
 Gulpin
-Level: 17
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Amnesia
-- Sludge
-- Yawn
-- Pound
+Level: 25
+
+Pachirisu
+Level: 25
 
 === TRAINER_QUINCY ===
 Name: QUINCY
@@ -6593,9 +6553,8 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Tentacool
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Pincurchin
+Level: 25
 
 === TRAINER_CARTER ===
 Name: CARTER
@@ -6942,8 +6901,10 @@ Double Battle: No
 AI: Check Bad Move
 
 Doduo
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 24
+
+Blitzle
+Level: 24
 
 === TRAINER_DYLAN_2 ===
 Name: DYLAN
@@ -7006,9 +6967,11 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Doduo
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Ponyta
+Level: 23
+
+Hitmonlee
+Level: 23
 
 === TRAINER_MARIA_2 ===
 Name: MARIA
@@ -10132,29 +10095,23 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Whismur
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Rookidee
+Level: 20
 
-Zigzagoon
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Skiddo
+Level: 20
 
-Aron
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Tinkatink
+Level: 20
 
-Poochyena
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Zorua
+Level: 20
 
-Taillow
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Rufflet
+Level: 20
 
-Makuhita
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Riolu
+Level: 20
 
 === TRAINER_DAVIS ===
 Name: DAVIS
@@ -10335,29 +10292,23 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Wingull
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Hatenna
+Level: 20
 
-Shroomish
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Phanpy
+Level: 20
 
 Marill
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 20
 
-Roselia
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Fomantis
+Level: 20
 
 Skitty
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 20
 
 Goldeen
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 20
 
 === TRAINER_HALLE ===
 Name: HALLE
@@ -12006,17 +11957,14 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Geodude
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Drilbur
+Level: 23
 
-Geodude
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Roggenrola
+Level: 23
 
-Machop
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Rolycoly
+Level: 23
 
 === TRAINER_TRENT_2 ===
 Name: TRENT
@@ -12279,21 +12227,20 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Meditite
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Bide
-- Detect
-- Confusion
+Hitmontop
+Level: 25
+- Fake Out
+- Rolling Kick
+- Pursuit
 - Thunder Punch
 
-Meditite
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Diggersby
+Ability: Huge Power
+Level: 25
 - Thunder Punch
-- Detect
-- Confusion
-- Meditate
+- Bulldoze
+- Quick Attack
+- Double Kick
 
 === TRAINER_DANIELLE ===
 Name: DANIELLE
@@ -13740,17 +13687,14 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Zigzagoon
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Linoone
+Level: 22
 
-Aron
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Lairon
+Level: 22
 
-Electrike
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Slugma
+Level: 22
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_1 ===
 Name: GRUNT
@@ -14373,9 +14317,8 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Doduo
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Swellow
+Level: 24
 
 === TRAINER_BRANDI ===
 Name: BRANDI
@@ -14386,9 +14329,11 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Ralts
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Solosis
+Level: 22
+
+Braixen
+Level: 22
 
 === TRAINER_AISHA ===
 Name: AISHA
@@ -14399,9 +14344,8 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Meditite
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Passimian
+Level: 24
 
 === TRAINER_MAKAYLA ===
 Name: MAKAYLA
@@ -16347,19 +16291,11 @@ Music: Suspicious
 Double Battle: No
 AI: Basic Trainer
 
-Illumise
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Shock Wave
-- Quick Attack
-- Charm
-
-Volbeat
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Shock Wave
-- Quick Attack
-- Confuse Ray
+Vikavolt
+Level: 26
+- Discharge
+- Energy Ball
+- Bug Bite
 
 === TRAINER_DARIUS ===
 Name: DARIUS
