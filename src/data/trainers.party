@@ -666,7 +666,7 @@ AI: Check Bad Move
 Spritzee
 Level: 20
 
-Roselia
+Ivysaur
 Level: 20
 
 === TRAINER_ROSE_1 ===
@@ -681,10 +681,10 @@ AI: Check Bad Move
 Gloom
 Level: 22
 
-Skiploom
+Spinda
 Level: 22
 
-Roselia
+Skiploom
 Level: 22
 
 === TRAINER_FELIX ===
@@ -5603,7 +5603,7 @@ AI: Check Bad Move
 Skwovet @ Oran Berry
 Level: 20
 
-Skitty @ Oran Berry
+Eevee @ Oran Berry
 Level: 20
 
 === TRAINER_COLTON ===
@@ -9089,7 +9089,7 @@ AI: Check Bad Move
 Dottler
 Level: 19
 
-Fletchinder
+Barboach
 Level: 19
 
 Raticate
@@ -10298,7 +10298,7 @@ Level: 20
 Phanpy
 Level: 20
 
-Marill
+Buneary
 Level: 20
 
 Fomantis
@@ -10307,7 +10307,7 @@ Level: 20
 Skitty
 Level: 20
 
-Goldeen
+Poliwag
 Level: 20
 
 === TRAINER_HALLE ===
@@ -13463,7 +13463,7 @@ AI: Check Bad Move
 Raboot
 Level: 21
 
-Ponyta
+Corphish
 Level: 21
 
 === TRAINER_MARCOS ===
