@@ -336,6 +336,7 @@ enum EvolutionMode {
 
 // Used as a signal for givemon to generate a default ability by personality.
 #define NUM_ABILITY_PERSONALITY 0xFF
+#define STARTER_PERFECT_IV_COUNT 3
 
 #if P_LEGENDARY_PERFECT_IVS >= GEN_6
 #define LEGENDARY_PERFECT_IV_COUNT 3
