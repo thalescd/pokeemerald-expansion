@@ -203,6 +203,8 @@ Route110_TrickHouseEntrance_EventScript_BeginChallenge::
 	delay 20
 	call_if_eq VAR_TRICK_HOUSE_LEVEL, 0, Route110_TrickHouseEntrance_EventScript_MeetTrickMaster
 	msgbox Route110_TrickHouseEntrance_Text_ComeToChallengeTrickHouse, MSGBOX_DEFAULT
+	giveitem ITEM_ESCAPE_ROPE
+	msgbox Route110_TrickHouseEntrance_Text_ReallyLeaving, MSGBOX_DEFAULT
 	closemessage
 	delay 20
 	applymovement LOCALID_TRICK_MASTER, Route110_TrickHouse_Movement_TrickMasterSpin
@@ -755,6 +757,13 @@ Route110_TrickHouseEntrance_Text_ComeToChallengeTrickHouse:
 	.string "Consider your challenge accepted!\p"
 	.string "Enter through the scroll there,\n"
 	.string "and let your challenge commence!\p"
+	.string "I shall be waiting in the back\p"
+	.string "One more thing... I have to warn you.\p"
+	.string "My tricks are quite difficult.\n"
+	.string "Don't get lost!$"
+
+Route110_TrickHouseEntrance_Text_ReallyLeaving:
+	.string "Now I'm really leaving.\n"
 	.string "I shall be waiting in the back!$"
 
 Route110_TrickHouseEntrance_Text_ItsAScroll:
