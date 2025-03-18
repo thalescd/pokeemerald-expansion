@@ -4939,7 +4939,7 @@ IVs: 0 Atk
 - Volt Switch
 - Tri Attack
 
-Electrode-Hisui @ Assault Vest
+Electrode-Hisui @ Pecha Berry
 Ability: Static
 Level: 29
 Modest Nature
@@ -6292,13 +6292,11 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Zigzagoon
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Sandile
+Level: 23
 
-Zigzagoon
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Swadloon
+Level: 23
 
 === TRAINER_ALLEN ===
 Name: ALLEN
@@ -10807,6 +10805,9 @@ Cacnea
 Ability: Water Absorb  
 Level: 12  
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Feint Attack
+- Absorb
+- Pin Missile
 
 Archen
 Level: 12
@@ -11535,9 +11536,8 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Oddish
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Tangela
+Level: 25
 
 === TRAINER_ROBIN ===
 Name: ROBIN
@@ -11545,20 +11545,54 @@ Class: Lass
 Pic: Lass
 Gender: Female
 Music: Female
-Double Battle: No
-AI: Check Bad Move
+Double Battle: Yes
+AI: Smart Trainer
 
-Skitty
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Growlithe @ Charti Berry
+Ability: Intimidate
+Level: 24
+Jolly Nature
+- Flame Wheel
+- Bite
+- Reversal
 
-Shroomish
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Maschiff @ Tanga Berry
+Ability: Stakeout
+Level: 24
+Adamant Nature
+- Bite
+- Thunder Fang
+- Headbutt
+- Trailblaze
 
-Marill
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Herdier @ Chople Berry
+Ability: Intimidate
+Level: 24
+Adamant Nature
+- Retaliate
+- Play Rough
+- Psychic Fangs
+- Bite
+
+Greavard @ Colbur Berry
+Ability: Fluffy
+Level: 24
+Adamant Nature
+- Bite
+- Shadow Sneak
+- Ice Fang
+- Stomping Tantrum
+
+Boltund @ Shuca Berry
+Ability: Strong Jaw
+Level: 25
+Adamant Nature
+- Wild Charge
+- Fire Fang
+- Bite
+- Ice Fang
+
+
 
 === TRAINER_ANDREA ===
 Name: ANDREA
