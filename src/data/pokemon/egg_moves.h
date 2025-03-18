@@ -5716,6 +5716,7 @@ static const u16 sYamperEggMoveLearnset[] = {
     MOVE_FLAME_CHARGE,
     MOVE_DISCHARGE,
     MOVE_HOWL,
+    MOVE_ICE_FANG,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_YAMPER
