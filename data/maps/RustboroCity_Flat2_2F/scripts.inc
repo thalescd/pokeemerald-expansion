@@ -58,7 +58,8 @@ RustboroCity_Flat2_2F_Text_GiveFloatStone:
 	.string "an ACE TRAINER like me uses!$"
 
 RustboroCity_Flat2_2F_Text_ExplainFloatStone:
-	.string "If you have a POKéMON hold a Float Stone,\n"
-	.string "its weight will be halved.\p"
-	.string "Although it looks like it'll be a while before you\n"
-	.string "can use something like this as well as i can.$"
+	.string "If you have a POKéMON hold a Float\n"
+	.string "Stone, its weight will be halved.\p"
+	.string "Although it looks like it'll be a while\n"
+	.string "before you can use something like this\l"
+	.string "as well as I can.$"
