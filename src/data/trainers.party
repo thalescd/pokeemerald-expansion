@@ -4833,37 +4833,38 @@ Music: Female
 Double Battle: No
 AI: Smart Trainer
 
-Geodude-Alola @ Smooth Rock  
-Ability: Sturdy  
+Geodude-Alola @ Smooth Rock
+Ability: Sturdy
 Level: 15
-- Rock Tomb  
-- Spark  
-- Bulldoze  
-- Sandstorm  
+- Rock Tomb
+- Spark
+- Bulldoze
+- Sandstorm
 
-Zubat @ Cheri Berry  
-Ability: Inner Focus  
-Level: 14  
-- Wing Attack  
-- Bite  
-- Poison Fang  
-- Confuse Ray  
+Zubat @ Cheri Berry
+Ability: Inner Focus
+Level: 14
+- Wing Attack
+- Bite
+- Poison Fang
+- Confuse Ray
 
-Lileep  
-Ability: Storm Drain  
+Lileep
+Ability: Storm Drain
+Level: 14
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+- Ancient Power
+- Acid
+- Mega Drain
+- Recover
+
+Nosepass @ Berry Juice
+Ability: Sturdy
 Level: 15
-- Ancient Power  
-- Acid  
-- Mega Drain  
-- Recover  
-
-Nosepass @ Berry Juice  
-Ability: Sturdy  
-Level: 15  
-- Rock Tomb  
-- Spark  
-- Stomping Tantrum  
-- Thunder Wave  
+- Rock Tomb
+- Spark
+- Stomping Tantrum
+- Thunder Wave
 
 === TRAINER_BRAWLY_1 ===
 Name: BRAWLY
@@ -4876,7 +4877,7 @@ AI: Smart Trainer
 
 Pawmo @ Liechi Berry
 Ability: Iron Fist
-Level: 20
+Level: 19
 Jolly Nature
 - Spark
 - Arm Thrust
@@ -4885,7 +4886,7 @@ Jolly Nature
 
 Monferno @ Expert Belt
 Ability: Beast Boost
-Level: 20
+Level: 19
 Adamant Nature
 - Fire Punch
 - Mach Punch
@@ -4913,10 +4914,9 @@ Adamant Nature
 Hariyama @ Black Belt
 Ability: Guts
 Level: 20
-Adamant Nature
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Force Palm
-- Body Slam
+- Smelling Salts
 - Bullet Punch
 - Bulk Up
 
@@ -4939,10 +4939,10 @@ IVs: 0 Atk
 - Volt Switch
 - Tri Attack
 
-Electrode-Hisui @ Pecha Berry
+Voltorb-Hisui @ Pecha Berry
 Ability: Static
 Level: 29
-Modest Nature
+Timid Nature
 IVs: 0 Atk
 - Giga Drain
 - Discharge
@@ -4967,9 +4967,9 @@ Adamant Nature
 - U-turn
 - Roost
 
-Lanturn @ Leftovers
+Lanturn @ Wiki Berry
 Ability: Water Absorb
-Level: 29
+Level: 28
 Modest Nature
 IVs: 0 Atk
 - Bubble Beam
