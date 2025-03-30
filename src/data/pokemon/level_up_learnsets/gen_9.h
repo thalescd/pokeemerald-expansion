@@ -5218,7 +5218,6 @@ static const struct LevelUpMove sSpinarakLevelUpLearnset[] = {
 
 static const struct LevelUpMove sAriadosLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_SILK_TRAP),
-    LEVEL_UP_MOVE( 1, MOVE_FELL_STINGER),
     LEVEL_UP_MOVE( 1, MOVE_POISON_STING),
     LEVEL_UP_MOVE( 1, MOVE_SPIDER_WEB),
     LEVEL_UP_MOVE( 3, MOVE_INFESTATION),
@@ -5227,7 +5226,7 @@ static const struct LevelUpMove sAriadosLevelUpLearnset[] = {
     LEVEL_UP_MOVE(12, MOVE_NIGHT_SHADE),
     LEVEL_UP_MOVE(15, MOVE_BUG_BITE),
     LEVEL_UP_MOVE(18, MOVE_SHADOW_SNEAK),
-    LEVEL_UP_MOVE(22, MOVE_FURY_SWIPES),
+    LEVEL_UP_MOVE(22, MOVE_FELL_STINGER),
     LEVEL_UP_MOVE(25, MOVE_SWORDS_DANCE),
     LEVEL_UP_MOVE(28, MOVE_SUCKER_PUNCH),
     LEVEL_UP_MOVE(30, MOVE_AGILITY),
