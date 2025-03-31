@@ -222,20 +222,20 @@ VerdanturfTown_BattleTentLobby_Movement_PlayerEnterDoor:
 	set_invisible
 	step_end
 
-VerdanturfTown_BattleTentLobby_EventScript_AttractGiver::
+VerdanturfTown_BattleTentLobby_EventScript_SunStoneGiver::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM_ATTRACT, VerdanturfTown_BattleTentLobby_EventScript_ReceivedAttract
-	msgbox VerdanturfTown_BattleTentLobby_Text_AttractionRunsDeep, MSGBOX_DEFAULT
-	giveitem ITEM_TM_ATTRACT
+	goto_if_set FLAG_RECEIVED_VERDANTURF_SUN_STONE, VerdanturfTown_BattleTentLobby_EventScript_ReceivedSunStone
+	msgbox VerdanturfTown_BattleTentLobby_Text_BattleLikeSunshine, MSGBOX_DEFAULT
+	giveitem ITEM_SUN_STONE
 	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM_ATTRACT
-	msgbox VerdanturfTown_BattleTentLobby_Text_AttractionMutual, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_VERDANTURF_SUN_STONE
+	msgbox VerdanturfTown_BattleTentLobby_Text_PraiseTheSun, MSGBOX_DEFAULT
 	release
 	end
 
-VerdanturfTown_BattleTentLobby_EventScript_ReceivedAttract::
-	msgbox VerdanturfTown_BattleTentLobby_Text_AttractionMutual, MSGBOX_DEFAULT
+VerdanturfTown_BattleTentLobby_EventScript_ReceivedSunStone::
+	msgbox VerdanturfTown_BattleTentLobby_Text_PraiseTheSun, MSGBOX_DEFAULT
 	release
 	end
 
@@ -346,19 +346,14 @@ VerdanturfTown_BattleTentLobby_Text_GentleMonsScaryIfAngry:
 	.string "I bet a gentle POKéMON will be scary\n"
 	.string "if it gets angry!$"
 
-VerdanturfTown_BattleTentLobby_Text_AttractionRunsDeep:
-	.string "My feelings toward my POKéMON…\n"
-	.string "The attraction runs deep…\p"
-	.string "Oh, hi, you didn't see that, did you?\n"
-	.string "Well, it doesn't matter.\p"
-	.string "How would you like this TM for\n"
-	.string "your POKéMON?$"
+VerdanturfTown_BattleTentLobby_Text_BattleLikeSunshine:
+	.string "My POKéMON battle like a ray of\n"
+	.string "the most beautiful sunshine.\p"
+	.string "Since we are talking about\n"
+	.string "the sun, would you like one of these?$"
 
-VerdanturfTown_BattleTentLobby_Text_AttractionMutual:
-	.string "My feelings toward my POKéMON…\n"
-	.string "I'm sure the attraction is mutual!\p"
-	.string "They battle exactly the way I want\n"
-	.string "them to!$"
+VerdanturfTown_BattleTentLobby_Text_PraiseTheSun:
+	.string "We should all praise the sun.$"
 
 VerdanturfTown_BattleTentLobby_Text_TaughtWhatKindsOfMoves:
 	.string "What kind of moves have you taught\n"
