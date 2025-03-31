@@ -3121,7 +3121,6 @@ static const u16 sCorphishEggMoveLearnset[] = {
     MOVE_TRUMP_CARD,
     MOVE_CHIP_AWAY,
     MOVE_DOUBLE_EDGE,
-    MOVE_AQUA_JET,
     MOVE_SWITCHEROO,
     MOVE_UNAVAILABLE,
 };
