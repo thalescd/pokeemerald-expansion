@@ -129,6 +129,56 @@ Route115_EventScript_Marlene::
 	msgbox Route115_Text_MarlenePostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route115_EventScript_GoodRodFisherman::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_GOOD_ROD, Route115_EventScript_ReceivedGoodRod
+	msgbox Route115_Text_YouAgreeGoodRodIsGood, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route115_EventScript_ReceiveGoodRod
+	goto_if_eq VAR_RESULT, NO, Route115_EventScript_DeclineGoodRod
+	end
+	
+Route115_EventScript_ReceiveGoodRod::
+	msgbox Route115_Text_IdenticalMindsTakeThis, MSGBOX_DEFAULT
+	giveitem ITEM_GOOD_ROD
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_GOOD_ROD
+	msgbox Route115_Text_TryYourLuckFishing, MSGBOX_DEFAULT
+	release
+	end
+	
+Route115_EventScript_DeclineGoodRod::
+	msgbox Route115_Text_DontYouLikeToFish, MSGBOX_DEFAULT
+	release
+	end
+	
+Route115_EventScript_ReceivedGoodRod::
+	msgbox Route115_Text_TryCatchingMonWithGoodRod, MSGBOX_DEFAULT
+	release
+	end
+	
+Route115_Text_YouAgreeGoodRodIsGood:
+	.string "Hmm!\n"
+	.string "A GOOD ROD is really good!\p"
+	.string "Wouldn't you agree?$"
+	
+Route115_Text_IdenticalMindsTakeThis:
+	.string "Hmm!\n"
+	.string "We're of identical minds!\p"
+	.string "Hmm!\n"
+	.string "Take this GOOD ROD!$"
+	
+Route115_Text_TryYourLuckFishing:
+	.string "Wherever there's water, try your luck\n"
+	.string "at fishing.$"
+	
+Route115_Text_DontYouLikeToFish:
+	.string "Don't you like to fish?$"
+	
+Route115_Text_TryCatchingMonWithGoodRod:
+	.string "Try catching all sorts of POKéMON\n"
+	.string "with your GOOD ROD.$"
+
 Route115_Text_NeverKnowWhenCavePokemonWillAppear:
 	.string "Exploring a cave isn't like walking\n"
 	.string "on a road.\p"
