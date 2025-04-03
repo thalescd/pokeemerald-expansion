@@ -4,6 +4,7 @@ MauvilleCity_BikeShop_MapScripts::
 MauvilleCity_BikeShop_EventScript_Rydel::
 	lock
 	faceplayer
+	goto_if_unset FLAG_BADGE03_GET, MauvilleCity_BikeShop_EventScript_RydelGetBadge
 	goto_if_set FLAG_RECEIVED_BIKE, MauvilleCity_BikeShop_EventScript_AskSwitchBikes
 	goto_if_set FLAG_DECLINED_BIKE, MauvilleCity_BikeShop_EventScript_SkipGreeting
 	msgbox MauvilleCity_BikeShop_Text_RydelGreeting, MSGBOX_DEFAULT
@@ -25,6 +26,11 @@ MauvilleCity_BikeShop_EventScript_ChooseBike::
 	switch VAR_RESULT
 	case 0, MauvilleCity_BikeShop_EventScript_GetMachBike
 	case 1, MauvilleCity_BikeShop_EventScript_GetAcroBike
+	end
+
+MauvilleCity_BikeShop_EventScript_RydelGetBadge:
+	msgbox MauvilleCity_BikeShop_Text_GetBadge, MSGBOX_DEFAULT
+	release
 	end
 
 MauvilleCity_BikeShop_EventScript_NotFar::
@@ -175,6 +181,11 @@ MauvilleCity_BikeShop_EventScript_Jumps::
 MauvilleCity_BikeShop_EventScript_ExitAcroHandbook::
 	release
 	end
+
+MauvilleCity_BikeShop_Text_GetBadge:
+	.string "Haven't you even faced Mr. WATTSON?\p"
+	.string "You're not a trainer worthy\n"
+	.string "of my attention.$"
 
 MauvilleCity_BikeShop_Text_RydelGreeting:
 	.string "Well, well, what have we here?\n"
