@@ -17317,6 +17317,68 @@ Wobbuffet
 Level: 41
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+=== TRAINER_CASSIUS ===
+Name: CASSIUS
+Class: Cue Ball
+Pic: Cue Ball
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Smart Trainer
+
+Obstagoon @ Chople Berry
+Ability: Reckless
+Level: 33
+Jolly Nature
+- Night Slash
+- Submission
+- Take Down
+- Parting Shot
+
+Tauros-Paldea-Blaze
+Ability: Intimidate
+Level: 34
+Adamant Nature
+- Raging Bull
+- Zen Headbutt
+- Body Press
+- Flame Charge
+
+Cyclizar @ Mental Herb
+Ability: Regenerator
+Level: 34
+Adamant Nature
+- Shed Tail
+- U-turn
+- Dragon Claw
+- Temper Flare
+
+Gliscor @ Toxic Orb
+Ability: Poison Heal
+Level: 33
+Impish Nature
+- Knock Off
+- Dual Wingbeat
+- Bulldoze
+- Facade
+
+Exeggutor @ Sitrus Berry
+Ability: Harvest
+Level: 33
+Quiet Nature
+- Giga Drain
+- Extrasensory
+- Stomping Tantrum
+
+Copperajah @ Metal Coat
+Ability: Heavy Metal
+Level: 34
+Tera Type: Steel
+Adamant Nature
+- Heavy Slam
+- Slam
+- Bulldoze
+
 === TRAINER_RED ===
 Name: RED
 Class: Rival
