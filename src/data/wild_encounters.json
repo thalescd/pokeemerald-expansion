@@ -398,7 +398,7 @@
             ]
           },
           "rock_smash_mons": {
-            "encounter_rate": 20,
+            "encounter_rate": 50,
             "mons": [
               {
                 "min_level": 16,
@@ -1425,17 +1425,17 @@
               {
                 "min_level": 8,
                 "max_level": 8,
+                "species": "SPECIES_PANCHAM"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
                 "species": "SPECIES_BUNNELBY"
               },
               {
                 "min_level": 8,
                 "max_level": 8,
-                "species": "SPECIES_JOLTIK"
-              },
-              {
-                "min_level": 8,
-                "max_level": 8,
-                "species": "SPECIES_MEOWTH_GALAR"
+                "species": "SPECIES_PANCHAM"
               },
               {
                 "min_level": 8,
@@ -1445,7 +1445,7 @@
               {
                 "min_level": 9,
                 "max_level": 9,
-                "species": "SPECIES_PANCHAM"
+                "species": "SPECIES_MEOWTH_GALAR"
               },
               {
                 "min_level": 8,
@@ -1455,7 +1455,7 @@
               {
                 "min_level": 8,
                 "max_level": 9,
-                "species": "SPECIES_PANCHAM"
+                "species": "SPECIES_MEOWTH_GALAR"
               },
               {
                 "min_level": 8,
@@ -1485,7 +1485,7 @@
             ]
           },
           "rock_smash_mons": {
-            "encounter_rate": 20,
+            "encounter_rate": 50,
             "mons": [
               {
                 "min_level": 10,
@@ -1495,12 +1495,12 @@
               {
                 "min_level": 10,
                 "max_level": 12,
-                "species": "SPECIES_CUTIEFLY"
+                "species": "SPECIES_JOLTIK"
               },
               {
                 "min_level": 10,
                 "max_level": 12,
-                "species": "SPECIES_NINCADA"
+                "species": "SPECIES_CUTIEFLY"
               },
               {
                 "min_level": 10,
