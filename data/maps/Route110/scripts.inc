@@ -743,6 +743,15 @@ Route110_Movement_BirchExit4:
 	walk_up
 	step_end
 
+Route110_EventScript_BikerBlocker::
+	lock
+	faceplayer
+	msgbox Route110_Text_BikerGetLost, MSGBOX_DEFAULT
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
+	end
+
 Route110_Text_WeCantTalkAboutAquaActivities:
 	.string "TEAM AQUA's activities…\n"
 	.string "We can't talk about them yet.$"
@@ -992,3 +1001,5 @@ Route110_Text_KeepAnEyeOutForRival:
 	.string "Well, I had better get going.\n"
 	.string "See you again, {PLAYER}{KUN}!$"
 
+Route110_Text_BikerGetLost:
+	.string "Get lost, kid!$"
