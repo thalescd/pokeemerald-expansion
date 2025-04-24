@@ -684,9 +684,8 @@ static const u16 sGeodudeAlolaEggMoveLearnset[] = {
 
 #if P_FAMILY_PONYTA
 static const u16 sPonytaEggMoveLearnset[] = {
-    MOVE_FLAME_WHEEL,
+    MOVE_FIRE_SPIN,
     MOVE_THRASH,
-    MOVE_DOUBLE_KICK,
     MOVE_HYPNOSIS,
     MOVE_CHARM,
     MOVE_DOUBLE_EDGE,
@@ -696,7 +695,7 @@ static const u16 sPonytaEggMoveLearnset[] = {
     MOVE_CAPTIVATE,
     MOVE_ALLY_SWITCH,
     MOVE_HIGH_HORSEPOWER,
-    MOVE_VOLT_TACKLE,
+    MOVE_FIRE_LASH,
     MOVE_UNAVAILABLE,
 };
 #if P_GALARIAN_FORMS
