@@ -6090,11 +6090,11 @@ AI: Check Bad Move
 
 Growlithe-Hisui
 Ability: Intimidate
-Level: 12
+Level: 13
 IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
 
 Onix
-Level: 12
+Level: 13
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 
 === TRAINER_JOEY ===
@@ -10803,14 +10803,14 @@ AI: Check Bad Move
 
 Cacnea  
 Ability: Water Absorb  
-Level: 12  
+Level: 13
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 - Feint Attack
 - Absorb
 - Pin Missile
 
 Archen
-Level: 12
+Level: 13
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 
 === TRAINER_BRENDEN ===
@@ -11922,11 +11922,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Klink
-Level: 10
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Timburr
-Level: 10
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ERIC ===
@@ -14335,11 +14335,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Nidoran-M (M)
-Level: 11
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Cottonee
-Level: 11
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_MELINA ===
