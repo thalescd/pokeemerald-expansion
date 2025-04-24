@@ -47,7 +47,7 @@
 #define FLAG_RECEIVED_RUSTBORO_MART_ITEM    0x21
 #define FLAG_RECEIVED_SLATEPORT_HASTY_MINT  0x22
 #define FLAG_RECEIVED_FLOAT_STONE_RUSTBORO  0x23
-#define FLAG_DEFEATED_BIKE_LEADER           0x24
+#define FLAG_DEFEATED_BIKER_LEADER          0x24
 #define FLAG_UNUSED_0x025                   0x25 // Unused Flag
 #define FLAG_UNUSED_0x026                   0x26 // Unused Flag
 #define FLAG_UNUSED_0x027                   0x27 // Unused Flag

@@ -2,6 +2,10 @@
 .set LOCALID_RIVAL, 28
 .set LOCALID_RIVAL_ON_BIKE, 29
 .set LOCALID_BIRCH, 36
+.set LOCALID_CASSIUS, 40
+.set LOCALID_BIKER1, 37
+.set LOCALID_BIKER2, 38
+.set LOCALID_BIKER3, 39
 
 Route110_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route110_OnResume
@@ -752,6 +756,31 @@ Route110_EventScript_BikerBlocker::
 	release
 	end
 
+Route110_EventScript_CassiusIntroduction::
+	lock
+	faceplayer
+	msgbox Route110_Text_CassiusIntroduction, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_CASSIUS_ROUTE_110, Route110_Text_MayDefeated
+	goto Route110_EventScript_CassiusDefeated
+
+Route110_EventScript_CassiusDefeated::
+	msgbox Route110_Text_CassiusAfterBattle, MSGBOX_DEFAULT
+	giveitem ITEM_HM_ROCK_SMASH
+	msgbox Route110_Text_CassiusAfterGiveRockSmash, MSGBOX_DEFAULT
+	closemessage
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_CASSIUS
+	removeobject LOCALID_BIKER1
+	removeobject LOCALID_BIKER2
+	removeobject LOCALID_BIKER3
+	fadescreen FADE_FROM_BLACK
+	delay 30
+	setflag FLAG_DEFEATED_BIKER_LEADER
+	release
+	end
+
 Route110_Text_WeCantTalkAboutAquaActivities:
 	.string "TEAM AQUA's activities…\n"
 	.string "We can't talk about them yet.$"
@@ -1003,3 +1032,42 @@ Route110_Text_KeepAnEyeOutForRival:
 
 Route110_Text_BikerGetLost:
 	.string "Get lost, kid!$"
+
+Route110_Text_CassiusIntroduction:
+	.string "Hey, punk! You lost, or are you just\n"
+	.string "dumb enough to ride your little bike\l"
+	.string "on the BIKER TRACK?\p"
+	.string "Name's CASSIUS, leader of the\n"
+	.string "GEARRED GANG!\p"
+	.string "This place used to be a paradise...\n"
+	.string "until all these pedal-pushers started\l"
+	.string "thinking they owned the road.\p"
+	.string "But that ends now!\p"
+	.string "Me and my crew are takin’ this\n"
+	.string "track back - with engines, smoke,\l"
+	.string "and of course… POKéMON battles!\p"
+	.string "If you're with those cyclists,\n"
+	.string "you're gonna have to get past my\l"
+	.string "front wheel first.\p"
+	.string "Let’s see if you’ve got the guts to\n"
+	.string "face the full throttle of the\l"
+	.string "GEARRED GANG!$"
+
+Route110_Text_CassiusDefeated:
+	.string "Tch... No way.\n"
+	.string "You actually smoked me…?$"
+
+Route110_Text_CassiusAfterBattle:
+	.string "Didn’t think a rookie like you\n"
+	.string "had that kind of fire.\p"
+	.string "Alright, alright… a deal is a deal. The\n"
+	.string "GEARRED GANG will back off - for now.\p"
+	.string "But don’t think this is over, rookie.\p"
+	.string "Next time, I won’t be holdin’\n"
+	.string "back anything - not my throttle,\l"
+	.string "not my POKéMON!\p"
+	.string "You’ve earned some respect…\n"
+	.string "but don’t let it go to your head.$"
+
+Route110_Text_CassiusAfterGiveRockSmash:
+	.string "Next time, I’ll leave you in the dust.$"
