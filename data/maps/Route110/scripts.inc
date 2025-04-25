@@ -472,6 +472,7 @@ Route110_EventScript_GiveItemfinder::
 
 Route110_EventScript_RivalExit::
 	closemessage
+	setflag FLAG_DEFEATED_RIVAL_ROUTE_110
 	call_if_eq VAR_0x8008, 1, Route110_EventScript_MoveRival1
 	call_if_eq VAR_0x8008, 2, Route110_EventScript_MoveRival2
 	call_if_eq VAR_0x8008, 3, Route110_EventScript_MoveRival3
@@ -777,7 +778,8 @@ Route110_EventScript_CassiusDefeated::
 	removeobject LOCALID_BIKER3
 	fadescreen FADE_FROM_BLACK
 	delay 30
-	setflag FLAG_DEFEATED_BIKER_LEADER
+	setflag FLAG_RECEIVED_HM_ROCK_SMASH
+	setflag FLAG_HIDE_ROUTE_111_ROCK_SMASH_TIP_GUY
 	release
 	end
 
