@@ -719,8 +719,8 @@ Route111_Text_MauvilleUncleToldMeToTakeRockSmash:
 	.string "My uncle in MAUVILLE told me to take\n"
 	.string "ROCK SMASH with me if I was going to\l"
 	.string "ROUTE 111!\p"
-	.string "My uncle? He lives across from\n"
-	.string "the bike shop in MAUVILLE.$"
+	.string "But then some guys on motorcycles\n"
+	.string "showed up and took it from me.$"	
 
 Route111_Text_TrainerHillSign:
 	.string "{RIGHT_ARROW} TRAINER HILL ENTRANCE\p"
