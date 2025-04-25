@@ -48,7 +48,7 @@
 #define FLAG_RECEIVED_SLATEPORT_HASTY_MINT  0x22
 #define FLAG_RECEIVED_FLOAT_STONE_RUSTBORO  0x23
 #define FLAG_DEFEATED_BIKER_LEADER          0x24
-#define FLAG_UNUSED_0x025                   0x25 // Unused Flag
+#define FLAG_DEFEATED_RIVAL_ROUTE_110       0x25
 #define FLAG_UNUSED_0x026                   0x26 // Unused Flag
 #define FLAG_UNUSED_0x027                   0x27 // Unused Flag
 #define FLAG_UNUSED_0x028                   0x28 // Unused Flag
@@ -288,7 +288,7 @@
 #define FLAG_RECEIVED_TM_BULLET_SEED         0x106
 #define FLAG_ENTERED_ELITE_FOUR              0x107
 #define FLAG_RECEIVED_TM_HIDDEN_POWER        0x108
-#define FLAG_RECEIVED_TM_TORMENT             0x109
+#define FLAG_UNUSED_0x109                    0x109  // Unused Flag
 #define FLAG_RECEIVED_LAVARIDGE_EGG          0x10A
 #define FLAG_RECEIVED_REVIVED_FOSSIL_MON     0x10B
 #define FLAG_SECRET_BASE_REGISTRY_ENABLED    0x10C

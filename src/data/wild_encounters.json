@@ -2144,7 +2144,7 @@
               {
                 "min_level": 13,
                 "max_level": 15,
-                "species": "SPECIES_GRIMER_ALOLA"
+                "species": "SPECIES_SANDSHREW_ALOLA"
               },
               {
                 "min_level": 13,
@@ -2213,7 +2213,7 @@
               {
                 "min_level": 13,
                 "max_level": 15,
-                "species": "SPECIES_SANDSHREW_ALOLA"
+                "species": "SPECIES_GASTLY"
               },
               {
                 "min_level": 13,
@@ -2612,7 +2612,7 @@
               {
                 "min_level": 13,
                 "max_level": 15,
-                "species": "SPECIES_SANDSHREW_ALOLA"
+                "species": "SPECIES_GASTLY"
               },
               {
                 "min_level": 13,
@@ -4835,7 +4835,7 @@
               {
                 "min_level": 13,
                 "max_level": 15,
-                "species": "SPECIES_GRIMER_ALOLA"
+                "species": "SPECIES_SANDSHREW_ALOLA"
               },
               {
                 "min_level": 13,
@@ -8934,7 +8934,7 @@
               {
                 "min_level": 14,
                 "max_level": 16,
-                "species": "SPECIES_MILCERY"
+                "species": "SPECIES_FARFETCHD"
               },
               {
                 "min_level": 14,
@@ -8964,12 +8964,12 @@
               {
                 "min_level": 14,
                 "max_level": 16,
-                "species": "SPECIES_FARFETCHD"
+                "species": "SPECIES_MILCERY"
               },
               {
                 "min_level": 14,
                 "max_level": 16,
-                "species": "SPECIES_FARFETCHD"
+                "species": "SPECIES_MILCERY"
               },
               {
                 "min_level": 14,
