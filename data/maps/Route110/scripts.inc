@@ -778,7 +778,8 @@ Route110_EventScript_CassiusDefeated::
 	removeobject LOCALID_BIKER3
 	fadescreen FADE_FROM_BLACK
 	delay 30
-	setflag FLAG_DEFEATED_BIKER_LEADER
+	setflag FLAG_RECEIVED_HM_ROCK_SMASH
+	setflag FLAG_HIDE_ROUTE_111_ROCK_SMASH_TIP_GUY
 	release
 	end
 
