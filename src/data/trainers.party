@@ -417,14 +417,33 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
-AI: Check Bad Move
+AI: Smart Trainer
 
-Noibat
-Ability: Infiltrator
-Level: 21
+Golbat
+Ability: Inner Focus
+Level: 22
+Jolly Nature
+- Air Cutter
+- Swift
+- U-turn
 
-Remoraid
+Frogadier
+Ability: Torrent
 Level: 21
+Mild Nature
+- Water Pulse
+- Acrobatics
+- Icy Wind
+- U-turn
+
+Seadra
+Ability: Poison Point
+Level: 22
+Modest Nature
+IVs: 0 Atk
+- Bubble Beam
+- Dragon Breath
+- Signal Beam
 
 === TRAINER_GRUNT_MUSEUM_2 ===
 Name: GRUNT
@@ -433,14 +452,33 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
-AI: Check Bad Move
+AI: Smart Trainer
 
 Carvanha
+Ability: Rough Skin
 Level: 21
+Adamant Nature
+- Aqua Jet
+- Assurance
+- Ice Fang
+- Poison Fang
 
 Mightyena
 Ability: Intimidate
 Level: 21
+Jolly Nature
+- Bite
+- Fire Fang
+- Ice Fang
+- Thunder Fang
+
+Araquanid
+Ability: Water Bubble
+Level: 22
+Quiet Nature
+- Bubble Beam
+- Bug Bite
+- Bite
 
 === TRAINER_GRUNT_SPACE_CENTER_1 ===
 Name: GRUNT
