@@ -4008,6 +4008,7 @@ static const u16 sPurrloinEggMoveLearnset[] = {
     MOVE_YAWN,
     MOVE_COVET,
     MOVE_COPYCAT,
+    MOVE_DIRE_CLAW,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_PURRLOIN
