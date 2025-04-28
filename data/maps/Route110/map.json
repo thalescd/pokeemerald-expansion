@@ -509,7 +509,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route110_EventScript_BikerBlocker",
-      "flag": "FLAG_DEFEATED_BIKER_LEADER"
+      "flag": "FLAG_RECEIVED_HM_ROCK_SMASH"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
@@ -522,7 +522,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route110_EventScript_BikerBlocker",
-      "flag": "FLAG_DEFEATED_BIKER_LEADER"
+      "flag": "FLAG_RECEIVED_HM_ROCK_SMASH"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
@@ -535,7 +535,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route110_EventScript_BikerBlocker",
-      "flag": "FLAG_DEFEATED_BIKER_LEADER"
+      "flag": "FLAG_RECEIVED_HM_ROCK_SMASH"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
@@ -548,7 +548,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route110_EventScript_CassiusIntroduction",
-      "flag": "FLAG_DEFEATED_BIKER_LEADER"
+      "flag": "FLAG_RECEIVED_HM_ROCK_SMASH"
     }
   ],
   "warp_events": [
