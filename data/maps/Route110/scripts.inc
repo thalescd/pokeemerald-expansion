@@ -761,7 +761,7 @@ Route110_EventScript_CassiusIntroduction::
 	lock
 	faceplayer
 	msgbox Route110_Text_CassiusIntroduction, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_CASSIUS_ROUTE_110, Route110_Text_MayDefeated
+	trainerbattle_no_intro TRAINER_CASSIUS_ROUTE_110, Route110_Text_CassiusDefeated
 	goto Route110_EventScript_CassiusDefeated
 
 Route110_EventScript_CassiusDefeated::
