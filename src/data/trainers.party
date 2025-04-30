@@ -717,13 +717,13 @@ Double Battle: No
 AI: Check Bad Move
 
 Gloom
-Level: 22
+Level: 24
 
 Spinda
-Level: 22
+Level: 24
 
 Skiploom
-Level: 22
+Level: 24
 
 === TRAINER_FELIX ===
 Name: FELIX
@@ -3455,10 +3455,10 @@ Double Battle: No
 AI: Check Bad Move
 
 Electrike
-Level: 24
+Level: 25
 
 Voltorb
-Level: 24
+Level: 25
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_7 ===
 Name: GRUNT
@@ -3532,7 +3532,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Chatot
-Level: 25
+Level: 26
 
 === TRAINER_DALTON_2 ===
 Name: DALTON
@@ -4070,10 +4070,10 @@ Double Battle: No
 AI: Check Bad Move
 
 Dustox
-Level: 23
+Level: 25
 
 Beautifly
-Level: 23
+Level: 25
 
 === TRAINER_JEFFREY_2 ===
 Name: JEFFREY
@@ -5511,10 +5511,10 @@ Double Battle: Yes
 AI: Check Bad Move
 
 Sneasel
-Level: 22
+Level: 24
 
 Applin
-Level: 22
+Level: 24
 
 === TRAINER_ANNA_AND_MEG_2 ===
 Name: ANNA & MEG
@@ -6583,7 +6583,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Pincurchin
-Level: 25
+Level: 26
 
 === TRAINER_CARTER ===
 Name: CARTER
@@ -6997,10 +6997,10 @@ Double Battle: No
 AI: Check Bad Move
 
 Ponyta
-Level: 23
+Level: 24
 
 Hitmonlee
-Level: 23
+Level: 24
 
 === TRAINER_MARIA_2 ===
 Name: MARIA
@@ -10125,22 +10125,22 @@ Double Battle: No
 AI: Check Bad Move
 
 Rookidee
-Level: 20
+Level: 23
 
 Skiddo
-Level: 20
+Level: 23
 
 Tinkatink
-Level: 20
+Level: 23
 
 Zorua
-Level: 20
+Level: 23
 
 Rufflet
-Level: 20
+Level: 23
 
 Riolu
-Level: 20
+Level: 23
 
 === TRAINER_DAVIS ===
 Name: DAVIS
@@ -10322,22 +10322,22 @@ Double Battle: No
 AI: Check Bad Move
 
 Hatenna
-Level: 20
+Level: 23
 
 Phanpy
-Level: 20
+Level: 23
 
 Buneary
-Level: 20
+Level: 23
 
 Fomantis
-Level: 20
+Level: 23
 
 Skitty
-Level: 20
+Level: 23
 
 Poliwag
-Level: 20
+Level: 23
 
 === TRAINER_HALLE ===
 Name: HALLE
@@ -12023,13 +12023,13 @@ Double Battle: No
 AI: Check Bad Move
 
 Drilbur
-Level: 23
-
-Roggenrola
-Level: 23
+Level: 24
 
 Rolycoly
-Level: 23
+Level: 24
+
+Boldore
+Level: 25
 
 === TRAINER_TRENT_2 ===
 Name: TRENT
@@ -12448,7 +12448,7 @@ AI: Smart Trainer
 
 Roselia
 Ability: Poison Point
-Level: 23
+Level: 25
 Modest Nature
 IVs: 0 Atk
 - Mega Drain
@@ -12458,7 +12458,7 @@ IVs: 0 Atk
 
 Fletchinder
 Ability: Flame Body
-Level: 23
+Level: 25
 Adamant Nature
 - Flame Charge
 - Aerial Ace
@@ -12467,7 +12467,7 @@ Adamant Nature
 
 Krabby
 Ability: Hyper Cutter
-Level: 23
+Level: 25
 Adamant Nature
 - Razor Shell
 - Vise Grip
@@ -12476,7 +12476,7 @@ Adamant Nature
 
 Elekid
 Ability: Static
-Level: 22
+Level: 24
 - Shock Wave
 - Karate Chop
 - Swift
@@ -12484,7 +12484,7 @@ Level: 22
 
 Kirlia
 Ability: Trace
-Level: 24
+Level: 26
 Modest Nature
 IVs: 0 Atk
 - Psybeam
@@ -13753,13 +13753,13 @@ Double Battle: No
 AI: Check Bad Move
 
 Linoone
-Level: 22
+Level: 24
 
 Lairon
-Level: 22
+Level: 24
 
 Slugma
-Level: 22
+Level: 24
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_1 ===
 Name: GRUNT
@@ -14383,7 +14383,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Swellow
-Level: 24
+Level: 26
 
 === TRAINER_BRANDI ===
 Name: BRANDI
@@ -14395,10 +14395,10 @@ Double Battle: No
 AI: Check Bad Move
 
 Solosis
-Level: 22
+Level: 25
 
 Braixen
-Level: 22
+Level: 25
 
 === TRAINER_AISHA ===
 Name: AISHA
@@ -14410,7 +14410,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Passimian
-Level: 24
+Level: 26
 
 === TRAINER_MAKAYLA ===
 Name: MAKAYLA
