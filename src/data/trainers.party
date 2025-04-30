@@ -4353,10 +4353,8 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Abra
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Hidden Power
+Jynx
+Level: 30
 
 === TRAINER_HANNAH ===
 Name: HANNAH
@@ -6740,17 +6738,14 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Voltorb
-Level: 6
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+Arbok
+Level: 28
 
-Voltorb
-Level: 6
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+Breloom
+Level: 28
 
-Magnemite
-Level: 14
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Bewear
+Level: 28
 
 === TRAINER_ANTHONY ===
 Name: ANTHONY
@@ -6761,13 +6756,11 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Magnemite
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Lycanroc
+Level: 28
 
-Magnemite
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Kilowattrel
+Level: 28
 
 === TRAINER_BENJAMIN_1 ===
 Name: BENJAMIN
@@ -6778,9 +6771,11 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Magnemite
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Dodrio
+Level: 30
+
+Rapidash
+Level: 30
 
 === TRAINER_BENJAMIN_2 ===
 Name: BENJAMIN
@@ -6843,9 +6838,11 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Magnemite
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Raichu
+Level: 28
+
+Ambipom
+Level: 28
 
 === TRAINER_JASMINE ===
 Name: JASMINE
@@ -6856,17 +6853,14 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Magnemite
-Level: 14
-IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+Primeape
+Level: 28
 
-Magnemite
-Level: 14
-IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+Farfetch’d
+Level: 29
 
-Voltorb
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Electrode
+Level: 30
 
 === TRAINER_ABIGAIL_2 ===
 Name: ABIGAIL
