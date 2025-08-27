@@ -501,7 +501,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sCharmeleonLevelUpLearnset,
         .teachableLearnset = sCharmeleonTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_CHARIZARD},
-                                {EVO_ITEM_HOLD_NIGHT, ITEM_DRAGON_FANG, SPECIES_CHARIZARD_MEGA_X}),
+                                {EVO_ITEM, ITEM_DRAGON_FANG, SPECIES_CHARIZARD_MEGA_X, CONDITIONS({IF_TIME, TIME_NIGHT})}),
     },
 
     [SPECIES_CHARIZARD] =
@@ -12110,8 +12110,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sOnixLevelUpLearnset,
         .teachableLearnset = sOnixTeachableLearnset,
         .eggMoveLearnset = sOnixEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_TRADE, 0, SPECIES_STEELIX, CONDITIONS({IF_HOLD_ITEM, ITEM_METAL_COAT})},
-                                {EVO_ITEM, ITEM_METAL_COAT, SPECIES_STEELIX}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_METAL_COAT, SPECIES_STEELIX}),
     },
 
 #if P_GEN_2_CROSS_EVOS
@@ -12199,7 +12198,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .teachableLearnset = sSteelixTeachableLearnset,
         .formSpeciesIdTable = sSteelixFormSpeciesIdTable,
         .formChangeTable = sSteelixFormChangeTable,
-        .evolutions = EVOLUTION({EVO_MOVE, MOVE_MAGNET_RISE, SPECIES_STEELIX_MEGA}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_STEELIX_MEGA, CONDITIONS({IF_KNOWS_MOVE, MOVE_MAGNET_RISE})}),
     },
 
 #if P_MEGA_EVOLUTIONS
