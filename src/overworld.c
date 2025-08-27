@@ -1068,7 +1068,7 @@ static bool8 CanLearnFlashInParty(void)
 // Flash level of 8 is fully black
 void SetDefaultFlashLevel(void)
 {
-    if (CheckBagHasItem(ITEM_HM05 ,1) && CanLearnFlashInParty())
+    if (CheckBagHasItem(ITEM_HM05 ,1) && CanLearnFlashInParty() && FlagGet(FLAG_BADGE02_GET))
         FlagSet(FLAG_SYS_USE_FLASH);
     if (!gMapHeader.cave)
         gSaveBlock1Ptr->flashLevel = 0;
