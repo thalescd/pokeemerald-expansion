@@ -3904,9 +3904,14 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Sandshrew
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Vullaby
+Level: 31
+
+Cinccino
+Level: 31
+
+Grafaiai
+Level: 31
 
 === TRAINER_ETHAN_2 ===
 Name: ETHAN
@@ -6853,7 +6858,7 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Primeape
+Poliwhirl
 Level: 28
 
 Farfetch’d
@@ -13583,9 +13588,11 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Sandshrew
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Dwebble
+Level: 30
+
+Zangoose
+Level: 30
 
 === TRAINER_CELINA ===
 Name: CELINA
@@ -13596,9 +13603,11 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Roselia
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Petilil
+Level: 30
+
+Floette
+Level: 30
 
 === TRAINER_BIANCA ===
 Name: BIANCA
@@ -13609,9 +13618,12 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Shroomish
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Jumpluff
+Ability: Cotton Down
+Level: 31
+- Rage Powder
+- Acrobatics
+- Bullet Seed
 
 === TRAINER_HAYDEN ===
 Name: HAYDEN
@@ -13622,9 +13634,13 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Numel
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Heatmor
+Ability: White Smoke
+Level: 32
+- Flame Burst
+- Giga Drain
+- Scorching Sands
+- Thunder Punch
 
 === TRAINER_SOPHIE ===
 Name: SOPHIE

@@ -1101,64 +1101,64 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 15,
-                "max_level": 15,
-                "species": "SPECIES_NUMEL"
+                "min_level": 23,
+                "max_level": 25,
+                "species": "SPECIES_MACHOP"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
-                "species": "SPECIES_NUMEL"
+                "min_level": 23,
+                "max_level": 25,
+                "species": "SPECIES_HOUNDOUR"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
-                "species": "SPECIES_MARILL"
+                "min_level": 23,
+                "max_level": 25,
+                "species": "SPECIES_TYROGUE"
               },
               {
-                "min_level": 14,
-                "max_level": 14,
-                "species": "SPECIES_NUMEL"
+                "min_level": 23,
+                "max_level": 25,
+                "species": "SPECIES_TYROGUE"
               },
               {
-                "min_level": 14,
-                "max_level": 14,
-                "species": "SPECIES_NUMEL"
+                "min_level": 23,
+                "max_level": 25,
+                "species": "SPECIES_HELIOPTILE"
               },
               {
-                "min_level": 14,
-                "max_level": 14,
-                "species": "SPECIES_MARILL"
+                "min_level": 23,
+                "max_level": 25,
+                "species": "SPECIES_MASCHIFF"
               },
               {
-                "min_level": 16,
-                "max_level": 16,
-                "species": "SPECIES_NUMEL"
+                "min_level": 23,
+                "max_level": 25,
+                "species": "SPECIES_CHARCADET"
               },
               {
-                "min_level": 16,
-                "max_level": 16,
-                "species": "SPECIES_MARILL"
+                "min_level": 23,
+                "max_level": 25,
+                "species": "SPECIES_CHARCADET"
               },
               {
-                "min_level": 16,
-                "max_level": 16,
-                "species": "SPECIES_NUMEL"
+                "min_level": 23,
+                "max_level": 25,
+                "species": "SPECIES_IMPIDIMP"
               },
               {
-                "min_level": 16,
-                "max_level": 16,
-                "species": "SPECIES_NUMEL"
+                "min_level": 23,
+                "max_level": 25,
+                "species": "SPECIES_TOXEL"
               },
               {
-                "min_level": 16,
-                "max_level": 16,
-                "species": "SPECIES_NUMEL"
+                "min_level": 23,
+                "max_level": 25,
+                "species": "SPECIES_IMPIDIMP"
               },
               {
-                "min_level": 16,
-                "max_level": 16,
-                "species": "SPECIES_NUMEL"
+                "min_level": 23,
+                "max_level": 25,
+                "species": "SPECIES_TOXEL"
               }
             ]
           }
