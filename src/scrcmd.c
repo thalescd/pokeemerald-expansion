@@ -2313,7 +2313,7 @@ bool8 ScrCmd_checkfieldmove(struct ScriptContext *ctx)
     }
 
     if (gSpecialVar_Result == PARTY_SIZE && (CheckBagHasItem(MoveToHM(move), 1))){
-        for (i = 0; i < PARTY_SIZE; i++)
+        for (u32 i = 0; i < PARTY_SIZE; i++)
         {
             u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
             if (!species)

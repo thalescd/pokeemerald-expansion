@@ -59,6 +59,9 @@
     F(STOMPING_TANTRUM) \
     F(FLING) \
     F(ELECTROWEB) \
+    F(SPLASH) \
+    F(TACKLE) \
+    F(POUND) \
     F(WILL_O_WISP) \
     F(ACROBATICS) \
     F(INCINERATE) \
@@ -94,7 +97,9 @@
     F(WILD_CHARGE) \
     F(THROAT_CHOP) \
     F(SNARL) \
+    F(MUD_SPORT) \
     F(DARK_PULSE) \
+    F(WATER_SPORT) \
     F(DAZZLING_GLEAM) \
     F(BODY_PRESS)
 
