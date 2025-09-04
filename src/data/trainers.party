@@ -3831,9 +3831,11 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Nuzleaf
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Charcadet
+Level: 32
+
+Hitmonchan
+Level: 33
 
 === TRAINER_SHANE ===
 Name: SHANE
@@ -8706,13 +8708,11 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Taillow
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Noctowl
+Level: 33
 
-Lombre
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Leafeon
+Level: 33
 
 === TRAINER_NANCY ===
 Name: NANCY
@@ -11858,13 +11858,11 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Numel
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Magmar
+Level: 33
 
-Machop
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Machoke
+Level: 33
 
 === TRAINER_TRENT_1 ===
 Name: TRENT
@@ -11875,17 +11873,14 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Geodude
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Graveler
+Level: 33
 
-Geodude
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Durant
+Level: 33
 
-Geodude
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Rhyhorn
+Level: 33
 
 === TRAINER_LENNY ===
 Name: LENNY
