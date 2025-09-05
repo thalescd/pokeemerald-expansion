@@ -1480,17 +1480,14 @@ Items: Super Potion
 Double Battle: No
 AI: Basic Trainer
 
-Electrike
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Lucario
+Level: 34
 
-Wailmer
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Lurantis
+Level: 34
 
-Makuhita
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Luxray
+Level: 34
 
 === TRAINER_EDGAR ===
 Name: EDGAR
@@ -1815,17 +1812,22 @@ Items: Super Potion
 Double Battle: No
 AI: Basic Trainer
 
-Wingull
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Meowstic-F
+Ability: Competitive
+Level: 34
 
-Numel
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Torracat
+Ability: Intimidate
+Level: 34
 
-Roselia
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Persian @ Scope Lens
+Ability: Expertise
+Level: 34
+Jolly Nature
+- Fury Swipes
+- Bite
+- Metal Claw
+- Fake Out
 
 === TRAINER_JENNIFER ===
 Name: JENNIFER
@@ -3428,9 +3430,9 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Machop
-Level: 19
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Tauros-Paldea-Combat
+Ability: Intimidate
+Level: 36
 
 === TRAINER_ATSUSHI ===
 Name: ATSUSHI
@@ -14239,13 +14241,11 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Numel
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Charmeleon
+Level: 33
 
-Slugma
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Koffing
+Level: 33
 
 === TRAINER_SHAYLA ===
 Name: SHAYLA
@@ -14256,13 +14256,11 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Shroomish
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Beedrill
+Level: 33
 
-Roselia
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Flapple
+Level: 33
 
 === TRAINER_KYRA ===
 Name: KYRA
