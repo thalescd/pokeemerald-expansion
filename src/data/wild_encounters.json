@@ -247,13 +247,13 @@
             "encounter_rate": 30,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_POLIWAG"
               },
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_GOLDEEN"
               },
               {
@@ -431,13 +431,13 @@
             "encounter_rate": 30,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_MAGIKARP"
               },
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_TENTACOOL"
               },
               {
@@ -615,13 +615,13 @@
             "encounter_rate": 30,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_MAGIKARP"
               },
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_WISHIWASHI"
               },
               {
@@ -704,13 +704,13 @@
             "encounter_rate": 30,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_MAGIKARP"
               },
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_TENTACOOL"
               },
               {
@@ -858,13 +858,13 @@
             "encounter_rate": 30,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_TYNAMO"
               },
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_CHINCHOU"
               },
               {
@@ -1042,13 +1042,13 @@
             "encounter_rate": 30,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_MAGIKARP"
               },
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_GOLDEEN"
               },
               {
@@ -1677,13 +1677,13 @@
             "encounter_rate": 30,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_MAGIKARP"
               },
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_GOLDEEN"
               },
               {
@@ -1831,13 +1831,13 @@
             "encounter_rate": 30,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_MAGIKARP"
               },
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_TENTACOOL"
               },
               {
@@ -3101,13 +3101,13 @@
             "encounter_rate": 30,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_MAGIKARP"
               },
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_FINNEON"
               },
               {
@@ -3190,13 +3190,13 @@
             "encounter_rate": 30,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_MAGIKARP"
               },
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_FINNEON"
               },
               {
@@ -3279,13 +3279,13 @@
             "encounter_rate": 30,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_MAGIKARP"
               },
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_TENTACOOL"
               },
               {
@@ -3368,13 +3368,13 @@
             "encounter_rate": 30,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_MAGIKARP"
               },
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_CHINCHOU"
               },
               {
@@ -8893,13 +8893,13 @@
             "encounter_rate": 10,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_MAGIKARP"
               },
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_KRABBY"
               },
               {
@@ -9047,13 +9047,13 @@
             "encounter_rate": 10,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_MAGIKARP"
               },
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_HORSEA"
               },
               {
@@ -9403,13 +9403,13 @@
             "encounter_rate": 10,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_POLIWAG"
               },
               {
-                "min_level": 5,
-                "max_level": 10,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_GOLDEEN"
               },
               {
