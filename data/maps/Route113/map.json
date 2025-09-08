@@ -502,8 +502,8 @@
       "x": 22,
       "y": 5,
       "elevation": 3,
-      "item": "ITEM_TM_DOUBLE_TEAM",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE_113_TM_DOUBLE_TEAM"
+      "item": "ITEM_TM89",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_113_TM_U_TURN"
     },
     {
       "type": "hidden_item",
