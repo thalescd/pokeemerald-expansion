@@ -6115,11 +6115,11 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
 
     [SPECIES_MAGCARGO] =
     {
-        .baseHP        = P_UPDATED_STATS >= GEN_7 ? 60 : 50,
+        .baseHP        = P_UPDATED_STATS >= GEN_7 ? 80 : 50,
         .baseAttack    = 50,
-        .baseDefense   = 120,
+        .baseDefense   = 130,
         .baseSpeed     = 30,
-        .baseSpAttack  = P_UPDATED_STATS >= GEN_7 ? 90 : 80,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_7 ? 100 : 80,
         .baseSpDefense = 80,
         .types = MON_TYPES(TYPE_FIRE, TYPE_ROCK),
         .catchRate = 75,
