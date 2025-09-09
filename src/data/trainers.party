@@ -719,7 +719,7 @@ AI: Check Bad Move
 Gloom
 Level: 24
 
-Spinda
+Yanma
 Level: 24
 
 Skiploom
@@ -6239,9 +6239,8 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Trapinch
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Drampa
+Level: 36
 
 === TRAINER_DILLON ===
 Name: DILLON
@@ -6252,9 +6251,8 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Aron
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Absol
+Level: 36
 
 === TRAINER_CALVIN_2 ===
 Name: CALVIN
@@ -6559,9 +6557,11 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Barboach
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Qwilfish-Hisui
+Level: 36
+
+Palpitoad
+Level: 36
 
 === TRAINER_BARNY ===
 Name: BARNY
@@ -7774,28 +7774,13 @@ Music: Suspicious
 Double Battle: No
 
 Koffing
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Poison Gas
-- Tackle
-- Smog
-- Self Destruct
+Level: 34
 
-Koffing
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Poison Gas
-- Tackle
-- Smog
-- Self Destruct
+Misdreavus
+Level: 34
 
-Koffing
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Poison Gas
-- Tackle
-- Sludge
-- Self Destruct
+Gothorita
+Level: 34
 
 === TRAINER_LUNG ===
 Name: LUNG
@@ -7805,13 +7790,11 @@ Gender: Male
 Music: Suspicious
 Double Battle: No
 
-Koffing
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Accelgor
+Level: 33
 
 Ninjask
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 33
 
 === TRAINER_LAO_2 ===
 Name: LAO
@@ -8105,13 +8088,11 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Numel
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Ember
-- Tackle
-- Magnitude
-- Sunny Day
+Komala
+Level: 34
+
+Dragonair
+Level: 34
 
 === TRAINER_CLARISSA ===
 Name: CLARISSA
@@ -13041,12 +13022,20 @@ Double Battle: Yes
 AI: Check Bad Move
 
 Spinda
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Ability: Dancer
+Level: 35
+- Brick Break
+- Dizzy Punch
+- Feint Attack
+- Victory Dance
 
 Spinda
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Ability: Dancer
+Level: 35
+- Brick Break
+- Dizzy Punch
+- Feint Attack
+- Victory Dance
 
 === TRAINER_KIM_AND_IRIS ===
 Name: KIM & IRIS
@@ -13648,13 +13637,11 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Marill
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Sneasel-Hisui
+Level: 34
 
-Lombre
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Dubwool
+Level: 34
 
 === TRAINER_COBY ===
 Name: COBY
@@ -13666,12 +13653,10 @@ Double Battle: No
 AI: Check Bad Move
 
 Skarmory
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 34
 
-Swellow
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Trumbeak
+Level: 34
 
 === TRAINER_LAWRENCE ===
 Name: LAWRENCE
@@ -13682,13 +13667,13 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Baltoy
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Klawf
+Ability: Anger Shell
+Level: 33
 
-Sandshrew
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Stantler
+Ability: Intimidate
+Level: 33
 
 === TRAINER_WYATT ===
 Name: WYATT
@@ -13699,13 +13684,11 @@ Music: Suspicious
 Double Battle: No
 AI: Check Bad Move
 
-Aron
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Mr. Mime-Galar
+Level: 33
 
-Aron
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Skuntank
+Level: 33
 
 === TRAINER_ANGELINA ===
 Name: ANGELINA
@@ -14244,7 +14227,7 @@ AI: Check Bad Move
 Charmeleon
 Level: 33
 
-Koffing
+Salandit
 Level: 33
 
 === TRAINER_SHAYLA ===
