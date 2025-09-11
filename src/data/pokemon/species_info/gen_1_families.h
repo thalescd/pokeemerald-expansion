@@ -1584,8 +1584,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .tmIlliterate = TRUE,
         .levelUpLearnset = sKakunaLevelUpLearnset,
         .teachableLearnset = sKakunaTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 10, SPECIES_BEEDRILL},
-                                {EVO_LEVEL, 30, SPECIES_BEEDRILL_MEGA}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_BEEDRILL_MEGA},
+                                {EVO_LEVEL, 10, SPECIES_BEEDRILL}),
     },
 
 #define BEEDRILL_ATTACK (P_UPDATED_STATS >= GEN_6 ? 90 : 80)
@@ -1670,8 +1670,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sBeedrillLevelUpLearnset,
         .teachableLearnset = sBeedrillTeachableLearnset,
-        .formSpeciesIdTable = sBeedrillFormSpeciesIdTable,
-        .formChangeTable = sBeedrillFormChangeTable,
+        //.formSpeciesIdTable = sBeedrillFormSpeciesIdTable,
+        //.formChangeTable = sBeedrillFormChangeTable,
     },
 
 #if P_MEGA_EVOLUTIONS
@@ -1728,7 +1728,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(1, 14, SHADOW_SIZE_S)
         FOOTPRINT(Beedrill)
-    #if OW_BATTLE_ONLY_FORMS
+    //#if OW_BATTLE_ONLY_FORMS
         OVERWORLD(
             sPicTable_BeedrillMega,
             SIZE_32x32,
@@ -1738,12 +1738,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gOverworldPalette_BeedrillMega,
             gShinyOverworldPalette_BeedrillMega
         )
-    #endif //OW_BATTLE_ONLY_FORMS
+    //#endif //OW_BATTLE_ONLY_FORMS
         .isMegaEvolution = TRUE,
         .levelUpLearnset = sBeedrillLevelUpLearnset,
         .teachableLearnset = sBeedrillTeachableLearnset,
-        .formSpeciesIdTable = sBeedrillFormSpeciesIdTable,
-        .formChangeTable = sBeedrillFormChangeTable,
+        //.formSpeciesIdTable = sBeedrillFormSpeciesIdTable,
+        //.formChangeTable = sBeedrillFormChangeTable,
     },
 #endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_WEEDLE
