@@ -4920,10 +4920,10 @@ Music: Male
 Double Battle: No
 AI: Smart Trainer
 
-Pawmo @ Liechi Berry
+Pawmo @ Salac Berry
 Ability: Iron Fist
 Level: 19
-Jolly Nature
+Adamant Nature
 - Spark
 - Arm Thrust
 - Bite
@@ -6480,17 +6480,14 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Magikarp
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Seaking
+Level: 35
 
-Goldeen
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Croconaw
+Level: 35
 
-Barboach
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Frillish
+Level: 35
 
 === TRAINER_ELLIOT_1 ===
 Name: ELLIOT
@@ -8706,13 +8703,11 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Marill
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Gurdurr
+Level: 36
 
-Lombre
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Malamar
+Level: 36
 
 === TRAINER_MARTHA ===
 Name: MARTHA
@@ -13071,21 +13066,11 @@ Music: Twins
 Double Battle: Yes
 AI: Check Bad Move
 
-Roselia
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Growth
-- Stun Spore
-- Mega Drain
-- Leech Seed
+Lilligant
+Level: 36
 
-Graveler
-Level: 20
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Defense Curl
-- Rollout
-- Mud Sport
-- Rock Throw
+Lycanroc-Midnight
+Level: 36
 
 === TRAINER_MEL_AND_PAUL ===
 Name: MEL & PAUL
@@ -13716,9 +13701,8 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Barboach
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Whiscash
+Level: 36
 
 === TRAINER_CHARLOTTE ===
 Name: CHARLOTTE
@@ -13729,9 +13713,8 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Nuzleaf
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Ribombee
+Level: 36
 
 === TRAINER_DEANDRE ===
 Name: DEANDRE
