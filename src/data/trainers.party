@@ -2762,9 +2762,11 @@ Music: Magma
 Double Battle: No
 AI: Check Bad Move
 
-Numel
-Level: 20
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Golbat
+Level: 38
+
+Houndoom
+Level: 38
 
 === TRAINER_STEVE_2 ===
 Name: STEVE
@@ -10932,9 +10934,11 @@ Music: Magma
 Double Battle: No
 AI: Check Bad Move
 
-Zubat
-Level: 20
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Linoone-Galar
+Level: 38
+
+Magmar
+Level: 38
 
 === TRAINER_CLARENCE ===
 Name: CLARENCE
@@ -11230,21 +11234,61 @@ Music: Magma
 Double Battle: No
 AI: Basic Trainer
 
-Numel
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Pangoro @ Lum Berry
+Ability: Iron Fist
+Level: 39
+Adamant Nature
+- Night Slash
+- Low Sweep
+- Comet Punch
+- Thunder Punch
 
-Poochyena
-Level: 20
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Weezing @ Black Sludge
+Ability: Levitate
+Level: 39
+Quiet Nature
+- Sludge Bomb
+- Heat Wave
+- Clear Smog
+- Self-Destruct
 
-Numel
-Level: 22
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Pyroar @ Charcoal
+Ability: Adaptability
+Level: 40
+Timid Nature
+IVs: 0 Atk
+- Flame Burst
+- Hyper Voice
+- Dark Pulse
+- Work Up
 
-Zubat
-Level: 22
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Scovillain @ Sitrus Berry
+Ability: Chlorophyll
+Level: 40
+Timid Nature
+- Flamethrower
+- Energy Ball
+- Stomping Tantrum
+- Leech Seed
+
+Piloswine @ Liechi Berry
+Ability: Thick Fat
+Level: 39
+Adamant Nature
+- Earthquake
+- Ice Fang
+- Ice Shard
+- Rock Tomb
+
+Typhlosion-Hisui @ Salac Berry
+Ability: Blaze
+Level: 40
+Timid Nature
+IVs: 0 Atk
+- Lava Plume
+- Infernal Parade
+- Extrasensory
+- Calm Mind
 
 === TRAINER_JONATHAN ===
 Name: JONATHAN
@@ -11370,19 +11414,61 @@ Gender: Male
 Music: Magma
 Items: Super Potion / Super Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Mightyena
-Level: 24
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Mightyena @ Focus Sash
+Ability: Intimidate
+Level: 39
+Jolly Nature
+- Crunch
+- Thunder Fang
+- Poison Fang
+- Snarl
 
-Zubat
-Level: 24
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Crobat
+Ability: Inner Focus
+Level: 39
+Adamant Nature
+- Cross Poison
+- Acrobatics
+- Heat Wave
+- U-turn
 
-Camerupt
-Level: 25
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Ceruledge @ White Herb
+Ability: Weak Armor
+Level: 40
+Adamant Nature
+- Bitter Blade
+- Shadow Claw
+- Brick Break
+- Shadow Sneak
+
+Kleavor @ Expert Belt
+Ability: Sharpness
+Level: 40
+Jolly Nature
+- Stone Axe
+- X-Scissor
+- Night Slash
+- Aerial Ace
+
+Cacturne @ Sitrus Berry
+Ability: Water Absorb
+Level: 39
+Adamant Nature
+- Energy Ball
+- Knock Off
+- Sucker Punch
+- Poison Jab
+
+Camerupt @ Weakness Policy
+Ability: Solid Rock
+Level: 40
+Quiet Nature
+- Lava Plume
+- Earthquake
+- Rock Slide
+- Ancient Power
 
 === TRAINER_TIANA ===
 Name: TIANA
