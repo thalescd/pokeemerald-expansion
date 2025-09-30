@@ -1476,7 +1476,6 @@ Class: Cooltrainer
 Pic: Cooltrainer M
 Gender: Male
 Music: Cool
-Items: Super Potion
 Double Battle: No
 AI: Basic Trainer
 
@@ -3849,7 +3848,7 @@ AI: Check Bad Move
 Gligar
 Level: 36
 
-Dachsbum
+Dachsbun
 Level: 36
 
 === TRAINER_JUSTIN ===
@@ -11232,7 +11231,7 @@ Pic: Magma Admin
 Gender: Male
 Music: Magma
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
 Pangoro @ Lum Berry
 Ability: Iron Fist
@@ -11412,7 +11411,6 @@ Class: Magma Leader
 Pic: Magma Leader Maxie
 Gender: Male
 Music: Magma
-Items: Super Potion / Super Potion
 Double Battle: No
 AI: Smart Trainer
 
