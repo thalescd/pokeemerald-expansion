@@ -3323,9 +3323,8 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Machop
-Level: 19
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Breloom
+Level: 37
 
 === TRAINER_NOB_2 ===
 Name: NOB
@@ -7969,13 +7968,11 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Meditite
-Level: 18
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Crabrawler
+Level: 37
 
-Makuhita
-Level: 18
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Hawlucha
+Level: 37
 
 === TRAINER_CORA ===
 Name: CORA
@@ -9457,12 +9454,13 @@ Double Battle: No
 AI: Check Bad Move
 
 Zangoose
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 37
 
 Seviper
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 37
+
+Shelgon
+Level: 37
 
 === TRAINER_TABITHA_MOSSDEEP ===
 Name: TABITHA
@@ -14297,13 +14295,11 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Meditite
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Rabsca
+Level: 37
 
-Spoink
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Grumpig
+Level: 37
 
 === TRAINER_DEVAN ===
 Name: DEVAN
