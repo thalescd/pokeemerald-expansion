@@ -56574,6 +56574,7 @@ static const u16 sHydrappleTeachableLearnset[] = {
 =======
     MOVE_BODY_SLAM,
     MOVE_BULLET_SEED,
+    MOVE_DEFENSE_CURL,
     MOVE_DOUBLE_EDGE,
     MOVE_EARTHQUAKE,
     MOVE_ENDURE,
@@ -56588,6 +56589,7 @@ static const u16 sHydrappleTeachableLearnset[] = {
     MOVE_RAIN_DANCE,
     MOVE_REFLECT,
     MOVE_REST,
+    MOVE_ROLLOUT,
     MOVE_SLEEP_TALK,
     MOVE_SOLAR_BEAM,
     MOVE_SUNNY_DAY,
