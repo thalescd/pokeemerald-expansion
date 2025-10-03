@@ -2109,6 +2109,7 @@ static const u16 sSlugmaEggMoveLearnset[] = {
     MOVE_INFERNO,
     MOVE_EARTH_POWER,
     MOVE_GUARD_SWAP,
+    MOVE_SCALD,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_SLUGMA

@@ -5033,41 +5033,65 @@ Class: Leader
 Pic: Leader Flannery
 Gender: Female
 Music: Female
-Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Numel
-Level: 24
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Torkoal @ Eject Pack
+Ability: Drought
+Level: 42
+Modest Nature
+IVs: 0 Atk
 - Overheat
-- Take Down
-- Magnitude
-- Sunny Day
+- Solar Beam
+- Earth Power
+- Weather Ball
 
-Slugma
-Level: 24
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Overheat
-- Smog
-- Light Screen
-- Sunny Day
+Talonflame
+Ability: Gale Wings
+Level: 42
+Adamant Nature
+- Acrobatics
+- Flare Blitz
+- U-turn
+- Swords Dance
 
-Camerupt
-Level: 26
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+Arcanine-Hisui @ Air Balloon
+Ability: Intimidate
+Level: 42
+Naive Nature
+- Temper Flare
+- Rock Slide
+- Extreme Speed
 - Overheat
-- Tackle
-- Sunny Day
-- Attract
 
-Torkoal @ White Herb
-Level: 29
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+Lilligant-Hisui @ Focus Sash
+Ability: Leaf Guard
+Level: 41
+Jolly Nature
+- Leaf Blade
+- Close Combat
+- Ice Spinner
+- Victory Dance
+
+Rotom-Heat @ Leftovers
+Ability: Levitate
+Level: 42
+Modest Nature
+IVs: 0 Atk
 - Overheat
-- Sunny Day
-- Body Slam
-- Attract
+- Volt Switch
+- Discharge
+- Will-O-Wisp
+
+Magcargo @ Shuca Berry
+Ability: Desolate Land
+Level: 42
+Modest Nature
+IVs: 0 Atk
+- Lava Plume
+- Solar Beam
+- Power Gem
+- Scald
 
 === TRAINER_NORMAN_1 ===
 Name: NORMAN
