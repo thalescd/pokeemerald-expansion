@@ -11438,15 +11438,6 @@ Music: Magma
 Double Battle: No
 AI: Smart Trainer
 
-Mightyena @ Focus Sash
-Ability: Intimidate
-Level: 39
-Jolly Nature
-- Crunch
-- Thunder Fang
-- Poison Fang
-- Snarl
-
 Crobat
 Ability: Inner Focus
 Level: 39
@@ -11455,6 +11446,14 @@ Adamant Nature
 - Acrobatics
 - Heat Wave
 - U-turn
+
+Charizard-Mega-X @ Muscle Band
+Ability: Tough Claws
+Jolly Nature
+- Temper Flare
+- Dragon Claw
+- Thunder Punch
+- Flame Charge
 
 Ceruledge @ White Herb
 Ability: Weak Armor
