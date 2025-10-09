@@ -19432,7 +19432,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "High critical hit ratio.\n"
             "Ups the user's Speed."),
         .effect = EFFECT_HIT,
-        .power = B_UPDATED_MOVE_DATA >= GEN_9 ? 80 : 75,
+        .power = B_UPDATED_MOVE_DATA >= GEN_9 ? 85 : 75,
         .type = TYPE_PSYCHIC,
         .accuracy = B_UPDATED_MOVE_DATA >= GEN_9 ? 100 : 90,
         .criticalHitStage = 1,
