@@ -4879,6 +4879,7 @@ static const u16 sHeatmorEggMoveLearnset[] = {
     MOVE_TICKLE,
     MOVE_SLEEP_TALK,
     MOVE_BELCH,
+    MOVE_DYNAMIC_PUNCH,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_HEATMOR
