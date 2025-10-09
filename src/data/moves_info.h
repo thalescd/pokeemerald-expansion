@@ -13992,7 +13992,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "The type varies with the\n"
             "kind of Drive held."),
         .effect = EFFECT_CHANGE_TYPE_ON_ITEM,
-        .power = B_UPDATED_MOVE_DATA >= GEN_6 ? 120 : 85,
+        .power = 95,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 5,
