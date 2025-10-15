@@ -63,6 +63,7 @@ static const u16 sSquirtleEggMoveLearnset[] = {
     MOVE_BRINE,
     MOVE_DRAGON_PULSE,
     MOVE_AURA_SPHERE,
+    MOVE_ORIGIN_PULSE,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_SQUIRTLE
@@ -5128,6 +5129,7 @@ static const u16 sClauncherEggMoveLearnset[] = {
     MOVE_ENDURE,
     MOVE_CRABHAMMER,
     MOVE_HELPING_HAND,
+    MOVE_ORIGIN_PULSE,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_CLAUNCHER
