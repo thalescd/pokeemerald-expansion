@@ -13349,6 +13349,7 @@ static void Cmd_switchoutabilities(void)
                                          &gBattleMons[battler].status1);
             MarkBattlerForControllerExec(battler);
             break;
+        case ABILITY_DEFEATIST:
         case ABILITY_REGENERATOR:
         {
             u32 regenerate = GetNonDynamaxMaxHP(battler) / 3;

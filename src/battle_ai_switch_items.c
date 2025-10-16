@@ -315,7 +315,7 @@ static bool32 ShouldSwitchIfHasBadOdds(u32 battler)
     // Start assessing whether or not mon has bad odds
     // Jump straight to switching out in cases where mon gets OHKO'd
     if ((getsOneShot && !canBattlerWin1v1) && (gBattleMons[battler].hp >= gBattleMons[battler].maxHP / 2 // And the current mon has at least 1/2 their HP, or 1/4 HP and Regenerator
-            || (aiAbility == ABILITY_REGENERATOR && gBattleMons[battler].hp >= gBattleMons[battler].maxHP / 4)))
+            || ((aiAbility == ABILITY_REGENERATOR || aiAbility == ABILITY_DEFEATIST) && gBattleMons[battler].hp >= gBattleMons[battler].maxHP / 4)))
     {
         // 50% chance to stay in regardless
         if (RandomPercentage(RNG_AI_SWITCH_HASBADODDS, (100 - GetSwitchChance(SHOULD_SWITCH_HASBADODDS))) && !gAiLogicData->aiPredictionInProgress)
@@ -330,7 +330,7 @@ static bool32 ShouldSwitchIfHasBadOdds(u32 battler)
     {
         if (!hasSuperEffectiveMove // If the AI doesn't have a super effective move
         && (gBattleMons[battler].hp >= gBattleMons[battler].maxHP / 2 // And the current mon has at least 1/2 their HP, or 1/4 HP and Regenerator
-            || (aiAbility == ABILITY_REGENERATOR
+            || ((aiAbility == ABILITY_REGENERATOR || aiAbility == ABILITY_DEFEATIST)
             && gBattleMons[battler].hp >= gBattleMons[battler].maxHP / 4)))
         {
             // Then check if they have an important status move, which is worth using even in a bad matchup
@@ -791,6 +791,7 @@ static bool32 ShouldSwitchIfAbilityBenefit(u32 battler)
 
             return FALSE;
 
+        case ABILITY_DEFEATIST:
         case ABILITY_REGENERATOR:
             //Don't switch if ailment
             if (gBattleMons[battler].status1 & STATUS1_ANY)
@@ -948,7 +949,7 @@ static bool32 CanMonSurviveHazardSwitchin(u32 battler)
     s32 firstId, lastId, i, j;
     struct Pokemon *party;
 
-    if (ability == ABILITY_REGENERATOR)
+    if (ability == ABILITY_REGENERATOR || ability == ABILITY_DEFEATIST)
         battlerHp = (battlerHp * 133) / 100; // Account for Regenerator healing
 
     hazardDamage = GetSwitchinHazardsDamage(battler, &gBattleMons[battler]);
