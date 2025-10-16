@@ -6222,6 +6222,7 @@ static const u16 sVaroomEggMoveLearnset[] = {
     MOVE_SELF_DESTRUCT,
     MOVE_TORMENT,
     MOVE_TOXIC,
+    MOVE_SLAM,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_VAROOM
