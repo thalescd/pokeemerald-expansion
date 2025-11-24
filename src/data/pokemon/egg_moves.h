@@ -3610,6 +3610,7 @@ static const u16 sBuizelEggMoveLearnset[] = {
     MOVE_TAIL_SLAP,
     MOVE_SOAK,
     MOVE_HELPING_HAND,
+    MOVE_ENCORE,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_BUIZEL

@@ -4485,10 +4485,10 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
     {                                                       \
         .baseHP        = 60,                                \
         .baseAttack    = 60,                                \
-        .baseDefense   = 100,                               \
+        .baseDefense   = 110,                               \
         .baseSpeed     = 60,                                \
         .baseSpAttack  = 60,                                \
-        .baseSpDefense = 100,                               \
+        .baseSpDefense = 110,                               \
         .weight = 400,                                      \
         .description = gMiniorMeteorPokedexText,            \
         .frontPic = gMonFrontPic_MiniorMeteor,              \
@@ -4523,10 +4523,10 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
 #define MINIOR_CORE_SPECIES_INFO(Form, color, iconPal)          \
     {                                                           \
         .baseHP        = 60,                                    \
-        .baseAttack    = 100,                                   \
+        .baseAttack    = 110,                                   \
         .baseDefense   = 60,                                    \
         .baseSpeed     = 120,                                   \
-        .baseSpAttack  = 100,                                   \
+        .baseSpAttack  = 110,                                   \
         .baseSpDefense = 60,                                    \
         .weight = 3,                                            \
         .description = gMiniorCorePokedexText,                  \
