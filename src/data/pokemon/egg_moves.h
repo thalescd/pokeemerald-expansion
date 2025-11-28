@@ -3255,7 +3255,9 @@ static const u16 sTropiusEggMoveLearnset[] = {
     MOVE_DRAGON_DANCE,
     MOVE_BULLET_SEED,
     MOVE_NATURAL_GIFT,
-    MOVE_DRAGON_HAMMER,
+    MOVE_OUTRAGE,
+    MOVE_GRAV_APPLE,
+    MOVE_APPLE_ACID,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_TROPIUS
@@ -3762,6 +3764,7 @@ static const u16 sSpiritombEggMoveLearnset[] = {
     MOVE_NIGHTMARE,
     MOVE_FOUL_PLAY,
     MOVE_DISABLE,
+    MOVE_PARTING_SHOT,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_SPIRITOMB
