@@ -852,13 +852,11 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Sandslash
-Level: 23
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Dig
-- Slash
-- Sand Attack
-- Poison Sting
+Brambleghast
+Level: 40
+
+Pupitar
+Level: 40
 
 === TRAINER_CHIP ===
 Name: CHIP
@@ -3780,13 +3778,14 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Sandshrew
-Level: 23
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Dig
-- Sand Attack
-- Poison Sting
-- Slash
+Vibrava
+Level: 38
+
+Vibrava
+Level: 39
+
+Vibrava
+Level: 40
 
 === TRAINER_BEAU ===
 Name: BEAU
@@ -3797,29 +3796,14 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Baltoy
-Level: 21
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Rapid Spin
-- Mud Slap
-- Psybeam
-- Rock Tomb
+Dugtrio
+Level: 39
 
-Sandshrew
-Level: 21
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Poison Sting
-- Sand Attack
-- Scratch
-- Dig
+Palossand
+Level: 39
 
-Baltoy
-Level: 21
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Rapid Spin
-- Mud Slap
-- Psybeam
-- Rock Tomb
+Claydol
+Level: 39
 
 === TRAINER_LARRY ===
 Name: LARRY
@@ -8652,21 +8636,11 @@ Music: Girl
 Double Battle: No
 AI: Basic Trainer
 
-Sandshrew
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Dig
-- Sand Attack
-- Poison Sting
-- Slash
+Sandslash
+Level: 39
 
-Baltoy
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Rapid Spin
-- Mud Slap
-- Psybeam
-- Rock Tomb
+Gabite
+Level: 39
 
 === TRAINER_BECKY ===
 Name: BECKY
@@ -8677,21 +8651,11 @@ Music: Girl
 Double Battle: No
 AI: Basic Trainer
 
-Sandshrew
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Sand Attack
-- Poison Sting
-- Slash
-- Dig
+Hippowdon
+Level: 39
 
-Marill
+Excadrill
 Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Rollout
-- Bubble Beam
-- Tail Whip
-- Defense Curl
 
 === TRAINER_CAROL ===
 Name: CAROL
@@ -14260,13 +14224,14 @@ Music: Girl
 Double Battle: No
 AI: Basic Trainer
 
-Marill
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Lumineon
+Level: 40
 
-Lombre
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Gligar
+Level: 39
+
+Morgrem
+Level: 39
 
 === TRAINER_BRYAN ===
 Name: BRYAN
@@ -14277,13 +14242,11 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Sandshrew
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Krokorok
+Level: 39
 
-Sandslash
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Swoobat
+Level: 39
 
 === TRAINER_BRANDEN ===
 Name: BRANDEN
@@ -14294,13 +14257,11 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Taillow
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Seismitoad
+Level: 39
 
-Nuzleaf
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Toedscruel
+Level: 40
 
 === TRAINER_BRYANT ===
 Name: BRYANT
