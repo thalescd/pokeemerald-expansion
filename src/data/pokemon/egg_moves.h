@@ -3869,8 +3869,6 @@ static const u16 sCroagunkEggMoveLearnset[] = {
 static const u16 sCarnivineEggMoveLearnset[] = {
     MOVE_SLEEP_POWDER,
     MOVE_STUN_SPORE,
-    MOVE_RAZOR_LEAF,
-    MOVE_SLAM,
     MOVE_SYNTHESIS,
     MOVE_MAGICAL_LEAF,
     MOVE_LEECH_SEED,
@@ -3879,6 +3877,8 @@ static const u16 sCarnivineEggMoveLearnset[] = {
     MOVE_RAGE_POWDER,
     MOVE_GRASS_WHISTLE,
     MOVE_ACID_SPRAY,
+    MOVE_FIRE_LASH,
+    MOVE_KNOCK_OFF,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_CARNIVINE
