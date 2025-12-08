@@ -500,8 +500,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sCharmeleonLevelUpLearnset,
         .teachableLearnset = sCharmeleonTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_CHARIZARD},
-                                {EVO_ITEM, ITEM_DRAGON_FANG, SPECIES_CHARIZARD_MEGA_X, CONDITIONS({IF_TIME, TIME_NIGHT})}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_CHARIZARD_MEGA_X, CONDITIONS({IF_HOLD_ITEM, ITEM_DRAGON_FANG})},
+                                {EVO_LEVEL, 36, SPECIES_CHARIZARD}),
     },
 
     [SPECIES_CHARIZARD] =
@@ -574,8 +574,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sCharizardLevelUpLearnset,
         .teachableLearnset = sCharizardTeachableLearnset,
-        .formSpeciesIdTable = sCharizardFormSpeciesIdTable,
-        .formChangeTable = sCharizardFormChangeTable,
+        //.formSpeciesIdTable = sCharizardFormSpeciesIdTable,
+        //.formChangeTable = sCharizardFormChangeTable,
     },
 
 #if P_MEGA_EVOLUTIONS
@@ -642,8 +642,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .isMegaEvolution = TRUE,
         .levelUpLearnset = sCharizardLevelUpLearnset,
         .teachableLearnset = sCharizardTeachableLearnset,
-        .formSpeciesIdTable = sCharizardFormSpeciesIdTable,
-        .formChangeTable = sCharizardFormChangeTable,
+        //.formSpeciesIdTable = sCharizardFormSpeciesIdTable,
+        //.formChangeTable = sCharizardFormChangeTable,
     },
 
     [SPECIES_CHARIZARD_MEGA_Y] =
