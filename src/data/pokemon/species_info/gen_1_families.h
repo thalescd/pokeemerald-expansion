@@ -639,8 +639,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gShinyOverworldPalette_CharizardMegaX
         )
     #endif //OW_BATTLE_ONLY_FORMS
-        .isMegaEvolution = TRUE,
-        .levelUpLearnset = sCharizardLevelUpLearnset,
+        //.isMegaEvolution = TRUE,
+        .levelUpLearnset = sCharizardXLevelUpLearnset,
         .teachableLearnset = sCharizardTeachableLearnset,
         //.formSpeciesIdTable = sCharizardFormSpeciesIdTable,
         //.formChangeTable = sCharizardFormChangeTable,
@@ -1263,7 +1263,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .tmIlliterate = TRUE,
         .levelUpLearnset = sMetapodLevelUpLearnset,
         .teachableLearnset = sMetapodTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 10, SPECIES_BUTTERFREE}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_BUTTERFREE_GMAX},
+                                {EVO_LEVEL, 10, SPECIES_BUTTERFREE}),
     },
 
 #if P_UPDATED_EXP_YIELDS >= GEN_8
@@ -1367,19 +1368,19 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sButterfreeLevelUpLearnset,
         .teachableLearnset = sButterfreeTeachableLearnset,
-        .formSpeciesIdTable = sButterfreeFormSpeciesIdTable,
-        .formChangeTable = sButterfreeFormChangeTable,
+        //.formSpeciesIdTable = sButterfreeFormSpeciesIdTable,
+        //.formChangeTable = sButterfreeFormChangeTable,
     },
 
 #if P_GIGANTAMAX_FORMS
     [SPECIES_BUTTERFREE_GMAX] =
     {
-        .baseHP        = 60,
+        .baseHP        = 65,
         .baseAttack    = 45,
-        .baseDefense   = 50,
-        .baseSpeed     = 70,
-        .baseSpAttack  = P_UPDATED_STATS >= GEN_6 ? 90 : 80,
-        .baseSpDefense = 80,
+        .baseDefense   = 55,
+        .baseSpeed     = 80,
+        .baseSpAttack  = 113,
+        .baseSpDefense = 97,
         .types = MON_TYPES(TYPE_BUG, TYPE_FLYING),
         .catchRate = 45,
         .expYield = BUTTERFREE_EXP_YIELD,
@@ -1425,11 +1426,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-4, 15, SHADOW_SIZE_S)
         FOOTPRINT(Butterfree)
-        .isGigantamax = TRUE,
+        //.isGigantamax = TRUE,
         .levelUpLearnset = sButterfreeLevelUpLearnset,
         .teachableLearnset = sButterfreeTeachableLearnset,
-        .formSpeciesIdTable = sButterfreeFormSpeciesIdTable,
-        .formChangeTable = sButterfreeFormChangeTable,
+        //.formSpeciesIdTable = sButterfreeFormSpeciesIdTable,
+        //.formChangeTable = sButterfreeFormChangeTable,
     },
 #endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_CATERPIE
