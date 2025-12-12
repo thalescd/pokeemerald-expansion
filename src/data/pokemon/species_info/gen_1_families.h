@@ -574,7 +574,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sCharizardLevelUpLearnset,
         .teachableLearnset = sCharizardTeachableLearnset,
-        //.formSpeciesIdTable = sCharizardFormSpeciesIdTable,
+        .formSpeciesIdTable = sCharizardFormSpeciesIdTable,
         //.formChangeTable = sCharizardFormChangeTable,
     },
 
@@ -642,7 +642,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         //.isMegaEvolution = TRUE,
         .levelUpLearnset = sCharizardXLevelUpLearnset,
         .teachableLearnset = sCharizardTeachableLearnset,
-        //.formSpeciesIdTable = sCharizardFormSpeciesIdTable,
+        .formSpeciesIdTable = sCharizardFormSpeciesIdTable,
         //.formChangeTable = sCharizardFormChangeTable,
     },
 
@@ -1368,7 +1368,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sButterfreeLevelUpLearnset,
         .teachableLearnset = sButterfreeTeachableLearnset,
-        //.formSpeciesIdTable = sButterfreeFormSpeciesIdTable,
+        .formSpeciesIdTable = sButterfreeFormSpeciesIdTable,
         //.formChangeTable = sButterfreeFormChangeTable,
     },
 
@@ -1429,7 +1429,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         //.isGigantamax = TRUE,
         .levelUpLearnset = sButterfreeLevelUpLearnset,
         .teachableLearnset = sButterfreeTeachableLearnset,
-        //.formSpeciesIdTable = sButterfreeFormSpeciesIdTable,
+        .formSpeciesIdTable = sButterfreeFormSpeciesIdTable,
         //.formChangeTable = sButterfreeFormChangeTable,
     },
 #endif //P_GIGANTAMAX_FORMS
@@ -1671,7 +1671,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sBeedrillLevelUpLearnset,
         .teachableLearnset = sBeedrillTeachableLearnset,
-        //.formSpeciesIdTable = sBeedrillFormSpeciesIdTable,
+        .formSpeciesIdTable = sBeedrillFormSpeciesIdTable,
         //.formChangeTable = sBeedrillFormChangeTable,
     },
 
@@ -1743,7 +1743,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .isMegaEvolution = TRUE,
         .levelUpLearnset = sBeedrillLevelUpLearnset,
         .teachableLearnset = sBeedrillTeachableLearnset,
-        //.formSpeciesIdTable = sBeedrillFormSpeciesIdTable,
+        .formSpeciesIdTable = sBeedrillFormSpeciesIdTable,
         //.formChangeTable = sBeedrillFormChangeTable,
     },
 #endif //P_MEGA_EVOLUTIONS
