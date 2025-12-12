@@ -2754,6 +2754,7 @@ static const u16 sMedititeEggMoveLearnset[] = {
     MOVE_DRAIN_PUNCH,
     MOVE_SECRET_POWER,
     MOVE_QUICK_GUARD,
+    MOVE_BLAZE_KICK,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_MEDITITE
