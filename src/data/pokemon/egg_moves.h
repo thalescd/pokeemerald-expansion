@@ -5246,6 +5246,7 @@ static const u16 sBergmiteEggMoveLearnset[] = {
     MOVE_MIST,
     MOVE_BARRIER,
     MOVE_MIRROR_COAT,
+    MOVE_ICE_SHARD,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_BERGMITE
@@ -5762,6 +5763,7 @@ static const u16 sSilicobraEggMoveLearnset[] = {
     MOVE_LAST_RESORT,
     MOVE_BELCH,
     MOVE_POISON_TAIL,
+    MOVE_SHED_TAIL,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_SILICOBRA
