@@ -1263,7 +1263,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .tmIlliterate = TRUE,
         .levelUpLearnset = sMetapodLevelUpLearnset,
         .teachableLearnset = sMetapodTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_BUTTERFREE_GMAX},
+        .evolutions = EVOLUTION({EVO_LEVEL, 26, SPECIES_BUTTERFREE_GMAX},
                                 {EVO_LEVEL, 10, SPECIES_BUTTERFREE}),
     },
 
@@ -1585,7 +1585,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .tmIlliterate = TRUE,
         .levelUpLearnset = sKakunaLevelUpLearnset,
         .teachableLearnset = sKakunaTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_BEEDRILL_MEGA},
+        .evolutions = EVOLUTION({EVO_LEVEL, 26, SPECIES_BEEDRILL_MEGA},
                                 {EVO_LEVEL, 10, SPECIES_BEEDRILL}),
     },
 
