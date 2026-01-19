@@ -96,6 +96,32 @@ LavaridgeTown_EventScript_PlayBrendanMusic::
 	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
 	return
 
+LavaridgeTown_EventScript_KarateGuy::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_SWORDS_DANCE_LAVARIDGE, LavaridgeTown_EventScript_KarateGuy_AfterTM
+	msgbox LavaridgeTown_Text_KarateGuy_Intro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, LavaridgeTown_EventScript_KarateGuy_Yes
+	goto_if_eq VAR_RESULT, NO, LavaridgeTown_EventScript_KarateGuy_No
+	end
+
+LavaridgeTown_EventScript_KarateGuy_Yes::
+	msgbox LavaridgeTown_Text_KarateGuy_YesResponse, MSGBOX_DEFAULT
+	release
+	end
+
+LavaridgeTown_EventScript_KarateGuy_No::
+	msgbox LavaridgeTown_Text_KarateGuy_NoResponse, MSGBOX_DEFAULT
+	giveitem ITEM_TM75
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_SWORDS_DANCE_LAVARIDGE
+	goto LavaridgeTown_EventScript_KarateGuy_AfterTM
+
+LavaridgeTown_EventScript_KarateGuy_AfterTM::
+	msgbox LavaridgeTown_Text_KarateGuy_AfterTM, MSGBOX_DEFAULT
+	release
+	end
+
 LavaridgeTown_EventScript_RivalNoticePlayer::
 	applymovement LOCALID_LAVARIDGE_RIVAL, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
@@ -404,3 +430,23 @@ LavaridgeTown_Text_HerbShopSign:
 	.string "POKéMON HERB SHOP\n"
 	.string "“Bitter taste--better cure!”$"
 
+LavaridgeTown_Text_KarateGuy_Intro:
+	.string "Dance and soul make power!\p"
+	.string "Soul is way of karate for me!\p"
+	.string "You understand, yes?$"
+
+LavaridgeTown_Text_KarateGuy_YesResponse:
+	.string "OK! OK!\n"
+	.string "You good kid!$"
+
+LavaridgeTown_Text_KarateGuy_NoResponse:
+	.string "Oh…\n"
+	.string "I so sad and wretched…\p"
+	.string "You take this and understand\n"
+	.string "way of karate of me, fool TRAINER!$"
+
+LavaridgeTown_Text_KarateGuy_AfterTM:
+	.string "Suh-words Dance!\p"
+	.string "You use soulful dance for to make\n"
+	.string "power of POKéMON go up, up!\p"
+	.string "It is the way of karate I seek!$"

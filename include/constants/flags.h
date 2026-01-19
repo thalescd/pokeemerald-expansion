@@ -50,7 +50,7 @@
 #define FLAG_DEFEATED_RIVAL_ROUTE_110            0x24
 #define FLAG_ITEM_MT_CHIMMEY_TM_INCINERATE       0x25
 #define FLAG_ITEM_JAGGED_PASS_TM_ROCK_POLISH     0x26
-#define FLAG_UNUSED_0x027                        0x27 // Unused Flag
+#define FLAG_RECEIVED_SWORDS_DANCE_LAVARIDGE     0x27 // Unused Flag
 #define FLAG_UNUSED_0x028                        0x28 // Unused Flag
 #define FLAG_UNUSED_0x029                        0x29 // Unused Flag
 #define FLAG_UNUSED_0x02A                        0x2A // Unused Flag
@@ -1058,7 +1058,7 @@
 #define FLAG_ITEM_ROUTE_109_PP_UP                                   0x3ED
 #define FLAG_ITEM_ROUTE_110_RARE_CANDY                              0x3EE
 #define FLAG_ITEM_ROUTE_110_DIRE_HIT                                0x3EF
-#define FLAG_ITEM_ROUTE_111_TM_SANDSTORM                            0x3F0
+#define FLAG_ITEM_ROUTE_111_TM_STOMPING_TANTRUM                     0x3F0
 #define FLAG_ITEM_ROUTE_111_STARDUST                                0x3F1
 #define FLAG_ITEM_ROUTE_111_HP_UP                                   0x3F2
 #define FLAG_ITEM_ROUTE_112_NUGGET                                  0x3F3
