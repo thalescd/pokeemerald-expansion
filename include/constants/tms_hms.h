@@ -46,7 +46,7 @@
     F(FACADE) \
     F(SECRET_POWER) \
     F(REST) \
-    F(ATTRACT) \
+    F(FLAME_CHARGE) \
     F(THIEF) \
     F(STEEL_WING) \
     F(SKILL_SWAP) \
