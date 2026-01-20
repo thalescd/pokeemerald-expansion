@@ -90,9 +90,11 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Geodude
-Level: 21
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Aerodactyl
+Level: 39
+
+Mudsdale
+Level: 39
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_1 ===
 Name: GRUNT
@@ -2345,9 +2347,8 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Marill
-Level: 21
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Samurott
+Level: 40
 
 === TRAINER_SHEILA ===
 Name: SHEILA
@@ -2358,9 +2359,8 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Shroomish
-Level: 21
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Chimecho
+Level: 40
 
 === TRAINER_SHIRLEY ===
 Name: SHIRLEY
@@ -2371,9 +2371,8 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Numel
-Level: 21
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Sableye
+Level: 40
 
 === TRAINER_JESSICA_1 ===
 Name: JESSICA
@@ -3829,10 +3828,10 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Gligar
+Dachsbun
 Level: 35
 
-Dachsbun
+Butterfree
 Level: 35
 
 === TRAINER_JUSTIN ===
@@ -5997,13 +5996,11 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Meditite
-Level: 21
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Fraxure
+Level: 38
 
-Makuhita
-Level: 21
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Xatu
+Level: 38
 
 === TRAINER_SHELBY_2 ===
 Name: SHELBY
@@ -9024,9 +9021,8 @@ Crabrawler
 Level: 18
 Ability: Iron Fist
 
-Farfetch’d
+Numel
 Level: 18
-Ability: Inner Focus
 
 === TRAINER_EDMOND ===
 Name: EDMOND
