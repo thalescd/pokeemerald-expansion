@@ -4842,6 +4842,7 @@ static inline bool32 ShouldShowMoveRelearner(void)
          && !sMonSummaryScreen->isBoxMon
          && sMonSummaryScreen->mode != SUMMARY_MODE_BOX
          && sMonSummaryScreen->mode != SUMMARY_MODE_BOX_CURSOR
+         && sMonSummaryScreen->mode != SUMMARY_MODE_SELECT_MOVE
          && sMonSummaryScreen->hasRelearnableMoves
          && !InBattleFactory()
          && !InSlateportBattleTent()
