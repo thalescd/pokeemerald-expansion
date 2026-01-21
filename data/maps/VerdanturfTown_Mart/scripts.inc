@@ -14,7 +14,6 @@ VerdanturfTown_Mart_EventScript_Clerk::
 	.align 2
 VerdanturfTown_Mart_Pokemart:
 	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_NEST_BALL
 	.2byte ITEM_SUPER_POTION
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_PARALYZE_HEAL
@@ -24,6 +23,23 @@ VerdanturfTown_Mart_Pokemart:
 	.2byte ITEM_REPEL
 	.2byte ITEM_X_SP_ATK
 	.2byte ITEM_FLUFFY_TAIL
+	pokemartlistend
+
+VerdanturfTown_Mart_EventScript_Clerk_Upper::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart VerdanturfTown_Mart_Pokemart_Upper
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+VerdanturfTown_Mart_Pokemart_Upper:
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_LUXURY_BALL
 	pokemartlistend
 
 VerdanturfTown_Mart_EventScript_Boy::
