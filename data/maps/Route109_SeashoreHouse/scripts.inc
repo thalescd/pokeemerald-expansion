@@ -26,6 +26,8 @@ Route109_SeashoreHouse_EventScript_DefeatedTrainers::
 	msgbox Route109_SeashoreHouse_Text_TakeTheseSodaPopBottles, MSGBOX_DEFAULT
 	giveitem ITEM_SODA_POP, 6
 	goto_if_eq VAR_RESULT, FALSE, Route109_SeashoreHouse_EventScript_BagFull
+	msgbox Route109_SeashoreHouse_Text_BonusBerryJuice, MSGBOX_DEFAULT
+	giveitem ITEM_BERRY_JUICE, 10
 	setflag FLAG_RECEIVED_6_SODA_POP
 	release
 	end
@@ -122,6 +124,14 @@ Route109_SeashoreHouse_Text_TakeTheseSodaPopBottles:
 	.string "As thanks for showing me your hot\n"
 	.string "streak, I want you to take these.\p"
 	.string "It's half a dozen bottles of SODA POP!$"
+
+Route109_SeashoreHouse_Text_BonusBerryJuice:
+	.string "And hey!\n"
+	.string "You're in luck today!\p"
+	.string "We're running a special promotion,\n"
+	.string "just for blazing-hot TRAINERS like you!\p"
+	.string "Go on, take these too!\n"
+	.string "Enjoy them while they're fresh!$"
 
 Route109_SeashoreHouse_Text_BagFull:
 	.string "Oh, but hey, your BAG's jammed full.\n"
