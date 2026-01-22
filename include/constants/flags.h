@@ -191,7 +191,7 @@
 #define FLAG_RECEIVED_TM_FACADE              0xA9
 #define FLAG_RECEIVED_TM_AERIAL_ACE          0xAA
 #define FLAG_RECEIVED_TM_CALM_MIND           0xAB
-#define FLAG_RECEIVED_TM_WATER_PULSE         0xAC
+#define FLAG_RECEIVED_TM_LIQUIDATION         0xAC
 #define FLAG_HIDE_SECRET_BASE_TRAINER        0xAD
 #define FLAG_DECORATION_1                    0xAE
 #define FLAG_DECORATION_2                    0xAF
@@ -1057,7 +1057,7 @@
 #define FLAG_ITEM_ROUTE_106_PROTEIN                                 0x3EC
 #define FLAG_ITEM_ROUTE_109_PP_UP                                   0x3ED
 #define FLAG_ITEM_ROUTE_110_RARE_CANDY                              0x3EE
-#define FLAG_ITEM_ROUTE_110_DIRE_HIT                                0x3EF
+#define FLAG_ITEM_ROUTE_110_TM_SNARL                                0x3EF
 #define FLAG_ITEM_ROUTE_111_TM_STOMPING_TANTRUM                     0x3F0
 #define FLAG_ITEM_ROUTE_111_STARDUST                                0x3F1
 #define FLAG_ITEM_ROUTE_111_HP_UP                                   0x3F2
