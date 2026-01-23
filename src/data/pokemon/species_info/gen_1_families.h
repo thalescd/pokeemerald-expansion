@@ -8170,11 +8170,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_POLIWRATH] =
     {
         .baseHP        = 90,
-        .baseAttack    = P_UPDATED_STATS >= GEN_6 ? 100 : 85,
-        .baseDefense   = 100,
+        .baseAttack    = 115,
+        .baseDefense   = 105,
         .baseSpeed     = 70,
-        .baseSpAttack  = 60,
-        .baseSpDefense = P_UPDATED_STATS >= GEN_2 ? 90 : 70,
+        .baseSpAttack  = 50,
+        .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_WATER, TYPE_FIGHTING),
         .catchRate = 45,
     #if P_UPDATED_EXP_YIELDS >= GEN_8

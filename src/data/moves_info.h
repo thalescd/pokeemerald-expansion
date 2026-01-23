@@ -9552,7 +9552,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "foes, but also wakes them."),
         .effect = EFFECT_DOUBLE_POWER_ON_ARG_STATUS,
         .power = B_UPDATED_MOVE_DATA >= GEN_6 ? 70 : 60,
-        .type = TYPE_FIGHTING,
+        .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,

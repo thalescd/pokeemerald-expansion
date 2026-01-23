@@ -11110,11 +11110,11 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 #if P_FAMILY_DRUDDIGON
     [SPECIES_DRUDDIGON] =
     {
-        .baseHP        = 77,
+        .baseHP        = 97,
         .baseAttack    = 120,
         .baseDefense   = 90,
         .baseSpeed     = 48,
-        .baseSpAttack  = 60,
+        .baseSpAttack  = 50,
         .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_DRAGON),
         .catchRate = 45,
