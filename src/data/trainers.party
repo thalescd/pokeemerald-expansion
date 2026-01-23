@@ -5079,41 +5079,64 @@ Class: Leader
 Pic: Leader Norman
 Gender: Male
 Music: Male
-Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Spinda
-Level: 27
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Teeter Dance
-- Psybeam
+Lopunny-Mega @ Flame Orb
+Ability: Scrappy
+Level: 46
+Jolly Nature
 - Facade
+- U-turn
 - Encore
+- Switcheroo
 
-Vigoroth
-Level: 27
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Slash
-- Facade
-- Encore
-- Feint Attack
+Wyrdeer @ Clear Amulet
+Ability: Intimidate
+Level: 46
+Relaxed Nature
+- Psyshield Bash
+- Body Slam
+- Earth Power
+- Thunder Wave
 
-Linoone
-Level: 29
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Slash
-- Belly Drum
-- Facade
-- Headbutt
+Togekiss @ Sitrus Berry
+Ability: Serene Grace
+Level: 45
+Modest Nature
+IVs: 0 Atk
+- Dazzling Gleam
+- Air Slash
+- Aura Sphere
+- Ancient Power
 
-Slaking @ Sitrus Berry
-Level: 31
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Counter
-- Yawn
+Drampa @ Assault Vest
+Ability: Berserk
+Level: 46
+Calm Nature
+IVs: 0 Atk
+- Hyper Voice
+- Dragon Pulse
+- Flamethrower
+- Thunderbolt
+
+Zangoose @ Toxic Orb
+Ability: Toxic Boost
+Level: 46
+Jolly Nature
 - Facade
-- Feint Attack
+- Night Slash
+- Quick Attack
+- Swords Dance
+
+Slaking @ Life Orb
+Ability: Truant
+Level: 50
+Adamant Nature
+- Slack Off
+- Facade
+- Drain Punch
+- Shadow Claw
 
 === TRAINER_WINONA_1 ===
 Name: WINONA
