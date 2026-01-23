@@ -59,7 +59,7 @@
     F(STOMPING_TANTRUM) \
     F(FLING) \
     F(ELECTROWEB) \
-    F(SPLASH) \
+    F(TEMPER_FLARE) \
     F(TACKLE) \
     F(POUND) \
     F(WILL_O_WISP) \
