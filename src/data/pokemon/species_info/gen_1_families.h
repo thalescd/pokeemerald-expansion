@@ -1426,6 +1426,22 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-4, 15, SHADOW_SIZE_S)
         FOOTPRINT(Butterfree)
+        OVERWORLD(
+            sPicTable_Butterfree,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Butterfree,
+            gShinyOverworldPalette_Butterfree
+        )
+        OVERWORLD_FEMALE(
+            sPicTable_ButterfreeF,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following
+        )
         //.isGigantamax = TRUE,
         .levelUpLearnset = sButterfreeLevelUpLearnset,
         .teachableLearnset = sButterfreeTeachableLearnset,

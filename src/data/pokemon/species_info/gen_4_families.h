@@ -3388,7 +3388,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
     [SPECIES_LOPUNNY] =
     {
         .baseHP        = 65,
-        .baseAttack    = 76,
+        .baseAttack    = 86,
         .baseDefense   = 84,
         .baseSpeed     = 105,
         .baseSpAttack  = 54,
@@ -3450,17 +3450,18 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         )
         .levelUpLearnset = sLopunnyLevelUpLearnset,
         .teachableLearnset = sLopunnyTeachableLearnset,
-        .formSpeciesIdTable = sLopunnyFormSpeciesIdTable,
-        .formChangeTable = sLopunnyFormChangeTable,
+        //.formSpeciesIdTable = sLopunnyFormSpeciesIdTable,
+        //.formChangeTable = sLopunnyFormChangeTable,
+        .evolutions = EVOLUTION({EVO_LEVEL, 44, SPECIES_LOPUNNY_MEGA}),
     },
 
 #if P_MEGA_EVOLUTIONS
     [SPECIES_LOPUNNY_MEGA] =
     {
-        .baseHP        = 65,
-        .baseAttack    = 136,
-        .baseDefense   = 94,
-        .baseSpeed     = 135,
+        .baseHP        = 70,
+        .baseAttack    = 111,
+        .baseDefense   = 89,
+        .baseSpeed     = 125,
         .baseSpAttack  = 54,
         .baseSpDefense = 96,
         .types = MON_TYPES(TYPE_NORMAL, TYPE_FIGHTING),
@@ -3472,7 +3473,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = 140,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_SCRAPPY, ABILITY_SCRAPPY, ABILITY_SCRAPPY },
+        .abilities = { ABILITY_SCRAPPY, ABILITY_UNNERVE, ABILITY_LIMBER },
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Lopunny"),
         .cryId = CRY_LOPUNNY_MEGA,
@@ -3516,11 +3517,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
             gShinyOverworldPalette_LopunnyMega
         )
     #endif //OW_BATTLE_ONLY_FORMS
-        .isMegaEvolution = TRUE,
-        .levelUpLearnset = sLopunnyLevelUpLearnset,
+        //.isMegaEvolution = TRUE,
+        .levelUpLearnset = sLopunnyMegaLevelUpLearnset,
         .teachableLearnset = sLopunnyTeachableLearnset,
-        .formSpeciesIdTable = sLopunnyFormSpeciesIdTable,
-        .formChangeTable = sLopunnyFormChangeTable,
+        //.formSpeciesIdTable = sLopunnyFormSpeciesIdTable,
+        //.formChangeTable = sLopunnyFormChangeTable,
     },
 #endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_BUNEARY
