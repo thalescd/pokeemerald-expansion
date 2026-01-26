@@ -1177,8 +1177,14 @@ static const struct SpriteFrameImage sPicTable_Ball_QUICK[] = {
 static const struct SpriteFrameImage sPicTable_Ball_CHERISH[] = {
     POKEBALL_PIC_FRAMES(Cherish),
 };
+//Explicit to show in Porymap
 static const struct SpriteFrameImage sPicTable_Ball_PARK[] = {
-    POKEBALL_PIC_FRAMES(Park),
+    overworld_frame(gObjectEventPic_ParkBall, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ParkBall, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ParkBall, 2, 4, 2),
+    overworld_frame(gObjectEventPic_ParkBall, 2, 4, 3),
+    overworld_frame(gObjectEventPic_ParkBall, 2, 4, 4),
+    overworld_frame(gObjectEventPic_ParkBall, 2, 4, 0),
 };
 static const struct SpriteFrameImage sPicTable_Ball_FAST[] = {
     POKEBALL_PIC_FRAMES(Fast),
