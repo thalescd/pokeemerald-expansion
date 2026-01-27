@@ -1324,11 +1324,21 @@ Double Battle: No
 AI: Basic Trainer
 
 Swellow
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Quick Attack
-- Agility
-- Wing Attack
+Nature: Jolly
+Level: 43
+- Dual Wingbeat
+- U-turn
+- Facade
+- Swords Dance
+
+Ambipom @ Silk Scarf
+Nature: Jolly
+Ability: Technician
+Level: 43
+- Fake Out
+- Thief
+- Tail Slap
+- Mud Bomb
 
 === TRAINER_PARKER ===
 Name: PARKER
@@ -1340,12 +1350,12 @@ Items: Hyper Potion
 Double Battle: No
 AI: Basic Trainer
 
-Spinda
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Teeter Dance
+Kangaskhan
+Level: 44
 - Dizzy Punch
-- Focus Punch
+- Comet Punch
+- Sucker Punch
+- Crunch
 
 === TRAINER_GEORGE ===
 Name: GEORGE
@@ -1357,12 +1367,19 @@ Items: Hyper Potion
 Double Battle: No
 AI: Basic Trainer
 
-Slakoth @ Sitrus Berry
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Vigoroth @ Sitrus Berry
+Level: 43
 - Slack Off
 - Counter
+- Shadow Claw
+- Night Slash
+
+Girafarig @ Sitrus Berry
+Level: 43
+- Wish
+- Mirror Coat
 - Shadow Ball
+- Protect
 
 === TRAINER_BERKE ===
 Name: BERKE
@@ -1374,11 +1391,11 @@ Items: Hyper Potion
 Double Battle: No
 AI: Basic Trainer
 
-Vigoroth
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Focus Energy
-- Slash
+Exploud @ Choice Specs
+Ability: Scrappy
+Level: 44
+IVs: 0 Atk
+- Boomburst
 
 === TRAINER_BRAXTON ===
 Name: BRAXTON
@@ -1711,10 +1728,17 @@ Double Battle: No
 AI: Basic Trainer
 
 Delcatty
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Level: 43
 - Feint Attack
 - Shock Wave
+- Double Edge
+
+Pidgeot
+Ability: No Guard
+Level: 43
+- Air Slash
+- Heat Wave
+- Hyper Beam
 
 === TRAINER_ALEXIA ===
 Name: ALEXIA
@@ -1727,11 +1751,20 @@ Double Battle: No
 AI: Basic Trainer
 
 Wigglytuff
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Defense Curl
-- Double Edge
-- Shadow Ball
+Ability: Competitive
+Level: 43
+- Hyper Voice
+- Fire Blast
+- Dazzling Gleam
+- Thunderbolt
+
+Dubwool
+Ability: Fluffy
+Level: 43
+- Body Slam
+- Body Press
+- Wild Charge
+- Cotton Guard
 
 === TRAINER_JODY ===
 Name: JODY
@@ -1743,11 +1776,14 @@ Items: Hyper Potion
 Double Battle: No
 AI: Basic Trainer / Force Setup First Turn
 
-Zangoose
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Ursaring @ Toxic Orb
+Ability: Quick Feet
+Jolly Nature
+Level: 44
+- Facade
+- Crunch
+- Fire Punch
 - Swords Dance
-- Slash
 
 === TRAINER_WENDY ===
 Name: WENDY
@@ -5082,14 +5118,14 @@ Music: Male
 Double Battle: No
 AI: Smart Trainer
 
-Lopunny-Mega @ Flame Orb
+Lopunny-Mega @ Ability Shield
 Ability: Scrappy
 Level: 46
 Jolly Nature
 - Facade
 - U-turn
+- Jump Kick
 - Encore
-- Switcheroo
 
 Wyrdeer @ Clear Amulet
 Ability: Intimidate
