@@ -24,31 +24,39 @@ MoveTutor_EventScript_SwaggerTaught::
 	release
 	end
 
-MauvilleCity_EventScript_RolloutTutor::
+MauvilleCity_EventScript_IcyWindTutor::
 	lock
 	faceplayer
-	goto_if_set FLAG_MOVE_TUTOR_TAUGHT_ROLLOUT, MoveTutor_EventScript_RolloutTaught
-	msgbox MoveTutor_Text_RolloutTeach, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_RolloutDeclined
-	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_RolloutDeclined
-	msgbox MoveTutor_Text_RolloutWhichMon, MSGBOX_DEFAULT
-	setvar VAR_0x8005, MOVE_ROLLOUT
+	msgbox MoveTutor_Text_IcyWindTeach, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_IcyWindDeclined
+	checkitem ITEM_TINY_MUSHROOM, 1
+	goto_if_eq VAR_RESULT, FALSE, MoveTutor_EventScript_IcyWindNoMushroom
+	msgbox MoveTutor_Text_IcyWindWhichMon, MSGBOX_DEFAULT
+	setvar VAR_0x8005, MOVE_ICY_WIND
 	call MoveTutor_EventScript_OpenPartyMenu
-	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_RolloutDeclined
-	setflag FLAG_MOVE_TUTOR_TAUGHT_ROLLOUT
-	goto MoveTutor_EventScript_RolloutTaught
-	end
-
-MoveTutor_EventScript_RolloutDeclined::
-	msgbox MoveTutor_Text_RolloutDeclined, MSGBOX_DEFAULT
+	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_IcyWindDeclined
+	removeitem ITEM_TINY_MUSHROOM, 1
+	msgbox MoveTutor_Text_IcyWindTaught, MSGBOX_DEFAULT
 	release
 	end
 
-MoveTutor_EventScript_RolloutTaught::
-	msgbox MoveTutor_Text_RolloutTaught, MSGBOX_DEFAULT
+
+MoveTutor_EventScript_IcyWindDeclined::
+	msgbox MoveTutor_Text_IcyWindDeclined, MSGBOX_DEFAULT
 	release
 	end
+
+MoveTutor_EventScript_IcyWindNoMushroom::
+	msgbox MoveTutor_Text_IcyWindNoMushroom, MSGBOX_DEFAULT
+	release
+	end
+
+MoveTutor_Text_IcyWindNoMushroom:
+	.string "Hmm... You don't seem to have a\n"
+	.string "TINY MUSHROOM.\p"
+	.string "Bring me one if you want your\n"
+	.string "POKéMON to learn ICY WIND.$"
+
 
 VerdanturfTown_PokemonCenter_1F_EventScript_FuryCutterTutor::
 	lock

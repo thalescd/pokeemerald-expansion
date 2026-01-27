@@ -24,28 +24,30 @@ MoveTutor_Text_SwaggerTaught:
 	.string "I'll just praise my POKéMON from now\n"
 	.string "on without the swagger.$"
 
-MoveTutor_Text_RolloutTeach:
-	.string "Did you know that you can go from\n"
-	.string "here a long way in that direction\l"
-	.string "without changing direction?\p"
-	.string "I might even be able to roll\n"
-	.string "that way.\p"
-	.string "Do you think your POKéMON will\n"
-	.string "want to roll, too?\p"
-	.string "I can teach one the move ROLLOUT\n"
-	.string "if you'd like.$"
+MoveTutor_Text_IcyWindTeach:
+	.string "Have you ever felt a freezing wind\n"
+	.string "cut through the air like that?\l"
+	.string "It sends shivers down your spine!\p"
+	.string "I can whip up a chilling gust\n"
+	.string "in no time at all.\p"
+	.string "If you bring me a TINY MUSHROOM,\n"
+	.string "I'll teach your POKéMON ICY WIND.\p"
+	.string "So, what do you say?$"
 
-MoveTutor_Text_RolloutDeclined:
-	.string "You don't need to be shy about it.\n"
-	.string "Let's roll!$"
+MoveTutor_Text_IcyWindDeclined:
+	.string "Not willing to part with a TINY\n"
+	.string "MUSHROOM, huh?\p"
+	.string "Come back if you change your mind.$"
 
-MoveTutor_Text_RolloutWhichMon:
-	.string "Ehehe, sure thing! It'd be great if\n"
-	.string "the POKéMON looked like me.$"
+MoveTutor_Text_IcyWindWhichMon:
+	.string "Alright! Which POKéMON should\n"
+	.string "learn ICY WIND?$"
 
-MoveTutor_Text_RolloutTaught:
-	.string "Rolling around in the grass makes me\n"
-	.string "happy. Come on, let's roll!$"
+MoveTutor_Text_IcyWindTaught:
+	.string "Brrr! That icy wind can slow down\n"
+	.string "any opponent.\p"
+	.string "Thanks for the TINY MUSHROOM!$"
+
 
 MoveTutor_Text_FuryCutterTeach:
 	.string "There's a move that gets stronger\n"
