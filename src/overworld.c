@@ -1051,27 +1051,13 @@ bool32 Overworld_IsBikingAllowed(void)
         return TRUE;
 }
 
-static bool8 CanLearnFlashInParty(void)
-{
-    u8 i;
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        if (!GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL))
-            break;
-        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);    
-        if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && CanLearnTeachableMove(species, MOVE_FLASH))
-            return TRUE;
-    }
-    return FALSE;
-}
-
 // Flash level of 0 is fully bright
 // Flash level of 1 is the largest flash radius
 // Flash level of 7 is the smallest flash radius
 // Flash level of 8 is fully black
 void SetDefaultFlashLevel(void)
 {
-    if (CheckBagHasItem(ITEM_HM05 ,1) && CanLearnFlashInParty() && FlagGet(FLAG_BADGE02_GET))
+    if (CheckBagHasItem(ITEM_HM05 ,1) && CanLearnMoveInParty(MOVE_FLASH) && FlagGet(FLAG_BADGE02_GET))
         FlagSet(FLAG_SYS_USE_FLASH);
     if (!gMapHeader.cave)
         gSaveBlock1Ptr->flashLevel = 0;

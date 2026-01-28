@@ -629,3 +629,17 @@ void Script_SetStatus1(struct ScriptContext *ctx)
         SetMonData(&gPlayerParty[slot], MON_DATA_STATUS, &status1);
     }
 }
+
+bool8 CanLearnMoveInParty(u16 move)
+{
+    u8 i;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (!GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL))
+            break;
+        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);    
+        if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && CanLearnTeachableMove(species, move))
+            return TRUE;
+    }
+    return FALSE;
+}
