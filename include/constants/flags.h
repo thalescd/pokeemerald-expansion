@@ -638,7 +638,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_1             (FLAG_HIDDEN_ITEMS_START + 0x5C)
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_2             (FLAG_HIDDEN_ITEMS_START + 0x5D)
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_3             (FLAG_HIDDEN_ITEMS_START + 0x5E)
-#define FLAG_HIDDEN_ITEM_PETALBURG_CITY_RARE_CANDY           (FLAG_HIDDEN_ITEMS_START + 0x5F)
+#define FLAG_HIDDEN_ITEM_PETALBURG_CITY_ABILITY_CAPSULE      (FLAG_HIDDEN_ITEMS_START + 0x5F)
 #define FLAG_HIDDEN_ITEM_ROUTE_116_BLACK_GLASSES             (FLAG_HIDDEN_ITEMS_START + 0x60)
 #define FLAG_HIDDEN_ITEM_ROUTE_115_HEART_SCALE               (FLAG_HIDDEN_ITEMS_START + 0x61)
 #define FLAG_HIDDEN_ITEM_ROUTE_113_NUGGET                    (FLAG_HIDDEN_ITEMS_START + 0x62)
@@ -1056,7 +1056,7 @@
 #define FLAG_ITEM_ROUTE_105_IRON                                    0x3EB
 #define FLAG_ITEM_ROUTE_106_PROTEIN                                 0x3EC
 #define FLAG_ITEM_ROUTE_109_PP_UP                                   0x3ED
-#define FLAG_ITEM_ROUTE_110_RARE_CANDY                              0x3EE
+#define FLAG_ITEM_ROUTE_110_TM_DRAIN_PUNCH                              0x3EE
 #define FLAG_ITEM_ROUTE_110_TM_SNARL                                0x3EF
 #define FLAG_ITEM_ROUTE_111_TM_STOMPING_TANTRUM                     0x3F0
 #define FLAG_ITEM_ROUTE_111_STARDUST                                0x3F1
@@ -1126,7 +1126,7 @@
 #define FLAG_ITEM_MT_PYRE_EXTERIOR_MAX_POTION                       0x431
 #define FLAG_ITEM_MT_PYRE_EXTERIOR_TM_SKILL_SWAP                    0x432
 #define FLAG_ITEM_NEW_MAUVILLE_ULTRA_BALL                           0x433
-#define FLAG_ITEM_NEW_MAUVILLE_ESCAPE_ROPE                          0x434
+#define FLAG_ITEM_NEW_MAUVILLE_ELECTRIC_SEED                          0x434
 #define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_6_LUXURY_BALL    0x435
 #define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_2_SCANNER        0x436
 #define FLAG_ITEM_SCORCHED_SLAB_TM_SUNNY_DAY                        0x437
