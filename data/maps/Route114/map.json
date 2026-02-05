@@ -487,8 +487,8 @@
       "x": 20,
       "y": 57,
       "elevation": 3,
-      "item": "ITEM_CARBOS",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE_114_CARBOS"
+      "item": "ITEM_LEAF_STONE",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_114_LEAF_STONE"
     },
     {
       "type": "secret_base",

@@ -50,8 +50,8 @@
 #define FLAG_DEFEATED_RIVAL_ROUTE_110            0x24
 #define FLAG_ITEM_MT_CHIMMEY_TM_INCINERATE       0x25
 #define FLAG_ITEM_JAGGED_PASS_TM_ROCK_POLISH     0x26
-#define FLAG_RECEIVED_SWORDS_DANCE_LAVARIDGE     0x27 // Unused Flag
-#define FLAG_UNUSED_0x028                        0x28 // Unused Flag
+#define FLAG_RECEIVED_SWORDS_DANCE_LAVARIDGE     0x27
+#define FLAG_ITEM_ROUTE_119_TM_62                0x28
 #define FLAG_UNUSED_0x029                        0x29 // Unused Flag
 #define FLAG_UNUSED_0x02A                        0x2A // Unused Flag
 #define FLAG_UNUSED_0x02B                        0x2B // Unused Flag
@@ -547,7 +547,7 @@
 #define FLAG_HIDDEN_ITEM_TRICK_HOUSE_NUGGET                  (FLAG_HIDDEN_ITEMS_START + 0x01)
 #define FLAG_HIDDEN_ITEM_ROUTE_111_STARDUST                  (FLAG_HIDDEN_ITEMS_START + 0x02)
 #define FLAG_HIDDEN_ITEM_ROUTE_113_ETHER                     (FLAG_HIDDEN_ITEMS_START + 0x03)
-#define FLAG_HIDDEN_ITEM_ROUTE_114_CARBOS                    (FLAG_HIDDEN_ITEMS_START + 0x04)
+#define FLAG_HIDDEN_ITEM_ROUTE_114_LEAF_STONE                (FLAG_HIDDEN_ITEMS_START + 0x04)
 #define FLAG_HIDDEN_ITEM_ROUTE_119_CALCIUM                   (FLAG_HIDDEN_ITEMS_START + 0x05)
 #define FLAG_HIDDEN_ITEM_ROUTE_119_ULTRA_BALL                (FLAG_HIDDEN_ITEMS_START + 0x06)
 #define FLAG_HIDDEN_ITEM_ROUTE_123_SUPER_REPEL               (FLAG_HIDDEN_ITEMS_START + 0x07)
@@ -1166,7 +1166,7 @@
 #define FLAG_ITEM_SHOAL_CAVE_ICE_ROOM_NEVER_MELT_ICE                0x459
 #define FLAG_ITEM_ROUTE_103_GUARD_SPEC                              0x45A
 #define FLAG_ITEM_ROUTE_104_NET_BALL                                0x45B
-#define FLAG_ITEM_MAUVILLE_CITY_X_SPEED                             0x45C
+#define FLAG_ITEM_MAUVILLE_CITY_THUNDER_STONE                       0x45C
 #define FLAG_ITEM_PETALBURG_WOODS_PARALYZE_HEAL                     0x45D
 #define FLAG_ITEM_ROUTE_115_GREAT_BALL                              0x45E
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_CALCIUM                         0x45F
