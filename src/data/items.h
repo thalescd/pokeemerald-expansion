@@ -4452,7 +4452,7 @@ const struct Item gItemsInfo[] =
         .name = ITEM_NAME("Magmarizer"),
         .price = (I_PRICE >= GEN_7) ? 2000 * TREASURE_FACTOR : 2100,
         .description = COMPOUND_STRING(
-            "Loved by a certain\n"
+            "Loved by certain\n"
             "Pokémon. It's full\n"
             "of magma energy."),
         .pocket = POCKET_ITEMS,

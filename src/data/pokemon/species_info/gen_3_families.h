@@ -6873,19 +6873,21 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         )
         .levelUpLearnset = sCameruptLevelUpLearnset,
         .teachableLearnset = sCameruptTeachableLearnset,
-        .formSpeciesIdTable = sCameruptFormSpeciesIdTable,
-        .formChangeTable = sCameruptFormChangeTable,
+        //.formSpeciesIdTable = sCameruptFormSpeciesIdTable,
+        //.formChangeTable = sCameruptFormChangeTable,
+        .evolutions = EVOLUTION({EVO_TRADE, 0, SPECIES_CAMERUPT_MEGA, CONDITIONS({IF_HOLD_ITEM, ITEM_MAGMARIZER})},
+                                {EVO_ITEM, ITEM_MAGMARIZER, SPECIES_CAMERUPT_MEGA}),
     },
 
 #if P_MEGA_EVOLUTIONS
     [SPECIES_CAMERUPT_MEGA] =
     {
-        .baseHP        = 70,
-        .baseAttack    = 120,
-        .baseDefense   = 100,
-        .baseSpeed     = 20,
-        .baseSpAttack  = 145,
-        .baseSpDefense = 105,
+        .baseHP        = 80,
+        .baseAttack    = 105,
+        .baseDefense   = 90,
+        .baseSpeed     = 25,
+        .baseSpAttack  = 125,
+        .baseSpDefense = 95,
         .types = MON_TYPES(TYPE_FIRE, TYPE_GROUND),
         .catchRate = 150,
         .expYield = 196,
@@ -6896,7 +6898,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_SHEER_FORCE, ABILITY_SHEER_FORCE, ABILITY_SHEER_FORCE },
+        .abilities = { ABILITY_MAGMA_ARMOR, ABILITY_SOLID_ROCK, ABILITY_SHEER_FORCE },
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Camerupt"),
         .cryId = CRY_CAMERUPT_MEGA,
@@ -6940,11 +6942,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
             gShinyOverworldPalette_CameruptMega
         )
     #endif //OW_BATTLE_ONLY_FORMS
-        .isMegaEvolution = TRUE,
-        .levelUpLearnset = sCameruptLevelUpLearnset,
+        //.isMegaEvolution = TRUE,
+        .levelUpLearnset = sCameruptMegaLevelUpLearnset,
         .teachableLearnset = sCameruptTeachableLearnset,
-        .formSpeciesIdTable = sCameruptFormSpeciesIdTable,
-        .formChangeTable = sCameruptFormChangeTable,
+        //.formSpeciesIdTable = sCameruptFormSpeciesIdTable,
+        //.formChangeTable = sCameruptFormChangeTable,
     },
 #endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_NUMEL
