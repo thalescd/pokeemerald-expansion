@@ -113,24 +113,21 @@ SlateportCity_Movement_ScottExit:
 	walk_left
 	step_end
 
-SlateportCity_EventScript_EnergyGuru::
+SlateportCity_EventScript_AppleGuru::
 	lock
 	faceplayer
-	message SlateportCity_Text_EnergyGuruSellWhatYouNeed
+	message SlateportCity_Text_AppleGuruSellWhatYouNeed
 	waitmessage
-	pokemart SlateportCity_Pokemart_EnergyGuru
+	pokemart SlateportCity_Pokemart_AppleGuru
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
 	.align 2
-SlateportCity_Pokemart_EnergyGuru:
-	.2byte ITEM_PROTEIN
-	.2byte ITEM_IRON
-	.2byte ITEM_CARBOS
-	.2byte ITEM_ZINC
-	.2byte ITEM_CALCIUM
-	.2byte ITEM_HP_UP
+SlateportCity_Pokemart_AppleGuru:
+	.2byte ITEM_SWEET_APPLE
+	.2byte ITEM_SYRUPY_APPLE
+	.2byte ITEM_TART_APPLE
 	pokemartlistend
 
 SlateportCity_EventScript_EffortRibbonWoman::
@@ -919,8 +916,8 @@ SlateportCity_EventScript_BerryCrushRankingsSign::
 	releaseall
 	end
 
-SlateportCity_Text_EnergyGuruSellWhatYouNeed:
-	.string "I'm the ENERGY GURU! I'll go for it and\n"
+SlateportCity_Text_AppleGuruSellWhatYouNeed:
+	.string "I'm the APPLE GURU! I'll go for it and\n"
 	.string "sell you what you need!$"
 
 SlateportCity_Text_OhYourPokemon:
