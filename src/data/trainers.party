@@ -3340,13 +3340,11 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Machop
-Level: 24
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Lucario
+Level: 45
 
-Machoke
-Level: 28
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Flamigo
+Level: 45
 
 === TRAINER_NOB_1 ===
 Name: NOB
@@ -5957,9 +5955,8 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Hariyama
-Level: 27
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Rhydon
+Level: 47
 
 === TRAINER_TIMOTHY_2 ===
 Name: TIMOTHY
@@ -14356,13 +14353,11 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Doduo
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Mabosstiff
+Level: 46
 
-Dodrio
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Scyther
+Level: 46
 
 === TRAINER_JAIDEN ===
 Name: JAIDEN
@@ -14373,13 +14368,11 @@ Music: Suspicious
 Double Battle: No
 AI: Basic Trainer
 
-Ninjask
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Inteleon
+Level: 45
 
-Gulpin
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Swalot
+Level: 45
 
 === TRAINER_ALIX ===
 Name: ALIX
@@ -14390,13 +14383,12 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Kadabra
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Meowstic (M)
+Level: 46
 
-Kirlia
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Gothitelle
+Ability: Shadow Tag
+Level: 46
 
 === TRAINER_HELENE ===
 Name: HELENE
@@ -14407,13 +14399,11 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Meditite
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Infernape
+Level: 46
 
-Makuhita
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Primeape
+Level: 46
 
 === TRAINER_MARLENE ===
 Name: MARLENE
