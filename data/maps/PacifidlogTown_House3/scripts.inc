@@ -5,7 +5,7 @@ PacifidlogTown_House3_EventScript_Trader::
 	lock
 	faceplayer
 	goto_if_set FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED, PacifidlogTown_House3_EventScript_TradeCompleted
-	setvar VAR_0x8008, INGAME_TRADE_HORSEA
+	setvar VAR_0x8008, INGAME_TRADE_POIPOLE
 	copyvar VAR_0x8004, VAR_0x8008
 	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
 	copyvar VAR_0x8009, VAR_RESULT
@@ -42,7 +42,7 @@ PacifidlogTown_House3_EventScript_NotRequestedMon::
 	end
 
 PacifidlogTown_House3_EventScript_TradeCompleted::
-	msgbox PacifidlogTown_House3_Text_ReallyWantedToGetBagon, MSGBOX_DEFAULT
+	msgbox PacifidlogTown_House3_Text_ReallyWantedToGetDruddigon, MSGBOX_DEFAULT
 	release
 	end
 
@@ -52,8 +52,8 @@ PacifidlogTown_House3_EventScript_Girl::
 
 PacifidlogTown_House3_Text_WillingToTradeIt:
 	.string "Check out this {STR_VAR_2}!\p"
-	.string "It's the {STR_VAR_2} that I caught\n"
-	.string "yesterday to celebrate my birthday!\p"
+	.string "It's the {STR_VAR_2} that I found\n"
+	.string "in a weird portal.!\p"
 	.string "Oh, I can see that you want it!\n"
 	.string "After all, it's priceless!\p"
 	.string "I'll tell you what. I might be willing\n"
@@ -75,10 +75,10 @@ PacifidlogTown_House3_Text_NotDesperateOrAnything:
 	.string "That's cool. I'm not desperate to make\n"
 	.string "a trade or anything.$"
 
-PacifidlogTown_House3_Text_ReallyWantedToGetBagon:
+PacifidlogTown_House3_Text_ReallyWantedToGetDruddigon:
 	.string "I know I could go looking for one\n"
 	.string "on my own, but…\p"
-	.string "But I really wanted to get a BAGON\n"
+	.string "But I really wanted a DRUDDIGON\n"
 	.string "that another TRAINER caught…$"
 
 PacifidlogTown_House3_Text_IsThatAPokedex:
