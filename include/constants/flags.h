@@ -463,52 +463,52 @@
 #define FLAG_UNUSED_0x1AA                    0x1AA // Unused Flag
 #define FLAG_UNUSED_0x1AB                    0x1AB // Unused Flag
 
-#define FLAG_DEFEATED_DEOXYS                 0x1AC
-#define FLAG_BATTLED_DEOXYS                  0x1AD
-#define FLAG_SHOWN_EON_TICKET                0x1AE
-#define FLAG_SHOWN_AURORA_TICKET             0x1AF
-#define FLAG_SHOWN_OLD_SEA_MAP               0x1B0
-#define FLAG_MOVE_TUTOR_TAUGHT_SWAGGER       0x1B1
-#define FLAG_UNUSED_0x1B2                    0x1B2 // Unused Flag
-#define FLAG_MOVE_TUTOR_TAUGHT_FURY_CUTTER   0x1B3
-#define FLAG_MOVE_TUTOR_TAUGHT_MIMIC         0x1B4
-#define FLAG_MOVE_TUTOR_TAUGHT_METRONOME     0x1B5
-#define FLAG_MOVE_TUTOR_TAUGHT_SLEEP_TALK    0x1B6
-#define FLAG_MOVE_TUTOR_TAUGHT_SUBSTITUTE    0x1B7
-#define FLAG_MOVE_TUTOR_TAUGHT_DYNAMICPUNCH  0x1B8
-#define FLAG_MOVE_TUTOR_TAUGHT_DOUBLE_EDGE   0x1B9
-#define FLAG_MOVE_TUTOR_TAUGHT_EXPLOSION     0x1BA
-#define FLAG_DEFEATED_REGIROCK               0x1BB
-#define FLAG_DEFEATED_REGICE                 0x1BC
-#define FLAG_DEFEATED_REGISTEEL              0x1BD
-#define FLAG_DEFEATED_KYOGRE                 0x1BE
-#define FLAG_DEFEATED_GROUDON                0x1BF
-#define FLAG_DEFEATED_RAYQUAZA               0x1C0
-#define FLAG_DEFEATED_VOLTORB_1_NEW_MAUVILLE 0x1C1
-#define FLAG_DEFEATED_VOLTORB_2_NEW_MAUVILLE 0x1C2
-#define FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE 0x1C3
+#define FLAG_DEFEATED_DEOXYS                   0x1AC
+#define FLAG_BATTLED_DEOXYS                    0x1AD
+#define FLAG_SHOWN_EON_TICKET                  0x1AE
+#define FLAG_SHOWN_AURORA_TICKET               0x1AF
+#define FLAG_SHOWN_OLD_SEA_MAP                 0x1B0
+#define FLAG_MOVE_TUTOR_TAUGHT_SWAGGER         0x1B1
+#define FLAG_UNUSED_0x1B2                      0x1B2 // Unused Flag
+#define FLAG_MOVE_TUTOR_TAUGHT_FURY_CUTTER     0x1B3
+#define FLAG_MOVE_TUTOR_TAUGHT_MIMIC           0x1B4
+#define FLAG_MOVE_TUTOR_TAUGHT_METRONOME       0x1B5
+#define FLAG_MOVE_TUTOR_TAUGHT_SLEEP_TALK      0x1B6
+#define FLAG_MOVE_TUTOR_TAUGHT_SUBSTITUTE      0x1B7
+#define FLAG_MOVE_TUTOR_TAUGHT_DYNAMICPUNCH    0x1B8
+#define FLAG_MOVE_TUTOR_TAUGHT_DOUBLE_EDGE     0x1B9
+#define FLAG_MOVE_TUTOR_TAUGHT_EXPLOSION       0x1BA
+#define FLAG_DEFEATED_REGIROCK                 0x1BB
+#define FLAG_DEFEATED_REGICE                   0x1BC
+#define FLAG_DEFEATED_REGISTEEL                0x1BD
+#define FLAG_DEFEATED_KYOGRE                   0x1BE
+#define FLAG_DEFEATED_GROUDON                  0x1BF
+#define FLAG_DEFEATED_RAYQUAZA                 0x1C0
+#define FLAG_DEFEATED_ELECTRODE_1_NEW_MAUVILLE 0x1C1
+#define FLAG_DEFEATED_ELECTRODE_2_NEW_MAUVILLE 0x1C2
+#define FLAG_DEFEATED_ELECTRODE_3_NEW_MAUVILLE 0x1C3
 #define FLAG_DEFEATED_ELECTRODE_1_AQUA_HIDEOUT 0x1C4
 #define FLAG_DEFEATED_ELECTRODE_2_AQUA_HIDEOUT 0x1C5
-#define FLAG_DEFEATED_SUDOWOODO              0x1C6
-#define FLAG_DEFEATED_MEW                    0x1C7
-#define FLAG_DEFEATED_LATIAS_OR_LATIOS       0x1C8
-#define FLAG_CAUGHT_LATIAS_OR_LATIOS         0x1C9
-#define FLAG_CAUGHT_MEW                      0x1CA
+#define FLAG_DEFEATED_SUDOWOODO                0x1C6
+#define FLAG_DEFEATED_MEW                      0x1C7
+#define FLAG_DEFEATED_LATIAS_OR_LATIOS         0x1C8
+#define FLAG_CAUGHT_LATIAS_OR_LATIOS           0x1C9
+#define FLAG_CAUGHT_MEW                        0x1CA
 #define FLAG_MET_SCOTT_AFTER_OBTAINING_STONE_BADGE 0x1CB
-#define FLAG_MET_SCOTT_IN_VERDANTURF         0x1CC
-#define FLAG_MET_SCOTT_IN_FALLARBOR          0x1CD
-#define FLAG_MET_SCOTT_IN_LILYCOVE           0x1CE
-#define FLAG_MET_SCOTT_IN_EVERGRANDE         0x1CF
-#define FLAG_MET_SCOTT_ON_SS_TIDAL           0x1D0
-#define FLAG_SCOTT_GIVES_BATTLE_POINTS       0x1D1
-#define FLAG_COLLECTED_ALL_GOLD_SYMBOLS      0x1D2
-#define FLAG_ENABLE_ROXANNE_MATCH_CALL       0x1D3
-#define FLAG_ENABLE_BRAWLY_MATCH_CALL        0x1D4
-#define FLAG_ENABLE_WATTSON_MATCH_CALL       0x1D5
-#define FLAG_ENABLE_FLANNERY_MATCH_CALL      0x1D6
-#define FLAG_ENABLE_WINONA_MATCH_CALL        0x1D7
-#define FLAG_ENABLE_TATE_AND_LIZA_MATCH_CALL 0x1D8
-#define FLAG_ENABLE_JUAN_MATCH_CALL          0x1D9
+#define FLAG_MET_SCOTT_IN_VERDANTURF           0x1CC
+#define FLAG_MET_SCOTT_IN_FALLARBOR            0x1CD
+#define FLAG_MET_SCOTT_IN_LILYCOVE             0x1CE
+#define FLAG_MET_SCOTT_IN_EVERGRANDE           0x1CF
+#define FLAG_MET_SCOTT_ON_SS_TIDAL             0x1D0
+#define FLAG_SCOTT_GIVES_BATTLE_POINTS         0x1D1
+#define FLAG_COLLECTED_ALL_GOLD_SYMBOLS        0x1D2
+#define FLAG_ENABLE_ROXANNE_MATCH_CALL         0x1D3
+#define FLAG_ENABLE_BRAWLY_MATCH_CALL          0x1D4
+#define FLAG_ENABLE_WATTSON_MATCH_CALL         0x1D5
+#define FLAG_ENABLE_FLANNERY_MATCH_CALL        0x1D6
+#define FLAG_ENABLE_WINONA_MATCH_CALL          0x1D7
+#define FLAG_ENABLE_TATE_AND_LIZA_MATCH_CALL   0x1D8
+#define FLAG_ENABLE_JUAN_MATCH_CALL            0x1D9
 
 #define FLAG_UNUSED_0x1DA                    0x1DA // Unused Flag
 
@@ -1022,9 +1022,9 @@
 #define FLAG_HIDE_LILYCOVE_CITY_RIVAL                               0x3CB
 #define FLAG_HIDE_ROUTE_120_STEVEN                                  0x3CC
 #define FLAG_HIDE_SOOTOPOLIS_CITY_STEVEN                            0x3CD
-#define FLAG_HIDE_NEW_MAUVILLE_VOLTORB_1                            0x3CE
-#define FLAG_HIDE_NEW_MAUVILLE_VOLTORB_2                            0x3CF
-#define FLAG_HIDE_NEW_MAUVILLE_VOLTORB_3                            0x3D0
+#define FLAG_HIDE_NEW_MAUVILLE_ELECTRODE_1                          0x3CE
+#define FLAG_HIDE_NEW_MAUVILLE_ELECTRODE_2                          0x3CF
+#define FLAG_HIDE_NEW_MAUVILLE_ELECTRODE_3                          0x3D0
 #define FLAG_HIDE_AQUA_HIDEOUT_B1F_ELECTRODE_1                      0x3D1
 #define FLAG_HIDE_AQUA_HIDEOUT_B1F_ELECTRODE_2                      0x3D2
 #define FLAG_HIDE_OLDALE_TOWN_RIVAL                                 0x3D3
@@ -1056,7 +1056,7 @@
 #define FLAG_ITEM_ROUTE_105_IRON                                    0x3EB
 #define FLAG_ITEM_ROUTE_106_PROTEIN                                 0x3EC
 #define FLAG_ITEM_ROUTE_109_PP_UP                                   0x3ED
-#define FLAG_ITEM_ROUTE_110_TM_DRAIN_PUNCH                              0x3EE
+#define FLAG_ITEM_ROUTE_110_TM_DRAIN_PUNCH                          0x3EE
 #define FLAG_ITEM_ROUTE_110_TM_SNARL                                0x3EF
 #define FLAG_ITEM_ROUTE_111_TM_STOMPING_TANTRUM                     0x3F0
 #define FLAG_ITEM_ROUTE_111_STARDUST                                0x3F1
@@ -1126,7 +1126,7 @@
 #define FLAG_ITEM_MT_PYRE_EXTERIOR_MAX_POTION                       0x431
 #define FLAG_ITEM_MT_PYRE_EXTERIOR_TM_SKILL_SWAP                    0x432
 #define FLAG_ITEM_NEW_MAUVILLE_ULTRA_BALL                           0x433
-#define FLAG_ITEM_NEW_MAUVILLE_ELECTRIC_SEED                          0x434
+#define FLAG_ITEM_NEW_MAUVILLE_ELECTRIC_SEED                        0x434
 #define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_6_LUXURY_BALL    0x435
 #define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_2_SCANNER        0x436
 #define FLAG_ITEM_SCORCHED_SLAB_TM_SUNNY_DAY                        0x437
