@@ -140,11 +140,21 @@ NewMauville_Inside_EventScript_SetBarrierStateGreenButton::
 	setmetatile 30, 38, METATILE_BikeShop_Button_Blue, FALSE
 	return
 
+NewMauville_Inside_EventScript_Rotom_Battle::
+	waitse
+	playmoncry SPECIES_ROTOM, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_ROTOM, 40
+	dowildbattle
+	return
+
 NewMauville_Inside_EventScript_RedButton::
 	lockall
 	msgbox NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped, MSGBOX_DEFAULT
 	call NewMauville_Inside_EventScript_SetGeneratorOffMetatiles
 	setvar VAR_NEW_MAUVILLE_STATE, 2
+	call NewMauville_Inside_EventScript_Rotom_Battle
 	releaseall
 	end
 
