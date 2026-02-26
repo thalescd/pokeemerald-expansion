@@ -3295,7 +3295,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "An egg is forcibly hurled at\n"
             "the foe."),
         .effect = EFFECT_HIT,
-        .power = 90,
+        .power = 80,
         .type = TYPE_FIRE,
         .accuracy = 100,
         .pp = 10,

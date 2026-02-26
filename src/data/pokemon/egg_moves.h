@@ -1164,6 +1164,7 @@ static const u16 sGoldeenEggMoveLearnset[] = {
     MOVE_MUD_SHOT,
     MOVE_SKULL_BASH,
     MOVE_SIGNAL_BEAM,
+    MOVE_FILLET_AWAY,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_GOLDEEN
