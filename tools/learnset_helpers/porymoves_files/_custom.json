@@ -43,5 +43,23 @@
     ],
     "EggMoves": [],
     "TutorMoves": []
+  },
+  "MEOWTH_GALAR": {
+    "LevelMoves": [],
+    "PreEvoMoves": [],
+    "TMMoves": [
+        "MOVE_CUT"
+    ],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "PERRSERKER": {
+    "LevelMoves": [],
+    "PreEvoMoves": [],
+    "TMMoves": [
+        "MOVE_CUT"
+    ],
+    "EggMoves": [],
+    "TutorMoves": []
   }
 }
