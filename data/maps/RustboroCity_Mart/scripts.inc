@@ -75,8 +75,6 @@ RustboroCity_Mart_EventScript_Promotion::
 	
 RustboroCity_Mart_EventScript_PromotionAfter::
 	msgbox RustboroCity_Mart_Text_ExplainItem, MSGBOX_DEFAULT
-	closemessage
-	waitmovement 0
 	release
 	end
 
