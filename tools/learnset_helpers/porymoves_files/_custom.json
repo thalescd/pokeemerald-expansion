@@ -16,5 +16,50 @@
     ],
     "EggMoves": [],
     "TutorMoves": []
+  },
+  "SMOLIV": {
+    "LevelMoves": [],
+    "PreEvoMoves": [],
+    "TMMoves": [
+        "MOVE_ROUND"
+    ],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "DOLLIV": {
+    "LevelMoves": [],
+    "PreEvoMoves": [],
+    "TMMoves": [
+        "MOVE_ROUND"
+    ],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "ARBOLIVA": {
+    "LevelMoves": [],
+    "PreEvoMoves": [],
+    "TMMoves": [
+        "MOVE_ROUND"
+    ],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "MEOWTH_GALAR": {
+    "LevelMoves": [],
+    "PreEvoMoves": [],
+    "TMMoves": [
+        "MOVE_CUT"
+    ],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "PERRSERKER": {
+    "LevelMoves": [],
+    "PreEvoMoves": [],
+    "TMMoves": [
+        "MOVE_CUT"
+    ],
+    "EggMoves": [],
+    "TutorMoves": []
   }
 }
