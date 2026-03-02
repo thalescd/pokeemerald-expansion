@@ -262,7 +262,7 @@ static void PrintMonAbilityName(void);
 static void PrintMonAbilityDescription(void);
 static void BufferMonTrainerMemo(void);
 static void PrintMonTrainerMemo(void);
-static void BufferNatureString(void);
+//static void BufferNatureString(void);
 static void GetMetLevelString(u8 *);
 static bool8 DoesMonOTMatchOwner(void);
 static bool8 DidMonComeFromGBAGames(void);
@@ -3712,7 +3712,7 @@ static void PrintMonTrainerMemo(void)
     PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), gStringVar4, 0, 1, 0, 0);
 }
 
-static void BufferNatureString(void)
+/*static void BufferNatureString(void)
 {
     const u8 *text;
 
@@ -3729,7 +3729,7 @@ static void BufferNatureString(void)
     //struct PokemonSummaryScreenData *sumStruct = sMonSummaryScreen;
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(2, text);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(5, gText_EmptyString5);
-}
+}*/
 
 static void GetMetLevelString(u8 *output)
 {
