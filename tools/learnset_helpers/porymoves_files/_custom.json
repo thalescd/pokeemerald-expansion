@@ -17,6 +17,33 @@
     "EggMoves": [],
     "TutorMoves": []
   },
+  "DEWOTT": {
+    "LevelMoves": [],
+    "PreEvoMoves": [],
+    "TMMoves": [
+        "MOVE_LOW_SWEEP"
+    ],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SAMUROTT": {
+    "LevelMoves": [],
+    "PreEvoMoves": [],
+    "TMMoves": [
+        "MOVE_LOW_SWEEP"
+    ],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SAMUROTT_HISUI": {
+    "LevelMoves": [],
+    "PreEvoMoves": [],
+    "TMMoves": [
+        "MOVE_LOW_SWEEP"
+    ],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
   "SMOLIV": {
     "LevelMoves": [],
     "PreEvoMoves": [],
