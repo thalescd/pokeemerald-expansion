@@ -2398,6 +2398,7 @@ extern const u8 gText_PlayerScurriedBackHome[];
 extern const u8 gText_PlayerRegroupCenter[];
 extern const u8 gText_PlayerRegroupHome[];
 
+extern const u8 gText_OpenPokedex[];
 extern const u8 gText_Relearn[]; // move relearner from summary screen
 extern const u8 gText_Relearn_LevelUp[];
 extern const u8 gText_Relearn_Egg[];

@@ -326,10 +326,12 @@ static void SummaryScreen_DestroyAnimDelayTask(void);
 static bool32 ShouldShowMoveRelearner(void);
 static bool32 ShouldShowRename(void);
 static bool32 ShouldShowIvEvPrompt(void);
+static bool32 ShouldShowOpenPokedexPrompt(void);
 static void BufferLeftColumnIvEvStats(void);
 static void CB2_ReturnToSummaryScreenFromNamingScreen(void);
 static void CB2_PssChangePokemonNickname(void);
 static void ShowUtilityPrompt(s16 mode);
+static void ShowOpenPokedexPrompt(void);
 static void ShowMonSkillsInfo(u8 taskId, s16 mode);
 static void WriteToStatsTilemapBuffer(u32 length, u32 block, u32 statsCoordX, u32 statsCoordY);
 void ExtractMonSkillStatsData(struct Pokemon *mon, struct PokeSummary *sum);
@@ -1772,7 +1774,7 @@ static void Task_HandleInput(u8 taskId)
             PlaySE(SE_SELECT);
             BeginCloseSummaryScreen(taskId);
         }
-        else if (JOY_NEW(START_BUTTON) && sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
+        else if (JOY_NEW(START_BUTTON) && sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO && ShouldShowOpenPokedexPrompt() && !gMain.inBattle)
         {
             sPokedexOpenPokemonSpecies = sMonSummaryScreen->summary.species;
             sPokedexOpenPokemonIsShiny = sMonSummaryScreen->summary.isShiny;
@@ -2143,6 +2145,10 @@ static void Task_ChangeSummaryMon(u8 taskId)
             else
                 ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_RELEARN);
         }
+        else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
+        {
+            ShowOpenPokedexPrompt();
+        }
         else
         {
             ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_RELEARN);
@@ -2355,6 +2361,7 @@ static void PssScrollRightEnd(u8 taskId) // display right
     TryDrawExperienceProgressBar();
     SwitchTaskToFollowupFunc(taskId);
     ShowRelearnPrompt();
+    ShowOpenPokedexPrompt();
 }
 
 static void PssScrollLeft(u8 taskId) // Scroll left
@@ -2408,6 +2415,7 @@ static void PssScrollLeftEnd(u8 taskId) // display left
     TryDrawExperienceProgressBar();
     SwitchTaskToFollowupFunc(taskId);
     ShowRelearnPrompt();
+    ShowOpenPokedexPrompt();
 }
 
 static void TryDrawExperienceProgressBar(void)
@@ -3432,6 +3440,10 @@ static void PrintPageNamesAndStats(void)
     {
         TryUpdateRelearnType(TRY_SET_UPDATE);
         ShowRelearnPrompt();
+    }
+    else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
+    {
+        ShowOpenPokedexPrompt();
     }
 }
 
@@ -4895,6 +4907,19 @@ static inline bool32 ShouldShowIvEvPrompt(void)
     return FALSE;
 }
 
+static inline bool32 ShouldShowOpenPokedexPrompt(void)
+{
+    return (FlagGet(FLAG_SYS_POKEDEX_GET)
+         && !sMonSummaryScreen->lockMovesFlag
+         && !sMonSummaryScreen->isBoxMon
+         && sMonSummaryScreen->mode != SUMMARY_MODE_BOX
+         && sMonSummaryScreen->mode != SUMMARY_MODE_BOX_CURSOR
+         && sMonSummaryScreen->mode != SUMMARY_MODE_SELECT_MOVE
+         && !InBattleFactory()
+         && !InSlateportBattleTent()
+         && !gMain.inBattle);
+}
+
 static inline void ShowUtilityPrompt(s16 mode)
 {
     const u8* promptText = NULL;
@@ -4961,6 +4986,22 @@ static inline void ShowUtilityPrompt(s16 mode)
     PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_UTILITY, promptText, stringXPos, 1, 0, 0);
 }
 
+void ShowOpenPokedexPrompt(void)
+{
+    u32 currPage = sMonSummaryScreen->currPageIndex;
+
+    // Only show the prompt on the info page and if player has pokedex
+    if (currPage != PSS_PAGE_INFO || !ShouldShowOpenPokedexPrompt())
+        return;
+
+    const u8* pokedexText = gText_OpenPokedex;
+    int pokedexTextXPos = GetStringRightAlignXOffset(FONT_NORMAL, pokedexText, 0);
+
+    FillWindowPixelBuffer(PSS_LABEL_WINDOW_PROMPT_RELEARN, PIXEL_FILL(0));
+    PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_RELEARN);
+    PrintTextOnWindowWithFont(PSS_LABEL_WINDOW_PROMPT_RELEARN, pokedexText, pokedexTextXPos, 4, 0, 0, FONT_SMALL);
+}
+
 void ShowRelearnPrompt(void)
 {
     u32 currPage = sMonSummaryScreen->currPageIndex;
@@ -5009,8 +5050,6 @@ static void CB2_ReturnToSummaryScreenFromNamingScreen(void)
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar2);
     ShowPokemonSummaryScreen(SUMMARY_MODE_NORMAL, gPlayerParty, gSpecialVar_0x8004, gPlayerPartyCount - 1, gInitialSummaryScreenCallback);
 }
-
-static void CB2_OpenPokedexFromSummary_Loop(void);
 
 static void CB2_OpenPokedexFromSummary(void)
 {

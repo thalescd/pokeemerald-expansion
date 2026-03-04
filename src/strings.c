@@ -1278,6 +1278,7 @@ const u8 gText_ExpShareOff[] = _("The Exp. Share has been turned off.{PAUSE_UNTI
 const u8 gText_BasePointsResetToZero[] = _("{STR_VAR_1}'s base points\nwere all reset to zero!{PAUSE_UNTIL_PRESS}");
 const u8 gText_AM[] = _("AM");
 const u8 gText_PM[] = _("PM");
+const u8 gText_OpenPokedex[] = _("{START_BUTTON} OPEN POKéDEX LEVEL");
 const u8 gText_Relearn[] = _("{START_BUTTON} RELEARN"); // future note: don't decap this, because it mimics the summary screen BG graphics which will not get decapped
 const u8 gText_Relearn_LevelUp[] = _("{START_BUTTON} RELEARN LEVEL");
 const u8 gText_Relearn_Egg[] = _("{START_BUTTON} RELEARN EGG");
