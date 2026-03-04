@@ -14,6 +14,7 @@ void DrawFootprint(u8 windowId, u16 species);
 u16 CreateMonSpriteFromNationalDexNumber(enum NationalDexOrder nationalNum, s16 x, s16 y, u16 paletteSlot);
 bool16 HasAllHoennMons(void);
 void ResetPokedexScrollPositions(void);
+void SetPokedexSelectedSpecies(u16 species);
 bool16 HasAllMons(void);
 void CB2_OpenPokedex(void);
 void PrintMonMeasurements(u16 species, u32 owned);

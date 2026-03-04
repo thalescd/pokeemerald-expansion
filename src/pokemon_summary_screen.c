@@ -33,6 +33,8 @@
 #include "pokemon_sprite_visualizer.h"
 #include "pokemon_storage_system.h"
 #include "pokemon_summary_screen.h"
+#include "pokedex.h"
+#include "pokedex_plus_hgss.h"
 #include "region_map.h"
 #include "scanline_effect.h"
 #include "sound.h"
@@ -195,9 +197,15 @@ static EWRAM_DATA u8 sMoveSlotToReplace = 0;
 ALIGNED(4) static EWRAM_DATA u8 sAnimDelayTaskId = 0;
 EWRAM_DATA MainCallback gInitialSummaryScreenCallback = NULL; // stores callback from the first time the screen is opened from the party or PC menu
 
+// Pokedex opening data
+static u16 sPokedexOpenPokemonSpecies = 0;
+static bool32 sPokedexOpenPokemonIsShiny = 0;
+static u32 sPokedexOpenPokemonPersonality = 0;
+
 // forward declarations
 static bool8 LoadGraphics(void);
 static void CB2_InitSummaryScreen(void);
+static void CB2_OpenPokedexFromSummary(void);
 static void InitBGs(void);
 static bool8 DecompressGraphics(void);
 static void CopyMonToSummaryStruct(struct Pokemon *);
@@ -1760,6 +1768,16 @@ static void Task_HandleInput(u8 taskId)
         }
         else if (JOY_NEW(B_BUTTON))
         {
+            StopPokemonAnimations();
+            PlaySE(SE_SELECT);
+            BeginCloseSummaryScreen(taskId);
+        }
+        else if (JOY_NEW(START_BUTTON) && sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
+        {
+            sPokedexOpenPokemonSpecies = sMonSummaryScreen->summary.species;
+            sPokedexOpenPokemonIsShiny = sMonSummaryScreen->summary.isShiny;
+            sPokedexOpenPokemonPersonality = sMonSummaryScreen->summary.pid;
+            sMonSummaryScreen->callback = CB2_OpenPokedexFromSummary;
             StopPokemonAnimations();
             PlaySE(SE_SELECT);
             BeginCloseSummaryScreen(taskId);
@@ -4990,6 +5008,18 @@ static void CB2_ReturnToSummaryScreenFromNamingScreen(void)
 {
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar2);
     ShowPokemonSummaryScreen(SUMMARY_MODE_NORMAL, gPlayerParty, gSpecialVar_0x8004, gPlayerPartyCount - 1, gInitialSummaryScreenCallback);
+}
+
+static void CB2_OpenPokedexFromSummary_Loop(void);
+
+static void CB2_OpenPokedexFromSummary(void)
+{
+    if (POKEDEX_PLUS_HGSS)
+        SetPokedexPlusHGSSSelectedSpecies(sPokedexOpenPokemonSpecies);
+    else
+        SetPokedexSelectedSpecies(sPokedexOpenPokemonSpecies);
+    gMain.state = 0;
+    SetMainCallback2(CB2_OpenPokedex);
 }
 
 static void CB2_PssChangePokemonNickname(void)
