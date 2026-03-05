@@ -3713,7 +3713,7 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Pignite
+Tauros-Paldea-Blaze
 Level: 38
 
 Arcanine
@@ -17490,13 +17490,13 @@ Jolly Nature
 - Take Down
 - Parting Shot
 
-Tauros-Paldea-Blaze
-Ability: Intimidate
+Pignite
+Ability: Blaze
 Level: 32
 Adamant Nature
-- Raging Bull
-- Zen Headbutt
-- Body Press
+- Heat Crash
+- Low Sweep
+- Wild Charge
 - Flame Charge
 
 Cyclizar @ Mental Herb
