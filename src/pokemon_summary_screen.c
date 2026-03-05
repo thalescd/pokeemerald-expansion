@@ -1774,7 +1774,7 @@ static void Task_HandleInput(u8 taskId)
             PlaySE(SE_SELECT);
             BeginCloseSummaryScreen(taskId);
         }
-        else if (JOY_NEW(START_BUTTON) && sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO && ShouldShowOpenPokedexPrompt() && !gMain.inBattle)
+        else if (JOY_NEW(START_BUTTON) && ShouldShowOpenPokedexPrompt() && !gMain.inBattle)
         {
             sPokedexOpenPokemonSpecies = sMonSummaryScreen->summary.species;
             sPokedexOpenPokemonIsShiny = sMonSummaryScreen->summary.isShiny;
@@ -4911,13 +4911,15 @@ static inline bool32 ShouldShowOpenPokedexPrompt(void)
 {
     return (FlagGet(FLAG_SYS_POKEDEX_GET)
          && !sMonSummaryScreen->lockMovesFlag
+         && sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO
          && !sMonSummaryScreen->isBoxMon
          && sMonSummaryScreen->mode != SUMMARY_MODE_BOX
          && sMonSummaryScreen->mode != SUMMARY_MODE_BOX_CURSOR
          && sMonSummaryScreen->mode != SUMMARY_MODE_SELECT_MOVE
          && !InBattleFactory()
          && !InSlateportBattleTent()
-         && !gMain.inBattle);
+         && !gMain.inBattle
+         && !sMonSummaryScreen->summary.isEgg);
 }
 
 static inline void ShowUtilityPrompt(s16 mode)
@@ -4990,8 +4992,7 @@ void ShowOpenPokedexPrompt(void)
 {
     u32 currPage = sMonSummaryScreen->currPageIndex;
 
-    // Only show the prompt on the info page and if player has pokedex
-    if (currPage != PSS_PAGE_INFO || !ShouldShowOpenPokedexPrompt())
+    if (!ShouldShowOpenPokedexPrompt())
         return;
 
     const u8* pokedexText = gText_OpenPokedex;
