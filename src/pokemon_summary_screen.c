@@ -199,8 +199,6 @@ EWRAM_DATA MainCallback gInitialSummaryScreenCallback = NULL; // stores callback
 
 // Pokedex opening data
 static u16 sPokedexOpenPokemonSpecies = 0;
-static bool32 sPokedexOpenPokemonIsShiny = 0;
-static u32 sPokedexOpenPokemonPersonality = 0;
 
 // forward declarations
 static bool8 LoadGraphics(void);
@@ -1777,8 +1775,6 @@ static void Task_HandleInput(u8 taskId)
         else if (JOY_NEW(START_BUTTON) && ShouldShowOpenPokedexPrompt())
         {
             sPokedexOpenPokemonSpecies = sMonSummaryScreen->summary.species;
-            sPokedexOpenPokemonIsShiny = sMonSummaryScreen->summary.isShiny;
-            sPokedexOpenPokemonPersonality = sMonSummaryScreen->summary.pid;
             sMonSummaryScreen->callback = CB2_OpenPokedexFromSummary;
             StopPokemonAnimations();
             PlaySE(SE_SELECT);
