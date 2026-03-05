@@ -4909,9 +4909,10 @@ static inline bool32 ShouldShowIvEvPrompt(void)
 
 static inline bool32 ShouldShowOpenPokedexPrompt(void)
 {
-    return (FlagGet(FLAG_SYS_POKEDEX_GET)
-         && !sMonSummaryScreen->lockMovesFlag
+    return (P_SUMMARY_SCREEN_OPEN_DEX
+         && FlagGet(FLAG_SYS_POKEDEX_GET)
          && sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO
+         && !sMonSummaryScreen->lockMovesFlag
          && !sMonSummaryScreen->isBoxMon
          && sMonSummaryScreen->mode != SUMMARY_MODE_BOX
          && sMonSummaryScreen->mode != SUMMARY_MODE_BOX_CURSOR
@@ -4990,8 +4991,6 @@ static inline void ShowUtilityPrompt(s16 mode)
 
 void ShowOpenPokedexPrompt(void)
 {
-    u32 currPage = sMonSummaryScreen->currPageIndex;
-
     if (!ShouldShowOpenPokedexPrompt())
         return;
 
