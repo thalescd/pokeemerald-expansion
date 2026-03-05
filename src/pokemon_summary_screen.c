@@ -1774,7 +1774,7 @@ static void Task_HandleInput(u8 taskId)
             PlaySE(SE_SELECT);
             BeginCloseSummaryScreen(taskId);
         }
-        else if (JOY_NEW(START_BUTTON) && ShouldShowOpenPokedexPrompt() && !gMain.inBattle)
+        else if (JOY_NEW(START_BUTTON) && ShouldShowOpenPokedexPrompt())
         {
             sPokedexOpenPokemonSpecies = sMonSummaryScreen->summary.species;
             sPokedexOpenPokemonIsShiny = sMonSummaryScreen->summary.isShiny;
