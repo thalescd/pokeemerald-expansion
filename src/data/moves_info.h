@@ -15864,7 +15864,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Gathers the energy of the\n"
             "land to attack every foe."),
         .effect = EFFECT_HIT,
-        .power = 90,
+        .power = 100,
         .type = TYPE_GROUND,
         .accuracy = 100,
         .pp = 10,
