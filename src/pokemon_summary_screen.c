@@ -33,6 +33,8 @@
 #include "pokemon_sprite_visualizer.h"
 #include "pokemon_storage_system.h"
 #include "pokemon_summary_screen.h"
+#include "pokedex.h"
+#include "pokedex_plus_hgss.h"
 #include "region_map.h"
 #include "scanline_effect.h"
 #include "sound.h"
@@ -195,9 +197,13 @@ static EWRAM_DATA u8 sMoveSlotToReplace = 0;
 ALIGNED(4) static EWRAM_DATA u8 sAnimDelayTaskId = 0;
 EWRAM_DATA MainCallback gInitialSummaryScreenCallback = NULL; // stores callback from the first time the screen is opened from the party or PC menu
 
+// Pokedex opening data
+static u16 sPokedexOpenPokemonSpecies = 0;
+
 // forward declarations
 static bool8 LoadGraphics(void);
 static void CB2_InitSummaryScreen(void);
+static void CB2_OpenPokedexFromSummary(void);
 static void InitBGs(void);
 static bool8 DecompressGraphics(void);
 static void CopyMonToSummaryStruct(struct Pokemon *);
@@ -318,10 +324,12 @@ static void SummaryScreen_DestroyAnimDelayTask(void);
 static bool32 ShouldShowMoveRelearner(void);
 static bool32 ShouldShowRename(void);
 static bool32 ShouldShowIvEvPrompt(void);
+static bool32 ShouldShowOpenPokedexPrompt(void);
 static void BufferLeftColumnIvEvStats(void);
 static void CB2_ReturnToSummaryScreenFromNamingScreen(void);
 static void CB2_PssChangePokemonNickname(void);
 static void ShowUtilityPrompt(s16 mode);
+static void ShowOpenPokedexPrompt(void);
 static void ShowMonSkillsInfo(u8 taskId, s16 mode);
 static void WriteToStatsTilemapBuffer(u32 length, u32 block, u32 statsCoordX, u32 statsCoordY);
 void ExtractMonSkillStatsData(struct Pokemon *mon, struct PokeSummary *sum);
@@ -1764,6 +1772,14 @@ static void Task_HandleInput(u8 taskId)
             PlaySE(SE_SELECT);
             BeginCloseSummaryScreen(taskId);
         }
+        else if (JOY_NEW(START_BUTTON) && ShouldShowOpenPokedexPrompt())
+        {
+            sPokedexOpenPokemonSpecies = sMonSummaryScreen->summary.species;
+            sMonSummaryScreen->callback = CB2_OpenPokedexFromSummary;
+            StopPokemonAnimations();
+            PlaySE(SE_SELECT);
+            BeginCloseSummaryScreen(taskId);
+        }
         else if (JOY_NEW(START_BUTTON)
                 && ShouldShowMoveRelearner()
                 && (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES || sMonSummaryScreen->currPageIndex == PSS_PAGE_CONTEST_MOVES))
@@ -2125,6 +2141,10 @@ static void Task_ChangeSummaryMon(u8 taskId)
             else
                 ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_RELEARN);
         }
+        else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
+        {
+            ShowOpenPokedexPrompt();
+        }
         else
         {
             ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_RELEARN);
@@ -2337,6 +2357,7 @@ static void PssScrollRightEnd(u8 taskId) // display right
     TryDrawExperienceProgressBar();
     SwitchTaskToFollowupFunc(taskId);
     ShowRelearnPrompt();
+    ShowOpenPokedexPrompt();
 }
 
 static void PssScrollLeft(u8 taskId) // Scroll left
@@ -2390,6 +2411,7 @@ static void PssScrollLeftEnd(u8 taskId) // display left
     TryDrawExperienceProgressBar();
     SwitchTaskToFollowupFunc(taskId);
     ShowRelearnPrompt();
+    ShowOpenPokedexPrompt();
 }
 
 static void TryDrawExperienceProgressBar(void)
@@ -3414,6 +3436,10 @@ static void PrintPageNamesAndStats(void)
     {
         TryUpdateRelearnType(TRY_SET_UPDATE);
         ShowRelearnPrompt();
+    }
+    else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
+    {
+        ShowOpenPokedexPrompt();
     }
 }
 
@@ -4877,6 +4903,22 @@ static inline bool32 ShouldShowIvEvPrompt(void)
     return FALSE;
 }
 
+static inline bool32 ShouldShowOpenPokedexPrompt(void)
+{
+    return (P_SUMMARY_SCREEN_OPEN_DEX
+         && FlagGet(FLAG_SYS_POKEDEX_GET)
+         && sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO
+         && !sMonSummaryScreen->lockMovesFlag
+         && !sMonSummaryScreen->isBoxMon
+         && sMonSummaryScreen->mode != SUMMARY_MODE_BOX
+         && sMonSummaryScreen->mode != SUMMARY_MODE_BOX_CURSOR
+         && sMonSummaryScreen->mode != SUMMARY_MODE_SELECT_MOVE
+         && !InBattleFactory()
+         && !InSlateportBattleTent()
+         && !gMain.inBattle
+         && !sMonSummaryScreen->summary.isEgg);
+}
+
 static inline void ShowUtilityPrompt(s16 mode)
 {
     const u8* promptText = NULL;
@@ -4943,6 +4985,19 @@ static inline void ShowUtilityPrompt(s16 mode)
     PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_UTILITY, promptText, stringXPos, 1, 0, 0);
 }
 
+void ShowOpenPokedexPrompt(void)
+{
+    if (!ShouldShowOpenPokedexPrompt())
+        return;
+
+    const u8* pokedexText = gText_OpenPokedex;
+    int pokedexTextXPos = GetStringRightAlignXOffset(FONT_NORMAL, pokedexText, 0);
+
+    FillWindowPixelBuffer(PSS_LABEL_WINDOW_PROMPT_RELEARN, PIXEL_FILL(0));
+    PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_RELEARN);
+    PrintTextOnWindowWithFont(PSS_LABEL_WINDOW_PROMPT_RELEARN, pokedexText, pokedexTextXPos, 4, 0, 0, FONT_SMALL);
+}
+
 void ShowRelearnPrompt(void)
 {
     u32 currPage = sMonSummaryScreen->currPageIndex;
@@ -4990,6 +5045,16 @@ static void CB2_ReturnToSummaryScreenFromNamingScreen(void)
 {
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar2);
     ShowPokemonSummaryScreen(SUMMARY_MODE_NORMAL, gPlayerParty, gSpecialVar_0x8004, gPlayerPartyCount - 1, gInitialSummaryScreenCallback);
+}
+
+static void CB2_OpenPokedexFromSummary(void)
+{
+    if (POKEDEX_PLUS_HGSS)
+        SetPokedexPlusHGSSSelectedSpecies(sPokedexOpenPokemonSpecies);
+    else
+        SetPokedexSelectedSpecies(sPokedexOpenPokemonSpecies);
+    gMain.state = 0;
+    SetMainCallback2(CB2_OpenPokedex);
 }
 
 static void CB2_PssChangePokemonNickname(void)

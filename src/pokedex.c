@@ -1545,6 +1545,14 @@ void ResetPokedexScrollPositions(void)
     sPokeBallRotation = POKEBALL_ROTATION_TOP;
 }
 
+void SetPokedexSelectedSpecies(u16 species)
+{
+    if (IsNationalPokedexEnabled())
+        sLastSelectedPokemon = SpeciesToNationalPokedexNum(species) - 1;
+    else
+        sLastSelectedPokemon = SpeciesToHoennPokedexNum(species) - 1;
+}
+
 static void VBlankCB_Pokedex(void)
 {
     LoadOam();

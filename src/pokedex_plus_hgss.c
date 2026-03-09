@@ -2009,6 +2009,14 @@ static const struct WindowTemplate sSearchMenu_WindowTemplate[] =
 //*        MAIN                      *
 //*                                  *
 //************************************
+void SetPokedexPlusHGSSSelectedSpecies(u16 species)
+{
+    if (IsNationalPokedexEnabled())
+        sLastSelectedPokemon = SpeciesToNationalPokedexNum(species) - 1;
+    else
+        sLastSelectedPokemon = SpeciesToHoennPokedexNum(species) - 1;
+}
+
 void CB2_OpenPokedexPlusHGSS(void)
 {
     if (!POKEDEX_PLUS_HGSS) return; // prevents the compiler from emitting static .rodata

@@ -4,6 +4,7 @@
 // Settings
 #define P_SUMMARY_SCREEN_NATURE_COLORS   TRUE   // If TRUE, nature-based stat boosts and reductions will be red and blue in the summary screen.
 #define P_SUMMARY_SCREEN_RENAME          TRUE   // If TRUE, an option to change Pokémon nicknames replaces the cancel prompt on the summary screen info page.
+#define P_SUMMARY_SCREEN_OPEN_DEX        TRUE   // If TRUE, pressing START on the summary screen will open the Pokédex entry for that Pokémon.
 
 // IV/EV settings
 #define P_SUMMARY_SCREEN_IV_EV_INFO      TRUE   // If TRUE, will allow player to cycle through the Stats, IVs, and EVs in the summary screen skills page.
