@@ -1110,9 +1110,8 @@ Music: Girl
 Double Battle: No
 AI: Basic Trainer
 
-Marill
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Dondozo
+Level: 42
 
 === TRAINER_GWEN ===
 Name: GWEN
@@ -1123,9 +1122,8 @@ Music: Girl
 Double Battle: No
 AI: Basic Trainer
 
-Marill
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Mantine
+Level: 42
 
 === TRAINER_LOLA_2 ===
 Name: LOLA
@@ -1231,9 +1229,8 @@ Music: Girl
 Double Battle: No
 AI: Basic Trainer
 
-Marill
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Feraligatr
+Level: 43
 
 === TRAINER_RICKY_2 ===
 Name: RICKY
@@ -2754,13 +2751,11 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Wailmer
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Gallade
+Level: 42
 
-Horsea
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Donphan
+Level: 42
 
 === TRAINER_MARK ===
 Name: MARK
@@ -2932,9 +2927,8 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Tentacruel
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Starmie
+Level: 42
 
 === TRAINER_MATTHEW ===
 Name: MATTHEW
@@ -2957,13 +2951,11 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Tentacool
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Drednaw
+Level: 42
 
-Carvanha
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Slowbro
+Level: 42
 
 === TRAINER_SPENCER ===
 Name: SPENCER
@@ -3871,7 +3863,7 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Volbeat
+Forretress
 Level: 38
 
 Cinccino
@@ -6632,13 +6624,11 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Wailmer
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Veluza
+Level: 42
 
-Tentacruel
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Relicanth
+Level: 42
 
 === TRAINER_ELLIOT_2 ===
 Name: ELLIOT
@@ -7114,13 +7104,11 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Zigzagoon
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Cinderace
+Level: 42
 
-Electrike
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Heliolisk
+Level: 42
 
 === TRAINER_ISAIAH_1 ===
 Name: ISAIAH
@@ -7792,9 +7780,8 @@ Gender: Female
 Music: Girl
 Double Battle: No
 
-Marill
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Vaporeon
+Level: 42
 
 === TRAINER_LAO_1 ===
 Name: LAO
@@ -8120,7 +8107,7 @@ AI: Basic Trainer
 Komala
 Level: 34
 
-Dragonair
+Shelgon
 Level: 34
 
 === TRAINER_CLARISSA ===
@@ -8253,7 +8240,7 @@ AI: Basic Trainer
 Cramorant
 Level: 42
 
-Whiscash
+Eelektrik
 Level: 42
 
 === TRAINER_IMANI ===
@@ -8304,7 +8291,7 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Seaking
+Pelipper
 Level: 42
 
 === TRAINER_TARA ===
@@ -8343,17 +8330,14 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Goldeen
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Sealeo
+Level: 41
 
-Wingull
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Alomomola
+Level: 41
 
-Goldeen
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Seaking
+Level: 41
 
 === TRAINER_JENNY_1 ===
 Name: JENNY
@@ -9146,13 +9130,11 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Spheal
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Clauncher
+Level: 42
 
-Machoke
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Vanillish
+Level: 42
 
 === TRAINER_ERNEST_2 ===
 Name: ERNEST
@@ -10341,9 +10323,8 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Sandslash
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Kabutops
+Level: 43
 
 === TRAINER_LYDIA_2 ===
 Name: LYDIA
@@ -12222,12 +12203,10 @@ Double Battle: Yes
 AI: Basic Trainer
 
 Volbeat
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 42
 
 Illumise
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 42
 
 === TRAINER_KIRA_AND_DAN_2 ===
 Name: KIRA & DAN
@@ -13175,20 +13154,18 @@ Double Battle: Yes
 AI: Basic Trainer
 
 Dustox
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Gust
-- Psybeam
+Level: 43
+- Venoshock
+- Light Screen
 - Toxic
-- Protect
+- Bug Buzz
 
 Beautifly
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Gust
-- Mega Drain
-- Attract
-- Stun Spore
+Level: 43
+- Bug Buzz
+- Giga Drain
+- Quiver Dance
+- Air Cutter
 
 === TRAINER_JOHN_AND_JAY_1 ===
 Name: JOHN & JAY
@@ -14180,17 +14157,14 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Wingull
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Probopass
+Level: 42
 
-Machop
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Dhelmise
+Level: 42
 
-Tentacool
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Passimian
+Level: 42
 
 === TRAINER_CAROLINA ===
 Name: CAROLINA
@@ -14221,12 +14195,10 @@ Double Battle: No
 AI: Basic Trainer
 
 Skarmory
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 42
 
-Skarmory
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Kilowattrel
+Level: 42
 
 === TRAINER_CELIA ===
 Name: CELIA
@@ -14420,7 +14392,7 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Swellow
+Vullaby
 Level: 26
 
 === TRAINER_BRANDI ===
