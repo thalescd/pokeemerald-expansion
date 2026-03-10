@@ -902,21 +902,11 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Sandshrew
-Level: 25
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Dig
-- Slash
-- Sand Attack
-- Poison Sting
+Runerigus
+Level: 42
 
-Sandslash
-Level: 25
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Dig
-- Slash
-- Sand Attack
-- Poison Sting
+Claydol
+Level: 42
 
 === TRAINER_DUSTY_2 ===
 Name: DUSTY
@@ -2873,9 +2863,8 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Carvanha
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Golduck
+Level: 42
 
 === TRAINER_DOMINIK ===
 Name: DOMINIK
@@ -2886,9 +2875,8 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Tentacool
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Barraskewda
+Level: 42
 
 === TRAINER_DOUGLAS ===
 Name: DOUGLAS
@@ -2899,13 +2887,11 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Tentacool
-Level: 24
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Wishiwashi
+Level: 42
 
-Tentacool
-Level: 24
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Poliwrath
+Level: 42
 
 === TRAINER_DARRIN ===
 Name: DARRIN
@@ -2916,17 +2902,14 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Tentacool
-Level: 24
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Tatsugiri
+Level: 41
 
-Wingull
-Level: 24
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Tatsugiri-Droopy
+Level: 41
 
-Tentacool
-Level: 24
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Tatsugiri-Stretchy
+Level: 41
 
 === TRAINER_TONY_1 ===
 Name: TONY
@@ -2937,9 +2920,8 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Carvanha
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Empoleon
+Level: 42
 
 === TRAINER_JEROME ===
 Name: JEROME
@@ -2963,9 +2945,8 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Carvanha
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Octillery
+Level: 43
 
 === TRAINER_DAVID ===
 Name: DAVID
@@ -8269,13 +8250,11 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Wingull
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Cramorant
+Level: 42
 
-Wailmer
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Whiscash
+Level: 42
 
 === TRAINER_IMANI ===
 Name: IMANI
@@ -8286,9 +8265,8 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Marill
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Jellicent
+Level: 42
 
 === TRAINER_KYLA ===
 Name: KYLA
@@ -8299,9 +8277,8 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Wailmer
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Seadra
+Level: 42
 
 === TRAINER_DENISE ===
 Name: DENISE
@@ -8312,13 +8289,11 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Wingull
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Masquerain
+Level: 42
 
-Goldeen
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Lumineon
+Level: 42
 
 === TRAINER_BETH ===
 Name: BETH
@@ -8329,9 +8304,8 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Goldeen
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Seaking
+Level: 42
 
 === TRAINER_TARA ===
 Name: TARA
@@ -8342,13 +8316,11 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Horsea
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Dragonair
+Level: 42
 
-Marill
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Tentacruel
+Level: 42
 
 === TRAINER_MISSY ===
 Name: MISSY
@@ -8359,9 +8331,8 @@ Music: Swimmer
 Double Battle: No
 AI: Basic Trainer
 
-Goldeen
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Bruxish
+Level: 42
 
 === TRAINER_ALICE ===
 Name: ALICE
@@ -13455,13 +13426,11 @@ Music: Swimmer
 Double Battle: Yes
 AI: Basic Trainer
 
-Goldeen
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Dewott
+Level: 42
 
-Tentacool
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Basculin-White-Striped
+Level: 42
 
 === TRAINER_CHRIS ===
 Name: CHRIS
@@ -14168,13 +14137,11 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Sandshrew
-Level: 25
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Golurk
+Level: 42
 
-Sandshrew
-Level: 25
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Aerodactyl
+Level: 42
 
 === TRAINER_JOSUE ===
 Name: JOSUE
@@ -14185,13 +14152,11 @@ Music: Cool
 Double Battle: No
 AI: Basic Trainer
 
-Taillow
-Level: 25
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Toucannon
+Level: 42
 
-Wingull
-Level: 25
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Decidueye
+Level: 42
 
 === TRAINER_CAMRON ===
 Name: CAMRON
@@ -14237,17 +14202,14 @@ Items: Hyper Potion
 Double Battle: No
 AI: Basic Trainer
 
-Manectric
-Level: 24
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Scyther
+Level: 42
 
 Swellow
-Level: 24
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Level: 42
 
-Manectric
-Level: 24
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Luxray
+Level: 42
 
 === TRAINER_ELIJAH ===
 Name: ELIJAH
