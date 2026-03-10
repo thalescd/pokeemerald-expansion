@@ -13686,7 +13686,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseHP        = 50,
         .baseAttack    = 120,
         .baseDefense   = 53,
-        .baseSpeed     = 87,
+        .baseSpeed     = 97,
         .baseSpAttack  = 35,
         .baseSpDefense = P_UPDATED_STATS >= GEN_2 ? 110 : 35,
         .types = MON_TYPES(TYPE_FIGHTING),
@@ -13756,7 +13756,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     {
         .baseHP        = 50,
         .baseAttack    = 105,
-        .baseDefense   = 79,
+        .baseDefense   = 89,
         .baseSpeed     = 76,
         .baseSpAttack  = 35,
         .baseSpDefense = P_UPDATED_STATS >= GEN_2 ? 110 : 35,
@@ -13834,7 +13834,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_GEN_2_CROSS_EVOS
     [SPECIES_HITMONTOP] =
     {
-        .baseHP        = 50,
+        .baseHP        = 60,
         .baseAttack    = 95,
         .baseDefense   = 95,
         .baseSpeed     = 70,
