@@ -2872,6 +2872,10 @@ AI: Basic Trainer
 
 Barraskewda
 Level: 42
+Adamant Nature
+- Liquidation
+- Crunch
+- Poison Jab
 
 === TRAINER_DOUGLAS ===
 Name: DOUGLAS
@@ -11949,7 +11953,8 @@ AI: Basic Trainer
 Hippopotas
 Level: 34
 
-Probopass
+Stoutland
+Ability: Sand Rush
 Level: 36
 
 === TRAINER_ALAN ===
@@ -14419,7 +14424,7 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Girafarig
+Lopunny
 Level: 26
 
 === TRAINER_MAKAYLA ===
