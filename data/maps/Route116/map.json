@@ -282,9 +282,9 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_NUGGET",
+      "trainer_sight_or_berry_tree_id": "ITEM_WISE_GLASSES",
       "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_ROUTE_116_NUGGET"
+      "flag": "FLAG_ITEM_ROUTE_116_WISE_GLASSES"
     },
     {
       "local_id": "LOCALID_ROUTE116_WANDAS_BF",
