@@ -17275,7 +17275,6 @@ static const struct LevelUpMove sTrevenantLevelUpLearnset[] = {
 
 #if P_FAMILY_PUMPKABOO
 static const struct LevelUpMove sPumpkabooLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_TRICK_OR_TREAT),
     LEVEL_UP_MOVE( 1, MOVE_ASTONISH),
     LEVEL_UP_MOVE( 4, MOVE_SHADOW_SNEAK),
     LEVEL_UP_MOVE( 8, MOVE_CONFUSE_RAY),
@@ -17293,10 +17292,7 @@ static const struct LevelUpMove sPumpkabooLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sGourgeistLevelUpLearnset[] = {
-    //spirit shackle
-    LEVEL_UP_MOVE( 1, MOVE_EXPLOSION),
-    LEVEL_UP_MOVE( 1, MOVE_MOONBLAST),
-    LEVEL_UP_MOVE( 1, MOVE_TRICK_OR_TREAT),
+    LEVEL_UP_MOVE( 0, MOVE_PHANTOM_FORCE),
     LEVEL_UP_MOVE( 1, MOVE_ASTONISH),
     LEVEL_UP_MOVE( 1, MOVE_SHADOW_SNEAK),
     LEVEL_UP_MOVE( 1, MOVE_CONFUSE_RAY),
@@ -17310,7 +17306,9 @@ static const struct LevelUpMove sGourgeistLevelUpLearnset[] = {
     LEVEL_UP_MOVE(36, MOVE_SHADOW_BALL),
     LEVEL_UP_MOVE(40, MOVE_TRICK),
     LEVEL_UP_MOVE(44, MOVE_PAIN_SPLIT),
-    LEVEL_UP_MOVE(48, MOVE_PHANTOM_FORCE),
+    LEVEL_UP_MOVE(48, MOVE_MOONBLAST),
+    LEVEL_UP_MOVE(52, MOVE_SPIRIT_SHACKLE),
+    LEVEL_UP_MOVE(56, MOVE_EXPLOSION),
     LEVEL_UP_END
 };
 #endif //P_FAMILY_PUMPKABOO
@@ -17431,9 +17429,9 @@ static const struct LevelUpMove sNoivernLevelUpLearnset[] = {
     LEVEL_UP_MOVE(36, MOVE_AIR_SLASH),
     LEVEL_UP_MOVE(40, MOVE_SCREECH),
     LEVEL_UP_MOVE(44, MOVE_ROOST),
-    LEVEL_UP_MOVE(51, MOVE_TAILWIND),
-    LEVEL_UP_MOVE(56, MOVE_HURRICANE),
-    LEVEL_UP_MOVE(62, MOVE_AEROBLAST),
+    LEVEL_UP_MOVE(51, MOVE_AEROBLAST),
+    LEVEL_UP_MOVE(56, MOVE_TAILWIND),
+    LEVEL_UP_MOVE(62, MOVE_HURRICANE),
     LEVEL_UP_MOVE(68, MOVE_CLANGING_SCALES),
     LEVEL_UP_END
 };
@@ -20284,7 +20282,6 @@ static const struct LevelUpMove sToxtricityLowKeyLevelUpLearnset[] = {
 
 #if P_FAMILY_SIZZLIPEDE
 static const struct LevelUpMove sSizzlipedeLevelUpLearnset[] = {
-    // 	Sizzly Slide
     LEVEL_UP_MOVE( 1, MOVE_EMBER),
     LEVEL_UP_MOVE( 1, MOVE_SMOKESCREEN),
     LEVEL_UP_MOVE( 5, MOVE_WRAP),
@@ -21676,7 +21673,6 @@ static const struct LevelUpMove sTandemausLevelUpLearnset[] = {
     LEVEL_UP_MOVE(33, MOVE_CHARM),
     LEVEL_UP_MOVE(37, MOVE_BEAT_UP),
     LEVEL_UP_MOVE(41, MOVE_COPYCAT),
-    //LEVEL_UP_MOVE(46, MOVE_POPULATION_BOMB),
     LEVEL_UP_END
 };
 
