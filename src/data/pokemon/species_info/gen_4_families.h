@@ -5149,12 +5149,12 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
 #if P_FAMILY_CARNIVINE
     [SPECIES_CARNIVINE] =
     {
-        .baseHP        = 74,
+        .baseHP        = 89,
         .baseAttack    = 100,
-        .baseDefense   = 72,
-        .baseSpeed     = 90,
-        .baseSpAttack  = 46,
-        .baseSpDefense = 72,
+        .baseDefense   = 82,
+        .baseSpeed     = 46,
+        .baseSpAttack  = 55,
+        .baseSpDefense = 82,
         .types = MON_TYPES(TYPE_GRASS),
         .catchRate = 200,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 159 : 164,
