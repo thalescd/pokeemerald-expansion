@@ -1547,6 +1547,11 @@ void ResetPokedexScrollPositions(void)
 
 void SetPokedexSelectedSpecies(u16 species)
 {
+    if (POKEDEX_PLUS_HGSS)
+    {
+        SetPokedexPlusHGSSSelectedSpecies(species);
+        return;
+    }
     if (IsNationalPokedexEnabled())
         sLastSelectedPokemon = SpeciesToNationalPokedexNum(species) - 1;
     else

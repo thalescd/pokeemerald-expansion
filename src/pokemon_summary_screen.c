@@ -5049,10 +5049,7 @@ static void CB2_ReturnToSummaryScreenFromNamingScreen(void)
 
 static void CB2_OpenPokedexFromSummary(void)
 {
-    if (POKEDEX_PLUS_HGSS)
-        SetPokedexPlusHGSSSelectedSpecies(sPokedexOpenPokemonSpecies);
-    else
-        SetPokedexSelectedSpecies(sPokedexOpenPokemonSpecies);
+    SetPokedexSelectedSpecies(sPokedexOpenPokemonSpecies);
     gMain.state = 0;
     SetMainCallback2(CB2_OpenPokedex);
 }
