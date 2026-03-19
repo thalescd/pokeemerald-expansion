@@ -65,6 +65,7 @@ static const struct LevelUpMove sVenusaurLevelUpLearnset[] = {
     LEVEL_UP_MOVE(46, MOVE_ENERGY_BALL),
     LEVEL_UP_MOVE(50, MOVE_SLUDGE_WAVE),
     LEVEL_UP_MOVE(54, MOVE_SOLAR_BEAM),
+    LEVEL_UP_END
 };
 #endif //P_FAMILY_BULBASAUR
 
