@@ -597,6 +597,7 @@ static const struct LevelUpMove sRaichuAlolaLevelUpLearnset[] = {
     LEVEL_UP_MOVE(40, MOVE_LIGHT_SCREEN),
     LEVEL_UP_MOVE(44, MOVE_THUNDER),
     LEVEL_UP_MOVE(48, MOVE_ELECTRIC_TERRAIN),
+    LEVEL_UP_END
 };
 #endif //P_ALOLAN_FORMS
 #endif //P_FAMILY_PIKACHU
@@ -2267,6 +2268,7 @@ static const struct LevelUpMove sSlowkingLevelUpLearnset[] = {
     LEVEL_UP_MOVE(50, MOVE_TRUMP_CARD),
     LEVEL_UP_MOVE(54, MOVE_NASTY_PLOT),
     LEVEL_UP_MOVE(58, MOVE_FUTURE_SIGHT),
+    LEVEL_UP_END
 };
 #endif //P_GEN_2_CROSS_EVOS
 
@@ -4265,6 +4267,7 @@ static const struct LevelUpMove sEeveeLevelUpLearnset[] = {
     LEVEL_UP_MOVE(37, MOVE_DOUBLE_EDGE),
     LEVEL_UP_MOVE(41, MOVE_LAST_RESORT),
     LEVEL_UP_MOVE(45, MOVE_TRUMP_CARD),
+    LEVEL_UP_END 
 };
 
 static const struct LevelUpMove sVaporeonLevelUpLearnset[] = {
@@ -6808,6 +6811,7 @@ static const struct LevelUpMove sCursolaLevelUpLearnset[] = {
     LEVEL_UP_MOVE(45, MOVE_NIGHT_SHADE),
     LEVEL_UP_MOVE(51, MOVE_GRUDGE),
     LEVEL_UP_MOVE(56, MOVE_MIRROR_COAT),
+    LEVEL_UP_END 
 };
 #endif //P_GALARIAN_FORMS
 #endif //P_FAMILY_CORSOLA
