@@ -192,6 +192,8 @@ static const u16 sSandshrewEggMoveLearnset[] = {
     MOVE_ROCK_CLIMB,
     MOVE_ROTOTILLER,
     MOVE_HONE_CLAWS,
+    MOVE_SWIFT,
+    MOVE_AGILITY,
     MOVE_UNAVAILABLE,
 };
 #if P_ALOLAN_FORMS
