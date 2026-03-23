@@ -763,7 +763,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_LEAF_GUARD] =
     {
         .name = _("Leaf Guard"),
-        .description = COMPOUND_STRING("Blocks status in sunshine."),
+        .description = COMPOUND_STRING("Blocks critical hits.\nBlocks status in sunshine."),
         .aiRating = 2,
         .breakable = TRUE,
     },
