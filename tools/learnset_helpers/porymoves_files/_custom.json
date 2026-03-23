@@ -21,7 +21,8 @@
     "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [
-        "MOVE_LOW_SWEEP"
+        "MOVE_LOW_SWEEP",
+        "MOVE_CALM_MIND"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -30,7 +31,8 @@
     "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [
-        "MOVE_LOW_SWEEP"
+        "MOVE_LOW_SWEEP",
+        "MOVE_CALM_MIND"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -39,7 +41,8 @@
     "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [
-        "MOVE_LOW_SWEEP"
+        "MOVE_LOW_SWEEP",
+        "MOVE_CALM_MIND"
     ],
     "EggMoves": [],
     "TutorMoves": []
