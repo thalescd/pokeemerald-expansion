@@ -757,13 +757,11 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Roselia
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Aromatisse
+Level: 45
 
-Gloom
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Vileplume
+Level: 45
 
 === TRAINER_ROSE_2 ===
 Name: ROSE
@@ -3988,9 +3986,8 @@ Music: Suspicious
 Double Battle: No
 AI: Basic Trainer
 
-Surskit
-Level: 26
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Heracross
+Level: 48
 
 === TRAINER_DONALD ===
 Name: DONALD
@@ -4001,17 +3998,14 @@ Music: Suspicious
 Double Battle: No
 AI: Basic Trainer
 
-Wurmple
-Level: 24
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Beedrill-Mega
+Level: 45
 
-Silcoon
-Level: 24
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ariados
+Level: 45
 
-Beautifly
-Level: 24
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Leavanny
+Level: 45
 
 === TRAINER_TAYLOR ===
 Name: TAYLOR
@@ -4022,17 +4016,14 @@ Music: Suspicious
 Double Battle: No
 AI: Basic Trainer
 
-Wurmple
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Crustle
+Level: 44
 
-Cascoon
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Yanmega
+Level: 45
 
 Dustox
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 46
 
 === TRAINER_JEFFREY_1 ===
 Name: JEFFREY
@@ -6599,13 +6590,11 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Tentacool
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Toxapex
+Level: 44
 
-Carvanha
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Kingler
+Level: 44
 
 === TRAINER_WADE ===
 Name: WADE
@@ -7457,9 +7446,8 @@ Music: Cool
 Double Battle: No
 AI: Basic Trainer
 
-Wingull
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Toucannon
+Level: 46
 
 === TRAINER_HUGH ===
 Name: HUGH
@@ -7487,9 +7475,8 @@ Music: Cool
 Double Battle: No
 AI: Basic Trainer
 
-Swellow
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Talonflame
+Level: 48
 
 === TRAINER_JARED ===
 Name: JARED
@@ -7619,13 +7606,11 @@ Music: Cool
 Double Battle: No
 AI: Basic Trainer
 
-Taillow
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Honchkrow
+Level: 44
 
-Swellow
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Braviary
+Level: 44
 
 === TRAINER_ROBERT_2 ===
 Name: ROBERT
@@ -8910,13 +8895,11 @@ Music: Twins
 Double Battle: Yes
 AI: Basic Trainer
 
-Beautifly
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Bibarel
+Level: 45
 
-Dustox
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Greedent
+Level: 45
 
 === TRAINER_AMY_AND_LIV_3 ===
 Name: AMY & LIV
@@ -9271,9 +9254,8 @@ Items: Hyper Potion
 Double Battle: No
 AI: Basic Trainer
 
-Absol
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Copperajah
+Level: 46
 
 === TRAINER_JONAS ===
 Name: JONAS
@@ -10113,8 +10095,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Pinsir
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 46
 
 === TRAINER_MITCHELL ===
 Name: MITCHELL
@@ -10472,9 +10453,8 @@ Items: Full Restore
 Double Battle: No
 AI: Basic Trainer
 
-Breloom
-Level: 27
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Duraludon
+Level: 48
 
 === TRAINER_LORENZO ===
 Name: LORENZO
@@ -10582,13 +10562,14 @@ Items: Full Restore
 Double Battle: No
 AI: Basic Trainer / Force Setup First Turn
 
-Gloom
-Level: 26
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Grafaiai
+Level: 46
 
-Roselia
-Level: 26
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Jolteon
+Level: 46
+- Thunder
+- Shadow Ball
+- Alluring Voice
 
 === TRAINER_JENNA ===
 Name: JENNA
@@ -11759,13 +11740,11 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Nincada
-Level: 28
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Dunsparce
+Level: 46
 
-Ninjask
-Level: 28
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Orbeetle
+Level: 46
 
 === TRAINER_GREG ===
 Name: GREG
@@ -11776,13 +11755,11 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Volbeat
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Escavalier
+Level: 45
 
-Illumise
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Masquerain
+Level: 46
 
 === TRAINER_KENT ===
 Name: KENT
@@ -11793,9 +11770,14 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Ninjask
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Lokix @ Silver Powder
+Ability: Tinted Lens
+Level: 47
+Adamant Nature
+- First Impression
+- Sucker Punch
+- Leech Life
+- Low Kick
 
 === TRAINER_JAMES_1 ===
 Name: JAMES
@@ -13423,21 +13405,14 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Magikarp
-Level: 29
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Octillery
+Level: 45
 
-Tentacool
-Level: 20
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Primarina
+Level: 45
 
-Feebas
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Carvanha
-Level: 23
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Sharpedo
+Level: 45
 
 === TRAINER_DAWSON ===
 Name: DAWSON
@@ -14483,9 +14458,8 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Goldeen
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Meganium
+Level: 48
 
 === TRAINER_LEONEL ===
 Name: LEONEL
