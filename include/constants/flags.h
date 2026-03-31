@@ -51,12 +51,6 @@
 
 #else
 
-#if IS_FRLG
-
-#include "constants/flags_frlg.h"
-
-#else
-
 #define FLAG_EXP_SHARE_ACTIVE                    0x20
 #define FLAG_RECEIVED_RUSTBORO_MART_ITEM         0x21
 #define FLAG_RECEIVED_SLATEPORT_HASTY_MINT       0x22

@@ -4995,19 +4995,6 @@ void ShowOpenPokedexPrompt(void)
     PrintTextOnWindowWithFont(PSS_LABEL_WINDOW_PROMPT_RELEARN, pokedexText, pokedexTextXPos, 4, 0, 0, FONT_SMALL);
 }
 
-void ShowOpenPokedexPrompt(void)
-{
-    if (!ShouldShowOpenPokedexPrompt())
-        return;
-
-    const u8* pokedexText = gText_OpenPokedex;
-    int pokedexTextXPos = GetStringRightAlignXOffset(FONT_NORMAL, pokedexText, 0);
-
-    FillWindowPixelBuffer(PSS_LABEL_WINDOW_PROMPT_RELEARN, PIXEL_FILL(0));
-    PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_RELEARN);
-    PrintTextOnWindowWithFont(PSS_LABEL_WINDOW_PROMPT_RELEARN, pokedexText, pokedexTextXPos, 4, 0, 0, FONT_SMALL);
-}
-
 static void ShowRelearnPrompt(void)
 {
     u32 currPage = sMonSummaryScreen->currPageIndex;

@@ -18,12 +18,19 @@ MoveTutor_EventScript_SwaggerTaught::
 MauvilleCity_EventScript_IcyWindTutor::
 	lock
 	faceplayer
-	move_tutor MOVE_ICY_WIND, MoveTutor_Text_IcyWindTeach, MoveTutor_Text_IcyWindWhichMon, MoveTutor_EventScript_IcyWindDeclined, MoveTutor_EventScript_IcyWindTaught, FLAG_MOVE_TUTOR_TAUGHT_ICY_WIND
-	release
+	checkitem ITEM_TINY_MUSHROOM, 1
+	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_IcyWindNoMushroom
+	move_tutor MOVE_ICY_WIND, MoveTutor_Text_IcyWindTeach, MoveTutor_Text_IcyWindWhichMon, MoveTutor_EventScript_IcyWindDeclined, MoveTutor_EventScript_IcyWindTaught
 	end
 
 MoveTutor_EventScript_IcyWindDeclined::
 	msgbox MoveTutor_Text_IcyWindDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+MoveTutor_EventScript_IcyWindTaught::
+	removeitem ITEM_TINY_MUSHROOM, 1
+	msgbox MoveTutor_Text_IcyWindTaught, MSGBOX_DEFAULT
 	release
 	end
 
@@ -32,7 +39,7 @@ MoveTutor_EventScript_IcyWindNoMushroom::
 	release
 	end
 
-MoveTutor_Text_IcyWindNoMushroom:
+MoveTutor_Text_IcyWindNoMushroom::
 	.string "Hmm... You don't seem to have a\n"
 	.string "TINY MUSHROOM.\p"
 	.string "Bring me one if you want your\n"
