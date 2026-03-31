@@ -3390,6 +3390,7 @@ static const u16 sSphealEggMoveLearnset[] = {
     MOVE_SLEEP_TALK,
     MOVE_WATER_PULSE,
     MOVE_BELLY_DRUM,
+    MOVE_TIDAL_WAVE,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_SPHEAL
