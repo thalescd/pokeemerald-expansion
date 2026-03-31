@@ -4732,7 +4732,7 @@ static s32 AI_CalcMoveEffectScore(enum BattlerId battlerAtk, enum BattlerId batt
          || aiData->abilities[battlerAtk] == ABILITY_SNIPER
          || aiData->holdEffects[battlerAtk] == HOLD_EFFECT_SCOPE_LENS
          || HasMoveWithFlag(battlerAtk, GetMoveCriticalHitStage)
-          || (aiData->abilities[battlerAtk] == ABILITY_EXPERTISE && gMovesInfo[move].power <= 60))
+         || (aiData->abilities[battlerAtk] == ABILITY_EXPERTISE && gMovesInfo[move].power <= 60))
             ADJUST_SCORE(GOOD_EFFECT);
         break;
     case EFFECT_CONFUSE:
