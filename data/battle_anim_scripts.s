@@ -18563,6 +18563,9 @@ gBattleAnimMove_MalignantChain::
 	waitforvisualfinish
 	end
 
+gBattleAnimMove_TidalWave::
+	goto gBattleAnimMove_HeavySlam
+
 gBattleAnimMove_PopulationBomb::
 	loadspritegfx ANIM_TAG_CUT
 	monbg ANIM_TARGET

@@ -21407,6 +21407,30 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_MalignantChain,
     },
 
+    [MOVE_TIDAL_WAVE] =
+    {
+        .name = COMPOUND_STRING("Tidal Wave"),
+        .description = COMPOUND_STRING(
+            "The user slams the foe with\n"
+            "a massive wave of water."),
+        .effect = EFFECT_HEAT_CRASH,
+        .power = 1,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .minimizeDoubleDamage = B_UPDATED_MOVE_FLAGS >= GEN_7,
+        .skyBattleBanned = TRUE,
+        .contestEffect = CONTEST_EFFECT_BETTER_IF_LAST,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_TidalWave,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {
