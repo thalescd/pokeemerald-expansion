@@ -2420,4 +2420,10 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .description = COMPOUND_STRING("Expert in weaker moves."),
         .aiRating = 8,
     },
+    [ABILITY_OVERSIZE] =
+    {
+        .name = _("Oversize"),
+        .description = COMPOUND_STRING("Doubles power of moves\nbased on user's weight."),
+        .aiRating = 8,
+    },
 };
