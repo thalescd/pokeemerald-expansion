@@ -7458,13 +7458,11 @@ Music: Cool
 Double Battle: No
 AI: Basic Trainer
 
-Wingull
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Oricorio-Pa'u
+Level: 47
 
 Tropius
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 47
 
 === TRAINER_PHIL ===
 Name: PHIL
@@ -7732,13 +7730,11 @@ Music: Suspicious
 Double Battle: No
 AI: Basic Trainer
 
-Ninjask
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Drapion
+Level: 47
 
-Koffing
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Golisopod
+Level: 47
 
 === TRAINER_DIANNE ===
 Name: DIANNE
@@ -14441,13 +14437,11 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Slugma
+Exeggutor-Alola
 Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Numel
+Slowking-Galar
 Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_RACHEL ===
 Name: RACHEL
