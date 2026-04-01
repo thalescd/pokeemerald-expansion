@@ -5638,6 +5638,25 @@ static void PrintStatsScreen_Left(u8 taskId)
     }
 }
 
+static void PrintStatsScreen_AbilityDesc(u8 windowId, const u8 *desc, u8 left, u8 top)
+{
+    u8 i;
+    u8 buf[64];
+
+    for (i = 0; desc[i] != EOS; i++)
+    {
+        if (desc[i] == CHAR_NEWLINE)
+        {
+            StringCopyN(buf, desc, i);
+            buf[i]     = CHAR_ELLIPSIS;
+            buf[i + 1] = EOS;
+            PrintStatsScreenTextSmall(windowId, buf, left, top);
+            return;
+        }
+    }
+    PrintStatsScreenTextSmall(windowId, desc, left, top);
+}
+
 static void PrintStatsScreen_Abilities(u8 taskId)
 {
     u8 abilities_x = 5;
@@ -5652,20 +5671,20 @@ static void PrintStatsScreen_Abilities(u8 taskId)
     {
         ability0 = sPokedexView->sPokemonStats.ability0;
         PrintStatsScreenTextSmallWhite(WIN_STATS_ABILITIES, gAbilitiesInfo[ability0].name, abilities_x, abilities_y);
-        PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[ability0].description, abilities_x, abilities_y + 14);
+        PrintStatsScreen_AbilityDesc(WIN_STATS_ABILITIES, gAbilitiesInfo[ability0].description, abilities_x, abilities_y + 14);
 
         ability1 = sPokedexView->sPokemonStats.ability1;
         if (ability1 != ABILITY_NONE && ability1 != ability0)
         {
             PrintStatsScreenTextSmallWhite(WIN_STATS_ABILITIES, gAbilitiesInfo[ability1].name, abilities_x, abilities_y + 30);
-            PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[ability1].description, abilities_x, abilities_y + 44);
+            PrintStatsScreen_AbilityDesc(WIN_STATS_ABILITIES, gAbilitiesInfo[ability1].description, abilities_x, abilities_y + 44);
         }
     }
     else //Hidden abilities
     {
         abilityHidden = sPokedexView->sPokemonStats.abilityHidden;
         PrintStatsScreenTextSmallWhite(WIN_STATS_ABILITIES, gAbilitiesInfo[abilityHidden].name, abilities_x, abilities_y);
-        PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[abilityHidden].description, abilities_x, abilities_y + 14);
+        PrintStatsScreen_AbilityDesc(WIN_STATS_ABILITIES, gAbilitiesInfo[abilityHidden].description, abilities_x, abilities_y + 14);
     }
 }
 
