@@ -3898,7 +3898,7 @@ Level: 31
 Cinccino
 Level: 31
 
-Grafaiai
+Whirlipede
 Level: 31
 
 === TRAINER_ETHAN_2 ===
@@ -8741,13 +8741,11 @@ Music: Girl
 Double Battle: No
 AI: Basic Trainer
 
-Shroomish
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Sligoo-Hisui
+Level: 32
 
-Marill
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Morpeko
+Level: 32
 
 === TRAINER_DIANA_2 ===
 Name: DIANA
@@ -10751,7 +10749,7 @@ Music: Magma
 Double Battle: No
 AI: Basic Trainer
 
-Mightyena
+Garbodor
 Level: 37
 
 Heatmor
@@ -13728,7 +13726,7 @@ Music: Girl
 Double Battle: No
 AI: Basic Trainer
 
-Jolteon
+Glaceon
 Level: 36
 
 Marowak @ Thick Club
@@ -14154,8 +14152,13 @@ AI: Basic Trainer
 Scyther
 Level: 42
 
-Swellow
+Delibird
 Level: 42
+Hasty Nature
+- Destiny Bond
+- Freeze-Dry
+- Drill Peck
+- Drill Run
 
 Luxray
 Level: 42
