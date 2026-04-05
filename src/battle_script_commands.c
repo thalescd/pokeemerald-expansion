@@ -7176,7 +7176,7 @@ static bool32 TryTidyUpClear(enum BattlerId battlerAtk, bool32 clear)
 
 u32 IsFlowerVeilProtected(enum BattlerId battler)
 {
-    if (IS_BATTLER_OF_TYPE(battler, TYPE_GRASS))
+    if (IS_BATTLER_OF_TYPE(battler, TYPE_GRASS) || GetBattlerAbility(battler) == ABILITY_FLOWER_VEIL)
         return IsAbilityOnSide(battler, ABILITY_FLOWER_VEIL);
     else
         return 0;
