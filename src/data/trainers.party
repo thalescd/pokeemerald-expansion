@@ -6123,10 +6123,16 @@ AI: Basic Trainer
 Buizel
 Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Sonic Boom
+- Quick Attack
+- Water Gun
 
 Seedot
 Level: 8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Bide
+- Absorb
+- Astonish
 
 === TRAINER_JOSH ===
 Name: JOSH
@@ -13455,10 +13461,18 @@ AI: Basic Trainer
 Shellder
 Level: 9
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Clamp
+- Ice Shard
+- Supersonic
 
 Krabby
+Ability: Hyper Cutter
 Level: 9
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 0 HP / 31 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Adamant Nature
+- Metal Claw
+- Vise Grip
+- Aqua Jet
 
 === TRAINER_HAILEY ===
 Name: HAILEY
