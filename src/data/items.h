@@ -3046,13 +3046,7 @@ const struct ItemInfo gItemsInfo[] =
     {
         .name = ITEM_NAME("Honey"),
         .pluralName = ITEM_PLURAL_NAME("Honey"),
-    #if I_PRICE >= GEN_8
-        .price = 900,
-    #elif I_PRICE == GEN_7
-        .price = 300,
-    #else
-        .price = 100,
-    #endif
+        .price = 2000,
         .description = COMPOUND_STRING(
             "Sweet honey that\n"
             "attracts wild\n"
