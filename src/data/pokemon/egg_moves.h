@@ -955,6 +955,7 @@ static const u16 sKrabbyEggMoveLearnset[] = {
     MOVE_CHIP_AWAY,
     MOVE_BIDE,
     MOVE_ALLY_SWITCH,
+    MOVE_AQUA_JET,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_KRABBY

@@ -47,6 +47,24 @@
     "EggMoves": [],
     "TutorMoves": []
   },
+  "SOBBLE": {
+    "LevelMoves": [],
+    "PreEvoMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": [
+        "MOVE_ICY_WIND"
+    ]
+  },
+  "DRIZZILE": {
+    "LevelMoves": [],
+    "PreEvoMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": [
+        "MOVE_ICY_WIND"
+    ]
+  },
   "SMOLIV": {
     "LevelMoves": [],
     "PreEvoMoves": [],
