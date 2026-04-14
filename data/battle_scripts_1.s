@@ -1411,14 +1411,14 @@ BattleScript_HitSwitchTargetForceRandomSwitchFailed:
 	return
 
 BattleScript_EffectToxicThread::
-	setstatchanger STAT_SPEED, 1, TRUE
+	setstatchanger STAT_SPEED, 2, TRUE
 	attackcanceler
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	checknonvolatiletrigger MOVE_EFFECT_POISON, BattleScript_EffectStatDownFromAccCheck
 	accuracycheck BattleScript_MoveMissedPause
 	attackanimation
 	waitanimation
-	setstatchanger STAT_SPEED, 1, TRUE
+	setstatchanger STAT_SPEED, 2, TRUE
 	statbuffchange BS_TARGET, STAT_CHANGE_ALLOW_PTR | STAT_CHANGE_ONLY_CHECKING, BattleScript_ToxicThreadTryPsn
 	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_CHANGE, BattleScript_ToxicThreadDoAnim
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_CHANGE_EMPTY, BattleScript_ToxicThreadTryPsn
