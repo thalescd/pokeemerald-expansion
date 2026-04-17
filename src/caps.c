@@ -11,7 +11,7 @@ u32 GetCurrentLevelCap(void)
     {
         {FLAG_BADGE01_GET, 15},
         {FLAG_BADGE02_GET, 20},
-        {FLAG_DEFEATED_RIVAL_ROUTE_110, 23},
+        {FLAG_DEFEATED_RIVAL_ROUTE_110, 24},
         {FLAG_BADGE03_GET, 29},
         {FLAG_RECEIVED_HM_ROCK_SMASH, 32},
         {FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, 40},
