@@ -10666,7 +10666,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .levelUpLearnset = sSnoruntLevelUpLearnset,
         .teachableLearnset = sSnoruntTeachableLearnset,
         .eggMoveLearnset = sSnoruntEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 42, SPECIES_GLALIE}
+        .evolutions = EVOLUTION({EVO_LEVEL, 32, SPECIES_GLALIE}
                             #if P_GEN_4_CROSS_EVOS
                                 ,{EVO_ITEM, ITEM_DAWN_STONE, SPECIES_FROSLASS, CONDITIONS({IF_GENDER, MON_FEMALE})}
                             #endif
@@ -10745,19 +10745,20 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         )
         .levelUpLearnset = sGlalieLevelUpLearnset,
         .teachableLearnset = sGlalieTeachableLearnset,
-        .formSpeciesIdTable = sGlalieFormSpeciesIdTable,
-        .formChangeTable = sGlalieFormChangeTable,
+        //.formSpeciesIdTable = sGlalieFormSpeciesIdTable,
+        //.formChangeTable = sGlalieFormChangeTable,
+        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_GLALIE_MEGA, CONDITIONS({IF_IN_MAPSEC, MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM})}),
     },
 
 #if P_MEGA_EVOLUTIONS
     [SPECIES_GLALIE_MEGA] =
     {
-        .baseHP        = 80,
+        .baseHP        = 90,
         .baseAttack    = 120,
-        .baseDefense   = 80,
+        .baseDefense   = 85,
         .baseSpeed     = 100,
-        .baseSpAttack  = 120,
-        .baseSpDefense = 80,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 85,
         .types = MON_TYPES(TYPE_ICE),
         .catchRate = 75,
         .expYield = 203,
@@ -10767,7 +10768,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY, EGG_GROUP_MINERAL),
-        .abilities = { ABILITY_REFRIGERATE, ABILITY_REFRIGERATE, ABILITY_REFRIGERATE },
+        .abilities = { ABILITY_INNER_FOCUS, ABILITY_REFRIGERATE, ABILITY_MOODY },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Glalie"),
     #if P_MODIFIED_MEGA_CRIES
@@ -10815,11 +10816,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
             gShinyOverworldPalette_GlalieMega
         )
     #endif //OW_BATTLE_ONLY_FORMS
-        .isMegaEvolution = TRUE,
-        .levelUpLearnset = sGlalieLevelUpLearnset,
+        //.isMegaEvolution = TRUE,
+        .levelUpLearnset = sGlalieMegaLevelUpLearnset,
         .teachableLearnset = sGlalieTeachableLearnset,
-        .formSpeciesIdTable = sGlalieFormSpeciesIdTable,
-        .formChangeTable = sGlalieFormChangeTable,
+        //.formSpeciesIdTable = sGlalieFormSpeciesIdTable,
+        //.formChangeTable = sGlalieFormChangeTable,
     },
 #endif //P_MEGA_EVOLUTIONS
 
@@ -10890,19 +10891,20 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         )
         .levelUpLearnset = sFroslassLevelUpLearnset,
         .teachableLearnset = sFroslassTeachableLearnset,
-        .formSpeciesIdTable = sFroslassFormSpeciesIdTable,
-        .formChangeTable = sFroslassFormChangeTable,
+        //.formSpeciesIdTable = sFroslassFormSpeciesIdTable,
+        //.formChangeTable = sFroslassFormChangeTable,
+        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_FROSLASS_MEGA, CONDITIONS({IF_IN_MAPSEC, MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM})}),
     },
 
 #if P_GEN_9_MEGA_EVOLUTIONS
     [SPECIES_FROSLASS_MEGA] =
     {
-        .baseHP        = 70,
-        .baseAttack    = 80,
+        .baseHP        = 90,
+        .baseAttack    = 60,
         .baseDefense   = 70,
         .baseSpeed     = 120,
-        .baseSpAttack  = 140,
-        .baseSpDefense = 100,
+        .baseSpAttack  = 120,
+        .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_ICE, TYPE_GHOST),
         .catchRate = 75,
         .expYield = 168,
@@ -10945,11 +10947,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         FOOTPRINT(Froslass)
         //SHADOW(-1, 0, SHADOW_SIZE_M)
-        .isMegaEvolution = TRUE,
-        .levelUpLearnset = sFroslassLevelUpLearnset,
+        //.isMegaEvolution = TRUE,
+        .levelUpLearnset = sFroslassMegaLevelUpLearnset,
         .teachableLearnset = sFroslassTeachableLearnset,
-        .formSpeciesIdTable = sFroslassFormSpeciesIdTable,
-        .formChangeTable = sFroslassFormChangeTable,
+        //.formSpeciesIdTable = sFroslassFormSpeciesIdTable,
+        //.formChangeTable = sFroslassFormChangeTable,
     },
 #endif //P_GEN_9_MEGA_EVOLUTIONS
 #endif //P_GEN_4_CROSS_EVOS
