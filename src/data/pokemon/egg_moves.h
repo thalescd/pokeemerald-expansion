@@ -1706,7 +1706,6 @@ static const u16 sMareepEggMoveLearnset[] = {
 #if P_GEN_3_CROSS_EVOS
 static const u16 sAzurillEggMoveLearnset[] = {
     MOVE_ENCORE,
-    MOVE_SING,
     MOVE_REFRESH,
     MOVE_SLAM,
     MOVE_TICKLE,
@@ -5602,7 +5601,6 @@ static const u16 sKomalaEggMoveLearnset[] = {
     MOVE_CHARM,
     MOVE_WISH,
     MOVE_PLAY_ROUGH,
-    MOVE_SING,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_KOMALA
