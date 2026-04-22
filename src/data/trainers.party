@@ -632,15 +632,62 @@ Pic: Aqua Admin F
 Gender: Female
 Music: Aqua
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Carvanha
-Level: 28
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Dragalge @ Air Balloon
+Ability: Adaptability
+Level: 50
+Modest Nature
+IVs: 0 Atk
+- Dragon Pulse
+- Sludge Bomb
+- Hydro Pump
+- Toxic Spikes
 
-Mightyena
-Level: 28
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Starmie @ Life Orb
+Ability: Victory Star
+Level: 50
+Timid Nature
+- Hydro Pump
+- Psychic
+- Thunder
+- Flip Turn
+
+Muk-Alola @ Black Sludge
+Ability: Poison Touch
+Level: 49
+Careful Nature
+- Poison Jab
+- Knock Off
+- Fire Punch
+- Acid Armor
+
+Tsareena @ Lum Berry
+Ability: Queenly Majesty
+Level: 50
+Jolly Nature
+- Trop Kick
+- Triple Axel
+- Play Rough
+- Trailblaze
+
+Blastoise @ White Herb
+Ability: Mega Launcher
+Level: 50
+Timid Nature
+- Water Pulse
+- Dark Pulse
+- Earthquake
+- Shell Smash
+
+Barraskewda @ Muscle Band
+Ability: Swift Swim
+Level: 51
+Adamant Nature
+- Liquidation
+- Close Combat
+- Crunch
+- Flip Turn
 
 === TRAINER_SHELLY_SEAFLOOR_CAVERN ===
 Name: SHELLY
