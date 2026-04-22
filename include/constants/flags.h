@@ -295,7 +295,7 @@
 #define FLAG_RECEIVED_TM_DIG                 0x105
 #define FLAG_RECEIVED_TM_BULLET_SEED         0x106
 #define FLAG_ENTERED_ELITE_FOUR              0x107
-#define FLAG_RECEIVED_TM_HIDDEN_POWER        0x108
+#define FLAG_RECEIVED_ABILITY_PATCH          0x108
 #define FLAG_UNUSED_0x109                    0x109  // Unused Flag
 #define FLAG_RECEIVED_LAVARIDGE_EGG          0x10A
 #define FLAG_RECEIVED_REVIVED_FOSSIL_MON     0x10B
