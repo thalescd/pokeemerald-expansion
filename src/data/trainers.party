@@ -366,13 +366,14 @@ Music: Aqua
 Double Battle: No
 AI: Basic Trainer
 
-Zubat
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Bibarel
+Level: 47
 
-Poochyena
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Banette
+Level: 47
+
+Golduck
+Level: 47
 
 === TRAINER_GRUNT_WEATHER_INST_2 ===
 Name: GRUNT
@@ -383,13 +384,11 @@ Music: Aqua
 Double Battle: No
 AI: Basic Trainer
 
-Poochyena
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Golisopod
+Level: 47
 
-Carvanha
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Wishiwashi
+Level: 47
 
 === TRAINER_GRUNT_WEATHER_INST_3 ===
 Name: GRUNT
@@ -400,17 +399,14 @@ Music: Aqua
 Double Battle: No
 AI: Basic Trainer
 
-Poochyena
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Masquerain
+Level: 47
 
-Zubat
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Golbat
+Level: 47
 
-Carvanha
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Seismitoad
+Level: 47
 
 === TRAINER_GRUNT_MUSEUM_1 ===
 Name: GRUNT
@@ -547,9 +543,8 @@ Music: Aqua
 Double Battle: No
 AI: Basic Trainer
 
-Carvanha
-Level: 28
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Gyarados
+Level: 48
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_5 ===
 Name: GRUNT
@@ -11230,13 +11225,11 @@ Music: Aqua
 Double Battle: No
 AI: Basic Trainer
 
-Zubat
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Cramorant
+Level: 47
 
-Poochyena
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Obstagoon
+Level: 47
 
 === TRAINER_TABITHA_MT_CHIMNEY ===
 Name: TABITHA
