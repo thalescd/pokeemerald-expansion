@@ -4786,6 +4786,10 @@ u32 GetBattlerTotalSpeedStat(enum BattlerId battler, enum Ability ability, enum 
         speed = (speed * 150) / 100;
     else if (holdEffect == HOLD_EFFECT_QUICK_POWDER && gBattleMons[battler].species == SPECIES_DITTO && !(gBattleMons[battler].volatiles.transformed))
         speed *= 2;
+    else if (holdEffect == HOLD_EFFECT_LEEK
+             && (GET_BASE_SPECIES_ID(gBattleMons[battler].species) == SPECIES_FARFETCHD
+                 || gBattleMons[battler].species == SPECIES_SIRFETCHD))
+        speed = (speed * 150) / 100;
 
     // various effects
     if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)
