@@ -367,13 +367,28 @@ Double Battle: No
 AI: Basic Trainer
 
 Bibarel
+Ability: Simple
 Level: 47
-
-Banette
-Level: 47
+- Swords Dance
+- Aqua Jet
+- Crunch
+- Take Down
 
 Golduck
+Ability: Cloud Nine
 Level: 47
+- Surf
+- Psychic
+- Ice Beam
+- Confuse Ray
+
+Banette
+Ability: Insomnia
+Level: 47
+- Pursuit
+- Will-o-Wisp
+- Shadow Claw
+- Shadow Sneak
 
 === TRAINER_GRUNT_WEATHER_INST_2 ===
 Name: GRUNT
@@ -399,14 +414,25 @@ Music: Aqua
 Double Battle: No
 AI: Basic Trainer
 
-Masquerain
+Basculin-White-Striped
+Ability: Adaptability
 Level: 47
+- Wave Crash
+- Crunch
+- Aqua Jet
 
 Golbat
 Level: 47
+- Leech Life
+- Poison Fang
+- Dual Wingbeat
 
 Seismitoad
 Level: 47
+- Drain Punch
+- Earth Power
+- Sludge Bomb
+- Muddy Water
 
 === TRAINER_GRUNT_MUSEUM_1 ===
 Name: GRUNT
@@ -2821,9 +2847,17 @@ AI: Basic Trainer
 
 Zoroark-Hisui
 Level: 38
+- Shadow Ball
+- Extrasensory
+- Will-o-Wisp
+- Knock Off
 
 Houndoom
 Level: 38
+- Thunder Fang
+- Flame Burst
+- Crunch
+- Snarl
 
 === TRAINER_STEVE_2 ===
 Name: STEVE
@@ -10944,9 +10978,17 @@ AI: Basic Trainer
 
 Linoone-Galar
 Level: 38
+- Pin Missile
+- Take Down
+- Night Slash
+- Counter
 
 Salazzle
 Level: 38
+- Fire Lash
+- Venoshock
+- Swagger
+- Poison Gas
 
 === TRAINER_CLARENCE ===
 Name: CLARENCE
@@ -12329,7 +12371,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Kecleon
-Level: 23
+Level: 39
 Nature: Modest
 - Flamethrower
 - Ancient Power
