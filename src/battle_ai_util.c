@@ -1249,7 +1249,8 @@ static bool32 AI_IsMoveEffectInMinus(enum BattlerId battlerAtk, enum BattlerId b
     case EFFECT_SEMI_INVULNERABLE:
         if (abilityAtk == ABILITY_NO_GUARD || abilityDef == ABILITY_NO_GUARD)
         {
-            if (gAiLogicData->holdEffects[battlerAtk] != HOLD_EFFECT_POWER_HERB)
+            if (gAiLogicData->holdEffects[battlerAtk] != HOLD_EFFECT_POWER_HERB
+             && abilityAtk != ABILITY_QUICKEN)
                 return TRUE;
         }
         break;
@@ -3265,6 +3266,7 @@ bool32 IsTwoTurnNotSemiInvulnerableMove(enum BattlerId battlerAtk, enum Move mov
     case EFFECT_SOLAR_BEAM:
     case EFFECT_TWO_TURNS_ATTACK:
         return !(gAiLogicData->holdEffects[battlerAtk] == HOLD_EFFECT_POWER_HERB
+              || gAiLogicData->abilities[battlerAtk] == ABILITY_QUICKEN
               || (AI_GetWeather() & GetMoveTwoTurnAttackWeather(move)));
     default:
         return FALSE;

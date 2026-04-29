@@ -1599,6 +1599,13 @@ static enum CancelerResult CancelerCharging(struct BattleContext *ctx)
             BattleScriptCall(BattleScript_PowerHerbActivation);
             result = CANCELER_RESULT_BREAK;
         }
+        else if (GetBattlerAbility(ctx->battlerAtk) == ABILITY_QUICKEN)
+        {
+            gBattleScripting.animTurn = 1;
+            gBattleScripting.animTargetsHit = 0;
+            gProtectStructs[ctx->battlerAtk].chargingTurn = FALSE;
+            result = CANCELER_RESULT_SUCCESS;
+        }
         else // Use move next turn
         {
             gBattleMons[ctx->battlerAtk].volatiles.multipleTurns = TRUE;

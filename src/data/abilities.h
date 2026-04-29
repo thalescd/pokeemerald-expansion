@@ -2426,4 +2426,10 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .description = COMPOUND_STRING("Doubles power of moves\nbased on user's weight."),
         .aiRating = 8,
     },
+    [ABILITY_QUICKEN] =
+    {
+        .name = _("Quicken"),
+        .description = COMPOUND_STRING("Two-turn moves are used\nin a single turn."),
+        .aiRating = 8,
+    },
 };
