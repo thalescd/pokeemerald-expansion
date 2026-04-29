@@ -184,10 +184,10 @@ static bool32 DoesAbilityBenefitFromFieldStatus(enum Ability ability, u32 fieldS
     switch (ability)
     {
     case ABILITY_MIMICRY:
+    case ABILITY_SURGE_SURFER:
         return (fieldStatus & STATUS_FIELD_TERRAIN_ANY);
     case ABILITY_HADRON_ENGINE:
     case ABILITY_QUARK_DRIVE:
-    case ABILITY_SURGE_SURFER:
         return (fieldStatus & STATUS_FIELD_ELECTRIC_TERRAIN);
     case ABILITY_GRASS_PELT:
         return (fieldStatus & STATUS_FIELD_GRASSY_TERRAIN);
