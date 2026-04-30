@@ -773,9 +773,16 @@ AI: Basic Trainer
 
 Spritzee
 Level: 20
+- Draining Kiss
+- Echoed Voice
+- Attract
 
 Ivysaur
 Level: 20
+- Sludge
+- Magical Leaf
+- Sleep Powder
+- Leech Seed
 
 === TRAINER_ROSE_1 ===
 Name: ROSE
@@ -1903,10 +1910,10 @@ AI: Basic Trainer
 Meowstic-F
 Ability: Competitive
 Level: 33
-
-Torracat
-Ability: Intimidate
-Level: 33
+- Magical Leaf
+- Extrasensory
+- Charge Beam
+- Reflect
 
 Persian @ Scope Lens
 Ability: Expertise
@@ -1916,6 +1923,14 @@ Jolly Nature
 - Bite
 - Metal Claw
 - Fake Out
+
+Incineroar
+Ability: Intimidate
+Level: 34
+- Darkest Lariat
+- Fire Fang
+- Double Kick
+- Swagger
 
 === TRAINER_JENNIFER ===
 Name: JENNIFER
@@ -6240,10 +6255,16 @@ Growlithe-Hisui
 Ability: Intimidate
 Level: 13
 IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
+- Flame Charge
+- Rock Throw
+- Bite
 
 Onix
 Level: 13
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Smack Down
+- Sand Tomb
+- Rock Climb
 
 === TRAINER_JOEY ===
 Name: JOEY
@@ -8171,11 +8192,15 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Komala
-Level: 34
-
 Shelgon
 Level: 34
+
+Komala
+Level: 35
+- Sucker Punch
+- Slam
+- Body Slam
+- Rapid Spin
 
 === TRAINER_CLARISSA ===
 Name: CLARISSA
@@ -8746,6 +8771,10 @@ Level: 31
 
 Leafeon
 Level: 31
+- Bite
+- Swords Dance
+- Seed Bomb
+- X-Scissor
 
 === TRAINER_NANCY ===
 Name: NANCY
@@ -13712,11 +13741,19 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Petilil
+Lampent
 Level: 30
+- Flame Burst
+- Hex
+- Will-o-Wisp
+- Confuse Ray
 
 Floette
 Level: 30
+- Draining Kiss
+- Magical Leag
+- Safeguard
+- Lucky Chant
 
 === TRAINER_BIANCA ===
 Name: BIANCA
@@ -13765,6 +13802,10 @@ Level: 33
 
 Dubwool
 Level: 34
+- Take Down
+- Body Press
+- Counter
+- Payback
 
 === TRAINER_COBY ===
 Name: COBY
