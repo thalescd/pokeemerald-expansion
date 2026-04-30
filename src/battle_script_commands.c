@@ -2959,6 +2959,10 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
     case MOVE_EFFECT_REMOVE_ARG_TYPE:
     {
         u32 type = GetMoveArgType(gCurrentMove);
+        if (type == TYPE_ELECTRIC && (gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN))
+            break;
+        if (type == TYPE_FIRE && (gBattleWeather & B_WEATHER_SUN))
+            break;
         // This seems unnecessary but is done to make it work properly with Parental Bond
         BattleScriptPush(battleScript);
         switch (type)
@@ -2966,7 +2970,7 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
         case TYPE_FIRE: // Burn Up
             gBattlescriptCurrInstr = BattleScript_RemoveFireType;
             break;
-        case TYPE_ELECTRIC: // Double Shot
+        case TYPE_ELECTRIC: // Double Shock
             gBattlescriptCurrInstr = BattleScript_RemoveElectricType;
             break;
         default:
