@@ -15112,7 +15112,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseDefense   = 80,
         .baseSpeed     = 90,
         .baseSpAttack  = 40,
-        .baseSpDefense = P_UPDATED_STATS >= GEN_2 ? 80 : 40,
+        .baseSpDefense = 80,
         .types = MON_TYPES(TYPE_NORMAL),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 172 : 175,
@@ -15194,7 +15194,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER),
-        .abilities = { ABILITY_PARENTAL_BOND, ABILITY_PARENTAL_BOND, ABILITY_PARENTAL_BOND },
+        .abilities = { ABILITY_INNER_FOCUS, ABILITY_SCRAPPY, ABILITY_PARENTAL_BOND},
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Kangaskhan"),
     #if P_MODIFIED_MEGA_CRIES
@@ -15242,7 +15242,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gShinyOverworldPalette_KangaskhanMega
         )
     #endif //OW_BATTLE_ONLY_FORMS
-        .isMegaEvolution = TRUE,
         .levelUpLearnset = sKangaskhanLevelUpLearnset,
         .teachableLearnset = sKangaskhanTeachableLearnset,
         .eggMoveLearnset = sKangaskhanEggMoveLearnset,
