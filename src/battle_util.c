@@ -6572,6 +6572,10 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct BattleContext *ctx)
         if (ctx->fieldStatuses & STATUS_FIELD_GRASSY_TERRAIN && !IsSemiInvulnerable(battlerDef, CHECK_ALL))
             modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
         break;
+    case EFFECT_STEEL_ROLLER:
+        if (!(ctx->fieldStatuses & STATUS_FIELD_TERRAIN_ANY))
+            modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
+        break;
     case EFFECT_KNOCK_OFF:
         if (B_KNOCK_OFF_DMG >= GEN_6
             && gBattleMons[battlerDef].item != ITEM_NONE

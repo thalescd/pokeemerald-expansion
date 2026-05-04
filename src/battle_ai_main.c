@@ -2727,8 +2727,7 @@ static s32 AI_CheckBadMove(enum BattlerId battlerAtk, enum BattlerId battlerDef,
             ADJUST_SCORE(-10);
         break;
     case EFFECT_STEEL_ROLLER:
-        if (!(gFieldStatuses & STATUS_FIELD_TERRAIN_ANY)
-         || (HasPartner(battlerAtk) && AreMovesEquivalent(battlerAtk, BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove)))
+        if (HasPartner(battlerAtk) && AreMovesEquivalent(battlerAtk, BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove))
             ADJUST_SCORE(-10);
         break;
     case EFFECT_PLEDGE:

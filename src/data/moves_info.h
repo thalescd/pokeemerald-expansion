@@ -18644,8 +18644,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Steel Roller"),
         .description = COMPOUND_STRING(
-            "Destroys terrain. Fails if\n"
-            "ground isn't terrain."),
+            "Destroys terrain. Deals half\n"
+            "damage without terrain."),
         .effect = EFFECT_STEEL_ROLLER,
         .power = 130,
         .type = TYPE_STEEL,

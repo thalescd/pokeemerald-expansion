@@ -705,10 +705,6 @@ bool32 IsDamageMoveUnusable(struct BattleContext *ctx)
         if (!IS_BATTLER_OF_TYPE(ctx->battlerAtk, GetMoveArgType(ctx->move)))
             return TRUE;
         break;
-    case EFFECT_STEEL_ROLLER:
-        if (!(gFieldStatuses & STATUS_FIELD_TERRAIN_ANY))
-            return TRUE;
-        break;
     case EFFECT_POLTERGEIST:
         if (gAiLogicData->items[ctx->battlerDef] == ITEM_NONE || !IsBattlerItemEnabled(ctx->battlerDef))
             return TRUE;

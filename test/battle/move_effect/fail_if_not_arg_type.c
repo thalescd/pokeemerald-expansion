@@ -133,3 +133,45 @@ SINGLE_BATTLE_TEST("Double Shock user loses its Electric-type if enemy faints")
         MESSAGE("Pikachu used up all its electricity!");
     }
 }
+
+SINGLE_BATTLE_TEST("Burn Up user does not lose its Fire-type during Harsh Sunlight")
+{
+    GIVEN {
+        ASSUME(GetMoveEffect(MOVE_BURN_UP) == EFFECT_FAIL_IF_NOT_ARG_TYPE);
+        ASSUME(IsMoveEffectRemoveSpeciesType(MOVE_BURN_UP, MOVE_EFFECT_REMOVE_ARG_TYPE, TYPE_FIRE) == TRUE);
+        ASSUME(GetSpeciesType(SPECIES_CYNDAQUIL, 0) == TYPE_FIRE || GetSpeciesType(SPECIES_CYNDAQUIL, 1) == TYPE_FIRE);
+        PLAYER(SPECIES_CYNDAQUIL);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SUNNY_DAY); }
+        TURN { MOVE(player, MOVE_BURN_UP); }
+        TURN { MOVE(player, MOVE_BURN_UP); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUNNY_DAY, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_BURN_UP, player);
+        NOT MESSAGE("Cyndaquil burned itself out!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_BURN_UP, player);
+        NOT MESSAGE("Cyndaquil burned itself out!");
+    }
+}
+
+SINGLE_BATTLE_TEST("Double Shock user does not lose its Electric-type during Electric Terrain")
+{
+    GIVEN {
+        ASSUME(GetMoveEffect(MOVE_DOUBLE_SHOCK) == EFFECT_FAIL_IF_NOT_ARG_TYPE);
+        ASSUME(IsMoveEffectRemoveSpeciesType(MOVE_DOUBLE_SHOCK, MOVE_EFFECT_REMOVE_ARG_TYPE, TYPE_ELECTRIC) == TRUE);
+        ASSUME(GetSpeciesType(SPECIES_PIKACHU, 0) == TYPE_ELECTRIC || GetSpeciesType(SPECIES_PIKACHU, 1) == TYPE_ELECTRIC);
+        PLAYER(SPECIES_PIKACHU);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ELECTRIC_TERRAIN); }
+        TURN { MOVE(player, MOVE_DOUBLE_SHOCK); }
+        TURN { MOVE(player, MOVE_DOUBLE_SHOCK); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ELECTRIC_TERRAIN, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_SHOCK, player);
+        NOT MESSAGE("Pikachu used up all its electricity!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_SHOCK, player);
+        NOT MESSAGE("Pikachu used up all its electricity!");
+    }
+}
