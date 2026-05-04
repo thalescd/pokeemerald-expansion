@@ -21,7 +21,7 @@ SINGLE_BATTLE_TEST("Battle Armor, Shell Armor and Leaf Guard block critical hits
     }
 }
 
-SINGLE_BATTLE_TEST("Mold Breaker, Teravolt and Turboblaze ignore Battle Armor and Shell Armor")
+SINGLE_BATTLE_TEST("Mold Breaker, Teravolt and Turboblaze ignore Battle Armor, Shell Armor and Leaf Guard")
 {
     u32 j;
     u32 species1, species2, ability1, ability2;
@@ -36,6 +36,7 @@ SINGLE_BATTLE_TEST("Mold Breaker, Teravolt and Turboblaze ignore Battle Armor an
     {
         PARAMETRIZE { species1 = breakerData[j][0]; ability1 = breakerData[j][1]; species2 = SPECIES_KINGLER; ability2 = ABILITY_SHELL_ARMOR; }
         PARAMETRIZE { species1 = breakerData[j][0]; ability1 = breakerData[j][1]; species2 = SPECIES_ARMALDO; ability2 = ABILITY_BATTLE_ARMOR; }
+        PARAMETRIZE { species1 = breakerData[j][0]; ability1 = breakerData[j][1]; species2 = SPECIES_LEAFEON; ability2 = ABILITY_LEAF_GUARD; }
     }
 
     GIVEN {
