@@ -468,8 +468,6 @@ const u16 gFieldEffectObjectPalette_CaveDust[] = INCGFX_U16("graphics/field_effe
 
 const u32 gObjectEventPic_ApricornTree[] = INCGFX_U32("graphics/object_events/pics/misc/apricorn_tree.png", ".4bpp", "-mwidth 2 -mheight 2");
 
-#if IS_FRLG
-
 const u16 gObjectEventPic_RedNormal[] = INCGFX_U16("graphics/object_events/pics/people/red/red_normal.png", ".4bpp", "-mwidth 2 -mheight 4");
 const u16 gObjectEventPic_RedBike[] = INCGFX_U16("graphics/object_events/pics/people/red/red_bike.png", ".4bpp", "-mwidth 4 -mheight 4");
 const u16 gObjectEventPic_RedSurf[] = INCGFX_U16("graphics/object_events/pics/people/red/red_surf.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -633,5 +631,3 @@ const u16 gObjectEventPic_PikachuOldFrlg[] = INCGFX_U16("graphics/object_events/
 const u16 gObjectEventPic_JigglypuffOld[] = INCGFX_U16("graphics/object_events/pics/pokemon_old/jigglypuff.png", ".4bpp", "-mwidth 2 -mheight 2");
 const u16 gObjectEventPic_PidgeyOld[] = INCGFX_U16("graphics/object_events/pics/pokemon_old/pidgey.png", ".4bpp", "-mwidth 2 -mheight 2");
 const u16 gObjectEventPic_ClefairyOld[] = INCGFX_U16("graphics/object_events/pics/pokemon_old/clefairy.png", ".4bpp", "-mwidth 2 -mheight 2");
-
-#endif // IS_FRLG
