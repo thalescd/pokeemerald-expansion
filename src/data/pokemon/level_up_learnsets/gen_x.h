@@ -11843,6 +11843,7 @@ static const struct LevelUpMove sSkorupiLevelUpLearnset[] = {
     LEVEL_UP_MOVE(42, MOVE_X_SCISSOR),
     LEVEL_UP_MOVE(45, MOVE_ACUPRESSURE),
     LEVEL_UP_MOVE(48, MOVE_CRUNCH),
+    LEVEL_UP_MOVE(52, MOVE_DIRE_CLAW),
     LEVEL_UP_END
 };
 
@@ -11869,6 +11870,7 @@ static const struct LevelUpMove sDrapionLevelUpLearnset[] = {
     LEVEL_UP_MOVE(44, MOVE_X_SCISSOR),
     LEVEL_UP_MOVE(49, MOVE_ACUPRESSURE),
     LEVEL_UP_MOVE(54, MOVE_CRUNCH),
+    LEVEL_UP_MOVE(59, MOVE_DIRE_CLAW),
     LEVEL_UP_END
 };
 #endif //P_FAMILY_SKORUPI
