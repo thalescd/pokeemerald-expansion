@@ -1,13 +1,14 @@
 #include "global.h"
 #include "test/battle.h"
 
-SINGLE_BATTLE_TEST("Battle Armor and Shell Armor block critical hits")
+SINGLE_BATTLE_TEST("Battle Armor, Shell Armor and Leaf Guard block critical hits")
 {
     u32 species;
     enum Ability ability;
 
-    PARAMETRIZE { species = SPECIES_KINGLER; ability = ABILITY_SHELL_ARMOR; }
-    PARAMETRIZE { species = SPECIES_ARMALDO; ability = ABILITY_BATTLE_ARMOR; }
+    PARAMETRIZE { species = SPECIES_KINGLER;  ability = ABILITY_SHELL_ARMOR; }
+    PARAMETRIZE { species = SPECIES_ARMALDO;  ability = ABILITY_BATTLE_ARMOR; }
+    PARAMETRIZE { species = SPECIES_LEAFEON;  ability = ABILITY_LEAF_GUARD; }
 
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);

@@ -233,10 +233,10 @@ SINGLE_BATTLE_TEST("Parental Bond Snore strikes twice while asleep")
     s16 damage[2];
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_SNORE) == EFFECT_SNORE);
-        PLAYER(SPECIES_KANGASKHAN) { Item(ITEM_KANGASKHANITE); Status1(STATUS1_SLEEP); }
+        PLAYER(SPECIES_KANGASKHAN_MEGA) { Ability(ABILITY_PARENTAL_BOND); Status1(STATUS1_SLEEP); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_SNORE, gimmick: GIMMICK_MEGA); }
+        TURN { MOVE(player, MOVE_SNORE); }
     } SCENE {
         MESSAGE("Kangaskhan is fast asleep.");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SNORE, player);
