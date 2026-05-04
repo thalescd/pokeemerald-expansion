@@ -12406,7 +12406,7 @@ Nature: Modest
 - Flamethrower
 - Ancient Power
 - Foul Play
-- Fake Out
+- Double Team
 
 === TRAINER_VIVIAN ===
 Name: VIVIAN
@@ -12418,7 +12418,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Hitmontop
-Level: 25
+Level: 26
 - Fake Out
 - Rolling Kick
 - Pursuit
@@ -12426,7 +12426,7 @@ Level: 25
 
 Diggersby
 Ability: Huge Power
-Level: 25
+Level: 26
 - Thunder Punch
 - Bulldoze
 - Quick Attack

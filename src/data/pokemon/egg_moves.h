@@ -771,6 +771,7 @@ static const u16 sFarfetchdEggMoveLearnset[] = {
     MOVE_SIMPLE_BEAM,
     MOVE_FIRST_IMPRESSION,
     MOVE_FINAL_GAMBIT,
+    MOVE_DRILL_PECK,
     MOVE_UNAVAILABLE,
 };
 #if P_GALARIAN_FORMS
@@ -3249,6 +3250,7 @@ static const u16 sKecleonEggMoveLearnset[] = {
     MOVE_FOUL_PLAY,
     MOVE_CAMOUFLAGE,
     MOVE_POWER_UP_PUNCH,
+    MOVE_DOUBLE_TEAM,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_KECLEON
