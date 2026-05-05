@@ -17,7 +17,6 @@ static const struct FormChange sVenusaurFormChangeTable[] =
 static const struct FormChange sCharizardFormChangeTable[] =
 {
 #if P_MEGA_EVOLUTIONS
-    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_CHARIZARD_MEGA_X, ITEM_CHARIZARDITE_X},
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_CHARIZARD_MEGA_Y, ITEM_CHARIZARDITE_Y},
 #endif
 #if P_GIGANTAMAX_FORMS
@@ -55,18 +54,6 @@ static const struct FormChange sButterfreeFormChangeTable[] =
     {FORM_CHANGE_TERMINATOR},
 };
 #endif //P_FAMILY_CATERPIE
-
-#if P_FAMILY_WEEDLE
-static const struct FormChange sBeedrillFormChangeTable[] =
-{
-#if P_MEGA_EVOLUTIONS
-    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_BEEDRILL_MEGA, ITEM_BEEDRILLITE},
-#endif
-    {FORM_CHANGE_FAINT,                         SPECIES_BEEDRILL},
-    {FORM_CHANGE_END_BATTLE,                    SPECIES_BEEDRILL},
-    {FORM_CHANGE_TERMINATOR},
-};
-#endif //P_FAMILY_WEEDLE
 
 #if P_FAMILY_PIDGEY
 static const struct FormChange sPidgeotFormChangeTable[] =

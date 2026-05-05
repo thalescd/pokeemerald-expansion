@@ -63,6 +63,47 @@ DOUBLE_BATTLE_TEST("Flower Veil prevents status on allied Grass-types - left tar
     }
 }
 
+SINGLE_BATTLE_TEST("Flower Veil protects the user from status")
+{
+    enum Move move;
+
+    PARAMETRIZE { move = MOVE_TOXIC; }
+    PARAMETRIZE { move = MOVE_POISON_GAS; }
+    PARAMETRIZE { move = MOVE_WILL_O_WISP; }
+    PARAMETRIZE { move = MOVE_THUNDER_WAVE; }
+    PARAMETRIZE { move = MOVE_HYPNOSIS; }
+
+    GIVEN {
+        ASSUME(GetSpeciesType(SPECIES_COMFEY, 0) != TYPE_GRASS);
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_COMFEY) { Ability(ABILITY_FLOWER_VEIL); }
+    } WHEN {
+        TURN { MOVE(player, move); }
+    } SCENE {
+        NOT ANIMATION(ANIM_TYPE_MOVE, move, player);
+        ABILITY_POPUP(opponent, ABILITY_FLOWER_VEIL);
+        MESSAGE("The opposing Comfey surrounded itself with a veil of petals!");
+    }
+}
+
+SINGLE_BATTLE_TEST("Flower Veil protects the user from stat reductions")
+{
+    GIVEN {
+        ASSUME(GetMoveEffect(MOVE_GROWL) == EFFECT_ATTACK_DOWN);
+        ASSUME(GetSpeciesType(SPECIES_COMFEY, 0) != TYPE_GRASS);
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_COMFEY) { Ability(ABILITY_FLOWER_VEIL); }
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+        ABILITY_POPUP(opponent, ABILITY_FLOWER_VEIL);
+        MESSAGE("The opposing Comfey surrounded itself with a veil of petals!");
+    } THEN {
+        EXPECT_EQ(opponent->statStages[STAT_ATK], DEFAULT_STAT_STAGE);
+    }
+}
+
 DOUBLE_BATTLE_TEST("Flower Veil's stat reduction protection considers Contrary") // Eg. If a move would reduce stats due to Contrary, it will be protected by Mist.
 {
     GIVEN {

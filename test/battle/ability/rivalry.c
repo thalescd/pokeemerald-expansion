@@ -31,7 +31,7 @@ SINGLE_BATTLE_TEST("Rivalry increases power by x1.25 towards Pokémon of the sam
     }
 }
 
-SINGLE_BATTLE_TEST("Rivalry decreases power by x0.75 towards Pokémon of different gender", s16 damage)
+SINGLE_BATTLE_TEST("Rivalry decreases power by x0.9 towards Pokémon of different gender", s16 damage)
 {
     u16 species1, species2;
     enum Ability ability;
@@ -49,8 +49,8 @@ SINGLE_BATTLE_TEST("Rivalry decreases power by x0.75 towards Pokémon of differe
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         HP_BAR(opponent, captureDamage: &results[i].damage);
     } FINALLY {
-        EXPECT_MUL_EQ(results[0].damage, Q_4_12(0.75), results[1].damage);
-        EXPECT_MUL_EQ(results[2].damage, Q_4_12(0.75), results[3].damage);
+        EXPECT_MUL_EQ(results[0].damage, Q_4_12(0.9), results[1].damage);
+        EXPECT_MUL_EQ(results[2].damage, Q_4_12(0.9), results[3].damage);
     }
 }
 

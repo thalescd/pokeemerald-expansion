@@ -906,7 +906,7 @@ enum __attribute__((packed)) Move
     MOVES_COUNT_GEN9,
 
     // Add any custom moves here, not further down!
-    MOVE_TIDAL_WAVE,
+    MOVE_TIDAL_WAVE = MOVES_COUNT_GEN9,
     MOVES_COUNT_CUSTOM,
 
     MOVES_COUNT = MOVES_COUNT_CUSTOM,

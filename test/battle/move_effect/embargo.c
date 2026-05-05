@@ -74,6 +74,7 @@ WILD_BATTLE_TEST("Embargo doesn't block held item effects that affect effort val
     u32 finalHPEVAmount;
 
     GIVEN {
+        ASSUME(B_EV_CAP_TYPE != EV_CAP_NO_GAIN);
         PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_POWER_WEIGHT); }
         OPPONENT(SPECIES_CATERPIE) { HP(1); }
         ASSUME(gItemsInfo[ITEM_POWER_WEIGHT].holdEffect == HOLD_EFFECT_POWER_ITEM);
@@ -342,7 +343,7 @@ SINGLE_BATTLE_TEST("Embargo doesn't prevent Mega Evolution")
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
         OPPONENT(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_CHARIZARD) { Item(ITEM_CHARIZARDITE_Y); }
+        OPPONENT(SPECIES_SALAMENCE) { Item(ITEM_SALAMENCITE); }
     } WHEN {
         TURN { MOVE(player, MOVE_EMBARGO); }
         TURN { MOVE(opponent, MOVE_BATON_PASS); SEND_OUT(opponent, 1); }
@@ -354,11 +355,11 @@ SINGLE_BATTLE_TEST("Embargo doesn't prevent Mega Evolution")
         // Turn 2
         MESSAGE("The opposing Wobbuffet used Baton Pass!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BATON_PASS, opponent);
-        MESSAGE("2 sent out Charizard!");
+        MESSAGE("2 sent out Salamence!");
         // Turn 3
-        MESSAGE("The opposing Charizard's Charizardite Y is reacting to 2's Mega Ring!");
+        MESSAGE("The opposing Salamence's Salamencite is reacting to 2's Mega Ring!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, opponent);
-        MESSAGE("The opposing Charizard has Mega Evolved into Mega Charizard!");
+        MESSAGE("The opposing Salamence has Mega Evolved into Mega Salamence!");
     }
 }
 

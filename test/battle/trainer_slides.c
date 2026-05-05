@@ -174,13 +174,13 @@ AI_SINGLE_BATTLE_TEST("Trainer Slide: Singles: Mega Evolution")
         FLAG_SET(TESTING_FLAG_TRAINER_SLIDES);
         VAR_SET(TESTING_VAR_TRAINER_SLIDES, TRAINER_SLIDE_MEGA_EVOLUTION);
         PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_LOPUNNY) { Item(ITEM_LOPUNNITE); Moves(MOVE_CELEBRATE); }
+        OPPONENT(SPECIES_SALAMENCE) { Item(ITEM_SALAMENCITE); Moves(MOVE_DRAGON_DANCE); }
     } WHEN {
-        TURN { EXPECT_MOVE(opponent, MOVE_CELEBRATE, gimmick: GIMMICK_MEGA); }
+        TURN { EXPECT_MOVE(opponent, MOVE_DRAGON_DANCE, gimmick: GIMMICK_MEGA); }
     } SCENE {
         MESSAGE("Trainer A: This message plays before the enemy activates the Mega Evolution gimmick.{PAUSE_UNTIL_PRESS}");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, opponent);
-        MESSAGE("The opposing Lopunny has Mega Evolved into Mega Lopunny!");
+        MESSAGE("The opposing Salamence has Mega Evolved into Mega Salamence!");
     }
 }
 
@@ -441,8 +441,8 @@ AI_DOUBLE_BATTLE_TEST("Trainer Slide: Doubles: Mega Evolution")
         VAR_SET(TESTING_VAR_TRAINER_SLIDES, TRAINER_SLIDE_MEGA_EVOLUTION);
         PLAYER(SPECIES_WOBBUFFET);
         PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_LOPUNNY) { Item(ITEM_LOPUNNITE); };
-        OPPONENT(SPECIES_LOPUNNY) { Moves(MOVE_CELEBRATE); }
+        OPPONENT(SPECIES_SALAMENCE) { Item(ITEM_SALAMENCITE); };
+        OPPONENT(SPECIES_LOPUNNY) { Moves(MOVE_DRAGON_DANCE); }
     } WHEN {
         TURN { EXPECT_MOVE(opponentLeft, MOVE_CELEBRATE, gimmick: GIMMICK_MEGA); }
     } SCENE {
@@ -451,7 +451,7 @@ AI_DOUBLE_BATTLE_TEST("Trainer Slide: Doubles: Mega Evolution")
             MESSAGE("Trainer A: This message plays before the enemy activates the Mega Evolution gimmick.{PAUSE_UNTIL_PRESS}");
         }
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, opponentLeft);
-        MESSAGE("The opposing Lopunny has Mega Evolved into Mega Lopunny!");
+        MESSAGE("The opposing Salamence has Mega Evolved into Mega Salamence!");
     }
 }
 
@@ -756,7 +756,7 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Mega Evolution")
         VAR_SET(TESTING_VAR_TRAINER_SLIDES, TRAINER_SLIDE_MEGA_EVOLUTION);
         MULTI_PLAYER(SPECIES_WOBBUFFET) { Speed(4); }
         MULTI_PARTNER(SPECIES_AERODACTYL) { Speed(2); Item(ITEM_AERODACTYLITE); }
-        MULTI_OPPONENT_A(SPECIES_LOPUNNY) { Speed(3); Item(ITEM_LOPUNNITE); }
+        MULTI_OPPONENT_A(SPECIES_SALAMENCE) { Speed(3); Item(ITEM_SALAMENCITE); }
         MULTI_OPPONENT_B(SPECIES_MEDICHAM) { Speed(1); Item(ITEM_MEDICHAMITE); }
     } WHEN {
         TURN { EXPECT_MOVE(opponentLeft, MOVE_CELEBRATE, gimmick: GIMMICK_MEGA); 
@@ -765,7 +765,7 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Mega Evolution")
     } SCENE {
         MESSAGE("Trainer A: This message plays before the enemy activates the Mega Evolution gimmick.{PAUSE_UNTIL_PRESS}");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, opponentLeft);
-        MESSAGE("The opposing Lopunny has Mega Evolved into Mega Lopunny!");
+        MESSAGE("The opposing Salamence has Mega Evolved into Mega Salamence!");
         MESSAGE("Trainer Partner: This message plays before the enemy activates the Mega Evolution gimmick.{PAUSE_UNTIL_PRESS}");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, playerRight);
         MESSAGE("Aerodactyl has Mega Evolved into Mega Aerodactyl!");

@@ -249,7 +249,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_SERENE_GRACE] =
     {
         .name = _("Serene Grace"),
-        .description = COMPOUND_STRING("Boosts the likelihood of\nadditional effects occurring."),
+        .description = COMPOUND_STRING("Boosts the likelihood of\nadditional effects."),
         .aiRating = 8,
     },
 
@@ -694,7 +694,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_SKILL_LINK] =
     {
         .name = _("Skill Link"),
-        .description = COMPOUND_STRING("Maximizes the number of times\nmultistrike moves hit."),
+        .description = COMPOUND_STRING("Maximizes how many times\nmultistrike moves hit."),
         .aiRating = 7,
     },
 
@@ -1001,7 +1001,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_WEAK_ARMOR] =
     {
         .name = _("Weak Armor"),
-        .description = COMPOUND_STRING("Physical attacks lower its\nDefense and raise its Speed."),
+        .description = COMPOUND_STRING("Physical attacks lower its\nDefense and raise Speed."),
         .aiRating = 2,
     },
 
@@ -1245,7 +1245,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_AROMA_VEIL] =
     {
         .name = _("Aroma Veil"),
-        .description = COMPOUND_STRING("Protects allies from attacks\nthat limit their moves."),
+        .description = COMPOUND_STRING("Protects allies from\nattacks that limit moves."),
         .aiRating = 3,
         .breakable = TRUE,
     },
@@ -1253,7 +1253,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_FLOWER_VEIL] =
     {
         .name = _("Flower Veil"),
-        .description = COMPOUND_STRING("Prevents lowering of ally\nGrass-type Pokémon's stats."),
+        .description = COMPOUND_STRING("Prevents stat drops for\nuser and Grass-type allies."),
         .aiRating = 0,
         .breakable = TRUE,
     },
@@ -1561,7 +1561,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_SURGE_SURFER] =
     {
         .name = _("Surge Surfer"),
-        .description = COMPOUND_STRING("Boosts Speed in any Terrain."),
+        .description = COMPOUND_STRING("Boosts Speed in any\nTerrain."),
         .aiRating = 4,
     },
 
@@ -1884,7 +1884,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_ICE_SCALES] =
     {
         .name = _("Ice Scales"),
-        .description = COMPOUND_STRING("Halves special damage taken."),
+        .description = COMPOUND_STRING("Takes half special damage."),
         .aiRating = 7,
         .breakable = TRUE,
     },
@@ -2118,7 +2118,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_GUARD_DOG] =
     {
         .name = _("Guard Dog"),
-        .description = COMPOUND_STRING("Ups Attack when intimidated.\nCan't be forced out."),
+        .description = COMPOUND_STRING("Ups ATK when intimidated.\nCan't be forced out."),
         .aiRating = 5,
         .breakable = TRUE,
     },
