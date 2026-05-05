@@ -1309,7 +1309,6 @@ static const u16 sMagbyEggMoveLearnset[] = {
 
 #if P_FAMILY_PINSIR
 static const u16 sPinsirEggMoveLearnset[] = {
-    MOVE_FURY_ATTACK,
     MOVE_FLAIL,
     MOVE_FEINT_ATTACK,
     MOVE_QUICK_ATTACK,
