@@ -10,7 +10,7 @@ ASSUMPTIONS
 SINGLE_BATTLE_TEST("Aerilate turns a Normal-type move into Flying-type move")
 {
     GIVEN {
-        PLAYER(SPECIES_MEGANIUM);
+        PLAYER(SPECIES_ODDISH);
         OPPONENT(SPECIES_SALAMENCE) { Item(ITEM_SALAMENCITE); }
     } WHEN {
         TURN { MOVE(opponent, MOVE_SCRATCH, gimmick: GIMMICK_MEGA); }
@@ -32,7 +32,8 @@ SINGLE_BATTLE_TEST("Aerilate can not turn certain moves into Flying type moves")
     PARAMETRIZE { move = MOVE_MULTI_ATTACK; }
     PARAMETRIZE { move = MOVE_TERRAIN_PULSE; }
     GIVEN {
-        PLAYER(SPECIES_MEGANIUM);
+        ASSUME(GetSpeciesType(SPECIES_ODDISH, 0) == TYPE_GRASS);
+        PLAYER(SPECIES_ODDISH);
         OPPONENT(SPECIES_SALAMENCE) { Item(ITEM_SALAMENCITE); }
     } WHEN {
         TURN { MOVE(opponent, move, gimmick: GIMMICK_MEGA); }
@@ -193,10 +194,10 @@ SINGLE_BATTLE_TEST("Aerilate overrides Ion Deluge")
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_ION_DELUGE) == EFFECT_ION_DELUGE);
         ASSUME(GetSpeciesType(SPECIES_MACHOP, 0) == TYPE_FIGHTING || GetSpeciesType(SPECIES_MACHOP, 1) == TYPE_FIGHTING);
-        PLAYER(SPECIES_PINSIR) { Item(ITEM_PINSIRITE); Speed(1); }
+        PLAYER(SPECIES_PINSIR_MEGA) { Speed(1); }
         OPPONENT(SPECIES_MACHOP) { Moves(MOVE_ION_DELUGE); Speed(10); }
     } WHEN {
-        TURN { MOVE(opponent, MOVE_ION_DELUGE); MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_MEGA); }
+        TURN { MOVE(opponent, MOVE_ION_DELUGE); MOVE(player, MOVE_SCRATCH); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ION_DELUGE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
