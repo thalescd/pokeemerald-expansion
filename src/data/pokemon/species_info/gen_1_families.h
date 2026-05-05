@@ -17170,19 +17170,20 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sPinsirLevelUpLearnset,
         .teachableLearnset = sPinsirTeachableLearnset,
         .eggMoveLearnset = sPinsirEggMoveLearnset,
-        .formSpeciesIdTable = sPinsirFormSpeciesIdTable,
-        .formChangeTable = sPinsirFormChangeTable,
+        //.formSpeciesIdTable = sPinsirFormSpeciesIdTable,
+        //.formChangeTable = sPinsirFormChangeTable,
+        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_PINSIR_MEGA, CONDITIONS({IF_KNOWS_MOVE_TYPE, TYPE_FLYING})}),
     },
 
 #if P_MEGA_EVOLUTIONS
     [SPECIES_PINSIR_MEGA] =
     {
         .baseHP        = 65,
-        .baseAttack    = 155,
-        .baseDefense   = 120,
+        .baseAttack    = 130,
+        .baseDefense   = 105,
         .baseSpeed     = 105,
-        .baseSpAttack  = 65,
-        .baseSpDefense = 90,
+        .baseSpAttack  = 55,
+        .baseSpDefense = 80,
         .types = MON_TYPES(TYPE_BUG, TYPE_FLYING),
         .catchRate = 45,
         .expYield = 210,
@@ -17192,7 +17193,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_BUG),
-        .abilities = { ABILITY_AERILATE, ABILITY_AERILATE, ABILITY_AERILATE },
+        .abilities = { ABILITY_AERILATE, ABILITY_MOLD_BREAKER, ABILITY_MOXIE },
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Pinsir"),
     #if P_MODIFIED_MEGA_CRIES
@@ -17241,12 +17242,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gShinyOverworldPalette_PinsirMega
         )
     #endif //OW_BATTLE_ONLY_FORMS
-        .isMegaEvolution = TRUE,
-        .levelUpLearnset = sPinsirLevelUpLearnset,
+        //.isMegaEvolution = TRUE,
+        .levelUpLearnset = sPinsirMegaLevelUpLearnset,
         .teachableLearnset = sPinsirTeachableLearnset,
-        .eggMoveLearnset = sPinsirEggMoveLearnset,
-        .formSpeciesIdTable = sPinsirFormSpeciesIdTable,
-        .formChangeTable = sPinsirFormChangeTable,
+        //.eggMoveLearnset = sPinsirEggMoveLearnset,
+        //.formSpeciesIdTable = sPinsirFormSpeciesIdTable,
+        //.formChangeTable = sPinsirFormChangeTable,
     },
 #endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_PINSIR
