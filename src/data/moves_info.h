@@ -7892,7 +7892,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Straight-arm punches that\n"
             "strike the foe 2 to 5 times."),
         .effect = EFFECT_HIT,
-        .power = 15,
+        .power = 18,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 20,
