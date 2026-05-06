@@ -65,13 +65,13 @@ AI_SINGLE_BATTLE_TEST("AI sees increased base power of Wake Up Slap")
         ASSUME(GetMoveEffect(MOVE_WAKE_UP_SLAP) == EFFECT_DOUBLE_POWER_ON_ARG_STATUS);
         ASSUME(GetMoveEffectArg_Status(MOVE_WAKE_UP_SLAP) == STATUS1_SLEEP);
         AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT);
-        PLAYER(SPECIES_MEGANIUM) { HP(35); Status1(status1); }
+        PLAYER(SPECIES_MILTANK) { HP(30); Status1(status1); }
         OPPONENT(SPECIES_WOBBUFFET) { Moves(MOVE_BODY_SLAM, MOVE_WAKE_UP_SLAP); }
     } WHEN {
         TURN { EXPECT_MOVE(opponent, expectedMove); }
     } SCENE {
         if (expectedMove == MOVE_WAKE_UP_SLAP)
-            MESSAGE("Meganium fainted!");
+            MESSAGE("Miltank fainted!");
     }
 }
 

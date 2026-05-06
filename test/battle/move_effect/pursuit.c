@@ -363,7 +363,7 @@ SINGLE_BATTLE_TEST("Pursuit user mega evolves before attacking a switching foe a
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
         PLAYER(SPECIES_ZIGZAGOON);
-        OPPONENT(SPECIES_KANGASKHAN) { Item(ITEM_KANGASKHANITE); }
+        OPPONENT(SPECIES_SALAMENCE) { Item(ITEM_SALAMENCITE), Ability(ABILITY_PARENTAL_BOND); }
     } WHEN {
         TURN { SWITCH(player, 1); MOVE(opponent, MOVE_PURSUIT, gimmick: GIMMICK_MEGA); }
     } SCENE {
@@ -379,11 +379,11 @@ SINGLE_BATTLE_TEST("Pursuit user mega evolves before attacking a switching foe a
 DOUBLE_BATTLE_TEST("Pursuit user mega evolves before attacking a switching foe and others mega evolve after switch")
 {
     GIVEN {
-        PLAYER(SPECIES_CHARIZARD) { Item(ITEM_CHARIZARDITE_X); }
+        PLAYER(SPECIES_ALAKAZAM) { Item(ITEM_ALAKAZITE); }
         PLAYER(SPECIES_WOBBUFFET);
         PLAYER(SPECIES_ZIGZAGOON);
         OPPONENT(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_KANGASKHAN) { Item(ITEM_KANGASKHANITE); }
+        OPPONENT(SPECIES_SALAMENCE) { Item(ITEM_SALAMENCITE), Ability(ABILITY_PARENTAL_BOND); }
     } WHEN {
         TURN { SWITCH(playerRight, 2); MOVE(opponentRight, MOVE_PURSUIT, gimmick: GIMMICK_MEGA, target: playerRight); MOVE(playerLeft, MOVE_CELEBRATE, gimmick: GIMMICK_MEGA); }
     } SCENE {
