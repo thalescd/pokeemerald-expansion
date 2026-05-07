@@ -6040,7 +6040,7 @@ static void HandleTargetSpeciesPrintText(u32 targetSpecies, u32 base_x, u32 base
     bool32 seen = GetSetPokedexFlag(SpeciesToNationalPokedexNum(targetSpecies), FLAG_GET_SEEN);
     u32 fontId = GetSpeciesNameFontId(GetSpeciesNameWidthInChars(GetSpeciesName(targetSpecies)));
 
-    if (seen || !HGSS_HIDE_UNSEEN_EVOLUTION_NAMES)
+    if (seen || !HGSS_HIDE_UNSEEN_EVOLUTION)
         StringCopy(gStringVar3, GetSpeciesName(targetSpecies)); //evolution mon name
     else
         StringCopy(gStringVar3, gText_ThreeQuestionMarks); //show questionmarks instead of name
@@ -6050,12 +6050,14 @@ static void HandleTargetSpeciesPrintText(u32 targetSpecies, u32 base_x, u32 base
 
 static void HandleTargetSpeciesPrintIcon(u8 taskId, u16 targetSpecies, u8 base_i, u8 iterations)
 {
-    u32 personality = GetPokedexMonPersonality(targetSpecies);
-    LoadMonIconPalettePersonality(targetSpecies, personality); //Loads pallete for current mon
+    bool32 seen = GetSetPokedexFlag(SpeciesToNationalPokedexNum(targetSpecies), FLAG_GET_SEEN);
+    u16 iconSpecies = (seen || !HGSS_HIDE_UNSEEN_EVOLUTION) ? targetSpecies : SPECIES_NONE;
+    u32 personality = GetPokedexMonPersonality(iconSpecies);
+    LoadMonIconPalettePersonality(iconSpecies, personality);
     if (iterations > 6) // Print icons closer to each other if there are many evolutions
-        gTasks[taskId].data[4+base_i] = CreateMonIcon(targetSpecies, SpriteCB_MonIcon, 45 + 26*base_i, 31, 4, personality);
+        gTasks[taskId].data[4+base_i] = CreateMonIcon(iconSpecies, SpriteCB_MonIcon, 45 + 26*base_i, 31, 4, personality);
     else
-        gTasks[taskId].data[4+base_i] = CreateMonIcon(targetSpecies, SpriteCB_MonIcon, 50 + 32*base_i, 31, 4, personality);
+        gTasks[taskId].data[4+base_i] = CreateMonIcon(iconSpecies, SpriteCB_MonIcon, 50 + 32*base_i, 31, 4, personality);
     gSprites[gTasks[taskId].data[4+base_i]].oam.priority = 0;
 }
 
@@ -6082,7 +6084,7 @@ static void HandlePreEvolutionSpeciesPrint(u8 taskId, u16 preSpecies, u16 specie
     else
     {
 
-        if (seen || !HGSS_HIDE_UNSEEN_EVOLUTION_NAMES)
+        if (seen || !HGSS_HIDE_UNSEEN_EVOLUTION)
             StringCopy(gStringVar2, GetSpeciesName(preSpecies)); //evolution mon name
         else
             StringCopy(gStringVar2, gText_ThreeQuestionMarks); //show questionmarks instead of name
@@ -6095,9 +6097,10 @@ static void HandlePreEvolutionSpeciesPrint(u8 taskId, u16 preSpecies, u16 specie
 
     if (base_i < 3)
     {
-        u32 personality = GetPokedexMonPersonality(preSpecies);
-        LoadMonIconPalettePersonality(preSpecies, personality); //Loads pallete for current mon
-        gTasks[taskId].data[4+base_i] = CreateMonIcon(preSpecies, SpriteCB_MonIcon, 18 + 32*base_i, 31, 4, personality); //Create pokemon sprite
+        u16 iconSpecies = (seen || !HGSS_HIDE_UNSEEN_EVOLUTION) ? preSpecies : SPECIES_NONE;
+        u32 personality = GetPokedexMonPersonality(iconSpecies);
+        LoadMonIconPalettePersonality(iconSpecies, personality);
+        gTasks[taskId].data[4+base_i] = CreateMonIcon(iconSpecies, SpriteCB_MonIcon, 18 + 32*base_i, 31, 4, personality); //Create pokemon sprite
         gSprites[gTasks[taskId].data[4+base_i]].oam.priority = 0;
     }
 }
