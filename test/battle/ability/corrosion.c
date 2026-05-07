@@ -6,16 +6,16 @@ SINGLE_BATTLE_TEST("Corrosion can poison or badly poison a Pokemon regardless of
     u16 species;
 
     PARAMETRIZE { species = SPECIES_ODDISH; }
-    PARAMETRIZE { species = SPECIES_BELDUM; }
+    PARAMETRIZE { species = SPECIES_EMPOLEON; }
 
     GIVEN {
-        ASSUME(MoveHasAdditionalEffect(MOVE_TWINEEDLE, MOVE_EFFECT_POISON) == TRUE);
+        ASSUME(MoveHasAdditionalEffect(MOVE_OMINOUS_WIND, MOVE_EFFECT_POISON) == TRUE);
         PLAYER(SPECIES_SALANDIT) { Ability(ABILITY_CORROSION); }
         OPPONENT(species);
     } WHEN {
-        TURN { MOVE(player, MOVE_TWINEEDLE); }
+        TURN { MOVE(player, MOVE_OMINOUS_WIND); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_TWINEEDLE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_OMINOUS_WIND, player);
         HP_BAR(opponent);
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, opponent);
         STATUS_ICON(opponent, poison: TRUE);

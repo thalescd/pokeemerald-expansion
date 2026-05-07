@@ -38,7 +38,7 @@ SINGLE_BATTLE_TEST("Transform fails on transformed target in Gen2+")
 
     GIVEN {
         WITH_CONFIG(B_TRANSFORM_TARGET_FAIL, genConfig);
-        PLAYER(SPECIES_DITTO) { Speed(50); Moves(MOVE_TRANSFORM, MOVE_CELEBRATE); }
+        PLAYER(SPECIES_DITTO) { Ability(ABILITY_LIMBER); Speed(50); Moves(MOVE_TRANSFORM, MOVE_CELEBRATE); }
         OPPONENT(SPECIES_WOBBUFFET) { Speed(10); Moves(MOVE_TRANSFORM, MOVE_CELEBRATE); }
     } WHEN {
         TURN { MOVE(player, MOVE_TRANSFORM); MOVE(opponent, MOVE_CELEBRATE); }
@@ -63,7 +63,7 @@ SINGLE_BATTLE_TEST("Transform fails when the user is already transformed in Gen5
     GIVEN {
         WITH_CONFIG(B_TRANSFORM_USER_FAIL, genConfig);
         PLAYER(SPECIES_WOBBUFFET) { Speed(50); Moves(MOVE_TRANSFORM, MOVE_CELEBRATE); }
-        OPPONENT(SPECIES_DITTO) { Speed(10); Moves(MOVE_TRANSFORM, MOVE_CELEBRATE); }
+        OPPONENT(SPECIES_DITTO) { Ability(ABILITY_LIMBER); Speed(10); Moves(MOVE_TRANSFORM, MOVE_CELEBRATE); }
     } WHEN {
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_TRANSFORM); }
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_TRANSFORM); }
@@ -87,7 +87,7 @@ SINGLE_BATTLE_TEST("Transform fails on target behind substitute in Gen5+")
     GIVEN {
         WITH_CONFIG(B_TRANSFORM_SUBSTITUTE_FAIL, genConfig);
         PLAYER(SPECIES_WOBBUFFET) { Speed(50); Moves(MOVE_SUBSTITUTE); }
-        OPPONENT(SPECIES_DITTO) { Speed(10); Moves(MOVE_TRANSFORM); }
+        OPPONENT(SPECIES_DITTO) { Ability(ABILITY_LIMBER); Speed(10); Moves(MOVE_TRANSFORM); }
     } WHEN {
         TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_TRANSFORM); }
     } SCENE {

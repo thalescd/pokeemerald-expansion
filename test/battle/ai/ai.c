@@ -295,7 +295,7 @@ AI_SINGLE_BATTLE_TEST("AI prefers moves which deal more damage instead of moves 
         ASSUME(GetMoveCategory(MOVE_WATER_GUN) == DAMAGE_CATEGORY_SPECIAL);
         ASSUME(GetSpeciesBaseAttack(SPECIES_NIDOQUEEN) == 92); // Gen 5's 82 Base Attack causes the test to fail
         AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT);
-        PLAYER(SPECIES_TYPHLOSION) { Ability(abilityDef); }
+        PLAYER(SPECIES_CHARIZARD) { Ability(abilityDef); }
         PLAYER(SPECIES_WOBBUFFET);
         OPPONENT(SPECIES_NIDOQUEEN) { Moves(move1, move2, move3, move4); Ability(abilityAtk); }
     } WHEN {
@@ -312,7 +312,7 @@ AI_SINGLE_BATTLE_TEST("AI prefers moves which deal more damage instead of moves 
                 break;
             }
     } SCENE {
-        MESSAGE("Typhlosion fainted!");
+        MESSAGE("Charizard fainted!");
     }
 }
 
@@ -1120,7 +1120,7 @@ AI_SINGLE_BATTLE_TEST("AI will use recovery move if it outheals your damage and 
     PARAMETRIZE{ aiMove = MOVE_STRENGTH_SAP; }
     GIVEN {
         AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT | AI_FLAG_OMNISCIENT);
-        PLAYER(SPECIES_LINOONE) { Speed(5); Moves(MOVE_TACKLE); }
+        PLAYER(SPECIES_LINOONE) { Speed(5); Moves(MOVE_TACKLE); Ability(ABILITY_GLUTTONY); }
         OPPONENT(SPECIES_GASTRODON) { Speed(2); Moves(MOVE_SCALD, aiMove); HP(200); MaxHP(400); }
     } WHEN {
         TURN { MOVE(player, MOVE_TACKLE); EXPECT_MOVE(opponent, aiMove); }

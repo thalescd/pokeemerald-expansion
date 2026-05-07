@@ -1087,7 +1087,7 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Befuddle paralyzes, poisons, or sleeps both o
     PARAMETRIZE { statusAnim = B_ANIM_STATUS_SLP; rng = STATUS1_SLEEP; }
     GIVEN {
         ASSUME(MoveHasAdditionalEffect(MOVE_G_MAX_BEFUDDLE, MOVE_EFFECT_EFFECT_SPORE_SIDE));
-        PLAYER(SPECIES_BUTTERFREE) { GigantamaxFactor(TRUE); }
+        PLAYER(SPECIES_ORBEETLE_GMAX) { GigantamaxFactor(TRUE); }
         PLAYER(SPECIES_CATERPIE);
         OPPONENT(SPECIES_WOBBUFFET);
         OPPONENT(SPECIES_WOBBUFFET);
@@ -1095,7 +1095,7 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Befuddle paralyzes, poisons, or sleeps both o
         TURN { MOVE(playerLeft, MOVE_BUG_BITE, target: opponentLeft, gimmick: GIMMICK_DYNAMAX,
                WITH_RNG(RNG_G_MAX_BEFUDDLE, rng)); }
     } SCENE {
-        MESSAGE("Butterfree used G-Max Befuddle!");
+        MESSAGE("Orbeetle used G-Max Befuddle!");
         // opponent left
         ANIMATION(ANIM_TYPE_STATUS, statusAnim, opponentLeft);
         if (statusAnim == B_ANIM_STATUS_PSN) {
@@ -1264,7 +1264,7 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Wildfire sets a field effect that damages non
     s16 damage;
     GIVEN {
         ASSUME(MoveHasAdditionalEffect(MOVE_G_MAX_WILDFIRE, MOVE_EFFECT_WILDFIRE));
-        PLAYER(SPECIES_CHARIZARD) { GigantamaxFactor(TRUE); }
+        PLAYER(SPECIES_CHARIZARD_GMAX) { GigantamaxFactor(TRUE); }
         PLAYER(SPECIES_CHARMANDER);
         OPPONENT(SPECIES_WOBBUFFET) { HP(600); MaxHP(600); }
         OPPONENT(SPECIES_WYNAUT);
