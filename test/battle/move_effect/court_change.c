@@ -180,11 +180,11 @@ DOUBLE_BATTLE_TEST("Court Change used by the player swaps G-Max Steelsurge")
 DOUBLE_BATTLE_TEST("Court Change used by the player swaps G-Max Vine Lash, G-Max Wildfire, G-Max Cannonade")
 {
     u32 species, move;
-    PARAMETRIZE { species = SPECIES_VENUSAUR;  move = MOVE_VINE_WHIP; }
-    PARAMETRIZE { species = SPECIES_CHARIZARD; move = MOVE_EMBER; }
-    PARAMETRIZE { species = SPECIES_BLASTOISE; move = MOVE_WATER_GUN; }
+    PARAMETRIZE { species = SPECIES_VENUSAUR_GMAX;  move = MOVE_VINE_WHIP; }
+    PARAMETRIZE { species = SPECIES_CHARIZARD_GMAX; move = MOVE_EMBER; }
+    PARAMETRIZE { species = SPECIES_BLASTOISE_GMAX; move = MOVE_WATER_GUN; }
     GIVEN {
-        PLAYER(species) { GigantamaxFactor(TRUE); }
+        PLAYER(species);
         PLAYER(SPECIES_WOBBUFFET);
         PLAYER(SPECIES_WOBBUFFET);
         OPPONENT(SPECIES_WYNAUT);
@@ -197,15 +197,15 @@ DOUBLE_BATTLE_TEST("Court Change used by the player swaps G-Max Vine Lash, G-Max
         }
     } SCENE {
         switch (species) {
-            case SPECIES_VENUSAUR:
+            case SPECIES_VENUSAUR_GMAX:
                 MESSAGE("Venusaur used G-Max Vine Lash!");
                 MESSAGE("Wobbuffet is hurt by G-Max Vine Lash's ferocious beating!");
                 break;
-            case SPECIES_CHARIZARD:
+            case SPECIES_CHARIZARD_GMAX:
                 MESSAGE("Charizard used G-Max Wildfire!");
                 MESSAGE("Wobbuffet is burning up within G-Max Wildfire's flames!");
                 break;
-            case SPECIES_BLASTOISE:
+            case SPECIES_BLASTOISE_GMAX:
                 MESSAGE("Blastoise used G-Max Cannonade!");
                 MESSAGE("Wobbuffet is hurt by G-Max Cannonade's vortex!");
                 break;

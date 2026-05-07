@@ -48,19 +48,18 @@ SINGLE_BATTLE_TEST("Rain multiplies the power of Water-type moves by 1.5x", s16 
 
 SINGLE_BATTLE_TEST("Drizzle fails if Desolate Land is active")
 {
-    enum Item item;
+    u16 species;
 
-    PARAMETRIZE { item = ITEM_NONE; }
-    PARAMETRIZE { item = ITEM_RED_ORB; }
+    PARAMETRIZE { species = SPECIES_WOBBUFFET; }
+    PARAMETRIZE { species = SPECIES_GROUDON; }
 
     GIVEN {
-        PLAYER(SPECIES_GROUDON) { Item(item); }
+        PLAYER(species);
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
         TURN { MOVE(opponent, MOVE_RAIN_DANCE); }
     } SCENE {
-        if (item == ITEM_RED_ORB) {
-            ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_PRIMAL_REVERSION, player);
+        if (species == SPECIES_GROUDON) {
             NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_RAIN_DANCE, opponent);
         } else {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_RAIN_DANCE, opponent);

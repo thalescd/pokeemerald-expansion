@@ -110,8 +110,8 @@ SINGLE_BATTLE_TEST("Protosynthesis prioritizes stats in the case of a tie in the
     PARAMETRIZE { stats[4] = 255; stats[3] = 255; stats[2] = 255; }
     PARAMETRIZE { stats[4] = 255; stats[3] = 255; }
     GIVEN {
-        PLAYER(SPECIES_GREAT_TUSK) { Ability(ABILITY_PROTOSYNTHESIS); Attack(stats[0]); Defense(stats[1]); SpAttack(stats[2]); SpDefense(stats[3]); Speed(stats[4]); }
-        OPPONENT(SPECIES_GROUDON) { Ability(ABILITY_DROUGHT); Speed(5); }
+        PLAYER(SPECIES_SANDY_SHOCKS) { Ability(ABILITY_PROTOSYNTHESIS); Attack(stats[0]); Defense(stats[1]); SpAttack(stats[2]); SpDefense(stats[3]); Speed(stats[4]); }
+        OPPONENT(SPECIES_TORKOAL) { Ability(ABILITY_DROUGHT); Speed(5); }
     } WHEN {
         TURN {}
     } SCENE {
@@ -119,16 +119,16 @@ SINGLE_BATTLE_TEST("Protosynthesis prioritizes stats in the case of a tie in the
         ABILITY_POPUP(player, ABILITY_PROTOSYNTHESIS);
         switch(i) {
             case 0:
-                MESSAGE("Great Tusk's Attack was heightened!");
+                MESSAGE("Sandy Shocks's Attack was heightened!");
                 break;
             case 1:
-                MESSAGE("Great Tusk's Defense was heightened!");
+                MESSAGE("Sandy Shocks's Defense was heightened!");
                 break;
             case 2:
-                MESSAGE("Great Tusk's Sp. Atk was heightened!");
+                MESSAGE("Sandy Shocks's Sp. Atk was heightened!");
                 break;
             case 3:
-                MESSAGE("Great Tusk's Sp. Def was heightened!");
+                MESSAGE("Sandy Shocks's Sp. Def was heightened!");
                 break;
         }
     }
