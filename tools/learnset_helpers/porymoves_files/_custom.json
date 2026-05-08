@@ -1,4 +1,13 @@
 {
+  "FLAREON": {
+    "LevelMoves": [],
+    "PreEvoMoves": [],
+    "TMMoves": [
+        "MOVE_STOMPING_TANTRUM"
+    ],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
   "TAILLOW": {
     "LevelMoves": [],
     "PreEvoMoves": [],

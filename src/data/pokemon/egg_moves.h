@@ -78,6 +78,7 @@ static const u16 sPidgeyEggMoveLearnset[] = {
     MOVE_BRAVE_BIRD,
     MOVE_UPROAR,
     MOVE_DEFOG,
+    MOVE_HEAT_WAVE,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_PIDGEY
