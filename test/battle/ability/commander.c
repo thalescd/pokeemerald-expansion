@@ -513,7 +513,7 @@ DOUBLE_BATTLE_TEST("Commander does not clear semi-invulnerability of non-Tatsugi
         ASSUME(GetMoveEffect(MOVE_FLY) == EFFECT_SEMI_INVULNERABLE);
         PLAYER(SPECIES_DONDOZO) { HP(1); Speed(1); }
         PLAYER(SPECIES_TATSUGIRI) { Ability(ABILITY_COMMANDER); HP(1); Status1(STATUS1_POISON); Speed(2); }
-        PLAYER(SPECIES_PIDGEOT) { Speed(100); }
+        PLAYER(SPECIES_PIDGEOT) { Ability(ABILITY_TANGLED_FEET); Speed(100); }
         OPPONENT(SPECIES_WOBBUFFET) { Speed(90); }
         OPPONENT(SPECIES_WOBBUFFET) { Speed(80); }
     } WHEN {
