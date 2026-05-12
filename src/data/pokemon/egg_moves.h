@@ -90,7 +90,7 @@ static const u16 sRattataEggMoveLearnset[] = {
     MOVE_FURY_SWIPES,
     MOVE_BITE,
     MOVE_COUNTER,
-    MOVE_REVERSAL,
+    MOVE_ASSURANCE,
     MOVE_UPROAR,
     MOVE_LAST_RESORT,
     MOVE_ME_FIRST,
@@ -99,6 +99,10 @@ static const u16 sRattataEggMoveLearnset[] = {
     MOVE_FIRE_FANG,
     MOVE_ICE_FANG,
     MOVE_THUNDER_FANG,
+    MOVE_STOCKPILE,
+    MOVE_SWALLOW,
+    MOVE_SWITCHEROO,
+    MOVE_SNATCH,
     MOVE_UNAVAILABLE,
 };
 

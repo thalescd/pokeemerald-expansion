@@ -76,15 +76,6 @@ static const u16 sRattataFormSpeciesIdTable[] = {
 #endif
     FORM_SPECIES_END,
 };
-
-static const u16 sRaticateFormSpeciesIdTable[] = {
-    SPECIES_RATICATE,
-#if P_ALOLAN_FORMS
-    SPECIES_RATICATE_ALOLA,
-    SPECIES_RATICATE_ALOLA_TOTEM,
-#endif
-    FORM_SPECIES_END,
-};
 #endif //P_FAMILY_RATTATA
 
 #if P_FAMILY_PIKACHU
