@@ -5782,11 +5782,13 @@ extern u32 GetTotalBaseStat(u32 species);
 
 // VAR_0x8004 = max BST allowed
 // VAR_0x8005 = party slot of the offered Pokémon (0–5)
+// VAR_0x8006 = 0 to restrict to Hoenn dex (default), non-zero to allow full national dex
 // VAR_RESULT = species received, or SPECIES_NONE if no valid species was found
 void Special_GiveRandomMon(void)
 {
-    u32 bstLimit    = gSpecialVar_0x8004;
-    u8  offeredSlot = gSpecialVar_0x8005;
+    u32 bstLimit        = gSpecialVar_0x8004;
+    u8  offeredSlot     = gSpecialVar_0x8005;
+    bool8 nationalDex   = gSpecialVar_0x8006 != 0;
     u16 offeredSpecies, chosenSpecies, i;
     u8  offeredLevel, abilityNum, nonHiddenCount;
     u16 *pool;
@@ -5814,6 +5816,10 @@ void Special_GiveRandomMon(void)
         const struct SpeciesInfo *info = &gSpeciesInfo[i];
 
         if (!IsSpeciesEnabled(i))                                    continue;
+        if (GET_BASE_SPECIES_ID(i) != i
+         && !info->isAlolanForm && !info->isGalarianForm
+         && !info->isHisuianForm && !info->isPaldeanForm)             continue;
+        if (!nationalDex && !IsSpeciesInHoennDex(i))                 continue;
         if (i == offeredSpecies)                                     continue;
         if (info->isRestrictedLegendary || info->isSubLegendary
          || info->isMythical || info->isUltraBeast || info->isParadox) continue;

@@ -1142,10 +1142,16 @@
 	@ Replaces the Pokémon in partySlot with a random Pokémon whose BST <= bstLimit.
 	@ The received Pokémon matches the offered Pokémon's level, has at least 3 perfect IVs,
 	@ no Hidden Ability, and cannot be legendary, mega, or gmax.
+	@ useNationalDex: omit or pass 0 to restrict to the Hoenn dex; pass any non-zero value for the full national dex.
 	@ VAR_RESULT = species received, or SPECIES_NONE if no valid species was found.
-	.macro givemonrandom bstLimit:req, partySlot:req
+	.macro givemonrandom bstLimit:req, partySlot:req, useNationalDex
 	setvar VAR_0x8004, \bstLimit
 	setvar VAR_0x8005, \partySlot
+	.ifnb \useNationalDex
+	setvar VAR_0x8006, \useNationalDex
+	.else
+	setvar VAR_0x8006, 0
+	.endif
 	special Special_GiveRandomMon
 	.endm
 
