@@ -1,7 +1,6 @@
 #include "global.h"
 #include "debug.h"
 #include "malloc.h"
-#include "battle_ai_util.h"
 #include "battle.h"
 #include "battle_special.h"
 #include "cable_club.h"
@@ -5779,9 +5778,11 @@ bool8 CheckAddCoins(void)
         return TRUE;
 }
 
-// VAR_0x8004 = BST máximo permitido
-// VAR_0x8005 = slot do party com o Pokémon oferecido (0–5)
-// VAR_RESULT = species recebida, ou SPECIES_NONE se não encontrou nenhuma válida
+extern u32 GetTotalBaseStat(u32 species);
+
+// VAR_0x8004 = max BST allowed
+// VAR_0x8005 = party slot of the offered Pokémon (0–5)
+// VAR_RESULT = species received, or SPECIES_NONE if no valid species was found
 void Special_GiveRandomMon(void)
 {
     u32 bstLimit    = gSpecialVar_0x8004;
@@ -5843,12 +5844,13 @@ void Special_GiveRandomMon(void)
 
     {
         u32 personality = GetMonPersonality(chosenSpecies,
-                                            MON_GENDER_MAY_CUTE_CHARM,
-                                            NATURE_MAY_SYNCHRONIZE,
+                                            MON_GENDER_RANDOM,
+                                            NATURE_RANDOM,
                                             RANDOM_UNOWN_LETTER);
-        CreateMon(&newMon, chosenSpecies, offeredLevel, personality, OTID_STRUCT_PLAYER_ID);
+        CreateMonWithIVs(&newMon, chosenSpecies, offeredLevel, personality, OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);
     }
 
+    GiveMonInitialMoveset(&newMon);
     SetMonData(&newMon, MON_DATA_ABILITY_NUM, &abilityNum);
 
     {
