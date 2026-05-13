@@ -2274,7 +2274,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sRaticateLevelUpLearnset,
         .teachableLearnset = sRaticateTeachableLearnset,
         //.formSpeciesIdTable = sRaticateFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_RATICATE_ALOLA}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 37, SPECIES_RATICATE_ALOLA}),
     },
 
 #if P_ALOLAN_FORMS

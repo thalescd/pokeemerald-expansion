@@ -4257,10 +4257,10 @@ Double Battle: No
 AI: Basic Trainer
 
 Kadabra
-Level: 21
+Level: 22
 
 Gastly
-Level: 21
+Level: 23
 
 === TRAINER_PRESTON ===
 Name: PRESTON
@@ -6667,7 +6667,7 @@ Wailmer
 Level: 22
 
 Quagsire
-Level: 22
+Level: 23
 
 === TRAINER_NOLAN ===
 Name: NOLAN
@@ -7118,9 +7118,18 @@ AI: Basic Trainer
 
 Ponyta
 Level: 24
+- Flame Wheel
+- Double Kick
+- Stomp
+- Tail Whip
 
-Hitmonlee
+Hitmonlee @ Oran Berry
+Ability: Unburden
 Level: 24
+- Strength
+- Sucker Punch
+- Endure
+- Double Kick
 
 === TRAINER_MARIA_2 ===
 Name: MARIA
@@ -9172,7 +9181,7 @@ Level: 19
 Barboach
 Level: 19
 
-Raticate
+Corphish
 Level: 20
 
 === TRAINER_PHILLIP ===
@@ -13648,10 +13657,10 @@ Double Battle: No
 AI: Basic Trainer
 
 Tadbulb
-Level: 21
+Level: 22
 
 Pawniard
-Level: 21
+Level: 22
 
 === TRAINER_ALYSSA ===
 Name: ALYSSA
@@ -13663,10 +13672,14 @@ Double Battle: No
 AI: Basic Trainer
 
 Raboot
-Level: 21
+Level: 22
 
-Corphish
-Level: 21
+Raticate
+Level: 23
+- Crunch
+- Flame Wheel
+- Hyper Fang
+- Pursuit
 
 === TRAINER_MARCOS ===
 Name: MARCOS
@@ -13903,13 +13916,25 @@ Double Battle: No
 AI: Basic Trainer
 
 Linoone
-Level: 24
-
-Lairon
-Level: 24
+Level: 25
+- Pin Missile
+- Headbutt
+- Night Slash
+- Hone Claws
 
 Slugma
-Level: 24
+Level: 25
+- Ancient Power
+- Incinerate
+- Yawn
+- Clear Smog
+
+Lairon
+Level: 25
+- Rock Slide
+- Iron Head
+- Take Down
+- Rock Tomb
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_1 ===
 Name: GRUNT
@@ -14535,7 +14560,12 @@ Double Battle: No
 AI: Basic Trainer
 
 Lopunny
+Ability: Cute Charm
 Level: 26
+- Headbutt
+- Jump Kick
+- Quick Attack
+- Charm
 
 === TRAINER_MAKAYLA ===
 Name: MAKAYLA
