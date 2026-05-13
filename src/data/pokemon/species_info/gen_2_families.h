@@ -7457,19 +7457,20 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sHoundoomLevelUpLearnset,
         .teachableLearnset = sHoundoomTeachableLearnset,
-        .formSpeciesIdTable = sHoundoomFormSpeciesIdTable,
-        .formChangeTable = sHoundoomFormChangeTable,
+        //.formSpeciesIdTable = sHoundoomFormSpeciesIdTable,
+        //.formChangeTable = sHoundoomFormChangeTable,
+        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_HOUNDOOM_MEGA, CONDITIONS({IF_KNOWS_MOVE, MOVE_FIERY_WRATH})}),
     },
 
 #if P_MEGA_EVOLUTIONS
     [SPECIES_HOUNDOOM_MEGA] =
     {
-        .baseHP        = 75,
-        .baseAttack    = 90,
-        .baseDefense   = 90,
+        .baseHP        = 80,
+        .baseAttack    = 80,
+        .baseDefense   = 65,
         .baseSpeed     = 115,
-        .baseSpAttack  = 140,
-        .baseSpDefense = 90,
+        .baseSpAttack  = 130,
+        .baseSpDefense = 85,
         .types = MON_TYPES(TYPE_DARK, TYPE_FIRE),
         .catchRate = 45,
         .expYield = 210,
@@ -7479,7 +7480,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = 35,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_SOLAR_POWER, ABILITY_SOLAR_POWER, ABILITY_SOLAR_POWER },
+        .abilities = { ABILITY_SOLAR_POWER, ABILITY_FLASH_FIRE, ABILITY_DARK_AURA },
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("Houndoom"),
     #if P_MODIFIED_MEGA_CRIES
@@ -7526,11 +7527,11 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
             gShinyOverworldPalette_HoundoomMega
         )
     #endif //OW_BATTLE_ONLY_FORMS
-        .isMegaEvolution = TRUE,
-        .levelUpLearnset = sHoundoomLevelUpLearnset,
+        //.isMegaEvolution = TRUE,
+        .levelUpLearnset = sHoundoomMegaLevelUpLearnset,
         .teachableLearnset = sHoundoomTeachableLearnset,
-        .formSpeciesIdTable = sHoundoomFormSpeciesIdTable,
-        .formChangeTable = sHoundoomFormChangeTable,
+        //.formSpeciesIdTable = sHoundoomFormSpeciesIdTable,
+        //.formChangeTable = sHoundoomFormChangeTable,
     },
 #endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_HOUNDOUR
