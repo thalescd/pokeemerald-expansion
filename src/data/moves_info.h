@@ -19493,19 +19493,19 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Raging Fury"),
         .description = COMPOUND_STRING(
-            "A rampage of 2 to 3 turns\n"
-            "that confuses the user."),
+            "A rampage move that lowers\n"
+            "the defensive stats."),
         .effect = EFFECT_HIT,
-        .power = B_UPDATED_MOVE_DATA >= GEN_9 ? 120 : 90,
+        .power = 120,
         .type = TYPE_FIRE,
         .accuracy = 100,
-        .pp = 10,
-        .target = TARGET_RANDOM,
+        .pp = 5,
+        .target = TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .metronomeBanned = TRUE,
         .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = MOVE_EFFECT_THRASH,
+            .moveEffect = MOVE_EFFECT_DEF_SPDEF_DOWN,
             .self = TRUE,
         }),
         .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_USER_MORE_EASILY_STARTLED : CONTEST_EFFECT_JAMS_OTHERS_BUT_MISS_ONE_TURN,
