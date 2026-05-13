@@ -1139,6 +1139,16 @@
 	.ifnb \dmaxLevel; .2byte \dmaxLevel; .endif
 	.endm
 
+	@ Replaces the Pokémon in partySlot with a random Pokémon whose BST <= bstLimit.
+	@ The received Pokémon matches the offered Pokémon's level, has at least 3 perfect IVs,
+	@ no Hidden Ability, and cannot be legendary, mega, or gmax.
+	@ VAR_RESULT = species received, or SPECIES_NONE if no valid species was found.
+	.macro givemonrandom bstLimit:req, partySlot:req
+	setvar VAR_0x8004, \bstLimit
+	setvar VAR_0x8005, \partySlot
+	special Special_GiveRandomMon
+	.endm
+
 	@ Gives the player an Egg of the specified species.
 	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_GIVEN_TO_PC, or MON_CANT_GIVE depending on the outcome.
 	.macro giveegg species:req

@@ -1,6 +1,7 @@
 #include "global.h"
 #include "debug.h"
 #include "malloc.h"
+#include "battle_ai_util.h"
 #include "battle.h"
 #include "battle_special.h"
 #include "cable_club.h"
@@ -5776,4 +5777,98 @@ bool8 CheckAddCoins(void)
         return FALSE;
     else
         return TRUE;
+}
+
+// VAR_0x8004 = BST máximo permitido
+// VAR_0x8005 = slot do party com o Pokémon oferecido (0–5)
+// VAR_RESULT = species recebida, ou SPECIES_NONE se não encontrou nenhuma válida
+void Special_GiveRandomMon(void)
+{
+    u32 bstLimit    = gSpecialVar_0x8004;
+    u8  offeredSlot = gSpecialVar_0x8005;
+    u16 offeredSpecies, chosenSpecies, i;
+    u8  offeredLevel, abilityNum, nonHiddenCount;
+    u16 *pool;
+    u16  poolSize = 0;
+    struct Pokemon newMon;
+
+    if (offeredSlot >= PARTY_SIZE)
+    {
+        gSpecialVar_Result = SPECIES_NONE;
+        return;
+    }
+
+    offeredSpecies = GetMonData(&gPlayerParty[offeredSlot], MON_DATA_SPECIES);
+    offeredLevel   = GetMonData(&gPlayerParty[offeredSlot], MON_DATA_LEVEL);
+
+    pool = Alloc(NUM_SPECIES * sizeof(u16));
+    if (pool == NULL)
+    {
+        gSpecialVar_Result = SPECIES_NONE;
+        return;
+    }
+
+    for (i = SPECIES_NONE + 1; i < NUM_SPECIES; i++)
+    {
+        const struct SpeciesInfo *info = &gSpeciesInfo[i];
+
+        if (!IsSpeciesEnabled(i))                                    continue;
+        if (i == offeredSpecies)                                     continue;
+        if (info->isRestrictedLegendary || info->isSubLegendary
+         || info->isMythical || info->isUltraBeast || info->isParadox) continue;
+        if (info->isMegaEvolution || info->isPrimalReversion
+         || info->isUltraBurst   || info->isGigantamax)              continue;
+        if (GetTotalBaseStat(i) > bstLimit)                          continue;
+
+        pool[poolSize++] = i;
+    }
+
+    if (poolSize == 0)
+    {
+        Free(pool);
+        gSpecialVar_Result = SPECIES_NONE;
+        return;
+    }
+
+    chosenSpecies = pool[Random() % poolSize];
+    Free(pool);
+
+    nonHiddenCount = 0;
+    for (i = 0; i < NUM_NORMAL_ABILITY_SLOTS; i++)
+    {
+        if (gSpeciesInfo[chosenSpecies].abilities[i] != ABILITY_NONE)
+            nonHiddenCount++;
+    }
+    abilityNum = (nonHiddenCount > 1) ? (Random() % nonHiddenCount) : 0;
+
+    {
+        u32 personality = GetMonPersonality(chosenSpecies,
+                                            MON_GENDER_MAY_CUTE_CHARM,
+                                            NATURE_MAY_SYNCHRONIZE,
+                                            RANDOM_UNOWN_LETTER);
+        CreateMon(&newMon, chosenSpecies, offeredLevel, personality, OTID_STRUCT_PLAYER_ID);
+    }
+
+    SetMonData(&newMon, MON_DATA_ABILITY_NUM, &abilityNum);
+
+    {
+        u8 order[NUM_STATS] = {0, 1, 2, 3, 4, 5};
+        u8 j, tmp;
+        const u8 iv31 = MAX_PER_STAT_IVS;
+
+        for (i = NUM_STATS - 1; i > 0; i--)
+        {
+            j        = Random() % (i + 1);
+            tmp      = order[i];
+            order[i] = order[j];
+            order[j] = tmp;
+        }
+        for (i = 0; i < 3; i++)
+            SetMonData(&newMon, MON_DATA_HP_IV + order[i], &iv31);
+    }
+
+    CalculateMonStats(&newMon);
+    GiveScriptedMonToPlayer(&newMon, offeredSlot);
+
+    gSpecialVar_Result = chosenSpecies;
 }

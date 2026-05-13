@@ -43,6 +43,27 @@ ProfileMan_EventScript_ShowProfile::
 	waitmessage
 	delay 80
 	msgbox ProfileMan_Text_FantasticProfile, MSGBOX_DEFAULT
+	msgbox ProfileMan_Text_WouldYouLikeToTrade, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, ProfileMan_EventScript_DeclineTrade
+	special ChoosePartyMon
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, ProfileMan_EventScript_DeclineTrade
+	copyvar VAR_0x8005, VAR_0x8004
+	setvar VAR_0x8004, 300
+	special Special_GiveRandomMon
+	goto_if_eq VAR_RESULT, SPECIES_NONE, ProfileMan_EventScript_TradeNoMon
+	bufferspeciesname STR_VAR_1, VAR_RESULT
+	msgbox ProfileMan_Text_TradeReceived, MSGBOX_DEFAULT
+	release
+	end
+
+ProfileMan_EventScript_DeclineTrade::
+	msgbox ProfileMan_Text_TradeDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+ProfileMan_EventScript_TradeNoMon::
+	msgbox ProfileMan_Text_TradeNoMon, MSGBOX_DEFAULT
 	release
 	end
 
@@ -157,6 +178,29 @@ ProfileMan_Text_FantasticProfile:
 	.string "Why, anyone hearing this profile would\n"
 	.string "be captivated by you!\p"
 	.string "Thank you!$"
+
+ProfileMan_Text_WouldYouLikeToTrade:
+	.string "Your profile really moved me…\p"
+	.string "In fact, I'd love to make a trade!\n"
+	.string "Would you like to exchange\l"
+	.string "one of your POKéMON with me?$"
+
+ProfileMan_Text_TradeReceived:
+	.string "Wonderful! You gave me a POKéMON\n"
+	.string "that matches your spirit!\p"
+	.string "In return, please take\n"
+	.string "{STR_VAR_1}!$"
+
+ProfileMan_Text_TradeDeclined:
+	.string "Oh, of course! No need to rush.\p"
+	.string "Your profile alone was more than\n"
+	.string "enough for me. Thank you!$"
+
+ProfileMan_Text_TradeNoMon:
+	.string "Hmm… I looked everywhere, but I\n"
+	.string "couldn't find a fitting POKéMON\l"
+	.string "to trade right now.\p"
+	.string "Maybe next time!$"
 
 @ Unused
 ProfileMan_Text_YouKnowSecretSaying:
