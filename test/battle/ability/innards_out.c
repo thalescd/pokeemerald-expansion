@@ -59,11 +59,10 @@ SINGLE_BATTLE_TEST("Innards Out counters accumulated multihit damage for Parenta
         ASSUME(gItemsInfo[ITEM_FOCUS_SASH].holdEffect == HOLD_EFFECT_FOCUS_SASH);
         PLAYER(SPECIES_PYUKUMUKU) { HP(2); MaxHP(2); Ability(ABILITY_INNARDS_OUT); Item(ITEM_FOCUS_SASH); }
         PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_KANGASKHAN) { Item(ITEM_KANGASKHANITE); }
+        OPPONENT(SPECIES_KANGASKHAN) { Ability(ABILITY_PARENTAL_BOND); }
     } WHEN {
-        TURN { MOVE(opponent, MOVE_SCRATCH, gimmick: GIMMICK_MEGA); SEND_OUT(player, 1); }
+        TURN { MOVE(opponent, MOVE_SCRATCH); SEND_OUT(player, 1); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         HP_BAR(player);
         HP_BAR(player);
@@ -83,11 +82,10 @@ SINGLE_BATTLE_TEST("Innards Out includes mid-move Sitrus Berry recovery in accum
         ASSUME(gItemsInfo[ITEM_SITRUS_BERRY].holdEffect == HOLD_EFFECT_RESTORE_PCT_HP);
         PLAYER(SPECIES_PYUKUMUKU) { HP(30); MaxHP(40); Ability(ABILITY_INNARDS_OUT); Item(ITEM_SITRUS_BERRY); }
         PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_KANGASKHAN) { Level(20); Item(ITEM_KANGASKHANITE); }
+        OPPONENT(SPECIES_KANGASKHAN) { Level(20); Ability(ABILITY_PARENTAL_BOND); }
     } WHEN {
-        TURN { MOVE(opponent, MOVE_SEISMIC_TOSS, gimmick: GIMMICK_MEGA); SEND_OUT(player, 1); }
+        TURN { MOVE(opponent, MOVE_SEISMIC_TOSS); SEND_OUT(player, 1); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SEISMIC_TOSS, opponent);
         HP_BAR(player);
         HP_BAR(player);
