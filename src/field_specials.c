@@ -5818,8 +5818,8 @@ void Special_GiveRandomMon(void)
         if (!IsSpeciesEnabled(i))                                    continue;
         if (GET_BASE_SPECIES_ID(i) != i
          && !info->isAlolanForm && !info->isGalarianForm
-         && !info->isHisuianForm && !info->isPaldeanForm)             continue;
-        if (!nationalDex && !IsSpeciesInHoennDex(i))                 continue;
+         && !info->isHisuianForm && !info->isPaldeanForm)            continue;
+        if (!nationalDex && SpeciesToHoennPokedexNum(i) == 0)        continue;
         if (i == offeredSpecies)                                     continue;
         if (info->isRestrictedLegendary || info->isSubLegendary
          || info->isMythical || info->isUltraBeast || info->isParadox) continue;

@@ -50,6 +50,7 @@ ProfileMan_EventScript_ShowProfile::
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, ProfileMan_EventScript_DeclineTrade
 	copyvar VAR_0x8005, VAR_0x8004
 	setvar VAR_0x8004, 300
+	setvar VAR_0x8006, 0
 	special Special_GiveRandomMon
 	goto_if_eq VAR_RESULT, SPECIES_NONE, ProfileMan_EventScript_TradeNoMon
 	bufferspeciesname STR_VAR_1, VAR_RESULT
