@@ -4912,7 +4912,10 @@ static inline bool32 ShouldShowOpenPokedexPrompt(void)
          && !InBattleFactory()
          && !InSlateportBattleTent()
          && !gMain.inBattle
-         && !sMonSummaryScreen->summary.isEgg);
+         && !sMonSummaryScreen->summary.isEgg
+         && (IsNationalPokedexEnabled()
+             ? SpeciesToNationalPokedexNum(sMonSummaryScreen->summary.species) != 0
+             : SpeciesToHoennPokedexNum(sMonSummaryScreen->summary.species) != 0));
 }
 
 static inline void ShowUtilityPrompt(s16 mode)
