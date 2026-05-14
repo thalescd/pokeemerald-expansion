@@ -3551,11 +3551,17 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Electrike
-Level: 25
+Diggersby
+Ability: Huge Power
+Level: 26
+- Thunder Punch
+- Bulldoze
+- Quick Attack
+- Double Kick
 
-Voltorb
-Level: 25
+Dedenne
+Ability: Static
+Level: 26
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_7 ===
 Name: GRUNT
@@ -3597,10 +3603,10 @@ Double Battle: No
 AI: Basic Trainer
 
 Luxio
-Level: 25
+Level: 26
 
 Oricorio-Pom-Pom
-Level: 25
+Level: 26
 
 === TRAINER_FERNANDO_1 ===
 Name: FERNANDO
@@ -6297,10 +6303,10 @@ Double Battle: No
 AI: Basic Trainer
 
 Gulpin
-Level: 25
+Level: 26
 
 Pachirisu
-Level: 25
+Level: 26
 
 === TRAINER_QUINCY ===
 Name: QUINCY
@@ -12426,19 +12432,20 @@ Double Battle: No
 AI: Basic Trainer
 
 Hitmontop
+Ability: Technician
 Level: 26
 - Fake Out
 - Rolling Kick
 - Pursuit
 - Thunder Punch
 
-Diggersby
-Ability: Huge Power
+Togedemaru
+Ability: Iron Barbs
 Level: 26
-- Thunder Punch
-- Bulldoze
-- Quick Attack
-- Double Kick
+- Metal Claw
+- Spark
+- Nuzzle
+- Spiky Shield
 
 === TRAINER_DANIELLE ===
 Name: DANIELLE
