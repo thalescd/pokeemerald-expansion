@@ -3559,9 +3559,12 @@ Level: 26
 - Quick Attack
 - Double Kick
 
-Dedenne
-Ability: Static
+Dedenne @ Oran Berry
+Ability: Cheek Pouch
 Level: 26
+- Parabolic Charge
+- Dazzling Gleam
+- Charm
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_7 ===
 Name: GRUNT
@@ -5063,7 +5066,7 @@ Level: 29
 Timid Nature
 IVs: 0 Atk
 - Giga Drain
-- Discharge
+- Reflect
 - Volt Switch
 - Foul PLay
 
@@ -6302,11 +6305,19 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Gulpin
+Swalot
 Level: 26
+- Mud Shot
+- Body Slam
+- Acid Spray
+- Shock Wave
 
 Pachirisu
 Level: 26
+- Electro Ball
+- Nuzzle
+- Swift
+- Seed Bomb
 
 === TRAINER_QUINCY ===
 Name: QUINCY
@@ -8075,6 +8086,10 @@ AI: Basic Trainer
 Pinsir
 Level: 18
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Storm Throw
+- Bug Bite
+- Feint Attack
+- Quick Attack
 
 === TRAINER_LAURA ===
 Name: LAURA
@@ -8088,6 +8103,10 @@ AI: Basic Trainer
 Flamigo
 Level: 18
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Low Kick
+- Double Kick
+- Wing Attack
+- Copycat
 
 === TRAINER_CYNDY_1 ===
 Name: CYNDY
@@ -16516,10 +16535,10 @@ Double Battle: No
 AI: Basic Trainer
 
 Vikavolt
-Level: 26
+Level: 27
 - Discharge
 - Energy Ball
-- Bug Bite
+- Struggle Bug
 
 === TRAINER_DARIUS ===
 Name: DARIUS
