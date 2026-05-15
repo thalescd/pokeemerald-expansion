@@ -10916,10 +10916,23 @@ IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 - Feint Attack
 - Absorb
 - Pin Missile
+- Acid
 
 Archen
 Level: 13
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Pluck
+- Ancient Power
+- Dragon Breath
+- U-turn
+
+Aron
+Level: 13
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Headbutt
+- Rock Tomb
+- Mud Slap
+- Metal Claw
 
 === TRAINER_BRENDEN ===
 Name: BRENDEN
@@ -10950,10 +10963,18 @@ AI: Basic Trainer
 Meditite
 Level: 17
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Force Palm
+- Comet Punch
+- Feint
+- Bide
 
 Mankey
 Level: 17
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Swagger
+- Pursuit
+- Karate Chop
+- Covet
 
 === TRAINER_CRISTIAN ===
 Name: CRISTIAN
