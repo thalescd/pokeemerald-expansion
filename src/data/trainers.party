@@ -9780,19 +9780,62 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Slugma
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Staraptor @ Rawst Berry
+Ability: Intimidate
+Level: 51
+Jolly Nature
+- Brave Bird
+- U-turn
+- Close Combat
+- Quick Attack
 
-Pelipper
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Floatzel @ Leftovers
+Ability: Swift Swim
+Level: 51
+Jolly Nature
+- Bulk Up
+- Low Sweep
+- Crunch
+- Liquidation
 
-Grovyle
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Ceruledge @ Sitrus Berry
+Ability: Flash Fire
+Level: 50
+Adamant Nature
+- Bitter Blade
+- Shadow Claw
+- Swords Dance
+- Shadow Sneak
+
+Goodra-Hisui @ Quick Claw
+Ability: Sap Sipper
+Level: 51
+Modest Nature
+IVs: 0 Atk
+- Dragon Pulse
+- Thunderbolt
+- Flamethrower
+- Flash Cannon
+
+Donphan @ Assault Vest
+Ability: Sturdy
+Level: 52
+Impish Nature
+- Earthquake
+- Rapid Spin
+- Knock Off
+- Ice Shard
+
+Sceptile @ Lum Berry
+Ability: Overgrow
+Level: 52
+Jolly Nature
+- Leaf Blade
+- Dual Chop
+- Night Slash
+- Swords Dance
 
 === TRAINER_BRENDAN_ROUTE_103_TREECKO ===
 Name: BRENDAN
@@ -9860,19 +9903,62 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Pelipper
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Staraptor @ Rawst Berry
+Ability: Intimidate
+Level: 51
+Jolly Nature
+- Brave Bird
+- U-turn
+- Close Combat
+- Quick Attack
 
-Lombre
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Lilligant @ Leftovers
+Ability: Chlorophyll
+Level: 51
+Timid Nature
+IVs: 0 Atk
+- Alluring Voice
+- Giga Drain
+- Quiver Dance
+- Sleep Powder
 
-Combusken
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Basculegion-F @ Life Orb
+Ability: Adaptability
+Level: 50
+Modest Nature
+- Surf
+- Shadow Ball
+- Ice Beam
+- Flip Turn
+
+Aggron @ Quick Claw
+Ability: Rock Head
+Level: 51
+Adamant Nature
+- Heavy Slam
+- Rock Slide
+- High Horsepower
+- Superpower
+
+Garchomp @ Yache Berry
+Ability: Sand Veil
+Level: 52
+Jolly Nature
+- Stomping Tantrum
+- Dual Chop
+- Iron Head
+- Swords Dance
+
+Blaziken @ Lum Berry
+Ability: Blaze
+Level: 52
+Jolly Nature
+- Blaze Kick
+- Sky Uppercut
+- Shadow Claw
+- Swords Dance
 
 === TRAINER_BRENDAN_ROUTE_103_TORCHIC ===
 Name: BRENDAN
@@ -9941,19 +10027,62 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Lombre
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Staraptor @ Rawst Berry
+Ability: Intimidate
+Level: 51
+Jolly Nature
+- Brave Bird
+- U-turn
+- Close Combat
+- Quick Attack
 
-Slugma
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Darmanitan @ Life Orb
+Ability: Sheer Force
+Level: 51
+Adamant Nature
+- Flare Blitz
+- U-turn
+- Rock Slide
+- Flame Charge
 
-Marshtomp
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Sinistcha @ Leftovers
+Ability: Hospitality
+Level: 50
+Modest Nature
+IVs: 0 Atk
+- Matcha Gotcha
+- Shadow Ball
+- Strength Sap
+- Foul Play
+
+Tinkaton @ Air Balloon
+Ability: Mold Breaker
+Level: 51
+Jolly Nature
+- Gigaton Hammer
+- Play Rough
+- Wake-Up Slap
+- Thunder Wave
+
+Kommo-o @ Roseli Berry
+Ability: Soundproof
+Level: 52
+Jolly Nature
+- Dragon Claw
+- Sky Uppercut
+- Iron Head
+- Dragon Dance
+
+Swampert @ Sitrus Berry
+Ability: Torrent
+Level: 52
+Careful Nature
+- Waterfall
+- Earthquake
+- Ice Punch
+- Stealth Rock
 
 === TRAINER_MAY_ROUTE_103_MUDKIP ===
 Name: MAY
@@ -10022,19 +10151,62 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Slugma
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Staraptor @ Rawst Berry
+Ability: Intimidate
+Level: 51
+Jolly Nature
+- Brave Bird
+- U-turn
+- Close Combat
+- Quick Attack
 
-Lombre
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Floatzel @ Leftovers
+Ability: Swift Swim
+Level: 51
+Jolly Nature
+- Bulk Up
+- Low Sweep
+- Crunch
+- Liquidation
 
-Grovyle
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Ceruledge @ Sitrus Berry
+Ability: Flash Fire
+Level: 50
+Adamant Nature
+- Bitter Blade
+- Shadow Claw
+- Swords Dance
+- Shadow Sneak
+
+Goodra-Hisui @ Quick Claw
+Ability: Sap Sipper
+Level: 51
+Modest Nature
+IVs: 0 Atk
+- Dragon Pulse
+- Thunderbolt
+- Flamethrower
+- Flash Cannon
+
+Donphan @ Assault Vest
+Ability: Sturdy
+Level: 52
+Impish Nature
+- Earthquake
+- Rapid Spin
+- Knock Off
+- Ice Shard
+
+Sceptile @ Lum Berry
+Ability: Overgrow
+Level: 52
+Jolly Nature
+- Leaf Blade
+- Dual Chop
+- Night Slash
+- Swords Dance
 
 === TRAINER_MAY_ROUTE_103_TREECKO ===
 Name: MAY
@@ -10102,19 +10274,62 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Pelipper
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Staraptor @ Rawst Berry
+Ability: Intimidate
+Level: 51
+Jolly Nature
+- Brave Bird
+- U-turn
+- Close Combat
+- Quick Attack
 
-Lombre
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Lilligant @ Leftovers
+Ability: Chlorophyll
+Level: 51
+Timid Nature
+IVs: 0 Atk
+- Alluring Voice
+- Giga Drain
+- Quiver Dance
+- Sleep Powder
 
-Combusken
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Basculegion-F @ Life Orb
+Ability: Adaptability
+Level: 50
+Modest Nature
+- Surf
+- Shadow Ball
+- Ice Beam
+- Flip Turn
+
+Aggron @ Quick Claw
+Ability: Rock Head
+Level: 51
+Adamant Nature
+- Heavy Slam
+- Rock Slide
+- High Horsepower
+- Superpower
+
+Garchomp @ Yache Berry
+Ability: Sand Veil
+Level: 52
+Jolly Nature
+- Stomping Tantrum
+- Dual Chop
+- Iron Head
+- Swords Dance
+
+Blaziken @ Lum Berry
+Ability: Blaze
+Level: 52
+Jolly Nature
+- Blaze Kick
+- Sky Uppercut
+- Shadow Claw
+- Swords Dance
 
 === TRAINER_MAY_ROUTE_103_TORCHIC ===
 Name: MAY
@@ -10183,19 +10398,62 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Lombre
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Staraptor @ Rawst Berry
+Ability: Intimidate
+Level: 51
+Jolly Nature
+- Brave Bird
+- U-turn
+- Close Combat
+- Quick Attack
 
-Slugma
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Darmanitan @ Life Orb
+Ability: Sheer Force
+Level: 51
+Adamant Nature
+- Flare Blitz
+- U-turn
+- Rock Slide
+- Flame Charge
 
-Marshtomp
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Sinistcha @ Leftovers
+Ability: Hospitality
+Level: 50
+Modest Nature
+IVs: 0 Atk
+- Matcha Gotcha
+- Shadow Ball
+- Strength Sap
+- Foul Play
+
+Tinkaton @ Air Balloon
+Ability: Mold Breaker
+Level: 51
+Jolly Nature
+- Gigaton Hammer
+- Play Rough
+- Wake-Up Slap
+- Thunder Wave
+
+Kommo-o @ Roseli Berry
+Ability: Soundproof
+Level: 52
+Jolly Nature
+- Dragon Claw
+- Sky Uppercut
+- Iron Head
+- Dragon Dance
+
+Swampert @ Sitrus Berry
+Ability: Torrent
+Level: 52
+Careful Nature
+- Waterfall
+- Earthquake
+- Ice Punch
+- Stealth Rock
 
 === TRAINER_ISAAC_1 ===
 Name: ISAAC
