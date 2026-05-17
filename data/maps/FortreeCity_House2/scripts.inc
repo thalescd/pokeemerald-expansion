@@ -72,8 +72,8 @@ FortreeCity_House2_Text_YourHiddenPowerHasAwoken:
 	.string "power of your POKéMON.$"
 
 FortreeCity_House2_Text_ExplainHiddenPower:
-	.string "HIDDEN POWER is a move that changes\n"
-	.string "with the POKéMON.$"
+	.string "HIDDEN ABILITIES can change\n"
+	.string "how you train your POKéMON.$"
 
 FortreeCity_House2_Text_YouGuessedWrong:
 	.string "No, too bad.\n"
