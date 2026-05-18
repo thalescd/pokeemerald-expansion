@@ -18207,9 +18207,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Behemoth Blade"),
         .description = COMPOUND_STRING(
-            "Strikes as a sword. Deals 2x\n"
-            "damage to Dynamaxed foes."),
-        .effect = EFFECT_DYNAMAX_DOUBLE_DMG,
+            "Strikes as a sword through\n"
+            "the foe's stat changes.");
+        .effect = EFFECT_HIT,
         .power = 100,
         .type = TYPE_STEEL,
         .accuracy = 100,
@@ -18218,6 +18218,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
+        .ignoresTargetDefenseEvasionStages = TRUE,
         .slicingMove = TRUE,
         .metronomeBanned = TRUE,
         .copycatBanned = TRUE,
@@ -18234,9 +18235,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Behemoth Bash"),
         .description = COMPOUND_STRING(
-            "Attacks as a shield. Deals 2x\n"
-            "damage to Dynamaxed foes."),
-        .effect = EFFECT_DYNAMAX_DOUBLE_DMG,
+            "Does more damage the\n"
+            "higher the user's Def."),
+        .effect = EFFECT_BODY_PRESS,
         .power = 100,
         .type = TYPE_STEEL,
         .accuracy = 100,
