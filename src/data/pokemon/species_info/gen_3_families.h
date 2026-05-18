@@ -11418,10 +11418,10 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_RELICANTH] =
     {
         .baseHP        = 100,
-        .baseAttack    = 90,
+        .baseAttack    = 95,
         .baseDefense   = 130,
         .baseSpeed     = 55,
-        .baseSpAttack  = 45,
+        .baseSpAttack  = 95,
         .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_WATER, TYPE_ROCK),
         .catchRate = 25,
