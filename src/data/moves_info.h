@@ -18208,7 +18208,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .name = COMPOUND_STRING("Behemoth Blade"),
         .description = COMPOUND_STRING(
             "Strikes as a sword through\n"
-            "the foe's stat changes.");
+            "the foe's stat changes."),
         .effect = EFFECT_HIT,
         .power = 100,
         .type = TYPE_STEEL,
