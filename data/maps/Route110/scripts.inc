@@ -1064,3 +1064,25 @@ Route110_Text_CassiusAfterBattle:
 
 Route110_Text_CassiusAfterGiveRockSmash:
 	.string "Next time, I’ll leave you in the dust.$"
+
+Route120_EventScript_BusyAquaGrunt::
+	msgbox Route120_Text_LessHabitatForWaterPokemon, MSGBOX_SIGN
+	end
+
+Route120_EventScript_BusyMagmaGrunt::
+	msgbox Route120_Text_KeepMakingMoreLand, MSGBOX_SIGN
+	end
+	
+Route120_EventScript_Poochyena::
+	msgbox Route120_Text_Bufoh, MSGBOX_SIGN
+	end
+	
+Route120_Text_LessHabitatForWaterPokemon:
+	.string "If they expand the land, there'll be\n"
+	.string "less habitats for WATER POKéMON!$"
+	
+Route120_Text_KeepMakingMoreLand:
+	.string "POOCHYENA isn't even a WATER POKéMON!$"
+	
+Route120_Text_Bufoh:
+	.string "Bufoh!$"
