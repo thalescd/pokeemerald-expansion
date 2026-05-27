@@ -348,23 +348,23 @@ static const u16 sFarfetchdFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_FARFETCHD
 
-#if P_FAMILY_GRIMER
-static const u16 sGrimerFormSpeciesIdTable[] = {
-    SPECIES_GRIMER,
-#if P_ALOLAN_FORMS
-    SPECIES_GRIMER_ALOLA,
-#endif
-    FORM_SPECIES_END,
-};
-
-static const u16 sMukFormSpeciesIdTable[] = {
-    SPECIES_MUK,
-#if P_ALOLAN_FORMS
-    SPECIES_MUK_ALOLA,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_GRIMER
+//#if P_FAMILY_GRIMER
+//static const u16 sGrimerFormSpeciesIdTable[] = {
+//    SPECIES_GRIMER,
+//#if P_ALOLAN_FORMS
+//    SPECIES_GRIMER_ALOLA,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//
+//static const u16 sMukFormSpeciesIdTable[] = {
+//    SPECIES_MUK,
+//#if P_ALOLAN_FORMS
+//    SPECIES_MUK_ALOLA,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//#endif //P_FAMILY_GRIMER
 
 #if P_FAMILY_GASTLY
 static const u16 sGengarFormSpeciesIdTable[] = {
