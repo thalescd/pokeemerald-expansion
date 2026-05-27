@@ -5612,8 +5612,8 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .description = COMPOUND_STRING(
             "Sightings of this Pokémon have\n"
             "occurred in recent years. The name\n"
-            "Urphadon was taken from a creature\n"
-            "listed in a certain book."),
+            "Great Tusk is listed in a certain book,\n"
+            "maybe referring to this creature."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
