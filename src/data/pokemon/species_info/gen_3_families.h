@@ -10750,7 +10750,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .teachableLearnset = sGlalieTeachableLearnset,
         //.formSpeciesIdTable = sGlalieFormSpeciesIdTable,
         //.formChangeTable = sGlalieFormChangeTable,
-        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_GLALIE_MEGA, CONDITIONS({IF_IN_MAPSEC, MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM})}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_GLALIE_MEGA, CONDITIONS({IF_IN_MAP, MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM})}),
     },
 
 #if P_MEGA_EVOLUTIONS
@@ -10779,14 +10779,14 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     #else
         .cryId = CRY_GLALIE,
     #endif // P_MODIFIED_MEGA_CRIES
-        .natDexNum = NATIONAL_DEX_GLALIE,
+        .natDexNum = NATIONAL_DEX_GLALIE_MEGA,
         .categoryName = _("Face"),
         .height = 21,
         .weight = 3502,
         .description = COMPOUND_STRING(
-            "The power of Mega Evolution was so strong\n"
-            "that it smashed Glalie's jaw. Its inability\n"
-            "to eat very well leaves Glalie irritated."),
+            "When it spews stupendously cold air\n"
+            "from its broken mouth, the entire\n"
+            "area around it gets whited out."),
         .pokemonScale = 256,
         .pokemonOffset = 3,
         .trainerScale = 344,
@@ -10896,7 +10896,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .teachableLearnset = sFroslassTeachableLearnset,
         //.formSpeciesIdTable = sFroslassFormSpeciesIdTable,
         //.formChangeTable = sFroslassFormChangeTable,
-        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_FROSLASS_MEGA, CONDITIONS({IF_IN_MAPSEC, MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM})}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_FROSLASS_MEGA, CONDITIONS({IF_IN_MAP, MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM})}),
     },
 
 #if P_GEN_9_MEGA_EVOLUTIONS
@@ -10925,7 +10925,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     #else
         .cryId = CRY_FROSLASS,
     #endif // P_MODIFIED_MEGA_CRIES
-        .natDexNum = NATIONAL_DEX_FROSLASS,
+        .natDexNum = NATIONAL_DEX_FROSLASS_MEGA,
         .categoryName = _("Snow Land"),
         .height = 26,
         .weight = 296,
