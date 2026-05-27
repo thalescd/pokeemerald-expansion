@@ -5106,6 +5106,9 @@ static bool8 CalculateMoves(void)
 
 static enum Move GetSelectedMove(u32 species, u32 selected)
 {
+    if (selected < sPokedexView->numLevelUpMoves)
+        return GetSpeciesLevelUpLearnset(species)[selected].move;
+    selected -= sPokedexView->numLevelUpMoves;
     if (selected < sPokedexView->numEggMoves)
     {
         if (!HGSS_SHOW_EGG_MOVES_FOR_EVOS)
@@ -5116,9 +5119,6 @@ static enum Move GetSelectedMove(u32 species, u32 selected)
         return GetSpeciesEggMoves(preSpecies)[selected];
     }
     selected -= sPokedexView->numEggMoves;
-    if (selected < sPokedexView->numLevelUpMoves)
-        return GetSpeciesLevelUpLearnset(species)[selected].move;
-    selected -= sPokedexView->numLevelUpMoves;
     if (selected < sPokedexView->numTeachableMoves)
         return GetSpeciesTeachableLearnset(species)[selected];
     return MOVE_NONE; //It should never get here but it allows us to visually see errors
@@ -5140,18 +5140,18 @@ static void PrintStatsScreen_Moves_Top(u8 taskId)
     PrintStatsScreenTextSmallWhite(WIN_STATS_MOVES_TOP, gStringVar1, moves_x-1, moves_y+1);
 
     //Calculate and retrieve correct move from the arrays
-    if (selected < sPokedexView->numEggMoves)
+    if (selected < sPokedexView->numLevelUpMoves)
     {
-        PrintStatsScreenTextSmall(WIN_STATS_MOVES_TOP, gText_ThreeDashes, moves_x + 113, moves_y + 9);
-        item = ITEM_LUCKY_EGG;
-    }
-    else if (selected < (sPokedexView->numLevelUpMoves + sPokedexView->numEggMoves))
-    {
-        u32 level = GetSpeciesLevelUpLearnset(species)[selected - sPokedexView->numEggMoves].level;
+        u32 level = GetSpeciesLevelUpLearnset(species)[selected].level;
         ConvertIntToDecimalStringN(gStringVar1, level, STR_CONV_MODE_LEFT_ALIGN, 3); //Move learn lvl
         PrintStatsScreenTextSmall(WIN_STATS_MOVES_TOP, sText_Stats_MoveLevel, moves_x + 113, moves_y + 3); //Level text
         PrintStatsScreenTextSmall(WIN_STATS_MOVES_TOP, gStringVar1, moves_x + 113, moves_y + 14); //Print level
         item = ITEM_RARE_CANDY;
+    }
+    else if (selected < (sPokedexView->numLevelUpMoves + sPokedexView->numEggMoves))
+    {
+        PrintStatsScreenTextSmall(WIN_STATS_MOVES_TOP, gText_ThreeDashes, moves_x + 113, moves_y + 9);
+        item = ITEM_LUCKY_EGG;
     }
     else if (move)
     {
