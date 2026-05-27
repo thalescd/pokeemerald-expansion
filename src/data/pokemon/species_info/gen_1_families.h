@@ -2373,7 +2373,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .natDexNum = NATIONAL_DEX_RATICATE_ALOLA,
         .categoryName = _("Mouse"),
         .height = 11,
-        .weight = 989,
+        .weight = 589,
         .description = gRaticateAlolaPokedexText,
         .pokemonScale = 459,
         .pokemonOffset = 18,
@@ -11645,7 +11645,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sGrimerLevelUpLearnset,
         .teachableLearnset = sGrimerTeachableLearnset,
         .eggMoveLearnset = sGrimerEggMoveLearnset,
-        .formSpeciesIdTable = sGrimerFormSpeciesIdTable,
+        //.formSpeciesIdTable = sGrimerFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_MUK}),
     },
 
@@ -11719,10 +11719,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sMukLevelUpLearnset,
         .teachableLearnset = sMukTeachableLearnset,
-        .formSpeciesIdTable = sMukFormSpeciesIdTable,
+        //.formSpeciesIdTable = sMukFormSpeciesIdTable,
     },
 
-#if P_ALOLAN_FORMS
+//#if P_ALOLAN_FORMS
     [SPECIES_GRIMER_ALOLA] =
     {
         .baseHP        = 80,
@@ -11783,11 +11783,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gOverworldPalette_GrimerAlola,
             gShinyOverworldPalette_GrimerAlola
         )
-        .isAlolanForm = TRUE,
+        //.isAlolanForm = TRUE,
         .levelUpLearnset = sGrimerAlolaLevelUpLearnset,
         .teachableLearnset = sGrimerAlolaTeachableLearnset,
         .eggMoveLearnset = sGrimerAlolaEggMoveLearnset,
-        .formSpeciesIdTable = sGrimerFormSpeciesIdTable,
+        //.formSpeciesIdTable = sGrimerFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_MUK_ALOLA}),
     },
 
@@ -11853,12 +11853,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gOverworldPalette_MukAlola,
             gShinyOverworldPalette_MukAlola
         )
-        .isAlolanForm = TRUE,
+        //.isAlolanForm = TRUE,
         .levelUpLearnset = sMukAlolaLevelUpLearnset,
         .teachableLearnset = sMukAlolaTeachableLearnset,
-        .formSpeciesIdTable = sMukFormSpeciesIdTable,
+        //.formSpeciesIdTable = sMukFormSpeciesIdTable,
     },
-#endif //P_ALOLAN_FORMS
+//#endif //P_ALOLAN_FORMS
 #endif //P_FAMILY_GRIMER
 
 #if P_FAMILY_SHELLDER
@@ -17203,15 +17203,14 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     #else
         .cryId = CRY_PINSIR,
     #endif // P_MODIFIED_MEGA_CRIES
-        .natDexNum = NATIONAL_DEX_PINSIR,
+        .natDexNum = NATIONAL_DEX_PINSIR_MEGA,
         .categoryName = _("Stag Beetle"),
         .height = 17,
         .weight = 590,
         .description = COMPOUND_STRING(
-            "The influence of Mega Evolution leaves it\n"
-            "in a state of constant excitement.\n"
-            "It pierces enemies with its two large\n"
-            "horns before shredding them."),
+            "It zips around at blistering speeds,\n"
+            "looking for an opening to skewer\n"
+            "its opponent on its giant pincers."),
         .pokemonScale = 256,
         .pokemonOffset = 2,
         .trainerScale = 257,
