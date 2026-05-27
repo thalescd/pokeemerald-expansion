@@ -7488,7 +7488,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
     #else
         .cryId = CRY_HOUNDOOM,
     #endif // P_MODIFIED_MEGA_CRIES
-        .natDexNum = NATIONAL_DEX_HOUNDOOM,
+        .natDexNum = NATIONAL_DEX_HOUNDOOM_MEGA,
         .categoryName = _("Dark"),
         .height = 19,
         .weight = 495,
