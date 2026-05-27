@@ -1130,16 +1130,6 @@ static const u16 sGastrodonFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_SHELLOS
 
-#if P_FAMILY_BUNEARY
-static const u16 sLopunnyFormSpeciesIdTable[] = {
-    SPECIES_LOPUNNY,
-#if P_MEGA_EVOLUTIONS
-    SPECIES_LOPUNNY_MEGA,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_BUNEARY
-
 #if P_FAMILY_GIBLE
 static const u16 sGarchompFormSpeciesIdTable[] = {
     SPECIES_GARCHOMP,

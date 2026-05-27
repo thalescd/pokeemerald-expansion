@@ -3539,7 +3539,6 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .evolutions = EVOLUTION({EVO_LEVEL, 44, SPECIES_LOPUNNY_MEGA}),
     },
 
-#if P_MEGA_EVOLUTIONS
     [SPECIES_LOPUNNY_MEGA] =
     {
         .baseHP        = 70,
@@ -3565,15 +3564,15 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
     #else
         .cryId = CRY_LOPUNNY,
     #endif // P_MODIFIED_MEGA_CRIES
-        .natDexNum = NATIONAL_DEX_LOPUNNY,
+        .natDexNum = NATIONAL_DEX_LOPUNNY_MEGA,
         .categoryName = _("Rabbit"),
         .height = 13,
         .weight = 283,
         .description = COMPOUND_STRING(
-            "Mega Evolution awakens its combative\n"
-            "instincts. It has shed any fur that got in\n"
-            "the way of its attacks.\n"
-            "crescent."),
+            "It swings its ears like whips and\n"
+            "strikes its enemies with them. It has\n"
+            "shed any fur that got in the way\n"
+            "of its attacks."),
         .pokemonScale = 282,
         .pokemonOffset = 4,
         .trainerScale = 256,
@@ -3611,7 +3610,6 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         //.formSpeciesIdTable = sLopunnyFormSpeciesIdTable,
         //.formChangeTable = sLopunnyFormChangeTable,
     },
-#endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_BUNEARY
 
 #if P_FAMILY_GLAMEOW
