@@ -508,8 +508,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sCharmeleonLevelUpLearnset,
         .teachableLearnset = sCharmeleonTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_CHARIZARD_MEGA_X, CONDITIONS({IF_HOLD_ITEM, ITEM_DRAGON_FANG})},
-                                {EVO_LEVEL, 36, SPECIES_CHARIZARD}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_CHARIZARD},
+                                {EVO_LEVEL, 0, SPECIES_CHARIZARD_MEGA_X, CONDITIONS({IF_HOLD_ITEM, ITEM_DRAGON_FANG})}),
     },
 
 #define CHARIZARD_SP_ATK (P_UPDATED_STATS >= GEN_2 ? 109 : 85)
