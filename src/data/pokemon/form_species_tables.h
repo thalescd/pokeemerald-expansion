@@ -892,15 +892,15 @@ static const u16 sMedichamFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_MEDITITE
 
-#if P_FAMILY_ELECTRIKE
-static const u16 sManectricFormSpeciesIdTable[] = {
-    SPECIES_MANECTRIC,
-#if P_MEGA_EVOLUTIONS
-    SPECIES_MANECTRIC_MEGA,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_ELECTRIKE
+//#if P_FAMILY_ELECTRIKE
+//static const u16 sManectricFormSpeciesIdTable[] = {
+//    SPECIES_MANECTRIC,
+//#if P_MEGA_EVOLUTIONS
+//    SPECIES_MANECTRIC_MEGA,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//#endif //P_FAMILY_ELECTRIKE
 
 #if P_FAMILY_CARVANHA
 static const u16 sSharpedoFormSpeciesIdTable[] = {

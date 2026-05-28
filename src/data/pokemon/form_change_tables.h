@@ -533,17 +533,17 @@ static const struct FormChange sMedichamFormChangeTable[] =
 };
 #endif //P_FAMILY_MEDITITE
 
-#if P_FAMILY_ELECTRIKE
-static const struct FormChange sManectricFormChangeTable[] =
-{
-#if P_MEGA_EVOLUTIONS
-    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_MANECTRIC_MEGA, ITEM_MANECTITE},
-#endif
-    {FORM_CHANGE_FAINT,                         SPECIES_MANECTRIC},
-    {FORM_CHANGE_END_BATTLE,                    SPECIES_MANECTRIC},
-    {FORM_CHANGE_TERMINATOR},
-};
-#endif //P_FAMILY_ELECTRIKE
+//#if P_FAMILY_ELECTRIKE
+//static const struct FormChange sManectricFormChangeTable[] =
+//{
+//#if P_MEGA_EVOLUTIONS
+//    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_MANECTRIC_MEGA, ITEM_MANECTITE},
+//#endif
+//    {FORM_CHANGE_FAINT,                         SPECIES_MANECTRIC},
+//    {FORM_CHANGE_END_BATTLE,                    SPECIES_MANECTRIC},
+//    {FORM_CHANGE_TERMINATOR},
+//};
+//#endif //P_FAMILY_ELECTRIKE
 
 #if P_FAMILY_CARVANHA
 static const struct FormChange sSharpedoFormChangeTable[] =

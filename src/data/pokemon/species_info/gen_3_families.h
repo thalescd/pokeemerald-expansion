@@ -5553,29 +5553,30 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         )
         .levelUpLearnset = sManectricLevelUpLearnset,
         .teachableLearnset = sManectricTeachableLearnset,
-        .formSpeciesIdTable = sManectricFormSpeciesIdTable,
-        .formChangeTable = sManectricFormChangeTable,
+        //.formSpeciesIdTable = sManectricFormSpeciesIdTable,
+        //.formChangeTable = sManectricFormChangeTable,
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_ELECTIRIZER, SPECIES_MANECTRIC_MEGA}),
     },
 
 #if P_MEGA_EVOLUTIONS
     [SPECIES_MANECTRIC_MEGA] =
     {
-        .baseHP        = 70,
-        .baseAttack    = 75,
-        .baseDefense   = 80,
+        .baseHP        = 80,
+        .baseAttack    = 70,
+        .baseDefense   = 65,
         .baseSpeed     = 135,
-        .baseSpAttack  = 135,
-        .baseSpDefense = 80,
+        .baseSpAttack  = 115,
+        .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_ELECTRIC),
-        .catchRate = 45,
+        .catchRate = 30,
         .expYield = 201,
-        .evYield_Speed = 2,
+        .evYield_Speed = 3,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_INTIMIDATE, ABILITY_INTIMIDATE, ABILITY_INTIMIDATE },
+        .abilities = { ABILITY_STATIC, ABILITY_LIGHTNING_ROD, ABILITY_INTIMIDATE },
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("Manectric"),
     #if P_MODIFIED_MEGA_CRIES
@@ -5583,7 +5584,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     #else
         .cryId = CRY_MANECTRIC,
     #endif // P_MODIFIED_MEGA_CRIES
-        .natDexNum = NATIONAL_DEX_MANECTRIC,
+        .natDexNum = NATIONAL_DEX_MANECTRIC_MEGA,
         .categoryName = _("Discharge"),
         .height = 18,
         .weight = 440,
@@ -5622,11 +5623,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
             gShinyOverworldPalette_ManectricMega
         )
     #endif //OW_BATTLE_ONLY_FORMS
-        .isMegaEvolution = TRUE,
+        //.isMegaEvolution = TRUE,
         .levelUpLearnset = sManectricLevelUpLearnset,
         .teachableLearnset = sManectricTeachableLearnset,
-        .formSpeciesIdTable = sManectricFormSpeciesIdTable,
-        .formChangeTable = sManectricFormChangeTable,
+        //.formSpeciesIdTable = sManectricFormSpeciesIdTable,
+        //.formChangeTable = sManectricFormChangeTable,
     },
 #endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_ELECTRIKE
