@@ -383,9 +383,7 @@ static const u16 sGengarFormSpeciesIdTable[] = {
 #if P_GEN_2_CROSS_EVOS
 static const u16 sSteelixFormSpeciesIdTable[] = {
     SPECIES_STEELIX,
-#if P_MEGA_EVOLUTIONS
     SPECIES_STEELIX_MEGA,
-#endif
     FORM_SPECIES_END,
 };
 #endif //P_GEN_2_CROSS_EVOS

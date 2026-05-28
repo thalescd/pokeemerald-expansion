@@ -12447,14 +12447,15 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sOnixLevelUpLearnset,
         .teachableLearnset = sOnixTeachableLearnset,
         .eggMoveLearnset = sOnixEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_METAL_COAT, SPECIES_STEELIX}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_METAL_COAT, SPECIES_STEELIX},
+                                {EVO_LEVEL, 0, SPECIES_STEELIX_MEGA, CONDITIONS({IF_IN_MAPSEC, MAPSEC_NEW_MAUVILLE})}),
     },
 
 #if P_GEN_2_CROSS_EVOS
     [SPECIES_STEELIX] =
     {
         .baseHP        = 75,
-        .baseAttack    = 85,
+        .baseAttack    = 100,
         .baseDefense   = 200,
         .baseSpeed     = 30,
         .baseSpAttack  = 55,
@@ -12534,19 +12535,16 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sSteelixLevelUpLearnset,
         .teachableLearnset = sSteelixTeachableLearnset,
         .formSpeciesIdTable = sSteelixFormSpeciesIdTable,
-        .formChangeTable = sSteelixFormChangeTable,
-        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_STEELIX_MEGA, CONDITIONS({IF_KNOWS_MOVE, MOVE_MAGNET_RISE})}),
     },
 
-#if P_MEGA_EVOLUTIONS
     [SPECIES_STEELIX_MEGA] =
     {
-        .baseHP        = 80,
-        .baseAttack    = 110,
-        .baseDefense   = 215,
+        .baseHP        = 75,
+        .baseAttack    = 65,
+        .baseDefense   = 200,
         .baseSpeed     = 30,
-        .baseSpAttack  = 55,
-        .baseSpDefense = 70,
+        .baseSpAttack  = 90,
+        .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_STEEL, TYPE_GROUND),
         .catchRate = 25,
         .expYield = 214,
@@ -12557,7 +12555,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
-        .abilities = { ABILITY_ROCK_HEAD, ABILITY_MAGNET_PULL, ABILITY_SHEER_FORCE },
+        .abilities = { ABILITY_LEVITATE, ABILITY_MAGNET_PULL, ABILITY_SHEER_FORCE },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Steelix"),
     #if P_MODIFIED_MEGA_CRIES
@@ -12594,7 +12592,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(1, 13, SHADOW_SIZE_XL_BATTLE_ONLY)
         FOOTPRINT(Steelix)
-    #if OW_BATTLE_ONLY_FORMS
         OVERWORLD(
             sPicTable_SteelixMega,
             SIZE_64x64,
@@ -12604,14 +12601,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gOverworldPalette_SteelixMega,
             gShinyOverworldPalette_SteelixMega
         )
-    #endif //OW_BATTLE_ONLY_FORMS
-        .isMegaEvolution = TRUE,
-        .levelUpLearnset = sSteelixLevelUpLearnset,
+        .levelUpLearnset = sSteelixMegaLevelUpLearnset,
         .teachableLearnset = sSteelixTeachableLearnset,
         .formSpeciesIdTable = sSteelixFormSpeciesIdTable,
-        .formChangeTable = sSteelixFormChangeTable,
     },
-#endif //P_MEGA_EVOLUTIONS
 #endif //P_GEN_2_CROSS_EVOS
 #endif //P_FAMILY_ONIX
 
