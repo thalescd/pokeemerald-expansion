@@ -746,15 +746,15 @@ static const u16 sUrsalunaFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_TEDDIURSA
 
-#if P_FAMILY_CORSOLA
-static const u16 sCorsolaFormSpeciesIdTable[] = {
-    SPECIES_CORSOLA,
-#if P_GALARIAN_FORMS
-    SPECIES_CORSOLA_GALAR,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_CORSOLA
+//#if P_FAMILY_CORSOLA
+//static const u16 sCorsolaFormSpeciesIdTable[] = {
+//    SPECIES_CORSOLA,
+//#if P_GALARIAN_FORMS
+//    SPECIES_CORSOLA_GALAR,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//#endif //P_FAMILY_CORSOLA
 
 #if P_FAMILY_SKARMORY
 static const u16 sSkarmoryFormSpeciesIdTable[] = {

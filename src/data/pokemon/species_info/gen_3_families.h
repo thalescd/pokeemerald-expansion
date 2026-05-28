@@ -6921,8 +6921,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .teachableLearnset = sCameruptTeachableLearnset,
         //.formSpeciesIdTable = sCameruptFormSpeciesIdTable,
         //.formChangeTable = sCameruptFormChangeTable,
-        .evolutions = EVOLUTION({EVO_TRADE, 0, SPECIES_CAMERUPT_MEGA, CONDITIONS({IF_HOLD_ITEM, ITEM_MAGMARIZER})},
-                                {EVO_ITEM, ITEM_MAGMARIZER, SPECIES_CAMERUPT_MEGA}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_MAGMARIZER, SPECIES_CAMERUPT_MEGA}),
     },
 
 #if P_MEGA_EVOLUTIONS
@@ -6952,7 +6951,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     #else
         .cryId = CRY_CAMERUPT,
     #endif // P_MODIFIED_MEGA_CRIES
-        .natDexNum = NATIONAL_DEX_CAMERUPT,
+        .natDexNum = NATIONAL_DEX_CAMERUPT_MEGA,
         .categoryName = _("Eruption"),
         .height = 25,
         .weight = 3205,
@@ -7876,7 +7875,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     #else
         .cryId = CRY_ALTARIA,
     #endif // P_MODIFIED_MEGA_CRIES
-        .natDexNum = NATIONAL_DEX_ALTARIA,
+        .natDexNum = NATIONAL_DEX_ALTARIA_MEGA,
         .categoryName = _("Humming"),
         .height = 15,
         .weight = 206,

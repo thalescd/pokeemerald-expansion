@@ -6610,7 +6610,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .bodyColor = BODY_COLOR_PINK,
         .speciesName = _("Corsola"),
         .cryId = CRY_CORSOLA,
-        .natDexNum = NATIONAL_DEX_CORSOLA,
+        .natDexNum = NATIONAL_DEX_NONE,
         .categoryName = _("Coral"),
         .height = 6,
         .weight = 50,
@@ -6657,10 +6657,9 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sCorsolaLevelUpLearnset,
         .teachableLearnset = sCorsolaTeachableLearnset,
         .eggMoveLearnset = sCorsolaEggMoveLearnset,
-        .formSpeciesIdTable = sCorsolaFormSpeciesIdTable,
+        //.formSpeciesIdTable = sCorsolaFormSpeciesIdTable,
     },
 
-#if P_GALARIAN_FORMS
     [SPECIES_CORSOLA_GALAR] =
     {
         .baseHP        = 60,
@@ -6720,11 +6719,9 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
             gOverworldPalette_CorsolaGalar,
             gShinyOverworldPalette_CorsolaGalar
         )
-        .isGalarianForm = TRUE,
         .levelUpLearnset = sCorsolaGalarLevelUpLearnset,
         .teachableLearnset = sCorsolaGalarTeachableLearnset,
         .eggMoveLearnset = sCorsolaGalarEggMoveLearnset,
-        .formSpeciesIdTable = sCorsolaFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_CURSOLA}),
     },
 
@@ -6791,7 +6788,6 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sCursolaLevelUpLearnset,
         .teachableLearnset = sCursolaTeachableLearnset,
     },
-#endif //P_GALARIAN_FORMS
 #endif //P_FAMILY_CORSOLA
 
 #if P_FAMILY_REMORAID
