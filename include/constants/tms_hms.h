@@ -35,7 +35,7 @@
     F(BRICK_BREAK) \
     F(ROOST) \
     F(REFLECT) \
-    F(SHOCK_WAVE) \
+    F(SLUDGE_WAVE) \
     F(FLAMETHROWER) \
     F(SLUDGE_BOMB) \
     F(SANDSTORM) \

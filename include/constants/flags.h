@@ -1129,7 +1129,7 @@
 #define FLAG_ITEM_NEW_MAUVILLE_ELECTRIC_SEED                        0x434
 #define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_6_LUXURY_BALL    0x435
 #define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_2_SCANNER        0x436
-#define FLAG_ITEM_SCORCHED_SLAB_TM_SUNNY_DAY                        0x437
+#define FLAG_ITEM_SCORCHED_SLAB_TM_FLAMETHROWER                     0x437
 #define FLAG_ITEM_METEOR_FALLS_B1F_2R_TM_DRAGON_CLAW                0x438
 #define FLAG_ITEM_SHOAL_CAVE_ENTRANCE_BIG_PEARL                     0x439
 #define FLAG_ITEM_SHOAL_CAVE_INNER_ROOM_RARE_CANDY                  0x43A
@@ -1206,7 +1206,7 @@
 #define FLAG_ITEM_ROUTE_123_REVIVAL_HERB                            0x481
 #define FLAG_ITEM_ROUTE_125_BIG_PEARL                               0x482
 #define FLAG_ITEM_ROUTE_127_RARE_CANDY                              0x483
-#define FLAG_ITEM_ROUTE_132_PROTEIN                                 0x484
+#define FLAG_ITEM_ROUTE_132_TM_SLUDGE_WAVE                          0x484
 #define FLAG_ITEM_ROUTE_133_MAX_REVIVE                              0x485
 #define FLAG_ITEM_ROUTE_134_CARBOS                                  0x486
 #define FLAG_ITEM_ROUTE_134_STAR_PIECE                              0x487
