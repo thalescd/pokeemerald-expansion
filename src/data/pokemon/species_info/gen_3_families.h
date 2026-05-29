@@ -9738,30 +9738,31 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         )
         .levelUpLearnset = sBanetteLevelUpLearnset,
         .teachableLearnset = sBanetteTeachableLearnset,
-        .formSpeciesIdTable = sBanetteFormSpeciesIdTable,
-        .formChangeTable = sBanetteFormChangeTable,
+        //.formSpeciesIdTable = sBanetteFormSpeciesIdTable,
+        //.formChangeTable = sBanetteFormChangeTable,
+        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_BANETTE_MEGA, CONDITIONS({IF_USED_MOVE_X_TIMES, MOVE_CURSE, 20})}),
     },
 
 #if P_MEGA_EVOLUTIONS
     [SPECIES_BANETTE_MEGA] =
     {
-        .baseHP        = 64,
-        .baseAttack    = 165,
+        .baseHP        = 74,
+        .baseAttack    = 140,
         .baseDefense   = 75,
-        .baseSpeed     = 75,
-        .baseSpAttack  = 93,
+        .baseSpeed     = 65,
+        .baseSpAttack  = 83,
         .baseSpDefense = 83,
         .types = MON_TYPES(TYPE_GHOST),
-        .catchRate = 45,
-        .expYield = 194,
-        .evYield_Attack = 2,
+        .catchRate = 30,
+        .expYield = 234,
+        .evYield_Attack = 3,
         .itemRare = ITEM_SPELL_TAG,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 25,
         .friendship = 35,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
-        .abilities = { ABILITY_PRANKSTER, ABILITY_PRANKSTER, ABILITY_PRANKSTER },
+        .abilities = { ABILITY_INSOMNIA, ABILITY_PRANKSTER, ABILITY_CURSED_BODY },
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = TRUE,
         .speciesName = _("Banette"),
@@ -9770,7 +9771,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     #else
         .cryId = CRY_BANETTE,
     #endif // P_MODIFIED_MEGA_CRIES
-        .natDexNum = NATIONAL_DEX_BANETTE,
+        .natDexNum = NATIONAL_DEX_BANETTE_MEGA,
         .categoryName = _("Marionette"),
         .height = 12,
         .weight = 130,
@@ -9810,11 +9811,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
             gShinyOverworldPalette_BanetteMega
         )
     #endif //OW_BATTLE_ONLY_FORMS
-        .isMegaEvolution = TRUE,
+        //.isMegaEvolution = TRUE,
         .levelUpLearnset = sBanetteLevelUpLearnset,
         .teachableLearnset = sBanetteTeachableLearnset,
-        .formSpeciesIdTable = sBanetteFormSpeciesIdTable,
-        .formChangeTable = sBanetteFormChangeTable,
+        //.formSpeciesIdTable = sBanetteFormSpeciesIdTable,
+        //.formChangeTable = sBanetteFormChangeTable,
     },
 #endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_SHUPPET

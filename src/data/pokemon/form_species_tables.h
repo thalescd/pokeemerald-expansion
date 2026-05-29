@@ -942,15 +942,15 @@ static const u16 sCastformFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_CASTFORM
 
-#if P_FAMILY_SHUPPET
-static const u16 sBanetteFormSpeciesIdTable[] = {
-    SPECIES_BANETTE,
-#if P_MEGA_EVOLUTIONS
-    SPECIES_BANETTE_MEGA,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_SHUPPET
+//#if P_FAMILY_SHUPPET
+//static const u16 sBanetteFormSpeciesIdTable[] = {
+//    SPECIES_BANETTE,
+//#if P_MEGA_EVOLUTIONS
+//    SPECIES_BANETTE_MEGA,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//#endif //P_FAMILY_SHUPPET
 
 #if P_FAMILY_CHIMECHO
 static const u16 sChimechoFormSpeciesIdTable[] = {

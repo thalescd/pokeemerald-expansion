@@ -581,17 +581,17 @@ static const struct FormChange sAltariaFormChangeTable[] =
 };
 #endif //P_FAMILY_SWABLU
 
-#if P_FAMILY_SHUPPET
-static const struct FormChange sBanetteFormChangeTable[] =
-{
-#if P_MEGA_EVOLUTIONS
-    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_BANETTE_MEGA, ITEM_BANETTITE},
-#endif
-    {FORM_CHANGE_FAINT,                         SPECIES_BANETTE},
-    {FORM_CHANGE_END_BATTLE,                    SPECIES_BANETTE},
-    {FORM_CHANGE_TERMINATOR},
-};
-#endif //P_FAMILY_SHUPPET
+//#if P_FAMILY_SHUPPET
+//static const struct FormChange sBanetteFormChangeTable[] =
+//{
+//#if P_MEGA_EVOLUTIONS
+//    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_BANETTE_MEGA, ITEM_BANETTITE},
+//#endif
+//    {FORM_CHANGE_FAINT,                         SPECIES_BANETTE},
+//    {FORM_CHANGE_END_BATTLE,                    SPECIES_BANETTE},
+//    {FORM_CHANGE_TERMINATOR},
+//};
+//#endif //P_FAMILY_SHUPPET
 
 #if P_FAMILY_CHIMECHO
 static const struct FormChange sChimechoFormChangeTable[] = {
