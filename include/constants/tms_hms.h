@@ -24,7 +24,7 @@
     F(SAFEGUARD) \
     F(FRUSTRATION) \
     F(SOLAR_BEAM) \
-    F(IRON_TAIL) \
+    F(SMACK_DOWN) \
     F(THUNDERBOLT) \
     F(THUNDER) \
     F(EARTHQUAKE) \

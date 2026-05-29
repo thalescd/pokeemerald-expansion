@@ -1656,7 +1656,7 @@
 #define FLAG_RECEIVED_STARTER_DOLL           0
 #define FLAG_RECEIVED_GOOD_ROD               0
 #define FLAG_REGI_DOORS_OPENED               0
-#define FLAG_RECEIVED_TM_RETURN              0
+#define FLAG_RECEIVED_TM_SMACK_DOWN          0
 #define FLAG_RECEIVED_TM_SLUDGE_BOMB         0
 #define FLAG_RECEIVED_TM_ROAR                0
 #define FLAG_RECEIVED_TM_GIGA_DRAIN          0
