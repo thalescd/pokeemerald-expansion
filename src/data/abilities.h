@@ -270,7 +270,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_ILLUMINATE] =
     {
         .name = _("Illuminate"),
-        .description = COMPOUND_STRING("Encounter rate increases."),
+        .description = COMPOUND_STRING("Encounter rate increases.\nPrevents loss of accuracy."),
         .aiRating = 0,
         .breakable = TRUE,
     },
