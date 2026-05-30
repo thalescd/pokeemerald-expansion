@@ -2351,7 +2351,7 @@
 #define FLAG_ITEM_RUSTURF_TUNNEL_POKE_BALL                          0
 #define FLAG_ITEM_RUSTURF_TUNNEL_MAX_ETHER                          0
 #define FLAG_ITEM_GRANITE_CAVE_1F_ESCAPE_ROPE                       0
-#define FLAG_ITEM_GRANITE_CAVE_B1F_POKE_BALL                        0
+#define FLAG_ITEM_GRANITE_CAVE_B1F_DUSK_BALL                        0
 #define FLAG_ITEM_MT_PYRE_5F_LAX_INCENSE                            0
 #define FLAG_ITEM_GRANITE_CAVE_B2F_REPEL                            0
 #define FLAG_ITEM_GRANITE_CAVE_B2F_RARE_CANDY                       0
