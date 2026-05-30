@@ -3313,6 +3313,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             {
                 gEffectBattler = battler;
                 gBattleStruct->intimidateActivated = TRUE;
+                ClearStatChangeValues();
                 for (enum BattlerId i = 0; i < gBattlersCount; i++)
                 {
                     if (IsBattlerAlly(battler, i) || !IsBattlerAlive(i))
@@ -3330,6 +3331,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             {
                 gEffectBattler = battler;
                 GetBattlerPartyState(battler)->supersweetSyrup = TRUE;
+                ClearStatChangeValues();
                 for (enum BattlerId i = 0; i < gBattlersCount; i++)
                 {
                     if (IsBattlerAlly(battler, i) || !IsBattlerAlive(i))
