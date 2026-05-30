@@ -68,15 +68,15 @@ static const u16 sPidgeotFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_PIDGEY
 
-#if P_FAMILY_RATTATA
-static const u16 sRattataFormSpeciesIdTable[] = {
-    SPECIES_RATTATA,
-#if P_ALOLAN_FORMS
-    SPECIES_RATTATA_ALOLA,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_RATTATA
+//#if P_FAMILY_RATTATA
+//static const u16 sRattataFormSpeciesIdTable[] = {
+//    SPECIES_RATTATA,
+//#if P_ALOLAN_FORMS
+//    SPECIES_RATTATA_ALOLA,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//#endif //P_FAMILY_RATTATA
 
 #if P_FAMILY_PIKACHU
 #if P_GEN_2_CROSS_EVOS
