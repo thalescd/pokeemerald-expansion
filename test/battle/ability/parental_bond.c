@@ -324,7 +324,7 @@ SINGLE_BATTLE_TEST("Parental Bond does not trigger on OHKO moves")
 SINGLE_BATTLE_TEST("Parental Bond does not trigger on Uproar")
 {
     GIVEN {
-        ASSUME(GetMoveEffect(MOVE_UPROAR) == EFFECT_UPROAR);
+        ASSUME(MoveHasAdditionalEffectSelf(MOVE_UPROAR, MOVE_EFFECT_UPROAR));
         PLAYER(SPECIES_KANGASKHAN) { Item(ITEM_KANGASKHANITE); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
