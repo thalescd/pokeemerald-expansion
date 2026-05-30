@@ -14,6 +14,7 @@
 #include "item_use.h"
 #include "battle_pyramid.h"
 #include "battle_pyramid_bag.h"
+#include "move.h"
 #include "graphics.h"
 #include "shop_criteria.h"
 #include "constants/battle.h"

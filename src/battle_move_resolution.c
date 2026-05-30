@@ -1277,8 +1277,8 @@ static enum CancelerResult CancelerMoveFailure(struct BattleCalcValues *cv)
             battleScript = BattleScript_InsomniaProtects;
         break;
     case EFFECT_SNORE:
-        if (!(gBattleMons[ctx->battlerAtk].status1 & STATUS1_SLEEP)
-         && ctx->abilityAtk != ABILITY_COMATOSE)
+        if (!(gBattleMons[cv->battlerAtk].status1 & STATUS1_SLEEP)
+         && cv->abilities[cv->battlerAtk] != ABILITY_COMATOSE)
             battleScript = BattleScript_ButItFailed;
         break;
     case EFFECT_STOCKPILE:
@@ -1779,11 +1779,11 @@ static enum CancelerResult CancelerCharging(struct BattleCalcValues *cv)
             BattleScriptCall(BattleScript_PowerHerbActivation);
             result = CANCELER_RESULT_RUN_SCRIPT_AND_INCREMENT;
         }
-        else if (GetBattlerAbility(ctx->battlerAtk) == ABILITY_QUICKEN)
+        else if (GetBattlerAbility(cv->battlerAtk) == ABILITY_QUICKEN)
         {
             gBattleScripting.animTurn = 1;
             gBattleScripting.animTargetsHit = 0;
-            gProtectStructs[ctx->battlerAtk].chargingTurn = FALSE;
+            gProtectStructs[cv->battlerAtk].chargingTurn = FALSE;
             result = CANCELER_RESULT_SUCCESS;
         }
         else // Use move next turn
@@ -2277,7 +2277,7 @@ static enum CancelerResult CancelerAccuracyCheck(struct BattleCalcValues *cv)
 static bool32 IsMoveParentalBondAffected(struct BattleCalcValues *cv)
 {
     if (cv->abilities[cv->battlerAtk] != ABILITY_PARENTAL_BOND
-     || gBattleMons[ctx->battlerAtk].hp * 2 <= gBattleMons[ctx->battlerAtk].maxHP
+     || gBattleMons[cv->battlerAtk].hp * 2 <= gBattleMons[cv->battlerAtk].maxHP
      || gBattleStruct->numSpreadTargets > 1
      || IsMoveParentalBondBanned(cv->move)
      || GetMoveCategory(cv->move) == DAMAGE_CATEGORY_STATUS

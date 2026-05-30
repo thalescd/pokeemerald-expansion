@@ -601,7 +601,7 @@ static bool32 IsMistProtected(struct BattleCalcValues *cv, struct StatChange *st
 
 static enum BattlerId StatChange_IsFlowerVeilProtected(struct BattleCalcValues *cv)
 {
-    if (!IS_BATTLER_OF_TYPE(cv->battlerDef, TYPE_GRASS))
+    if (!IS_BATTLER_OF_TYPE(cv->battlerDef, TYPE_GRASS) && cv->abilities[cv->battlerDef] != ABILITY_FLOWER_VEIL)
         return MAX_BATTLERS_COUNT;
 
     for (enum BattlerId battler = B_BATTLER_0; battler < gBattlersCount; battler++)
