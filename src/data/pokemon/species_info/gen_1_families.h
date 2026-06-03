@@ -12573,9 +12573,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .height = 105,
         .weight = 7400,
         .description = COMPOUND_STRING(
-            "The cells within its body, crystallized by\n"
-            "the energy produced from Mega Evolution,\n"
-            "are stronger than any mineral and able\n"
+            "The cells within its body are\n"
+            "stronger than any mineral and able\n"
             "to withstand any temperature."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
@@ -15209,8 +15208,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .weight = 1000,
         .description = COMPOUND_STRING(
             "When the mother sees the back of her\n"
-            "Mega-Evolved child, it makes her think\n"
-            "of the day when her child will inevitably\n"
+            "child, it makes her think of the day\n"
+            "when her child will inevitably\n"
             "leave her."),
         .pokemonScale = 256,
         .pokemonOffset = 0,

@@ -254,7 +254,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .weight = 552,
         .description = COMPOUND_STRING(
             "Thanks to the power in its quick legs,\n"
-            "Mega Sceptile can be on its opponent in a\n"
+            "Sceptile can be on its opponent in a\n"
             "flash. It can cut off a portion of its tail\n"
             "to fire it like a missile at an opponent."),
         .pokemonScale = 256,
@@ -6935,10 +6935,10 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .baseSpAttack  = 125,
         .baseSpDefense = 95,
         .types = MON_TYPES(TYPE_FIRE, TYPE_GROUND),
-        .catchRate = 150,
+        .catchRate = 50,
         .expYield = 196,
         .evYield_Attack = 1,
-        .evYield_SpAttack = 1,
+        .evYield_SpAttack = 2,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
@@ -7860,8 +7860,9 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .baseSpAttack  = 110,
         .baseSpDefense = 105,
         .types = MON_TYPES(TYPE_DRAGON, TYPE_FAIRY),
-        .catchRate = 45,
+        .catchRate = 30,
         .expYield = 207,
+        .evYield_SpAttack = 1,
         .evYield_SpDefense = 2,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
@@ -7882,7 +7883,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .weight = 206,
         .description = COMPOUND_STRING(
             "It sings with a voice that is even more\n"
-            "beautiful than before it Mega Evolved.\n"
+            "beautiful than before.\n"
             "Its feathers became larger for protection\n"
             "and glimmer with an iridescent sheen."),
         .pokemonScale = 327,
@@ -10765,9 +10766,10 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .baseSpAttack  = 60,
         .baseSpDefense = 85,
         .types = MON_TYPES(TYPE_ICE),
-        .catchRate = 75,
+        .catchRate = 45,
         .expYield = 203,
         .evYield_HP = 2,
+        .evYield_Attack = 1,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
@@ -10911,8 +10913,9 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .baseSpAttack  = 120,
         .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_ICE, TYPE_GHOST),
-        .catchRate = 75,
-        .expYield = 168,
+        .catchRate = 45,
+        .expYield = 208,
+        .evYield_SpAttack = 1,
         .evYield_Speed = 2,
         .genderRatio = MON_FEMALE,
         .eggCycles = 20,

@@ -9397,7 +9397,7 @@ static const struct LevelUpMove sAltariaLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sAltariaMegaLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 0, MOVE_DAZZLING_GLEAM),
+    LEVEL_UP_MOVE( 0, MOVE_HYPER_VOICE),
     LEVEL_UP_MOVE( 1, MOVE_DRAGON_PULSE),
     LEVEL_UP_MOVE( 1, MOVE_PLUCK),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
