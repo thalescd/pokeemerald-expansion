@@ -669,10 +669,10 @@ bool8 CanLearnMoveInParty(u16 move)
     u8 i;
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        if (!GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL))
+        if (!GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES, NULL))
             break;
-        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);    
-        if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && CanLearnTeachableMove(species, move))
+        u16 species = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES, NULL);
+        if (!GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_EGG) && CanLearnTeachableMove(species, move))
             return TRUE;
     }
     return FALSE;

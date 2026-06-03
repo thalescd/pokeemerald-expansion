@@ -5803,8 +5803,8 @@ void Special_GiveRandomMon(void)
         return;
     }
 
-    offeredSpecies = GetMonData(&gPlayerParty[offeredSlot], MON_DATA_SPECIES);
-    offeredLevel   = GetMonData(&gPlayerParty[offeredSlot], MON_DATA_LEVEL);
+    offeredSpecies = GetMonData(&gParties[B_TRAINER_PLAYER][offeredSlot], MON_DATA_SPECIES);
+    offeredLevel   = GetMonData(&gParties[B_TRAINER_PLAYER][offeredSlot], MON_DATA_LEVEL);
 
     pool = Alloc(NUM_SPECIES * sizeof(u16));
     if (pool == NULL)
