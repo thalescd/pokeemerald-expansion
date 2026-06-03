@@ -2234,7 +2234,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_ORICHALCUM_PULSE] =
     {
         .name = _("Orichalcum Pulse"),
-        .description = COMPOUND_STRING("Summons sunlight in battle.\nRaises Attack in sunshine."),
+        .description = COMPOUND_STRING("Summons sunlight in battle.\nUps Attack in sunshine."),
         .aiRating = 8,
         .cantBeSwapped = TRUE,
         .cantBeCopied = TRUE,
@@ -2244,7 +2244,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_HADRON_ENGINE] =
     {
         .name = _("Hadron Engine"),
-        .description = COMPOUND_STRING("Field becomes Electric.\nRaises Sp. Atk in sunshine."),
+        .description = COMPOUND_STRING("Field becomes Electric. Ups\nSp. Atk in electric terrain."),
         .aiRating = 8,
         .cantBeSwapped = TRUE,
         .cantBeCopied = TRUE,
