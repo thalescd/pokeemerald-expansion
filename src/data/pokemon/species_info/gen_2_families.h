@@ -139,13 +139,14 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sBayleefLevelUpLearnset,
         .teachableLearnset = sBayleefTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 32, SPECIES_MEGANIUM}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_MEGANIUM},
+                                {EVO_ITEM, ITEM_BLACK_AUGURITE, SPECIES_MEGANIUM_MEGA}),
     },
 
     [SPECIES_MEGANIUM] =
     {
         .baseHP        = 80,
-        .baseAttack    = 82,
+        .baseAttack    = 92,
         .baseDefense   = 100,
         .baseSpeed     = 80,
         .baseSpAttack  = 83,
@@ -227,29 +228,29 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sMeganiumLevelUpLearnset,
         .teachableLearnset = sMeganiumTeachableLearnset,
         .formSpeciesIdTable = sMeganiumFormSpeciesIdTable,
-        .formChangeTable = sMeganiumFormChangeTable,
+        //.formChangeTable = sMeganiumFormChangeTable,
     },
 
 #if P_GEN_9_MEGA_EVOLUTIONS
     [SPECIES_MEGANIUM_MEGA] =
     {
         .baseHP        = 80,
-        .baseAttack    = 92,
-        .baseDefense   = 115,
+        .baseAttack    = 72,
+        .baseDefense   = 95,
         .baseSpeed     = 80,
-        .baseSpAttack  = 143,
-        .baseSpDefense = 115,
+        .baseSpAttack  = 103,
+        .baseSpDefense = 105,
         .types = MON_TYPES(TYPE_GRASS, TYPE_FAIRY),
         .catchRate = 45,
         .expYield = 263,
-        .evYield_Defense = 1,
+        .evYield_SpAttack = 1,
         .evYield_SpDefense = 2,
         .genderRatio = PERCENT_FEMALE(12.5),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_GRASS),
-        .abilities = { ABILITY_MEGA_SOL, ABILITY_MEGA_SOL, ABILITY_MEGA_SOL },
+        .abilities = { ABILITY_OVERGROW, ABILITY_NONE, ABILITY_MEGA_SOL },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Meganium"),
     #if P_MODIFIED_MEGA_CRIES
@@ -282,11 +283,11 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         FOOTPRINT(Meganium)
         SHADOW(-2, 13, SHADOW_SIZE_M)
-        .isMegaEvolution = TRUE,
-        .levelUpLearnset = sMeganiumLevelUpLearnset,
+        //.isMegaEvolution = TRUE,
+        .levelUpLearnset = sMeganiumMegaLevelUpLearnset,
         .teachableLearnset = sMeganiumTeachableLearnset,
         .formSpeciesIdTable = sMeganiumFormSpeciesIdTable,
-        .formChangeTable = sMeganiumFormChangeTable,
+        //.formChangeTable = sMeganiumFormChangeTable,
     },
 #endif //P_GEN_9_MEGA_EVOLUTIONS
 #endif //P_FAMILY_CHIKORITA

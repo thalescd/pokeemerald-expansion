@@ -341,17 +341,17 @@ static const struct FormChange sMewtwoFormChangeTable[] =
 };
 #endif //P_FAMILY_MEWTWO
 
-#if P_FAMILY_CHIKORITA
-static const struct FormChange sMeganiumFormChangeTable[] =
-{
-#if P_GEN_9_MEGA_EVOLUTIONS
-    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_MEGANIUM_MEGA, ITEM_MEGANIUMITE},
-#endif
-    {FORM_CHANGE_FAINT,                         SPECIES_MEGANIUM},
-    {FORM_CHANGE_END_BATTLE,                    SPECIES_MEGANIUM},
-    {FORM_CHANGE_TERMINATOR},
-};
-#endif //P_FAMILY_CHIKORITA
+//#if P_FAMILY_CHIKORITA
+//static const struct FormChange sMeganiumFormChangeTable[] =
+//{
+//#if P_GEN_9_MEGA_EVOLUTIONS
+//    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_MEGANIUM_MEGA, ITEM_MEGANIUMITE},
+//#endif
+//    {FORM_CHANGE_FAINT,                         SPECIES_MEGANIUM},
+//    {FORM_CHANGE_END_BATTLE,                    SPECIES_MEGANIUM},
+//    {FORM_CHANGE_TERMINATOR},
+//};
+//#endif //P_FAMILY_CHIKORITA
 
 #if P_FAMILY_TOTODILE
 static const struct FormChange sFeraligatrFormChangeTable[] =
