@@ -89,7 +89,7 @@ SINGLE_BATTLE_TEST("Flower Veil protects the user from status")
 SINGLE_BATTLE_TEST("Flower Veil protects the user from stat reductions")
 {
     GIVEN {
-        ASSUME(GetMoveEffect(MOVE_GROWL) == EFFECT_ATTACK_DOWN);
+        ASSUME_STAT_CHANGE(MOVE_GROWL, attack: -1);
         ASSUME(GetSpeciesType(SPECIES_COMFEY, 0) != TYPE_GRASS);
         PLAYER(SPECIES_WOBBUFFET);
         OPPONENT(SPECIES_COMFEY) { Ability(ABILITY_FLOWER_VEIL); }
