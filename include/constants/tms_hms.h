@@ -99,7 +99,7 @@
     F(SNARL) \
     F(MUD_SPORT) \
     F(DARK_PULSE) \
-    F(WATER_SPORT) \
+    F(WEATHER_BALL) \
     F(DAZZLING_GLEAM) \
     F(BODY_PRESS)
 
