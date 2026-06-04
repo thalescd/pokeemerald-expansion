@@ -8,7 +8,7 @@
     F(CALM_MIND) \
     F(ROAR) \
     F(VENOSHOCK) \
-    F(HAIL) \
+    F(SNOWSCAPE) \
     F(BULK_UP) \
     F(BULLET_SEED) \
     F(TRAILBLAZE) \

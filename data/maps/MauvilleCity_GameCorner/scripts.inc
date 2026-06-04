@@ -236,10 +236,10 @@ MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize::
 MauvilleCity_GameCorner_EventScript_ChooseTMPrize::
 	multichoice 12, 0, MULTI_GAME_CORNER_TMS, FALSE
 	switch VAR_RESULT
-	case 0, MauvilleCity_GameCorner_EventScript_TMSunnyDay
-	case 1, MauvilleCity_GameCorner_EventScript_TMRainDance
-	case 2, MauvilleCity_GameCorner_EventScript_TMSandstorm
-	case 3, MauvilleCity_GameCorner_EventScript_TMHail
+	case 0, MauvilleCity_GameCorner_EventScript_TMHail
+	case 1, MauvilleCity_GameCorner_EventScript_TMSunnyDay
+	case 2, MauvilleCity_GameCorner_EventScript_TMRainDance
+	case 3, MauvilleCity_GameCorner_EventScript_TMSandstorm
 	case 4, MauvilleCity_GameCorner_EventScript_TMWeatherBall
 	case 5, MauvilleCity_GameCorner_EventScript_CancelTMSelect
 	goto MauvilleCity_GameCorner_EventScript_CancelTMSelect
@@ -265,8 +265,8 @@ MauvilleCity_GameCorner_EventScript_TMSandstorm::
 
 MauvilleCity_GameCorner_EventScript_TMHail::
 	setvar VAR_TEMP_1, 4
-	bufferitemname STR_VAR_1, ITEM_TM_HAIL
-	setvar VAR_0x8004, ITEM_TM_HAIL
+	bufferitemname STR_VAR_1, ITEM_TM_SNOWSCAPE
+	setvar VAR_0x8004, ITEM_TM_SNOWSCAPE
 	goto MauvilleCity_GameCorner_EventScript_ConfirmTMPrize
 
 MauvilleCity_GameCorner_EventScript_TMWeatherBall::
@@ -329,10 +329,10 @@ MauvilleCity_GameCorner_EventScript_BuyTMSandstorm::
 MauvilleCity_GameCorner_EventScript_BuyTMHail::
 	checkcoins VAR_TEMP_2
 	goto_if_lt VAR_TEMP_2, TM_HAIL_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
-	checkitemspace ITEM_TM_HAIL
+	checkitemspace ITEM_TM_SNOWSCAPE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
 	removecoins TM_HAIL_COINS
-	additem ITEM_TM_HAIL
+	additem ITEM_TM_SNOWSCAPE
 	updatecoinsbox 1, 1
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
