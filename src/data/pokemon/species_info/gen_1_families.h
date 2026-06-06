@@ -15325,7 +15325,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sHorseaLevelUpLearnset,
         .teachableLearnset = sHorseaTeachableLearnset,
         .eggMoveLearnset = sHorseaEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 32, SPECIES_SEADRA}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 24, SPECIES_SEADRA}),
     },
 
     [SPECIES_SEADRA] =
@@ -15335,7 +15335,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseDefense   = 95,
         .baseSpeed     = 85,
         .baseSpAttack  = 95,
-        .baseSpDefense = P_UPDATED_STATS >= GEN_2 ? 45 : 95,
+        .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_WATER),
         .catchRate = 75,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 154 : 155,
