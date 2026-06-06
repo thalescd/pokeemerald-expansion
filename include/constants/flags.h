@@ -1169,7 +1169,7 @@
 #define FLAG_ITEM_MAUVILLE_CITY_THUNDER_STONE                       0x45C
 #define FLAG_ITEM_PETALBURG_WOODS_PARALYZE_HEAL                     0x45D
 #define FLAG_ITEM_ROUTE_115_GREAT_BALL                              0x45E
-#define FLAG_ITEM_SAFARI_ZONE_NORTH_CALCIUM                         0x45F
+#define FLAG_ITEM_SAFARI_ZONE_NORTH_TM_WILD_CHARGE                  0x45F
 #define FLAG_ITEM_MT_PYRE_3F_SUPER_REPEL                            0x460
 #define FLAG_ITEM_ROUTE_118_HYPER_POTION                            0x461
 #define FLAG_ITEM_NEW_MAUVILLE_FULL_HEAL                            0x462
