@@ -9813,7 +9813,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         )
     #endif //OW_BATTLE_ONLY_FORMS
         //.isMegaEvolution = TRUE,
-        .levelUpLearnset = sBanetteLevelUpLearnset,
+        .levelUpLearnset = sBanetteMegaLevelUpLearnset,
         .teachableLearnset = sBanetteTeachableLearnset,
         //.formSpeciesIdTable = sBanetteFormSpeciesIdTable,
         //.formChangeTable = sBanetteFormChangeTable,
