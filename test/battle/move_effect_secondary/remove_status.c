@@ -100,19 +100,19 @@ SINGLE_BATTLE_TEST("Wake-Up Slap gets increased power against sleeping targets")
         ASSUME(MoveHasAdditionalEffect(MOVE_WAKE_UP_SLAP, MOVE_EFFECT_REMOVE_STATUS) == TRUE);
         ASSUME(GetMoveEffectArg_Status(MOVE_WAKE_UP_SLAP) == STATUS1_SLEEP);
         PLAYER(SPECIES_CROBAT);
-        OPPONENT(SPECIES_LOTAD) { Status1(status1); }
+        OPPONENT(SPECIES_WEEDLE) { Status1(status1); }
     } WHEN {
         TURN { MOVE(player, MOVE_WAKE_UP_SLAP); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_WAKE_UP_SLAP, player);
         if (status1 == STATUS1_SLEEP)
         {
-            MESSAGE("The opposing Lotad fainted!");
+            MESSAGE("The opposing Weedle fainted!");
         }
         else
         {
-            NOT MESSAGE("The opposing Lotad fainted!");
-            MESSAGE("The opposing Lotad used Celebrate!");
+            NOT MESSAGE("The opposing Weedle fainted!");
+            MESSAGE("The opposing Weedle used Celebrate!");
         }
     }
 }
