@@ -8,10 +8,10 @@ SINGLE_BATTLE_TEST("Mega Sol multiplies the power of Fire-type moves by 1.5x")
     GIVEN {
         ASSUME(GetMoveType(MOVE_EMBER) == TYPE_FIRE);
         ASSUME(GetMoveEffect(MOVE_SKILL_SWAP) == EFFECT_SKILL_SWAP);
-        PLAYER(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE); }
+        PLAYER(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_EMBER, gimmick: GIMMICK_MEGA); MOVE(opponent, MOVE_SKILL_SWAP); }
+        TURN { MOVE(player, MOVE_EMBER); MOVE(opponent, MOVE_SKILL_SWAP); }
         TURN { MOVE(player, MOVE_EMBER); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, player);
@@ -31,10 +31,10 @@ SINGLE_BATTLE_TEST("Mega Sol halves the power of the user's Water-type moves")
     GIVEN {
         ASSUME(GetMoveType(MOVE_WATER_GUN) == TYPE_WATER);
         ASSUME(GetMoveEffect(MOVE_SKILL_SWAP) == EFFECT_SKILL_SWAP);
-        PLAYER(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE); }
+        PLAYER(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_WATER_GUN, gimmick: GIMMICK_MEGA); MOVE(opponent, MOVE_SKILL_SWAP); }
+        TURN { MOVE(player, MOVE_WATER_GUN); MOVE(opponent, MOVE_SKILL_SWAP); }
         TURN { MOVE(player, MOVE_WATER_GUN); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_WATER_GUN, player);
@@ -57,10 +57,10 @@ SINGLE_BATTLE_TEST("Weather Ball stays Fire-type under real weather if user has 
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_WEATHER_BALL) == EFFECT_WEATHER_BALL);
         ASSUME(GetSpeciesType(SPECIES_BELDUM, 0) == TYPE_STEEL || GetSpeciesType(SPECIES_BELDUM, 1) == TYPE_STEEL);
-        PLAYER(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE); }
+        PLAYER(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); }
         OPPONENT(SPECIES_BELDUM);
     } WHEN {
-        TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_MEGA); }
+        TURN { MOVE(player, MOVE_CELEBRATE); }
         TURN { MOVE(opponent, weatherMove); }
         TURN { MOVE(player, MOVE_WEATHER_BALL); }
     } SCENE {
@@ -78,10 +78,10 @@ SINGLE_BATTLE_TEST("Weather Ball doubles its power and turns to a Fire-type move
         ASSUME(GetMoveEffect(MOVE_WEATHER_BALL) == EFFECT_WEATHER_BALL);
         ASSUME(GetMoveEffect(MOVE_SKILL_SWAP) == EFFECT_SKILL_SWAP);
         ASSUME(GetSpeciesType(SPECIES_PINSIR, 0) == TYPE_BUG || GetSpeciesType(SPECIES_PINSIR, 1) == TYPE_BUG);
-        PLAYER(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE); }
+        PLAYER(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); }
         OPPONENT(SPECIES_PINSIR){HP(9999); MaxHP(9999);}
     } WHEN {
-        TURN { MOVE(player, MOVE_WEATHER_BALL, gimmick: GIMMICK_MEGA); MOVE(opponent, MOVE_SKILL_SWAP); }
+        TURN { MOVE(player, MOVE_WEATHER_BALL); MOVE(opponent, MOVE_SKILL_SWAP); }
         TURN { MOVE(player, MOVE_WEATHER_BALL); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_WEATHER_BALL, player);
@@ -104,10 +104,10 @@ SINGLE_BATTLE_TEST("Synthesis, Morning Sun and Moonlight recover 2/3 of the user
 
     GIVEN {
         ASSUME(GetMoveEffect(move) == effect);
-        PLAYER(SPECIES_MEGANIUM) { HP(1); MaxHP(300); Item(ITEM_MEGANIUMITE); }
+        PLAYER(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); HP(1); MaxHP(300); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, move, gimmick: GIMMICK_MEGA); }
+        TURN { MOVE(player, move); }
     } SCENE {
         HP_BAR(player, damage: -(300 * 2 / 3));
     }
@@ -122,10 +122,10 @@ SINGLE_BATTLE_TEST("Mega Sol ignores Sandstorm's solarbeam power reduction, and 
         ASSUME(GetMoveType(MOVE_SOLARBEAM) == TYPE_GRASS);
         ASSUME(GetMoveEffect(MOVE_SKILL_SWAP) == EFFECT_SKILL_SWAP);
         ASSUME(GetSpeciesType(SPECIES_BASTIODON, 0) == TYPE_ROCK || GetSpeciesType(SPECIES_BASTIODON, 1) == TYPE_ROCK);
-        PLAYER(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE); }
+        PLAYER(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); }
         OPPONENT(SPECIES_BASTIODON) { Ability(ABILITY_SAND_STREAM);}
     } WHEN {
-        TURN { MOVE(player, MOVE_SOLAR_BEAM, gimmick: GIMMICK_MEGA); MOVE(opponent, MOVE_SKILL_SWAP); }
+        TURN { MOVE(player, MOVE_SOLAR_BEAM); MOVE(opponent, MOVE_SKILL_SWAP); }
         TURN { MOVE(player, MOVE_SOLAR_BEAM); }
         TURN { SKIP_TURN(player); }
     } SCENE {
@@ -148,10 +148,10 @@ SINGLE_BATTLE_TEST("Mega Sol ignores Snow's Ice-type Defense boost")
         ASSUME(IsBattleMovePhysical(MOVE_SCRATCH));
         ASSUME(GetMoveEffect(MOVE_SKILL_SWAP) == EFFECT_SKILL_SWAP);
         ASSUME(GetSpeciesType(SPECIES_VANILLUXE, 0) == TYPE_ICE || GetSpeciesType(SPECIES_VANILLUXE, 1) == TYPE_ICE);
-        PLAYER(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE); }
+        PLAYER(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); }
         OPPONENT(SPECIES_VANILLUXE) { Ability(ABILITY_SNOW_WARNING); }
     } WHEN {
-        TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_MEGA); }
+        TURN { MOVE(player, MOVE_CELEBRATE); }
         TURN { MOVE(player, MOVE_SCRATCH); }
         TURN { MOVE(opponent, MOVE_SKILL_SWAP); }
         TURN { MOVE(player, MOVE_SCRATCH); }
@@ -176,10 +176,10 @@ SINGLE_BATTLE_TEST("Mega Sol doesn't trigger the foe's Leaf Guard", s16 damage)
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_WILL_O_WISP) == EFFECT_NON_VOLATILE_STATUS);
         ASSUME(GetMoveNonVolatileStatus(MOVE_WILL_O_WISP) == MOVE_EFFECT_BURN);
-        PLAYER(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE);}
+        PLAYER(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); }
         OPPONENT(SPECIES_LEAFEON) { Ability(ABILITY_LEAF_GUARD);}
     } WHEN {
-        TURN { MOVE(player, move, gimmick: GIMMICK_MEGA); }
+        TURN { MOVE(player, move); }
         TURN { MOVE(player, MOVE_WILL_O_WISP); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, move, player);
@@ -210,10 +210,10 @@ SINGLE_BATTLE_TEST("Mega Sol ignores Cloud Nine")
     GIVEN {
         ASSUME(GetMoveType(MOVE_EMBER) == TYPE_FIRE);
         ASSUME(GetMoveEffect(MOVE_SKILL_SWAP) == EFFECT_SKILL_SWAP);
-        PLAYER(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE);}
+        PLAYER(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); }
         OPPONENT(species) { Ability(ability); }
     } WHEN {
-        TURN { MOVE(player, MOVE_EMBER, gimmick: GIMMICK_MEGA); MOVE(opponent, MOVE_SKILL_SWAP); }
+        TURN { MOVE(player, MOVE_EMBER); MOVE(opponent, MOVE_SKILL_SWAP); }
         TURN { MOVE(player, MOVE_EMBER); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, player);
@@ -236,10 +236,10 @@ SINGLE_BATTLE_TEST("Mega Sol lowers the user's Thunder and Hurricane accuracy to
     GIVEN {
         ASSUME(GetMoveAccuracy(move) == 70);
         ASSUME(MoveHas50AccuracyInSun(move) == TRUE);
-        PLAYER(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE); }
+        PLAYER(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, move, gimmick: GIMMICK_MEGA); }
+        TURN { MOVE(player, move); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, move, player);
         HP_BAR(opponent);
@@ -258,9 +258,9 @@ SINGLE_BATTLE_TEST("Mega Sol lowers the user's Thunder and Hurricane accuracy to
         ASSUME(MoveAlwaysHitsInRain(move) == TRUE);
         ASSUME(MoveHas50AccuracyInSun(move) == TRUE);
         PLAYER(SPECIES_PELIPPER) { Ability(ABILITY_DRIZZLE); }
-        OPPONENT(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE); }
+        OPPONENT(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); }
     } WHEN {
-        TURN { MOVE(opponent, move, gimmick: GIMMICK_MEGA); }
+        TURN { MOVE(opponent, move); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         HP_BAR(player);
@@ -273,10 +273,10 @@ SINGLE_BATTLE_TEST("Mega Sol ignores Sand Veil's accuracy drop")
     GIVEN {
         ASSUME(GetMoveAccuracy(MOVE_SCRATCH) == 100);
         PLAYER(SPECIES_SANDSHREW) { Ability(ABILITY_SAND_VEIL); }
-        OPPONENT(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE); }
+        OPPONENT(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); }
     } WHEN {
         TURN { MOVE(player, MOVE_SANDSTORM); }
-        TURN { MOVE(opponent, MOVE_SCRATCH, gimmick: GIMMICK_MEGA); }
+        TURN { MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SANDSTORM, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
@@ -290,10 +290,10 @@ SINGLE_BATTLE_TEST("Mega Sol ignores Snow Cloak's accuracy drop")
     GIVEN {
         ASSUME(GetMoveAccuracy(MOVE_SCRATCH) == 100);
         PLAYER(SPECIES_GLACEON) { Ability(ABILITY_SNOW_CLOAK); }
-        OPPONENT(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE); }
+        OPPONENT(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); }
     } WHEN {
         TURN { MOVE(player, MOVE_HAIL); }
-        TURN { MOVE(opponent, MOVE_SCRATCH, gimmick: GIMMICK_MEGA); }
+        TURN { MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HAIL, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
@@ -306,10 +306,10 @@ SINGLE_BATTLE_TEST("Mega Sol: Solar Beam does not need a charging turn if user h
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_SOLARBEAM) == EFFECT_SOLAR_BEAM);
         ASSUME(GetMoveType(MOVE_SOLARBEAM) == TYPE_GRASS);
-        PLAYER(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE); }
+        PLAYER(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_SOLAR_BEAM, gimmick: GIMMICK_MEGA); }
+        TURN { MOVE(player, MOVE_SOLAR_BEAM); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SOLAR_BEAM, player);
         HP_BAR(opponent);
@@ -322,10 +322,10 @@ SINGLE_BATTLE_TEST("Mega Sol: Growth increases Attack and Sp. Atk by 2 stages un
     GIVEN {
         WITH_CONFIG(B_GROWTH_STAT_RAISE, GEN_1);
         ASSUME(GetMoveEffect(MOVE_GROWTH) == EFFECT_GROWTH);
-        PLAYER(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE); }
+        PLAYER(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_GROWTH, gimmick: GIMMICK_MEGA); }
+        TURN { MOVE(player, MOVE_GROWTH); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWTH, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
@@ -342,9 +342,9 @@ SINGLE_BATTLE_TEST("Mega Sol doesn't prevent other weather based activations (El
         ASSUME(GetMoveTwoTurnAttackWeather(MOVE_ELECTRO_SHOT) == B_WEATHER_RAIN);
         ASSUME(GetMoveEffect(MOVE_ELECTRO_SHOT) == EFFECT_TWO_TURNS_ATTACK);
         PLAYER(SPECIES_KYOGRE) { Ability(ABILITY_DRIZZLE); }
-        OPPONENT(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE); }
+        OPPONENT(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); }
     } WHEN {
-        TURN { MOVE(opponent, MOVE_ELECTRO_SHOT, gimmick: GIMMICK_MEGA); }
+        TURN { MOVE(opponent, MOVE_ELECTRO_SHOT); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ELECTRO_SHOT, opponent);
         HP_BAR(player);
@@ -357,9 +357,9 @@ SINGLE_BATTLE_TEST("Mega Sol doesn't prevent other weather based activations (Au
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_AURORA_VEIL) == EFFECT_AURORA_VEIL);
         PLAYER(SPECIES_ABOMASNOW) { Ability(ABILITY_SNOW_WARNING); }
-        OPPONENT(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE); }
+        OPPONENT(SPECIES_MEGANIUM_MEGA) { Ability(ABILITY_MEGA_SOL); }
     } WHEN {
-        TURN { MOVE(opponent, MOVE_AURORA_VEIL, gimmick: GIMMICK_MEGA); }
+        TURN { MOVE(opponent, MOVE_AURORA_VEIL); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_AURORA_VEIL, opponent);
     }
