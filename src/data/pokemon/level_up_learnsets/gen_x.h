@@ -16586,7 +16586,7 @@ static const struct LevelUpMove sPyroarMaleLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sPyroarFemaleLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 0, MOVE_TEMPER_FLAME),
+    LEVEL_UP_MOVE( 0, MOVE_TEMPER_FLARE),
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_LEER),
     LEVEL_UP_MOVE( 1, MOVE_EMBER),
