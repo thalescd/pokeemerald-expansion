@@ -1797,22 +1797,23 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .levelUpLearnset = sLitleoLevelUpLearnset,
         .teachableLearnset = sLitleoTeachableLearnset,
         .eggMoveLearnset = sLitleoEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_PYROAR}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_PYROAR_M, CONDITIONS({IF_GENDER, MON_MALE})},
+                               {EVO_LEVEL, 35, SPECIES_PYROAR_F, CONDITIONS({IF_GENDER, MON_FEMALE})}),
     },
 
-    [SPECIES_PYROAR] =
+    [SPECIES_PYROAR_M] =
     {
         .baseHP        = 86,
         .baseAttack    = 68,
-        .baseDefense   = 72,
+        .baseDefense   = 82,
         .baseSpeed     = 106,
         .baseSpAttack  = 109,
-        .baseSpDefense = 66,
+        .baseSpDefense = 76,
         .types = MON_TYPES(TYPE_FIRE, TYPE_NORMAL),
         .catchRate = 65,
         .expYield = 177,
         .evYield_SpAttack = 2,
-        .genderRatio = PERCENT_FEMALE(87.5),
+        .genderRatio = MON_MALE,
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
@@ -1850,14 +1851,6 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .shinyPalette = gMonShinyPalette_Pyroar,
         .iconSprite = gMonIcon_Pyroar,
         .iconPalIndex = 2,
-#if P_GENDER_DIFFERENCES
-        .frontPicFemale = gMonFrontPic_PyroarF,
-        .frontPicSizeFemale = MON_COORDS_SIZE(64, 64),
-        .backPicFemale = gMonBackPic_PyroarF,
-        .backPicSizeFemale = MON_COORDS_SIZE(64, 64),
-        .iconSpriteFemale = gMonIcon_PyroarF,
-        .iconPalIndexFemale = 2,
-#endif //P_GENDER_DIFFERENCES
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-2, 11, SHADOW_SIZE_XL_BATTLE_ONLY)
         FOOTPRINT(Pyroar)
@@ -1870,17 +1863,76 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
             gOverworldPalette_Pyroar,
             gShinyOverworldPalette_Pyroar
         )
-        OVERWORLD_FEMALE(
+        .levelUpLearnset = sPyroarLevelUpLearnset,
+        .teachableLearnset = sPyroarTeachableLearnset,
+        .formSpeciesIdTable = sPyroarFormSpeciesIdTable,
+    },
+
+    [SPECIES_PYROAR_F] =
+    {
+        .baseHP        = 86,
+        .baseAttack    = 119,
+        .baseDefense   = 72,
+        .baseSpeed     = 116,
+        .baseSpAttack  = 68,
+        .baseSpDefense = 66,
+        .types = MON_TYPES(TYPE_FIRE, TYPE_NORMAL),
+        .catchRate = 65,
+        .expYield = 177,
+        .evYield_Attack = 2,
+        .genderRatio = MON_FEMALE,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+        .abilities = { ABILITY_RIVALRY, ABILITY_UNNERVE, ABILITY_MOXIE },
+        .bodyColor = BODY_COLOR_BROWN,
+        .speciesName = _("Pyroar"),
+        .cryId = CRY_PYROAR,
+        .natDexNum = NATIONAL_DEX_PYROAR,
+        .categoryName = _("Royal"),
+        .height = 15,
+        .weight = 815,
+        .description = COMPOUND_STRING(
+            "The male with the largest mane of fire\n"
+            "is the leader of the pride. The females\n"
+            "protect the pride's cubs. They viciously\n"
+            "threaten any challenger."),
+        .pokemonScale = 268,
+        .pokemonOffset = 2,
+        .trainerScale = 271,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_PyroarF,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = ANIM_FRAMES(
+            ANIMCMD_FRAME(1, 45),
+            ANIMCMD_FRAME(0, 5),
+        ),
+        .frontAnimId = ANIM_V_SHAKE,
+        .backPic = gMonBackPic_PyroarF,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 3,
+        .backAnimId = BACK_ANIM_H_STRETCH,
+        .palette = gMonPalette_Pyroar,
+        .shinyPalette = gMonShinyPalette_Pyroar,
+        .iconSprite = gMonIcon_PyroarF,
+        .iconPalIndex = 2,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-2, 11, SHADOW_SIZE_XL_BATTLE_ONLY)
+        FOOTPRINT(Pyroar)
+        OVERWORLD(
             sPicTable_PyroarF,
             SIZE_32x32,
             SHADOW_SIZE_M,
             TRACKS_FOOT,
-            sAnimTable_Following
+            sAnimTable_Following,
+            gOverworldPalette_Pyroar,
+            gShinyOverworldPalette_Pyroar
         )
         .levelUpLearnset = sPyroarLevelUpLearnset,
         .teachableLearnset = sPyroarTeachableLearnset,
         .formSpeciesIdTable = sPyroarFormSpeciesIdTable,
-        .formChangeTable = sPyroarFormChangeTable,
     },
 
 #if P_GEN_9_MEGA_EVOLUTIONS
@@ -1937,8 +1989,8 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .isMegaEvolution = TRUE,
         .levelUpLearnset = sPyroarLevelUpLearnset,
         .teachableLearnset = sPyroarTeachableLearnset,
-        .formSpeciesIdTable = sPyroarFormSpeciesIdTable,
-        .formChangeTable = sPyroarFormChangeTable,
+        //.formSpeciesIdTable = sPyroarFormSpeciesIdTable,
+        //.formChangeTable = sPyroarFormChangeTable,
     },
 #endif //P_GEN_9_MEGA_EVOLUTIONS
 #endif //P_FAMILY_LITLEO

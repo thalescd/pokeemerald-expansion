@@ -1631,10 +1631,8 @@ static const u16 sVivillonFormSpeciesIdTable[] = {
 
 #if P_FAMILY_LITLEO
 static const u16 sPyroarFormSpeciesIdTable[] = {
-    SPECIES_PYROAR,
-#if P_GEN_9_MEGA_EVOLUTIONS
-    SPECIES_PYROAR_MEGA,
-#endif
+    SPECIES_PYROAR_M,
+    SPECIES_PYROAR_F,
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_LITLEO

@@ -4694,11 +4694,9 @@ static const struct SpriteFrameImage sPicTable_Litleo[] = {
 static const struct SpriteFrameImage sPicTable_Pyroar[] = {
     overworld_ascending_frames(gObjectEventPic_Pyroar, 4, 4),
 };
-#if P_GENDER_DIFFERENCES
 static const struct SpriteFrameImage sPicTable_PyroarF[] = {
     overworld_ascending_frames(gObjectEventPic_PyroarF, 4, 4),
 };
-#endif //P_GENDER_DIFFERENCES
 #endif //P_FAMILY_LITLEO
 
 #if P_FAMILY_FLABEBE

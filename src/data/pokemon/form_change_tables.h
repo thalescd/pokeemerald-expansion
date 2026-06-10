@@ -1236,17 +1236,6 @@ static const struct FormChange sGreninjaBattleBondFormChangeTable[] =
 };
 #endif //P_FAMILY_FROAKIE
 
-#if P_FAMILY_LITLEO
-static const struct FormChange sPyroarFormChangeTable[] =
-{
-#if P_GEN_9_MEGA_EVOLUTIONS
-    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_PYROAR_MEGA, ITEM_PYROARITE},
-#endif
-    {FORM_CHANGE_FAINT,                         SPECIES_PYROAR},
-    {FORM_CHANGE_END_BATTLE,                    SPECIES_PYROAR},
-    {FORM_CHANGE_TERMINATOR},
-};
-#endif //P_FAMILY_LITLEO
 
 #if P_FAMILY_FLABEBE
 static const struct FormChange sFloetteEternalFormChangeTable[] =

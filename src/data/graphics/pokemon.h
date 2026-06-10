@@ -20012,14 +20012,12 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 
-#if P_GENDER_DIFFERENCES
     const u32 gMonFrontPic_PyroarF[] = INCGFX_U32("graphics/pokemon/pyroar/anim_frontf.png", ".4bpp.smol");
     const u32 gMonBackPic_PyroarF[] = INCGFX_U32("graphics/pokemon/pyroar/backf.png", ".4bpp.smol");
     const u8 gMonIcon_PyroarF[] = INCGFX_U8("graphics/pokemon/pyroar/iconf.png", ".4bpp");
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_PyroarF[] = INCGFX_COMP("graphics/pokemon/pyroar/overworldf.png", ".4bpp", "-mwidth 4 -mheight 4");
 #endif //OW_POKEMON_OBJECT_EVENTS
-#endif //P_GENDER_DIFFERENCES
 
 #if P_GEN_9_MEGA_EVOLUTIONS
     const u32 gMonFrontPic_PyroarMega[] = INCGFX_U32("graphics/pokemon/pyroar/mega/front.png", ".4bpp.smol");
