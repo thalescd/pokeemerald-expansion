@@ -1748,7 +1748,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_RIVALRY, ABILITY_UNNERVE, ABILITY_COMPETITIVE },
+        .abilities = { ABILITY_RIVALRY, ABILITY_UNNERVE, ABILITY_MOXIE },
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Litleo"),
         .cryId = CRY_LITLEO,
@@ -1863,7 +1863,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
             gOverworldPalette_Pyroar,
             gShinyOverworldPalette_Pyroar
         )
-        .levelUpLearnset = sPyroarLevelUpLearnset,
+        .levelUpLearnset = sPyroarMaleLevelUpLearnset,
         .teachableLearnset = sPyroarTeachableLearnset,
         .formSpeciesIdTable = sPyroarFormSpeciesIdTable,
     },
@@ -1930,7 +1930,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
             gOverworldPalette_Pyroar,
             gShinyOverworldPalette_Pyroar
         )
-        .levelUpLearnset = sPyroarLevelUpLearnset,
+        .levelUpLearnset = sPyroarFemaleLevelUpLearnset,
         .teachableLearnset = sPyroarTeachableLearnset,
         .formSpeciesIdTable = sPyroarFormSpeciesIdTable,
     },
@@ -1987,7 +1987,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         FOOTPRINT(Pyroar)
         SHADOW(-1, 12, SHADOW_SIZE_L)
         .isMegaEvolution = TRUE,
-        .levelUpLearnset = sPyroarLevelUpLearnset,
+        .levelUpLearnset = sPyroarMaleLevelUpLearnset,
         .teachableLearnset = sPyroarTeachableLearnset,
         //.formSpeciesIdTable = sPyroarFormSpeciesIdTable,
         //.formChangeTable = sPyroarFormChangeTable,
