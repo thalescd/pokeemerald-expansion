@@ -5274,9 +5274,9 @@ Ability: Unburden
 Level: 54
 Adamant Nature
 - Close Combat
-- Acrobatics
-- Swords Dance
+- Brave Bird
 - Throat Chop
+- Swords Dance
 
 Scizor @ Lum Berry
 Ability: Technician
@@ -5303,7 +5303,7 @@ Modest Nature
 IVs: 0 Atk
 - Dragon Pulse
 - Moonblast
-- Flamethrower
+- Fire Blast
 - Roost
 
 === TRAINER_TATE_AND_LIZA_1 ===

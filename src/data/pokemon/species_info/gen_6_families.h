@@ -1827,10 +1827,10 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .height = 15,
         .weight = 815,
         .description = COMPOUND_STRING(
-            "The male with the largest mane of fire\n"
-            "is the leader of the pride. The females\n"
-            "protect the pride's cubs. They viciously\n"
-            "threaten any challenger."),
+            "The temperature of its breath is over\n"
+            "10,000 degrees Fahrenheit, but Pyroar\n"
+            "doesn't use it on its prey.\n"
+            "This Pokémon prefers to eat raw meat.""),
         .pokemonScale = 268,
         .pokemonOffset = 2,
         .trainerScale = 271,

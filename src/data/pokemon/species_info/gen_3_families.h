@@ -7853,8 +7853,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 #if P_MEGA_EVOLUTIONS
     [SPECIES_ALTARIA_MEGA] =
     {
-        .baseHP        = 75,
-        .baseAttack    = 75,
+        .baseHP        = 80,
+        .baseAttack    = 70,
         .baseDefense   = 105,
         .baseSpeed     = 70,
         .baseSpAttack  = 110,
