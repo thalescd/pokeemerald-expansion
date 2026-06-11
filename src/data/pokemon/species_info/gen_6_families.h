@@ -1798,7 +1798,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .teachableLearnset = sLitleoTeachableLearnset,
         .eggMoveLearnset = sLitleoEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_PYROAR_M, CONDITIONS({IF_GENDER, MON_MALE})},
-                               {EVO_LEVEL, 35, SPECIES_PYROAR_F, CONDITIONS({IF_GENDER, MON_FEMALE})}),
+                                {EVO_LEVEL, 35, SPECIES_PYROAR_F, CONDITIONS({IF_GENDER, MON_FEMALE})}),
     },
 
     [SPECIES_PYROAR_M] =
@@ -1830,7 +1830,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
             "The temperature of its breath is over\n"
             "10,000 degrees Fahrenheit, but Pyroar\n"
             "doesn't use it on its prey.\n"
-            "This Pokémon prefers to eat raw meat.""),
+            "This Pokémon prefers to eat raw meat."),
         .pokemonScale = 268,
         .pokemonOffset = 2,
         .trainerScale = 271,

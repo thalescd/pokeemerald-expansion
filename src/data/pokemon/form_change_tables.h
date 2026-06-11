@@ -1793,17 +1793,17 @@ static const struct FormChange sAppletunFormChangeTable[] =
 };
 #endif //P_FAMILY_APPLIN
 
-#if P_FAMILY_SILICOBRA
-static const struct FormChange sSandacondaFormChangeTable[] =
-{
-#if P_GIGANTAMAX_FORMS
-    {FORM_CHANGE_BATTLE_GIGANTAMAX, SPECIES_SANDACONDA_GMAX},
-#endif
-    {FORM_CHANGE_FAINT,             SPECIES_SANDACONDA},
-    {FORM_CHANGE_END_BATTLE,        SPECIES_SANDACONDA},
-    {FORM_CHANGE_TERMINATOR},
-};
-#endif //P_FAMILY_SILICOBRA
+//#if P_FAMILY_SILICOBRA
+//static const struct FormChange sSandacondaFormChangeTable[] =
+//{
+//#if P_GIGANTAMAX_FORMS
+//    {FORM_CHANGE_BATTLE_GIGANTAMAX, SPECIES_SANDACONDA_GMAX},
+//#endif
+//    {FORM_CHANGE_FAINT,             SPECIES_SANDACONDA},
+//    {FORM_CHANGE_END_BATTLE,        SPECIES_SANDACONDA},
+//    {FORM_CHANGE_TERMINATOR},
+//};
+//#endif //P_FAMILY_SILICOBRA
 
 #if P_FAMILY_CRAMORANT
 static const struct FormChange sCramorantFormChangeTable[] =

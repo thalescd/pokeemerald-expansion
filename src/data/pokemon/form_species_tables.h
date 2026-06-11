@@ -2155,15 +2155,15 @@ static const u16 sAppletunFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_APPLIN
 
-#if P_FAMILY_SILICOBRA
-static const u16 sSandacondaFormSpeciesIdTable[] = {
-    SPECIES_SANDACONDA,
-#if P_GIGANTAMAX_FORMS
-    SPECIES_SANDACONDA_GMAX,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_SILICOBRA
+//#if P_FAMILY_SILICOBRA
+//static const u16 sSandacondaFormSpeciesIdTable[] = {
+//    SPECIES_SANDACONDA,
+//#if P_GIGANTAMAX_FORMS
+//    SPECIES_SANDACONDA_GMAX,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//#endif //P_FAMILY_SILICOBRA
 
 #if P_FAMILY_CRAMORANT
 static const u16 sCramorantFormSpeciesIdTable[] = {

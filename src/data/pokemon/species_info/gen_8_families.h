@@ -2914,7 +2914,8 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sSilicobraLevelUpLearnset,
         .teachableLearnset = sSilicobraTeachableLearnset,
         .eggMoveLearnset = sSilicobraEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_SANDACONDA}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_SANDACONDA},
+                                {EVO_LEVEL, 0, SPECIES_SANDACONDA_GMAX, CONDITIONS({IF_HOLD_ITEM, ITEM_FLOAT_STONE})}),
     },
 
     [SPECIES_SANDACONDA] =
@@ -2978,41 +2979,41 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sSandacondaLevelUpLearnset,
         .teachableLearnset = sSandacondaTeachableLearnset,
-        .formSpeciesIdTable = sSandacondaFormSpeciesIdTable,
-        .formChangeTable = sSandacondaFormChangeTable,
+        //.formSpeciesIdTable = sSandacondaFormSpeciesIdTable,
+        //.formChangeTable = sSandacondaFormChangeTable,
     },
 
 #if P_GIGANTAMAX_FORMS
     [SPECIES_SANDACONDA_GMAX] =
     {
         .baseHP        = 72,
-        .baseAttack    = 107,
-        .baseDefense   = 125,
-        .baseSpeed     = 71,
+        .baseAttack    = 112,
+        .baseDefense   = 120,
+        .baseSpeed     = 81,
         .baseSpAttack  = 65,
         .baseSpDefense = 70,
-        .types = MON_TYPES(TYPE_GROUND),
-        .catchRate = 120,
-        .expYield = 179,
+        .types = MON_TYPES(TYPE_GROUND, TYPE_FLYING),
+        .catchRate = 90,
+        .expYield = 192,
         .evYield_Defense = 2,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_SAND_SPIT, ABILITY_SHED_SKIN, ABILITY_SAND_VEIL },
+        .abilities = { ABILITY_SAND_SPIT, ABILITY_SHED_SKIN, ABILITY_QUICKEN },
         .bodyColor = BODY_COLOR_GREEN,
-        .speciesName = _("Sandaconda"),
+        .speciesName = _("Cyclonda"),
         .cryId = CRY_SANDACONDA,
-        .natDexNum = NATIONAL_DEX_SANDACONDA,
-        .categoryName = _("Sand Snake"),
+        .natDexNum = NATIONAL_DEX_SANDACONDA_GMAX,
+        .categoryName = _("Cyclone"),
         .height = 220,
         .weight = 0,
         .description = COMPOUND_STRING(
             "Its sand pouch has grown to tremendous\n"
-            "proportions. More than 1,000,000 tons of\n"
-            "sand now swirl around its body with enough\n"
-            "speed and power to pulverize a skyscraper."),
+            "proportions. With the rotational power of the\n"
+            "sand that now swirls around its body, it has\n"
+            "enough speed and power to pulverize rocks."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 610,
@@ -3033,11 +3034,11 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(0, 14, SHADOW_SIZE_M)
         FOOTPRINT(Sandaconda)
-        .isGigantamax = TRUE,
+        //.isGigantamax = TRUE,
         .levelUpLearnset = sSandacondaLevelUpLearnset,
         .teachableLearnset = sSandacondaTeachableLearnset,
-        .formSpeciesIdTable = sSandacondaFormSpeciesIdTable,
-        .formChangeTable = sSandacondaFormChangeTable,
+        //.formSpeciesIdTable = sSandacondaFormSpeciesIdTable,
+        //.formChangeTable = sSandacondaFormChangeTable,
     },
 #endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_SILICOBRA
