@@ -5065,6 +5065,7 @@ static const u16 sLitleoEggMoveLearnset[] = {
     MOVE_FIRE_SPIN,
     MOVE_FLARE_BLITZ,
     MOVE_FIRE_FANG,
+    MOVE_THUNDER_FANG,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_LITLEO

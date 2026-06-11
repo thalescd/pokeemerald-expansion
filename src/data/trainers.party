@@ -6400,6 +6400,9 @@ AI: Basic Trainer
 Drampa
 Level: 36
 
+Carnivine
+Level: 36
+
 === TRAINER_DILLON ===
 Name: DILLON
 Class: Youngster
@@ -6898,14 +6901,38 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Arbok
-Level: 28
+Hitmonlee @ Expert Belt
+Ability: Limber
+Level: 30
+Jolly Nature
+- Thunderous Kick
+- Blaze Kick
+- Rock Tomb
+- Sucker Punch
 
-Carnivine
-Level: 28
+Ninjask @ Silver Powder
+Ability: Speed Boost
+Level: 29
+Adamant Nature
+- U-turn
 
-Bewear
-Level: 28
+Dugtrio @ Soft Sand
+Ability: Arena Trap
+Level: 30
+Jolly Nature
+- Mud Bomb
+- Rock Slide
+- Night Slash
+- Swagger
+
+Graveler-Alola @ Hard Stone
+Ability: Magnet Pull
+Level: 30
+Adamant Nature
+- Rock Slide
+- Thunder Punch
+- Brick Break
+- Screech
 
 === TRAINER_ANTHONY ===
 Name: ANTHONY
@@ -12772,8 +12799,12 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Ninetales
+Pyroar (F)
 Level: 38
+- Temper Flare
+- Crunch
+- Take Down
+- Thunder Fang
 
 Primeape
 Level: 38
@@ -14107,6 +14138,9 @@ Level: 31
 - Acrobatics
 - Bullet Seed
 
+Bewear
+Level: 31
+
 === TRAINER_HAYDEN ===
 Name: HAYDEN
 Class: Kindler
@@ -14123,6 +14157,10 @@ Level: 32
 - Giga Drain
 - Scorching Sands
 - Thunder Punch
+
+Arbok
+Ability: Intimidate
+Level: 31
 
 === TRAINER_SOPHIE ===
 Name: SOPHIE
