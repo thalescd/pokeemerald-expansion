@@ -3008,12 +3008,12 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .natDexNum = NATIONAL_DEX_SANDACONDA_GMAX,
         .categoryName = _("Cyclone"),
         .height = 220,
-        .weight = 0,
+        .weight = 655,
         .description = COMPOUND_STRING(
             "Its sand pouch has grown to tremendous\n"
-            "proportions. With the rotational power of the\n"
-            "sand that now swirls around its body, it has\n"
-            "enough speed and power to pulverize rocks."),
+            "proportions. With the rotational power of\n"
+            "the sand that now swirls around its body,\n"
+            "it has enough power to pulverize rocks."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 610,
@@ -3035,7 +3035,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         SHADOW(0, 14, SHADOW_SIZE_M)
         FOOTPRINT(Sandaconda)
         //.isGigantamax = TRUE,
-        .levelUpLearnset = sSandacondaLevelUpLearnset,
+        .levelUpLearnset = sSandacondaGmaxLevelUpLearnset,
         .teachableLearnset = sSandacondaTeachableLearnset,
         //.formSpeciesIdTable = sSandacondaFormSpeciesIdTable,
         //.formChangeTable = sSandacondaFormChangeTable,
