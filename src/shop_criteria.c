@@ -8,8 +8,8 @@
 static EWRAM_DATA const u16 *sDynamicShopItemListRef = NULL;
 
 // Remove the UNUSED if you'll use the functions!
-static UNUSED bool32 ShopCriteriaByBadgeCount(u32 count);
-static UNUSED bool32 ShopCriteriaByFlag(u32 flagId);
+static bool32 ShopCriteriaByBadgeCount(u32 count);
+static bool32 ShopCriteriaByFlag(u32 flagId);
 static UNUSED bool32 ShopCriteriaByVar(u32 varId, u32 varValue);
 
 void TryBuildDynamicShopItemList(const u16 **ogItemList, u16 *resultingTotal)
@@ -46,7 +46,14 @@ void TryFreeDynamicShopItemList(const u16 **ogItemList)
 
 // Add new Criterias below!
 
-static UNUSED bool32 ShopCriteriaByBadgeCount(u32 count)
+bool32 ShopCriteriaHasPokedex(enum Item item)  { return ShopCriteriaByFlag(FLAG_ADVENTURE_STARTED); }
+bool32 ShopCriteriaAfter1Badge(enum Item item)  { return ShopCriteriaByBadgeCount(1); }
+bool32 ShopCriteriaAfter2Badges(enum Item item) { return ShopCriteriaByBadgeCount(2); }
+bool32 ShopCriteriaAfter3Badges(enum Item item) { return ShopCriteriaByBadgeCount(3); }
+bool32 ShopCriteriaAfter4Badges(enum Item item) { return ShopCriteriaByBadgeCount(4); }
+bool32 ShopCriteriaAfter5Badges(enum Item item) { return ShopCriteriaByBadgeCount(5); }
+
+static bool32 ShopCriteriaByBadgeCount(u32 count)
 {
     u32 badgeCount = 0;
 
@@ -66,7 +73,7 @@ static UNUSED bool32 ShopCriteriaByBadgeCount(u32 count)
 // but uses only one specific event var/flag check. Useful if you need
 // a specific badge flag instead of just the badge total.
 
-static UNUSED bool32 ShopCriteriaByFlag(u32 flagId)
+static bool32 ShopCriteriaByFlag(u32 flagId)
 {
     if (FlagGet(flagId))
         return TRUE;
