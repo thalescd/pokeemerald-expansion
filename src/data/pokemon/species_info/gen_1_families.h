@@ -12919,23 +12919,24 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sKinglerLevelUpLearnset,
         .teachableLearnset = sKinglerTeachableLearnset,
-        .formSpeciesIdTable = sKinglerFormSpeciesIdTable,
-        .formChangeTable = sKinglerFormChangeTable,
+        //.formSpeciesIdTable = sKinglerFormSpeciesIdTable,
+        //.formChangeTable = sKinglerFormChangeTable,
+        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_KINGLER_GMAX, CONDITIONS({IF_KNOWS_MOVE, MOVE_ANCIENT_POWER})}),
     },
 
 #if P_GIGANTAMAX_FORMS
     [SPECIES_KINGLER_GMAX] =
     {
-        .baseHP        = 55,
-        .baseAttack    = 130,
-        .baseDefense   = 115,
-        .baseSpeed     = 75,
-        .baseSpAttack  = 50,
-        .baseSpDefense = 50,
+        .baseHP        = 80,
+        .baseAttack    = 140,
+        .baseDefense   = 120,
+        .baseSpeed     = 67,
+        .baseSpAttack  = 45,
+        .baseSpDefense = 88,
         .types = MON_TYPES(TYPE_WATER),
-        .catchRate = 60,
-        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 166 : 206,
-        .evYield_Attack = 2,
+        .catchRate = 45,
+        .expYield = 206,
+        .evYield_Attack = 3,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
@@ -12944,17 +12945,17 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .abilities = { ABILITY_HYPER_CUTTER, ABILITY_SHELL_ARMOR, ABILITY_SHEER_FORCE },
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,
-        .speciesName = _("Kingler"),
+        .speciesName = _("Elderclaw"),
         .cryId = CRY_KINGLER,
-        .natDexNum = NATIONAL_DEX_KINGLER,
+        .natDexNum = NATIONAL_DEX_KINGLER_GMAX,
         .categoryName = _("Pincer"),
-        .height = 190,
-        .weight = 0,
+        .height = 19,
+        .weight = 720,
         .description = COMPOUND_STRING(
-            "The flow of Gigantamax energy has\n"
-            "spurred this Pokémon's left pincer\n"
-            "to grow to an enormous size. That\n"
-            "claw can pulverize anything."),
+            "The bubbles it spews out are\n"
+            "strongly alkaline. Any opponents\n"
+            "hit by them will have their\n"
+            "bodies quickly melted away."),
         .pokemonScale = 256,
         .pokemonOffset = 2,
         .trainerScale = 256,
@@ -12975,11 +12976,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-3, 10, SHADOW_SIZE_XL_BATTLE_ONLY)
         FOOTPRINT(Kingler)
-        .isGigantamax = TRUE,
-        .levelUpLearnset = sKinglerLevelUpLearnset,
+        //.isGigantamax = TRUE,
+        .levelUpLearnset = sKinglerGmaxLevelUpLearnset,
         .teachableLearnset = sKinglerTeachableLearnset,
-        .formSpeciesIdTable = sKinglerFormSpeciesIdTable,
-        .formChangeTable = sKinglerFormChangeTable,
+        //.formSpeciesIdTable = sKinglerFormSpeciesIdTable,
+        //.formChangeTable = sKinglerFormChangeTable,
     },
 #endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_KRABBY

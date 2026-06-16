@@ -3007,7 +3007,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .cryId = CRY_SANDACONDA,
         .natDexNum = NATIONAL_DEX_SANDACONDA_GMAX,
         .categoryName = _("Cyclone"),
-        .height = 220,
+        .height = 38,
         .weight = 655,
         .description = COMPOUND_STRING(
             "Its sand pouch has grown to tremendous\n"

@@ -190,17 +190,17 @@ static const struct FormChange sGengarFormChangeTable[] =
 //#endif //P_GEN_2_CROSS_EVOS
 //#endif //P_FAMILY_ONIX
 
-#if P_FAMILY_KRABBY
-static const struct FormChange sKinglerFormChangeTable[] =
-{
-#if P_GIGANTAMAX_FORMS
-    {FORM_CHANGE_BATTLE_GIGANTAMAX, SPECIES_KINGLER_GMAX},
-#endif
-    {FORM_CHANGE_FAINT,             SPECIES_KINGLER},
-    {FORM_CHANGE_END_BATTLE,        SPECIES_KINGLER},
-    {FORM_CHANGE_TERMINATOR},
-};
-#endif //P_FAMILY_KRABBY
+//#if P_FAMILY_KRABBY
+//static const struct FormChange sKinglerFormChangeTable[] =
+//{
+//#if P_GIGANTAMAX_FORMS
+//    {FORM_CHANGE_BATTLE_GIGANTAMAX, SPECIES_KINGLER_GMAX},
+//#endif
+//    {FORM_CHANGE_FAINT,             SPECIES_KINGLER},
+//    {FORM_CHANGE_END_BATTLE,        SPECIES_KINGLER},
+//    {FORM_CHANGE_TERMINATOR},
+//};
+//#endif //P_FAMILY_KRABBY
 
 #if P_FAMILY_KANGASKHAN
 static const struct FormChange sKangaskhanFormChangeTable[] =
