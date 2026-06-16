@@ -28,6 +28,8 @@ LilycoveCity_DepartmentStore_4F_Pokemart_AttackTMs:
 	.2byte ITEM_TM_FIRE_BLAST
 	.2byte ITEM_TM_THUNDER
 	.2byte ITEM_TM_BLIZZARD
+	.2byte ITEM_TM71
+	.2byte ITEM_TM52
 	.2byte ITEM_TM_HYPER_BEAM
 	pokemartlistend
 
