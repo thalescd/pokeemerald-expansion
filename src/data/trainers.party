@@ -5248,17 +5248,16 @@ Pic: Leader Winona
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Smart Trainer / Powerful Status
+AI: Smart Trainer
 
-Skarmory @ Mental Herb
-Ability: Sturdy
+Pidgeot @ Life Orb
+Ability: No Guard
 Level: 54
-Tera Type: Steel
-Impish Nature
-- Stealth Rock
-- Body Press
-- Brave Bird
-- Roost
+Timid Nature
+- Hurricane
+- Heat Wave
+- Sandsear Storm
+- U-turn
 
 Kilowattrel @ Heavy-Duty Boots
 Ability: Volt Absorb
@@ -5269,7 +5268,7 @@ Modest Nature
 - U-turn
 - Roost
 
-Hawlucha @ White Herb
+Hawlucha @ Sitrus Berry
 Ability: Unburden
 Level: 54
 Adamant Nature
@@ -5287,14 +5286,14 @@ Adamant Nature
 - Pursuit
 - Swords Dance
 
-Pidgeot @ Life Orb
-Ability: No Guard
+Sandaconda-Gmax @ Assault Vest
+Ability: Quicken
 Level: 54
-Timid Nature
-- Hurricane
-- Heat Wave
-- Sandsear Storm
-- U-turn
+Adamant Nature
+- Earthquake
+- Sky Attack
+- Skull Bash
+- Scale Shot
 
 Altaria-Mega @ Leftovers
 Ability: Natural Cure
