@@ -1731,6 +1731,7 @@ enum NationalDexOrder
     F(HAWLUCHA) \
     F(DEDENNE) \
     F(CARBINK) \
+    F(DIANCIE) \
     F(GOOMY) \
     F(SLIGGOO) \
     F(GOODRA) \
@@ -1743,7 +1744,6 @@ enum NationalDexOrder
     F(AVALUGG) \
     F(NOIBAT) \
     F(NOIVERN) \
-    F(DIANCIE) \
     F(ROWLET) \
     F(DARTRIX) \
     F(DECIDUEYE) \

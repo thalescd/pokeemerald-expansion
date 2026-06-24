@@ -54,6 +54,22 @@ MossdeepCity_EventScript_Woman::
 
 MossdeepCity_EventScript_WhiteRock::
 	msgbox MossdeepCity_Text_ItsAWhiteRock, MSGBOX_SIGN
+	goto_if_set FLAG_DAILY_MOSSDEEP_WHITE_ROCK_USED, MossdeepCity_EventScript_WhiteRockEnd
+	setvar VAR_0x8005, EVO_TRIGGER_CARBINK_WHITE_ROCK
+	pickpartymon SELECT_PC_MON_EVOLUTION
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MossdeepCity_EventScript_WhiteRockEnd
+	bufferpartymonnick STR_VAR_1, VAR_0x8004
+	msgbox MossdeepCity_Text_CarbinkReactingToWhiteRock, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MossdeepCity_EventScript_WhiteRockDeclined
+	tryspecialevo EVO_TRIGGER_CARBINK_WHITE_ROCK
+	setflag FLAG_DAILY_MOSSDEEP_WHITE_ROCK_USED
+	end
+
+MossdeepCity_EventScript_WhiteRockDeclined::
+	release
+	end
+
+MossdeepCity_EventScript_WhiteRockEnd::
 	end
 
 MossdeepCity_EventScript_GymSign::
@@ -389,6 +405,11 @@ MossdeepCity_Text_SpecialSpaceCenterRock:
 
 MossdeepCity_Text_ItsAWhiteRock:
 	.string "It's a white rock.$"
+
+MossdeepCity_Text_CarbinkReactingToWhiteRock:
+	.string "{STR_VAR_1} seems to be reacting\n"
+	.string "to the white rock!\p"
+	.string "Allow it to happen?$"
 
 MossdeepCity_Text_GymSign:
 	.string "MOSSDEEP CITY POKéMON GYM\n"
