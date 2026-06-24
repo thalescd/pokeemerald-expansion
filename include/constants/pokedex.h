@@ -1665,7 +1665,6 @@ enum NationalDexOrder
     F(HAXORUS) \
     F(CUBCHOO) \
     F(BEARTIC) \
-    F(CRYOGONAL) \
     F(SHELMET) \
     F(ACCELGOR) \
     F(STUNFISK) \
