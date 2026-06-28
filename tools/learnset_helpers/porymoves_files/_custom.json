@@ -156,5 +156,23 @@
     ],
     "EggMoves": [],
     "TutorMoves": []
+  },
+  "SNEASEL_HISUI": {
+    "LevelMoves": [],
+    "PreEvoMoves": [],
+    "TMMoves": [
+        "MOVE_CUT"
+    ],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SNEASLER": {
+    "LevelMoves": [],
+    "PreEvoMoves": [],
+    "TMMoves": [
+        "MOVE_CUT"
+    ],
+    "EggMoves": [],
+    "TutorMoves": []
   }
 }
