@@ -5575,7 +5575,7 @@ void SetWildMonHeldItem(void)
         u16 i;
         bool32 itemHeldBoost = CanFirstMonBoostHeldItemRarity();
         u16 chanceNoItem = itemHeldBoost ? 20 : 45;
-        u16 chanceNotRare = itemHeldBoost ? 80 : 95;
+        u16 chanceNotRare = itemHeldBoost ? 70 : 90;
 
         for (i = 0; i < count; i++)
         {
