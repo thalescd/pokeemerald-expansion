@@ -12976,6 +12976,15 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-3, 10, SHADOW_SIZE_XL_BATTLE_ONLY)
         FOOTPRINT(Kingler)
+        OVERWORLD(
+            sPicTable_Kingler,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following_Asym,
+            gOverworldPalette_Kingler,
+            gShinyOverworldPalette_Kingler
+        )
         //.isGigantamax = TRUE,
         .levelUpLearnset = sKinglerGmaxLevelUpLearnset,
         .teachableLearnset = sKinglerTeachableLearnset,
