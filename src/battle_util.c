@@ -3581,6 +3581,16 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                     goto ABILITY_HEAL_MON_STATUS;
                 }
                 break;
+            case ABILITY_SCHOOLING:
+                if (gBattleMons[battler].species == SPECIES_WISHIWASHI_SCHOOL
+                 && !IsBattlerAtMaxHp(battler)
+                 && !gBattleMons[battler].volatiles.healBlock)
+                {
+                    SetHealAmount(battler, GetNonDynamaxMaxHP(battler) / 16);
+                    BattleScriptCall(BattleScript_AbilityHpHeal);
+                    effect++;
+                }
+                break;
             case ABILITY_SHED_SKIN:
                 if ((gBattleMons[battler].status1 & STATUS1_ANY)
                  && (GetConfig(B_ABILITY_TRIGGER_CHANCE) == GEN_4 ? RandomPercentage(RNG_SHED_SKIN, 30) : RandomChance(RNG_SHED_SKIN, 1, 3)))
