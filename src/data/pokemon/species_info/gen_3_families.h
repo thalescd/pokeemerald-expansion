@@ -10370,6 +10370,15 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         FOOTPRINT(Chimecho)
         SHADOW(-2, 18, SHADOW_SIZE_L)
+        OVERWORLD(
+            sPicTable_Chimecho,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_NONE,
+            sAnimTable_Following,
+            gOverworldPalette_Chimecho,
+            gShinyOverworldPalette_Chimecho
+        )
         //.isMegaEvolution = TRUE,
         .levelUpLearnset = sChimechoMegaLevelUpLearnset,
         .teachableLearnset = sChimechoTeachableLearnset,
