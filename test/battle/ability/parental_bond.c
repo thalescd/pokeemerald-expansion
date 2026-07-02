@@ -77,6 +77,8 @@ DOUBLE_BATTLE_TEST("Parental Bond does not convert multi-target moves into a two
         HP_BAR(opponentLeft);
         MESSAGE("It doesn't affect Pidgey…");
         MESSAGE("It doesn't affect the opposing Pidgey…");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, playerLeft);
+        HP_BAR(opponentLeft);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, playerRight);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponentLeft);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponentRight);
