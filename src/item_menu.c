@@ -1025,6 +1025,17 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
 static void PrintItemDescription(int itemIndex)
 {
     const u8 *str;
+
+    if (itemIndex != LIST_CANCEL && gBagPosition.pocket == POCKET_TM_HM)
+    {
+        ClearWindowTilemap(WIN_DESCRIPTION);
+        PrintTMHMMoveData(GetBagItemId(gBagPosition.pocket, itemIndex));
+        PutWindowTilemap(WIN_TMHM_INFO_ICONS);
+        PutWindowTilemap(WIN_TMHM_INFO);
+        ScheduleBgCopyTilemapToVram(0);
+        return;
+    }
+
     if (itemIndex != LIST_CANCEL)
     {
         str = GetItemDescription(GetBagItemId(gBagPosition.pocket, itemIndex));
@@ -1036,8 +1047,12 @@ static void PrintItemDescription(int itemIndex)
         StringExpandPlaceholders(gStringVar4, gText_ReturnToVar1);
         str = gStringVar4;
     }
+    ClearWindowTilemap(WIN_TMHM_INFO_ICONS);
+    ClearWindowTilemap(WIN_TMHM_INFO);
     FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
     BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, str, 3, 1, 0, 0, 0, COLORID_NORMAL);
+    PutWindowTilemap(WIN_DESCRIPTION);
+    ScheduleBgCopyTilemapToVram(0);
 }
 
 static void BagMenu_PrintCursor(u8 listTaskId, u8 colorIndex)
@@ -1350,12 +1365,11 @@ static void Task_BagMenu_HandleInput(u8 taskId)
 
 static void ReturnToItemList(u8 taskId)
 {
+    s16 *data = gTasks[taskId].data;
+
     CreatePocketScrollArrowPair();
     CreatePocketSwitchArrowPair();
-    ClearWindowTilemap(WIN_TMHM_INFO_ICONS);
-    ClearWindowTilemap(WIN_TMHM_INFO);
-    PutWindowTilemap(WIN_DESCRIPTION);
-    ScheduleBgCopyTilemapToVram(0);
+    PrintItemDescription(tListPosition);
     gTasks[taskId].func = Task_BagMenu_HandleInput;
 }
 
@@ -1400,6 +1414,8 @@ static void SwitchBagPocket(u8 taskId, s16 deltaBagPocketId, bool16 skipEraseLis
     {
         ClearWindowTilemap(WIN_ITEM_LIST);
         ClearWindowTilemap(WIN_DESCRIPTION);
+        ClearWindowTilemap(WIN_TMHM_INFO_ICONS);
+        ClearWindowTilemap(WIN_TMHM_INFO);
         DestroyListMenuTask(tListTaskId, &gBagPosition.scrollPosition[gBagPosition.pocket], &gBagPosition.cursorPosition[gBagPosition.pocket]);
         ScheduleBgCopyTilemapToVram(0);
         gSprites[gBagMenu->spriteIds[ITEMMENUSPRITE_ITEM + (gBagMenu->itemIconSlot ^ 1)]].invisible = TRUE;
@@ -1465,7 +1481,6 @@ static void Task_SwitchBagPocket(u8 taskId)
         ChangeBagPocketId(&gBagPosition.pocket, tPocketSwitchDir);
         LoadBagItemListBuffers(gBagPosition.pocket);
         tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, gBagPosition.scrollPosition[gBagPosition.pocket], gBagPosition.cursorPosition[gBagPosition.pocket]);
-        PutWindowTilemap(WIN_DESCRIPTION);
         PutWindowTilemap(WIN_POCKET_NAME);
         ScheduleBgCopyTilemapToVram(0);
         CreatePocketScrollArrowPair();
@@ -2309,6 +2324,13 @@ static void WaitAfterItemSell(u8 taskId)
 static void Task_ItemContext_Deposit(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
+
+    // The TM/HM pocket normally shows move data in place of WIN_DESCRIPTION while browsing;
+    // the deposit prompts below print into WIN_DESCRIPTION directly, so make sure it's visible.
+    ClearWindowTilemap(WIN_TMHM_INFO_ICONS);
+    ClearWindowTilemap(WIN_TMHM_INFO);
+    PutWindowTilemap(WIN_DESCRIPTION);
+    ScheduleBgCopyTilemapToVram(0);
 
     tItemCount = 1;
     if (tQuantity == 1)
