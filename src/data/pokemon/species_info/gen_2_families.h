@@ -283,6 +283,15 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         FOOTPRINT(Meganium)
         SHADOW(-2, 13, SHADOW_SIZE_M)
+        OVERWORLD(
+            sPicTable_Meganium,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Meganium,
+            gShinyOverworldPalette_Meganium
+        )
         //.isMegaEvolution = TRUE,
         .levelUpLearnset = sMeganiumMegaLevelUpLearnset,
         .teachableLearnset = sMeganiumTeachableLearnset,
