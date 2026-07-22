@@ -54,6 +54,7 @@
 #include "pokemon_storage_system.h"
 #include "pokemon_summary_screen.h"
 #include "pokerus.h"
+#include "pokevial.h"
 #include "region_map.h"
 #include "reshow_battle_screen.h"
 #include "scanline_effect.h"
@@ -418,6 +419,9 @@ static void DisplayMonLearnedMove(u8, u16);
 static void UseSacredAsh(u8);
 static void Task_SacredAshLoop(u8);
 static void Task_SacredAshDisplayHPRestored(u8);
+static bool8 MonNeedsPokevial(struct Pokemon *);
+static void UsePokevial(u8);
+static void Task_PokevialLoop(u8);
 static void GiveItemOrMailToSelectedMon(u8);
 static void DisplayItemMustBeRemovedFirstMessage(u8);
 static void Task_SwitchItemsFromBagYesNo(u8);
@@ -4732,6 +4736,12 @@ void CB2_ShowPartyMenuForItemUse(void)
         task = Task_SetSacredAshCB;
         msgId = PARTY_MSG_NONE;
     }
+    else if (GetItemEffectType(gSpecialVar_ItemId) == ITEM_EFFECT_POKEVIAL)
+    {
+        gPartyMenu.slotId = 0;
+        task = Task_SetSacredAshCB;
+        msgId = PARTY_MSG_NONE;
+    }
     else
     {
         if (GetItemPocket(gSpecialVar_ItemId) == POCKET_TM_HM)
@@ -6298,6 +6308,103 @@ static void Task_SacredAshDisplayHPRestored(u8 taskId)
     gTasks[taskId].func = Task_SacredAshLoop;
 }
 
+void ItemUseCB_UsePokevial(u8 taskId, TaskFunc task)
+{
+    sPartyMenuInternal->tUsedOnSlot = FALSE;
+    sPartyMenuInternal->tHadEffect = FALSE;
+    sPartyMenuInternal->tLastSlotUsed = gPartyMenu.slotId;
+    UsePokevial(taskId);
+}
+
+static bool8 MonNeedsPokevial(struct Pokemon *mon)
+{
+    u8 ppBonuses;
+    s32 i;
+
+    if (GetMonData(mon, MON_DATA_HP) < GetMonData(mon, MON_DATA_MAX_HP))
+        return TRUE;
+    if (GetMonData(mon, MON_DATA_STATUS) != STATUS1_NONE)
+        return TRUE;
+
+    ppBonuses = GetMonData(mon, MON_DATA_PP_BONUSES);
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (GetMonData(mon, MON_DATA_PP1 + i) < CalculatePPWithBonus(GetMonData(mon, MON_DATA_MOVE1 + i), ppBonuses, i))
+            return TRUE;
+    }
+    return FALSE;
+}
+
+static void UsePokevial(u8 taskId)
+{
+    struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][gPartyMenu.slotId];
+    u16 hp, maxHP;
+
+    if (GetMonData(mon, MON_DATA_SPECIES) == SPECIES_NONE || !MonNeedsPokevial(mon))
+    {
+        gTasks[taskId].func = Task_PokevialLoop;
+        return;
+    }
+
+    hp = GetMonData(mon, MON_DATA_HP);
+    maxHP = GetMonData(mon, MON_DATA_MAX_HP);
+
+    PlaySE(SE_USE_ITEM);
+    HealPokemon(mon);
+    SetPartyMonAilmentGfx(mon, &sPartyMenuBoxes[gPartyMenu.slotId]);
+    if (gSprites[sPartyMenuBoxes[gPartyMenu.slotId].statusSpriteId].invisible)
+        DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[gPartyMenu.slotId], 1);
+    AnimatePartySlot(sPartyMenuInternal->tLastSlotUsed, 0);
+    AnimatePartySlot(gPartyMenu.slotId, 1);
+
+    if (hp != maxHP)
+    {
+        PartyMenuModifyHP(taskId, gPartyMenu.slotId, 1, GetMonData(mon, MON_DATA_HP) - hp, Task_PokevialLoop);
+        ResetHPTaskData(taskId, 0, hp);
+    }
+    else
+    {
+        gTasks[taskId].func = Task_PokevialLoop;
+    }
+
+    sPartyMenuInternal->tUsedOnSlot = TRUE;
+    sPartyMenuInternal->tHadEffect = TRUE;
+}
+
+static void Task_PokevialLoop(u8 taskId)
+{
+    if (IsPartyMenuTextPrinterActive() != TRUE)
+    {
+        if (sPartyMenuInternal->tUsedOnSlot == TRUE)
+        {
+            sPartyMenuInternal->tUsedOnSlot = FALSE;
+            sPartyMenuInternal->tLastSlotUsed = gPartyMenu.slotId;
+        }
+        if (++(gPartyMenu.slotId) == PARTY_SIZE)
+        {
+            if (sPartyMenuInternal->tHadEffect == FALSE)
+            {
+                gPartyMenuUseExitCallback = FALSE;
+                DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+                ScheduleBgCopyTilemapToVram(2);
+            }
+            else
+            {
+                gPartyMenuUseExitCallback = TRUE;
+                PokevialDoseDown(VIAL_STANDARD_DOSE);
+                DisplayPartyMenuMessage(gText_PokevialHealedParty, TRUE);
+                ScheduleBgCopyTilemapToVram(2);
+            }
+            gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            gPartyMenu.slotId = 0;
+        }
+        else
+        {
+            UsePokevial(taskId);
+        }
+    }
+}
+
 #undef tUsedOnSlot
 #undef tHadEffect
 #undef tLastSlotUsed
@@ -7047,6 +7154,8 @@ enum ItemEffectType GetItemEffectType(enum Item item)
         return ITEM_EFFECT_X_ITEM;
     else if (itemEffect[0] & ITEM0_SACRED_ASH)
         return ITEM_EFFECT_SACRED_ASH;
+    else if (itemEffect[0] & ITEM0_POKEVIAL)
+        return ITEM_EFFECT_POKEVIAL;
     else if (itemEffect[3] & ITEM3_LEVEL_UP)
         return ITEM_EFFECT_RAISE_LEVEL;
 

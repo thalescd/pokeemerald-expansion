@@ -1091,6 +1091,12 @@ struct Bag
     struct ItemSlot berries[BAG_BERRIES_COUNT];
 };
 
+struct Pokevial
+{
+    u8 size:4; // Current capacity of the vial, VIAL_MIN_SIZE..VIAL_MAX_SIZE
+    u8 dose:4; // Current number of doses left, EMPTY_VIAL..size
+};
+
 struct SaveBlock1
 {
     /*0x00*/ struct Coords16 pos;
@@ -1174,6 +1180,7 @@ struct SaveBlock1
 #endif //FREE_LINK_BATTLE_RECORDS
     /*0x31A8*/ u8 giftRibbons[NUM_GIFT_RIBBONS];
                u8 padding[4];
+               struct Pokevial pokevial;
     /*0x31B3*/ struct ExternalEventData externalEventData;
     /*0x31C7*/ struct ExternalEventFlags externalEventFlags;
     /*0x31DC*/ struct Roamer roamer[ROAMER_COUNT];

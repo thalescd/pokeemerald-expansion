@@ -5,6 +5,7 @@
 #define ITEM0_DIRE_HIT          0x30 // Works the same way as the move Focus Energy.
 #define ITEM0_SACRED_ASH        0x40
 #define ITEM0_INFATUATION       0x80
+#define ITEM0_POKEVIAL          0x01 // Distinct bit from the others in this field; keep it that way so it can't be misread as SACRED_ASH/INFATUATION.
 
 // new field 1 masks
 #define ITEM1_X_ATTACK          STAT_ATK
@@ -93,6 +94,7 @@ enum ItemEffectType
     ITEM_EFFECT_PP_UP,
     ITEM_EFFECT_PP_MAX,
     ITEM_EFFECT_HEAL_PP,
+    ITEM_EFFECT_POKEVIAL,
     ITEM_EFFECT_NONE
 };
 

@@ -1996,6 +1996,58 @@
 	.4byte \msg
 	.endm
 
+	@ Checks or manipulates the size or number of doses of the Pokévial.
+	@ mode is one of VIAL_GET/VIAL_UP/VIAL_DOWN/VIAL_REFILL, aspect is VIAL_SIZE or VIAL_DOSE.
+	@ For VIAL_GET and VIAL_REFILL the result is stored to VAR_RESULT.
+	.macro pokevial mode:req, aspect=VIAL_SIZE, amount=1
+	.byte SCR_OP_POKEVIAL
+	.byte \mode
+	.byte \aspect
+	.byte \amount
+	.endm
+
+	@ Gets the current number of doses in the Pokévial and stores it to VAR_RESULT.
+	.macro pokevialgetdose
+	specialvar VAR_RESULT, PokevialGetDose
+	.endm
+
+	@ Gets the current size (max doses) of the Pokévial and stores it to VAR_RESULT.
+	.macro pokevialgetsize
+	specialvar VAR_RESULT, PokevialGetSize
+	.endm
+
+	@ Increases the size of the Pokévial by 1, up to VIAL_MAX_SIZE.
+	.macro pokevialincreasesize
+	pokevial VIAL_INCREASE, VIAL_SIZE, 1
+	.endm
+
+	@ Decreases the size of the Pokévial by 1, down to VIAL_MIN_SIZE.
+	@ If the current dose count exceeds the new size, it's clamped down to match.
+	.macro pokevialdecreasesize
+	pokevial VIAL_DECREASE, VIAL_SIZE, 1
+	.endm
+
+	@ Adds VIAL_STANDARD_DOSE doses to the Pokévial, up to its current size.
+	.macro pokevialadddose
+	pokevial VIAL_ADD, VIAL_DOSE, VIAL_STANDARD_DOSE
+	.endm
+
+	@ Removes VIAL_STANDARD_DOSE doses from the Pokévial. Never goes below EMPTY_VIAL.
+	.macro pokevialremovedose
+	pokevial VIAL_REMOVE, VIAL_DOSE, VIAL_STANDARD_DOSE
+	.endm
+
+	@ Fills the Pokévial's doses back up to its current size. Stores TRUE to VAR_RESULT if it wasn't already full.
+	.macro pokevialrefill
+	pokevial VIAL_REFILL
+	.endm
+
+	@ A combination of pokevialincreasesize and pokevialrefill; a typical Pokévial "upgrade" reward.
+	.macro pokevialreward
+	pokevialincreasesize
+	pokevialrefill
+	.endm
+
 	.macro dynmultistack left:req, top:req, ignoreBPress:req, maxBeforeScroll:req, shouldSort:req, initialSelected:req, callbacks:req
 	_dynmultichoice \left, \top, \ignoreBPress, \maxBeforeScroll, \shouldSort, \initialSelected, \callbacks, NULL
 	.endm

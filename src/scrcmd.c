@@ -43,6 +43,7 @@
 #include "party_menu.h"
 #include "pokedex.h"
 #include "pokemon_storage_system.h"
+#include "pokevial.h"
 #include "random.h"
 #include "overworld.h"
 #include "rotating_tile_puzzle.h"
@@ -3434,5 +3435,56 @@ bool8 ScrCmd_getbraillestringwidth(struct ScriptContext * ctx)
         msg = (u8 *)ctx->data[0];
 
     gSpecialVar_0x8004 = GetStringWidth(FONT_BRAILLE, msg, -1);
+    return FALSE;
+}
+
+// Checks or manipulates the size or number of doses of the Pokévial. See the pokevial* macros in event.inc.
+bool8 ScrCmd_pokevial(struct ScriptContext *ctx)
+{
+    u8 mode = ScriptReadByte(ctx);
+    u8 aspect = ScriptReadByte(ctx);
+    u8 amount = ScriptReadByte(ctx);
+
+    Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE);
+
+    switch (mode)
+    {
+    case VIAL_GET:
+        switch (aspect)
+        {
+        case VIAL_SIZE:
+            gSpecialVar_Result = PokevialGetSize();
+            break;
+        case VIAL_DOSE:
+            gSpecialVar_Result = PokevialGetDose();
+            break;
+        }
+        break;
+    case VIAL_UP:
+        switch (aspect)
+        {
+        case VIAL_SIZE:
+            PokevialSizeUp(amount);
+            break;
+        case VIAL_DOSE:
+            PokevialDoseUp(amount);
+            break;
+        }
+        break;
+    case VIAL_DOWN:
+        switch (aspect)
+        {
+        case VIAL_SIZE:
+            PokevialSizeDown(amount);
+            break;
+        case VIAL_DOSE:
+            PokevialDoseDown(amount);
+            break;
+        }
+        break;
+    case VIAL_REFILL:
+        gSpecialVar_Result = PokevialRefill();
+        break;
+    }
     return FALSE;
 }
