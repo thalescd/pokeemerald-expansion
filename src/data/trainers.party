@@ -7889,9 +7889,11 @@ Music: Suspicious
 Double Battle: No
 AI: Basic Trainer
 
-Ninjask
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Gallade
+Level: 48
+
+Brambleghast
+Level: 48
 
 === TRAINER_TAKASHI ===
 Name: TAKASHI
@@ -12821,21 +12823,14 @@ Music: Suspicious
 Double Battle: No
 AI: Basic Trainer
 
-Koffing
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
-- Self Destruct
-- Sludge
-- Smokescreen
+Serperior
+Level: 48
 
-Koffing
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
-- Poison Gas
-- Sludge
-- Smokescreen
+Conkeldurr
+Level: 48
+
+Inteleon
+Level: 48
 
 === TRAINER_KEIGO ===
 Name: KEIGO
@@ -14955,9 +14950,9 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Manectric
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Beartic
+Ability: Swift Swim
+Level: 47
 
 === TRAINER_DAYTON ===
 Name: DAYTON
