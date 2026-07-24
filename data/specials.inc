@@ -640,3 +640,6 @@ gSpecials::
 	def_special StickerManGetBragFlags
 	def_special CheckAddCoins
 	def_special Special_GiveRandomMon
+	def_special PokevialGetDose
+	def_special PokevialGetSize
+	def_special PokevialRefill

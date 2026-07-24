@@ -36,6 +36,7 @@
 #include "party_menu.h"
 #include "pokeblock.h"
 #include "pokemon.h"
+#include "pokevial.h"
 #include "script.h"
 #include "sound.h"
 #include "strings.h"
@@ -81,6 +82,9 @@ static void SetDistanceOfClosestHiddenItem(u8, s16, s16);
 static void CB2_OpenPokeblockFromBag(void);
 static void ItemUseOnFieldCB_Honey(u8 taskId);
 static bool32 IsValidLocationForVsSeeker(void);
+static void UsePokevialYesNo(u8 taskId);
+static void UsePokevialFieldYesNo(u8 taskId);
+static void UsePokevialYes(u8 taskId);
 
 static const u8 sText_CantDismountBike[] = _("You can't dismount your BIKE here.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_ItemFinderNearby[] = _("Huh?\nThe ITEMFINDER's responding!\pThere's an item buried around here!{PAUSE_UNTIL_PRESS}");
@@ -896,6 +900,75 @@ void ItemUseOutOfBattle_SacredAsh(u8 taskId)
 {
     gItemUseCB = ItemUseCB_SacredAsh;
     SetUpItemUseCallback(taskId);
+}
+
+static const struct YesNoFuncTable sUsePokevialYesNoFuncTable =
+{
+    .yesFunc = UsePokevialYes,
+    .noFunc = CloseItemMessage,
+};
+
+static const struct YesNoFuncTable sUsePokevialFieldYesNoFuncTable =
+{
+    .yesFunc = UsePokevialYes,
+    .noFunc = Task_CloseCantUseKeyItemMessage,
+};
+
+static void UsePokevialYesNo(u8 taskId)
+{
+    BagMenu_YesNo(taskId, ITEMWIN_YESNO_HIGH, &sUsePokevialYesNoFuncTable);
+}
+
+static void UsePokevialFieldYesNo(u8 taskId)
+{
+    DisplayYesNoMenuDefaultYes();
+    DoYesNoFuncWithChoice(taskId, &sUsePokevialFieldYesNoFuncTable);
+}
+
+static void UsePokevialYes(u8 taskId)
+{
+    if (POKEVIAL_SKIP_CUTSCENE)
+    {
+        PlaySE(SE_USE_ITEM);
+        Pokevial_HealParty();
+        PokevialDoseDown(VIAL_STANDARD_DOSE);
+        StringExpandPlaceholders(gStringVar4, gText_PokevialHealedParty);
+        if (gTasks[taskId].tUsingRegisteredKeyItem)
+            DisplayItemMessageOnField(taskId, gStringVar4, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+    }
+    else
+    {
+        gItemUseCB = ItemUseCB_UsePokevial;
+        SetUpItemUseCallback(taskId);
+    }
+}
+
+void ItemUseOutOfBattle_Pokevial(u8 taskId)
+{
+    u32 doses = PokevialGetDose();
+
+    CopyItemName(ITEM_POKEVIAL, gStringVar1);
+
+    if (doses == EMPTY_VIAL)
+    {
+        StringCopy(gStringVar2, gText_PokemonCenter);
+        StringExpandPlaceholders(gStringVar4, gText_PokevialIsEmpty);
+        if (gTasks[taskId].tUsingRegisteredKeyItem)
+            DisplayItemMessageOnField(taskId, gStringVar4, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+    }
+    else
+    {
+        ConvertIntToDecimalStringN(gStringVar2, doses, STR_CONV_MODE_LEFT_ALIGN, 2);
+        StringExpandPlaceholders(gStringVar4, gText_PokevialHasDoses);
+        if (gTasks[taskId].tUsingRegisteredKeyItem)
+            DisplayItemMessageOnField(taskId, gStringVar4, UsePokevialFieldYesNo);
+        else
+            DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, UsePokevialYesNo);
+    }
 }
 
 void ItemUseOutOfBattle_PPRecovery(u8 taskId)
