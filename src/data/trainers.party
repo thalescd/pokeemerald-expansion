@@ -3410,7 +3410,7 @@ AI: Basic Trainer
 Lucario
 Level: 45
 
-Flamigo
+Nidoking
 Level: 45
 
 === TRAINER_NOB_1 ===
@@ -6945,7 +6945,7 @@ AI: Basic Trainer
 Lycanroc
 Level: 28
 
-Kilowattrel
+Togetic
 Level: 28
 
 === TRAINER_BENJAMIN_1 ===
@@ -8163,13 +8163,13 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Flamigo
+Hawlucha
 Level: 18
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Low Kick
-- Double Kick
-- Wing Attack
-- Copycat
+- Bulk Up
+- Karate Chop
+- Aerial Ace
+- Taunt
 
 === TRAINER_CYNDY_1 ===
 Name: CYNDY
