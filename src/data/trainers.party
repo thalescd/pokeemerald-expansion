@@ -5268,14 +5268,14 @@ Modest Nature
 - U-turn
 - Roost
 
-Hawlucha @ Sitrus Berry
-Ability: Unburden
+Quaquaval @ Sitrus Berry
+Ability: Moxie
 Level: 54
 Adamant Nature
 - Close Combat
 - Brave Bird
-- Throat Chop
-- Swords Dance
+- Aqua Step
+- Roost
 
 Scizor @ Lum Berry
 Ability: Technician
@@ -7657,17 +7657,26 @@ Music: Cool
 Double Battle: No
 AI: Basic Trainer
 
-Doduo
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Decidueye-Hisui
+Level: 51
+- Triple Arrows
+- Brave Bird
+- Sucker Punch
+- Leaf Blade
 
-Skarmory
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Vespiquen
+Level: 51
+- Attack Order
+- Heal Order
+- U-turn
+- Toxic Spikes
 
-Tropius
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Rotom-Fan
+Level: 51
+- Thunderbolt
+- Air Slash
+- Shadow Ball
+- Volt Switch
 
 === TRAINER_HUMBERTO ===
 Name: HUMBERTO
@@ -7678,9 +7687,12 @@ Music: Cool
 Double Battle: No
 AI: Basic Trainer
 
-Skarmory
-Level: 30
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+Braviary
+Level: 52
+- Superpower
+- Crush Claw
+- Aerial Ace
+- Slash
 
 === TRAINER_PRESLEY ===
 Name: PRESLEY
@@ -7708,13 +7720,19 @@ Music: Cool
 Double Battle: No
 AI: Basic Trainer
 
-Doduo
-Level: 29
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Oricorio-Sensu
+Level: 52
+- Quiver Dance
+- Revelation Dance
+- Air Slash
+- Roost
 
-Pelipper
-Level: 29
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Butterfree-Gmax
+Level: 52
+- Sleep Powder
+- Hurricane
+- Bug Buzz
+- Quiver Dance
 
 === TRAINER_COLIN ===
 Name: COLIN
@@ -12891,13 +12909,20 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Swellow
-Level: 29
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Oricorio
+Level: 52
+- Quiver Dance
+- Revelation Dance
+- Air Slash
+- Roost
 
-Xatu
-Level: 29
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Hawlucha @ Sitrus Berry
+Ability: Unburden
+Level: 52
+- Close Combat
+- Brave Bird
+- Throat Chop
+- Swords Dance
 
 === TRAINER_ASHLEY ===
 Name: ASHLEY
@@ -12908,17 +12933,27 @@ Music: Girl
 Double Battle: No
 AI: Basic Trainer
 
-Swablu
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Sirfetch’d
+Level: 51
+- Brave Bird
+- Knock Off
+- First Impression
+- Brick Break
 
-Swablu
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Swoobat
+Ability: Simple
+Level: 51
+- Psychic
+- Air Slash
+- Calm Mind
+- Giga Drain
 
-Swablu
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Corviknight
+Level: 51
+- Brave Bird
+- Bulk Up
+- Roost
+- Iron Head
 
 === TRAINER_WALLY_MAUVILLE ===
 Name: WALLY
@@ -16879,9 +16914,14 @@ Music: Cool
 Double Battle: No
 AI: Basic Trainer
 
-Tropius
-Level: 30
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Empoleon @ Assault Vest
+Ability: Competitive
+Level: 52
+Bold Nature
+- Surf
+- Flash Cannon
+- Ice Beam
+- Grass Knot
 
 === TRAINER_STEVEN ===
 Name: STEVEN
