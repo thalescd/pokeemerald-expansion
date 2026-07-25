@@ -6,6 +6,7 @@
 #include "item_icon.h"
 #include "malloc.h"
 #include "move.h"
+#include "pokevial.h"
 #include "sprite.h"
 #include "constants/items.h"
 
@@ -163,6 +164,8 @@ const void *GetItemIconPic(enum Item itemId)
         return gItemIcon_ReturnToFieldArrow; // Use last icon, the "return to field" arrow
     if (itemId >= ITEMS_COUNT)
         return gItemsInfo[0].iconPic;
+    if (itemId == ITEM_POKEVIAL)
+        return PokevialGetDoseIcon();
     if (gItemsInfo[itemId].pocket == POCKET_TM_HM)
     {
         if (GetItemTMHMIndex(itemId) > NUM_TECHNICAL_MACHINES)

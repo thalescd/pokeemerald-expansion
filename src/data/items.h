@@ -1204,6 +1204,29 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_SacredAsh,
     },
 
+    [ITEM_POKEVIAL] =
+    {
+        .name = ITEM_NAME("Pokévial"),
+        .price = 0,
+        .importance = 1,
+        .description = COMPOUND_STRING(
+            "Restores all\n"
+            "Pokémon to full\n"
+            "health. Has a\n"
+            "limited number of\n"
+            "doses, which\n"
+            "refill when you\n"
+            "heal at a\n"
+            "Pokémon Center."),
+        .pocket = POCKET_KEY_ITEMS,
+        .sortType = ITEM_TYPE_HEALTH_RECOVERY,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Pokevial,
+        .effect = gItemEffect_Pokevial,
+        .iconPic = gItemIcon_Pokevial,
+        .iconPalette = gItemIconPalette_Pokevial,
+    },
+
     [ITEM_SWEET_HEART] =
     {
         .name = ITEM_NAME("Sweet Heart"),
