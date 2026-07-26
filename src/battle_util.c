@@ -3210,6 +3210,16 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                 effect++;
             }
             break;
+        case ABILITY_MAGNET_PULL:
+            if (shouldAbilityTrigger && GetBattlerVolatile(battler, VOLATILE_MAGNET_RISE) == 0)
+            {
+                SetMonVolatile(battler, VOLATILE_MAGNET_RISE, TRUE);
+                gBattleMons[battler].volatiles.magnetRiseTimer = B_MAGNET_RISE_TIMER;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_MAGNETRISE;
+                BattleScriptCall(BattleScript_SwitchInAbilityMsg);
+                effect++;
+            }
+            break;
         case ABILITY_DRIZZLE:
             if (!shouldAbilityTrigger)
                 break;
