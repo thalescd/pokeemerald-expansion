@@ -203,6 +203,34 @@ Route119_WeatherInstitute_2F_EventScript_WeatherScientist::
 	goto Route119_WeatherInstitute_2F_EventScript_ReceiveCastform
 	end
 
+Route119_WeatherInstitute_2F_EventScript_WeatherRockScientist::
+	lock
+	faceplayer
+	msgbox Route119_WeatherInstitute_2F_Text_ExplainWeatherRocks, MSGBOX_DEFAULT
+	msgbox Route119_WeatherInstitute_2F_Text_SellWeatherRocksPrompt, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Route119_WeatherInstitute_2F_EventScript_DeclineWeatherRocks
+	goto Route119_WeatherInstitute_2F_EventScript_SellWeatherRocks
+	end
+
+Route119_WeatherInstitute_2F_EventScript_SellWeatherRocks::
+	pokemart Route119_WeatherInstitute_2F_Pokemart_WeatherRocks
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+Route119_WeatherInstitute_2F_EventScript_DeclineWeatherRocks::
+	msgbox Route119_WeatherInstitute_2F_Text_DeclineWeatherRocks, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Route119_WeatherInstitute_2F_Pokemart_WeatherRocks:
+	.2byte ITEM_DAMP_ROCK
+	.2byte ITEM_HEAT_ROCK
+	.2byte ITEM_SMOOTH_ROCK
+	.2byte ITEM_ICY_ROCK
+	pokemartlistend
+
 Route119_WeatherInstitute_2F_Text_Grunt2Intro:
 	.string "The INSTITUTE created a type of\n"
 	.string "POKéMON that has something to do with\l"
@@ -323,4 +351,19 @@ Route119_WeatherInstitute_2F_Text_NoAbnormalWeather:
 	.string "no longer being reported.\p"
 	.string "The occasional rainfall is a blessing,\n"
 	.string "really.$"
+
+Route119_WeatherInstitute_2F_Text_ExplainWeatherRocks:
+	.string "During our research, we found some\n"
+	.string "stones that can extend how long a\l"
+	.string "POKéMON's weather lasts in battle.\p"
+	.string "and the ICY ROCK extends hail.$"
+
+Route119_WeatherInstitute_2F_Text_SellWeatherRocksPrompt:
+	.string "As thanks for helping us out earlier,\n"
+	.string "I could sell you a few of them.\p"
+	.string "Would you like to buy some?$"
+
+Route119_WeatherInstitute_2F_Text_DeclineWeatherRocks:
+	.string "I see.\n"
+	.string "Let us know if you change your mind.$"
 
