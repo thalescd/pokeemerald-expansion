@@ -22,7 +22,7 @@
     F(RAIN_DANCE) \
     F(GIGA_DRAIN) \
     F(SAFEGUARD) \
-    F(FRUSTRATION) \
+    F(STEALTH_ROCK) \
     F(SOLAR_BEAM) \
     F(SMACK_DOWN) \
     F(THUNDERBOLT) \
