@@ -1928,7 +1928,6 @@ enum NationalDexOrder
     F(GLIMMORA) \
     F(GREAVARD) \
     F(HOUNDSTONE) \
-    F(FLAMIGO) \
     F(CETODDLE) \
     F(CETITAN) \
     F(VELUZA) \
