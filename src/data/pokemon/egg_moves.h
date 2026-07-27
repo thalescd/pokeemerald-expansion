@@ -682,6 +682,7 @@ static const u16 sGeodudeEggMoveLearnset[] = {
     MOVE_ENDURE,
     MOVE_AUTOTOMIZE,
     MOVE_WIDE_GUARD,
+    MOVE_RAPID_SPIN,
     MOVE_UNAVAILABLE,
 };
 #if P_ALOLAN_FORMS
@@ -696,6 +697,7 @@ static const u16 sGeodudeAlolaEggMoveLearnset[] = {
     MOVE_ROCK_CLIMB,
     MOVE_SCREECH,
     MOVE_WIDE_GUARD,
+    MOVE_RAPID_SPIN,
     MOVE_UNAVAILABLE,
 };
 #endif //P_ALOLAN_FORMS
