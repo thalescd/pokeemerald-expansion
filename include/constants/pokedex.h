@@ -1884,8 +1884,6 @@ enum NationalDexOrder
     F(PAWMI) \
     F(PAWMO) \
     F(PAWMOT) \
-    F(TANDEMAUS) \
-    F(MAUSHOLD) \
     F(FIDOUGH) \
     F(DACHSBUN) \
     F(SMOLIV) \
