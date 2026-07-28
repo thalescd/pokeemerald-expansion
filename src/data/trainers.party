@@ -695,7 +695,7 @@ Jolly Nature
 
 Blastoise @ White Herb
 Ability: Mega Launcher
-Level: 50
+Level: 49
 Timid Nature
 - Water Pulse
 - Dark Pulse
@@ -5252,7 +5252,7 @@ AI: Smart Trainer
 
 Pidgeot @ Life Orb
 Ability: No Guard
-Level: 54
+Level: 53
 Timid Nature
 - Hurricane
 - Heat Wave
@@ -5261,34 +5261,35 @@ Timid Nature
 
 Kilowattrel @ Heavy-Duty Boots
 Ability: Volt Absorb
-Level: 54
+Level: 53
 Modest Nature
 - Thunderbolt
 - Air Slash
 - U-turn
 - Roost
 
-Quaquaval @ Sitrus Berry
-Ability: Moxie
-Level: 54
-Adamant Nature
-- Close Combat
+Sirfetch’d @ Leek
+Ability: Scrappy
+Level: 52
+Jolly Nature
 - Brave Bird
-- Aqua Step
+- Leaf Blade
+- Close Combat
+- Behemoth Blade
+
+Empoleon @ Shuca Berry
+Ability: Competitive
+Level: 52
+Calm Nature
+IVs: 0 Atk
+- Hydro Pump
+- Flash Cannon
+- Ice Beam
 - Roost
 
-Scizor @ Lum Berry
-Ability: Technician
-Level: 53
-Adamant Nature
-- Bullet Punch
-- U-turn
-- Pursuit
-- Swords Dance
-
 Sandaconda-Gmax @ Assault Vest
-Ability: Quicken
-Level: 54
+Ability: quicken
+Level: 53
 Adamant Nature
 - Earthquake
 - Sky Attack
@@ -5297,7 +5298,7 @@ Adamant Nature
 
 Altaria-Mega @ Leftovers
 Ability: Natural Cure
-Level: 54
+Level: 53
 Modest Nature
 IVs: 0 Atk
 - Dragon Pulse
@@ -12933,12 +12934,14 @@ Music: Girl
 Double Battle: No
 AI: Basic Trainer
 
-Sirfetch’d
+Fearow
+Ability: Technician
 Level: 51
-- Brave Bird
-- Knock Off
-- First Impression
-- Brick Break
+Jolly Nature
+- Hyper Drill
+- Dual Wingbeat
+- Pursuit
+- Feint Attack
 
 Swoobat
 Ability: Simple
@@ -16914,14 +16917,14 @@ Music: Cool
 Double Battle: No
 AI: Basic Trainer
 
-Empoleon @ Assault Vest
-Ability: Competitive
+Quaquaval @ Assault Vest
+Ability: Moxie
 Level: 52
-Bold Nature
-- Surf
-- Flash Cannon
-- Ice Beam
-- Grass Knot
+Jolly Nature
+- Aqua Step
+- Close Combat
+- Triple Axel
+- Brave Bird
 
 === TRAINER_STEVEN ===
 Name: STEVEN
