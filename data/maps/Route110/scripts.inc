@@ -625,6 +625,7 @@ Route110_EventScript_BirchScene::
 	closemessage
 	delay 30
 	setflag FLAG_ENABLE_PROF_BIRCH_MATCH_CALL
+	call Route110_EventScript_BirchGivePokevialUpgrade
 	msgbox Route110_Text_KeepAnEyeOutForRival, MSGBOX_DEFAULT
 	closemessage
 	call_if_eq VAR_0x8008, 1, Route110_EventScript_BirchExit1
@@ -654,6 +655,19 @@ Route110_EventScript_BirchApproachPlayer3::
 Route110_EventScript_BirchApproachPlayer4::
 	applymovement LOCALID_ROUTE110_BIRCH, Route110_Movement_BirchApproachPlayer4
 	waitmovement 0
+	return
+
+Route110_EventScript_BirchGivePokevialUpgrade::
+	checkitem ITEM_POKEVIAL
+	goto_if_eq VAR_RESULT, FALSE, Route110_EventScript_BirchGivePokevialUpgrade_End
+	msgbox Route110_Text_BirchUpgradesPokevial, MSGBOX_DEFAULT
+	closemessage
+	pokevialincreasesize
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox Route110_Text_PokevialCapacityIncreased, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+Route110_EventScript_BirchGivePokevialUpgrade_End:
 	return
 
 Route110_EventScript_BirchExit1::
@@ -1015,6 +1029,13 @@ Route110_Text_HeardYouInstallMatchCall:
 Route110_Text_RegisteredBirchInPokenav:
 	.string "Registered PROF. BIRCH\n"
 	.string "in the POKéNAV.$"
+
+Route110_Text_BirchUpgradesPokevial:
+	.string "Oh, you have a POKéVIAL!\p"
+	.string "I think I can help you out with that.$"
+
+Route110_Text_PokevialCapacityIncreased:
+	.string "Your POKéVIAL's capacity increased!$"
 
 Route110_Text_KeepAnEyeOutForRival:
 	.string "PROF. BIRCH: {PLAYER}{KUN}…\p"
