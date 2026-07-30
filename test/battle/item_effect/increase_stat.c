@@ -136,20 +136,24 @@ SINGLE_BATTLE_TEST("X Speed sharply raises battler's Speed stat", s16 damage)
 SINGLE_BATTLE_TEST("X Accuracy sharply raises battler's Accuracy stat")
 {
 
-    ASSUME(GetMoveAccuracy(MOVE_SING) == 55);
+    // This needs a sleep move accurate enough to be worth buffing but below 60, since X Accuracy
+    // grants +2 stages (a 5/3 multiplier) and anything from 60 up saturates at 100%, which would
+    // leave the test asserting nothing.
+    ASSUME(GetMoveAccuracy(MOVE_GRASS_WHISTLE) == 55);
+    ASSUME(GetMoveNonVolatileStatus(MOVE_GRASS_WHISTLE) == MOVE_EFFECT_SLEEP);
     if (B_X_ITEMS_BUFF >= GEN_7)
-        PASSES_RANDOMLY(GetMoveAccuracy(MOVE_SING) * 5 / 3, 100, RNG_ACCURACY);
+        PASSES_RANDOMLY(GetMoveAccuracy(MOVE_GRASS_WHISTLE) * 5 / 3, 100, RNG_ACCURACY);
     else
-        PASSES_RANDOMLY(GetMoveAccuracy(MOVE_SING) * 4 / 3, 100, RNG_ACCURACY);
+        PASSES_RANDOMLY(GetMoveAccuracy(MOVE_GRASS_WHISTLE) * 4 / 3, 100, RNG_ACCURACY);
     GIVEN {
         ASSUME(gItemsInfo[ITEM_X_ACCURACY].battleUsage == EFFECT_ITEM_INCREASE_STAT);
         PLAYER(SPECIES_WOBBUFFET);
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
         TURN { USE_ITEM(player, ITEM_X_ACCURACY); }
-        TURN { MOVE(player, MOVE_SING); }
+        TURN { MOVE(player, MOVE_GRASS_WHISTLE); }
     } SCENE {
-        MESSAGE("Wobbuffet used Sing!");
+        MESSAGE("Wobbuffet used Grass Whistle!");
         MESSAGE("The opposing Wobbuffet fell asleep!");
     }
 }
