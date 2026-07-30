@@ -576,14 +576,7 @@ AI_DOUBLE_BATTLE_TEST("AI values moves above Splash, 701-800")
         OPPONENT(SPECIES_WOBBUFFET) { Status1(STATUS1_BURN); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        switch (GetMoveEffect(move))
-        {
-        case EFFECT_STEEL_ROLLER:
-            TURN { SCORE_LT_VAL(opponentLeft, move, AI_SCORE_DEFAULT, target: playerLeft); }
-            break;
-        default:
-            TURN { EXPECT_MOVE(opponentLeft, move); }
-        }
+        TURN { EXPECT_MOVE(opponentLeft, move); }
     }
 }
 
