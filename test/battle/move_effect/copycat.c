@@ -28,17 +28,20 @@ ASSUMPTIONS
 
 SINGLE_BATTLE_TEST("Copycat deducts power points from itself, not the copied move")
 {
-    ASSUME(GetMovePP(MOVE_COPYCAT) == 20);
-    ASSUME(GetMovePP(MOVE_POUND) == 35);
+    // Copycat outprioritizes most moves here, and moving first would leave it nothing to copy,
+    // so the move being copied has to outprioritize Copycat in turn.
+    ASSUME(GetMovePriority(MOVE_EXTREME_SPEED) > GetMovePriority(MOVE_COPYCAT));
+    // Distinct PP, otherwise deducting from the wrong move would produce the same numbers.
+    ASSUME(GetMovePP(MOVE_COPYCAT) != GetMovePP(MOVE_EXTREME_SPEED));
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) { Moves(MOVE_COPYCAT); }
-        OPPONENT(SPECIES_WOBBUFFET) { Moves(MOVE_POUND); }
+        OPPONENT(SPECIES_WOBBUFFET) { Moves(MOVE_EXTREME_SPEED); }
     } WHEN {
-        TURN { MOVE(opponent, MOVE_POUND); MOVE(player, MOVE_COPYCAT); }
+        TURN { MOVE(opponent, MOVE_EXTREME_SPEED); MOVE(player, MOVE_COPYCAT); }
     } SCENE {
     } THEN {
-        EXPECT_EQ(opponent->pp[0], 34);
-        EXPECT_EQ(player->pp[0], 19);
+        EXPECT_EQ(opponent->pp[0], GetMovePP(MOVE_EXTREME_SPEED) - 1);
+        EXPECT_EQ(player->pp[0], GetMovePP(MOVE_COPYCAT) - 1);
     }
 }
 
