@@ -267,12 +267,17 @@ SINGLE_BATTLE_TEST("(Z-MOVE) Z-Copycat raises the user's accuracy by one stage a
     GIVEN {
         ASSUME(GetMoveType(MOVE_COPYCAT) == TYPE_NORMAL);
         ASSUME(GetMoveZEffect(MOVE_COPYCAT) == Z_EFFECT_ACC_UP_1);
+        // Copycat outprioritizes Scratch here, and moving first would leave it nothing to copy,
+        // so the move being copied has to outprioritize Copycat in turn.
+        ASSUME(GetMovePriority(MOVE_EXTREME_SPEED) > GetMovePriority(MOVE_COPYCAT));
+        ASSUME(GetMoveType(MOVE_EXTREME_SPEED) == TYPE_NORMAL); // Keeps the copy a Breakneck Blitz
+        ASSUME(GetMoveCategory(MOVE_EXTREME_SPEED) != DAMAGE_CATEGORY_STATUS);
         PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_NORMALIUM_Z); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(opponent, MOVE_SCRATCH); MOVE(player, MOVE_COPYCAT, gimmick: GIMMICK_Z_MOVE); }
+        TURN { MOVE(opponent, MOVE_EXTREME_SPEED); MOVE(player, MOVE_COPYCAT, gimmick: GIMMICK_Z_MOVE); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_EXTREME_SPEED, opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_ZMOVE_ACTIVATE, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BREAKNECK_BLITZ, player);
