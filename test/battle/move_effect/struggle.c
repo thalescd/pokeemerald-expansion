@@ -47,30 +47,28 @@ SINGLE_BATTLE_TEST("Struggle can hit ghost types")
     }
 }
 
-SINGLE_BATTLE_TEST("Struggle does not receive normal-type STAB")
+SINGLE_BATTLE_TEST("Struggle does not receive normal-type STAB", s16 damage)
 {
-    // Compare with Cut, which does receive normal-type STAB
-    ASSUME(GetSpeciesType(SPECIES_ZANGOOSE, 0) == GetMoveType(MOVE_STRUGGLE));
-    ASSUME(GetMovePower(MOVE_CUT) == GetMovePower(MOVE_STRUGGLE));
-    ASSUME(GetMoveCategory(MOVE_CUT) == GetMoveCategory(MOVE_STRUGGLE));
-    ASSUME(GetMoveType(MOVE_CUT) == GetMoveType(MOVE_STRUGGLE));
-
-    s16 cutDamage;
-    s16 struggleDamage;
+    // Measured by changing the attacker's type rather than by comparing against a control move of
+    // equal power: no move other than Struggle itself is Normal, physical and 50 base power here.
+    // Attack is forced equal so the attacker's type is the only difference between the two runs.
+    u32 species;
+    PARAMETRIZE { species = SPECIES_ZANGOOSE; } // Shares Struggle's type, so it would get the STAB
+    PARAMETRIZE { species = SPECIES_SEVIPER; }  // Does not share it
 
     GIVEN {
-        PLAYER(SPECIES_ZANGOOSE);
+        ASSUME(GetSpeciesType(SPECIES_ZANGOOSE, 0) == GetMoveType(MOVE_STRUGGLE));
+        ASSUME(GetSpeciesType(SPECIES_SEVIPER, 0) != GetMoveType(MOVE_STRUGGLE));
+        ASSUME(GetSpeciesType(SPECIES_SEVIPER, 1) != GetMoveType(MOVE_STRUGGLE));
+        PLAYER(species) { Attack(100); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_CUT); }
         TURN { MOVE(player, MOVE_STRUGGLE); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CUT, player);
-        HP_BAR(opponent, captureDamage: &cutDamage);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STRUGGLE, player);
-        HP_BAR(opponent, captureDamage: &struggleDamage);
-    } THEN {
-        EXPECT_MUL_EQ(struggleDamage, Q_4_12(1.5), cutDamage);
+        HP_BAR(opponent, captureDamage: &results[i].damage);
+    } FINALLY {
+        EXPECT_EQ(results[0].damage, results[1].damage);
     }
 }
 
