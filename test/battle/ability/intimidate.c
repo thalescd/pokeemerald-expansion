@@ -389,8 +389,15 @@ SINGLE_BATTLE_TEST("Intimidate does not lose timing after mega evolution and swi
 {
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_U_TURN) == EFFECT_HIT_ESCAPE);
+        // The first popup is the Mega form's own Intimidate firing on evolution and the second is
+        // Arbok's on switch-in, so this needs a Mega that has Intimidate while its base form does
+        // not. Shed Skin is pinned on the base form for that reason, and is inert here.
+        ASSUME(GetSpeciesAbility(SPECIES_SCRAFTY_MEGA, 0) == ABILITY_INTIMIDATE);
+        // Fails loudly here if this Mega gets retired, instead of as an unmatched popup further
+        // down. Manectric used to play this role until its form change table was commented out.
+        ASSUME(GetSpeciesFormChanges(SPECIES_SCRAFTY) != NULL);
         PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_MANECTRIC) { Item(ITEM_MANECTITE); }
+        OPPONENT(SPECIES_SCRAFTY) { Ability(ABILITY_SHED_SKIN); Item(ITEM_SCRAFTINITE); }
         OPPONENT(SPECIES_ARBOK) { Ability(ABILITY_INTIMIDATE); }
     } WHEN {
         TURN { MOVE(opponent, MOVE_U_TURN, gimmick: GIMMICK_MEGA); SEND_OUT(opponent, 1); }
