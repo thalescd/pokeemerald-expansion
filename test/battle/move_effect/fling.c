@@ -574,13 +574,16 @@ SINGLE_BATTLE_TEST("Fling deals damage based on a TM's move power if reusable or
     s16 damage[2];
 
     GIVEN {
-        ASSUME(GetMovePower(MOVE_EARTHQUAKE) == GetMovePower(MOVE_EGG_BOMB));
+        // Compared against the TM's own move, so no separate move of matching power is needed.
+        // Hippowdon is pure Ground, so both Fling's Dark and Earthquake's Ground are neutral
+        // against it, and Wobbuffet shares neither type, so neither attack gets STAB.
         ASSUME(!IsSpeciesOfType(SPECIES_WOBBUFFET, TYPE_DARK));
+        ASSUME(!IsSpeciesOfType(SPECIES_WOBBUFFET, TYPE_GROUND));
         PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_TM_EARTHQUAKE); }
         OPPONENT(SPECIES_HIPPOWDON);
     } WHEN {
         TURN { MOVE(player, MOVE_FLING); }
-        TURN { MOVE(player, MOVE_EGG_BOMB); }
+        TURN { MOVE(player, MOVE_EARTHQUAKE); }
     } SCENE {
         if (GetItemImportance(ITEM_TM_EARTHQUAKE) == 0) {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, player);
@@ -589,7 +592,7 @@ SINGLE_BATTLE_TEST("Fling deals damage based on a TM's move power if reusable or
             NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, player);
             MESSAGE("But it failed!");
         }
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_EGG_BOMB, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, player);
         HP_BAR(opponent, captureDamage: &damage[1]);
     } THEN {
         if (GetItemImportance(ITEM_TM_EARTHQUAKE) == 0)
