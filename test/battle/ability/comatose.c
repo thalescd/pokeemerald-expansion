@@ -38,7 +38,10 @@ SINGLE_BATTLE_TEST("Comatose may be suppressed if Pokémon transformed into a Po
         // expects to find Celebrate in slot 1 during the second turn
         // (after transforming).
         PLAYER(SPECIES_KOMALA) { Ability(ABILITY_COMATOSE); Speed(30); Moves(MOVE_CELEBRATE, MOVE_GASTRO_ACID, move); }
-        OPPONENT(SPECIES_DITTO) { Speed(20); }
+        // Imposter is Ditto's only ability here, and it would transform on entry - the test needs
+        // the transform to happen by move, after Gastro Acid. Limber is inert for this scenario:
+        // Transform overwrites it with Komala's suppressed Comatose before any status is inflicted.
+        OPPONENT(SPECIES_DITTO) { Ability(ABILITY_LIMBER); Speed(20); }
     } WHEN {
         TURN { MOVE(player, MOVE_GASTRO_ACID); MOVE(opponent, MOVE_TRANSFORM); }
         TURN { MOVE(player, move); }
