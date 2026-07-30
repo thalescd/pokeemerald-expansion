@@ -1,4 +1,5 @@
 #include "global.h"
+#include "caps.h"
 #include "test/battle.h"
 
 WILD_BATTLE_TEST("Pokemon gain experience after catching a Pokemon (Gen6+)")
@@ -35,7 +36,10 @@ WILD_BATTLE_TEST("Higher leveled Pokemon give more exp", s32 exp)
     PARAMETRIZE { level = 10; }
 
     GIVEN {
-        PLAYER(SPECIES_WOBBUFFET) { Level(20); }
+        // Must stay below the level cap: a hard exp cap zeroes every gain at or above it, and no
+        // badge flag is set during tests, so the cap is the first entry of sLevelCapFlagMap.
+        ASSUME(5 < GetCurrentLevelCap());
+        PLAYER(SPECIES_WOBBUFFET) { Level(5); }
         OPPONENT(SPECIES_CATERPIE) { Level(level); HP(1); }
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH); }
@@ -56,7 +60,8 @@ WILD_BATTLE_TEST("Lucky Egg boosts gained exp points by 50%", s32 exp)
     PARAMETRIZE { item = ITEM_NONE; }
 
     GIVEN {
-        PLAYER(SPECIES_WOBBUFFET) { Level(20); Item(item); }
+        ASSUME(5 < GetCurrentLevelCap()); // See the level cap note above
+        PLAYER(SPECIES_WOBBUFFET) { Level(5); Item(item); }
         OPPONENT(SPECIES_CATERPIE) { Level(10); HP(1); }
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH); }
@@ -103,6 +108,9 @@ WILD_BATTLE_TEST("Large exp gains are supported", s32 exp) // #1455
     PARAMETRIZE { level = MAX_LEVEL; }
 
     GIVEN {
+        // Incompatible with a hard cap by construction: every gain is truncated to the exp needed
+        // to reach the cap's level, so all three parametrizations collapse to the same value.
+        ASSUME(B_EXP_CAP_TYPE != EXP_CAP_HARD);
         PLAYER(SPECIES_WOBBUFFET) { Level(1); Item(ITEM_LUCKY_EGG); OTName("Test"); } // OT Name is different so it gets more exp as a traded mon
         OPPONENT(SPECIES_BLISSEY) { Level(level); HP(1); }
     } WHEN {
@@ -150,7 +158,10 @@ WILD_BATTLE_TEST("Transformed Pokemon gives the experience points of the copied 
     } THEN {
         EXPECT_EQ(gainedExp, gSpeciesInfo[speciesExp].expYield);
         EXPECT_EQ(GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_EXP), 1 + gSpeciesInfo[speciesExp].expYield);
-        EXPECT_EQ(GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_HP_EV), gSpeciesInfo[speciesExp].evYield_HP);
+        // Accessory to what this test is about - kept conditional instead of skipping the whole
+        // test, since the exp assertions above are the point and they hold under an EV cap.
+        if (B_EV_CAP_TYPE != EV_CAP_NO_GAIN)
+            EXPECT_EQ(GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_HP_EV), gSpeciesInfo[speciesExp].evYield_HP);
     }
 }
 
