@@ -301,7 +301,10 @@ static void WhenSingles(enum Move move, struct BattlePokemon *attacker, struct B
         }
         else if (TargetHasToMove(move))
         {
-            MOVE(defender, MOVE_POUND);
+            // Copycat outprioritizes Pound here and would have nothing to copy if it moved first.
+            // Kept specific to Copycat: Sucker Punch needs the target still waiting to attack, so a
+            // faster move would make it fail instead.
+            MOVE(defender, effect == EFFECT_COPYCAT ? MOVE_EXTREME_SPEED : MOVE_POUND);
             MOVE(attacker, move);
         }
         else if (effect == EFFECT_SNATCH)
@@ -517,7 +520,8 @@ static void DoublesWhen(enum Move move, struct BattlePokemon *attacker, struct B
         }
         else if (TargetHasToMove(move))
         {
-            MOVE(target, MOVE_POUND, target: attacker);
+            // Same Copycat priority caveat as in WhenSingles
+            MOVE(target, effect == EFFECT_COPYCAT ? MOVE_EXTREME_SPEED : MOVE_POUND, target: attacker);
             MOVE(attacker, move, target: target);
         }
         else if (effect == EFFECT_SNATCH)
