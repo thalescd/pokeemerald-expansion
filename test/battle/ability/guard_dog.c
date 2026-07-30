@@ -160,8 +160,10 @@ DOUBLE_BATTLE_TEST("Guard Dog does not activate if Intimidate is blocked by Flow
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FORESTS_CURSE, playerLeft);
         ABILITY_POPUP(opponentRight, ABILITY_INTIMIDATE);
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
+        ABILITY_POPUP(playerLeft, ABILITY_FLOWER_VEIL); // Flower Veil protects its own holder, even when it isn't Grass
+        MESSAGE("Comfey surrounded itself with a veil of petals!");
         ABILITY_POPUP(playerLeft, ABILITY_FLOWER_VEIL);
+        MESSAGE("Okidogi surrounded itself with a veil of petals!");
         NONE_OF {
             ABILITY_POPUP(playerRight, ABILITY_GUARD_DOG);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
@@ -169,6 +171,7 @@ DOUBLE_BATTLE_TEST("Guard Dog does not activate if Intimidate is blocked by Flow
         }
     } THEN {
         EXPECT_EQ(playerRight->types[2], TYPE_GRASS);
+        EXPECT_EQ(playerLeft->statStages[STAT_ATK], DEFAULT_STAT_STAGE);
         EXPECT_EQ(playerRight->statStages[STAT_ATK], DEFAULT_STAT_STAGE);
     }
 }
@@ -189,13 +192,15 @@ DOUBLE_BATTLE_TEST("Guard Dog activates before Flower Veil if it has higher unmo
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FORESTS_CURSE, playerLeft);
         ABILITY_POPUP(opponentRight, ABILITY_INTIMIDATE);
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
+        ABILITY_POPUP(playerLeft, ABILITY_FLOWER_VEIL); // Flower Veil protects its own holder, even when it isn't Grass
+        MESSAGE("Comfey surrounded itself with a veil of petals!");
+        NOT MESSAGE("Okidogi surrounded itself with a veil of petals!"); // Guard Dog got there first, so Flower Veil never protects Okidogi
         ABILITY_POPUP(playerRight, ABILITY_GUARD_DOG);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
         MESSAGE("Okidogi's Attack rose!");
-        NOT ABILITY_POPUP(playerLeft, ABILITY_FLOWER_VEIL);
     } THEN {
         EXPECT_EQ(playerRight->types[2], TYPE_GRASS);
+        EXPECT_EQ(playerLeft->statStages[STAT_ATK], DEFAULT_STAT_STAGE);
         EXPECT_EQ(playerRight->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 1);
     }
 }
