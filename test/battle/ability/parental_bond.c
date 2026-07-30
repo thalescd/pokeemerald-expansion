@@ -73,8 +73,7 @@ DOUBLE_BATTLE_TEST("Parental Bond does not convert multi-target moves into a two
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_EARTHQUAKE); MOVE(playerRight, MOVE_CELEBRATE); MOVE(opponentLeft, MOVE_CELEBRATE); MOVE(opponentRight, MOVE_CELEBRATE); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, playerLeft);
-        HP_BAR(opponentLeft);
+        // The Pidgeys are faster than Wobbuffet, so they are processed first and only print immunity messages.
         MESSAGE("It doesn't affect Pidgey…");
         MESSAGE("It doesn't affect the opposing Pidgey…");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, playerLeft);
@@ -309,10 +308,10 @@ SINGLE_BATTLE_TEST("Parental Bond does not trigger on OHKO moves")
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_FISSURE) == EFFECT_OHKO);
         ASSUME(GetItemHoldEffect(ITEM_FOCUS_SASH) == HOLD_EFFECT_FOCUS_SASH);
-        PLAYER(SPECIES_KANGASKHAN) { Item(ITEM_KANGASKHANITE); }
+        PLAYER(SPECIES_KANGASKHAN_MEGA) { Ability(ABILITY_PARENTAL_BOND); }
         OPPONENT(SPECIES_MACHAMP) { Ability(ABILITY_NO_GUARD); Item(ITEM_FOCUS_SASH); }
     } WHEN {
-        TURN { MOVE(player, MOVE_FISSURE, gimmick: GIMMICK_MEGA); }
+        TURN { MOVE(player, MOVE_FISSURE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FISSURE, player);
         HP_BAR(opponent, hp: 1);
@@ -327,10 +326,10 @@ SINGLE_BATTLE_TEST("Parental Bond does not trigger on Uproar")
 {
     GIVEN {
         ASSUME(MoveHasAdditionalEffectSelf(MOVE_UPROAR, MOVE_EFFECT_UPROAR));
-        PLAYER(SPECIES_KANGASKHAN) { Item(ITEM_KANGASKHANITE); }
+        PLAYER(SPECIES_KANGASKHAN_MEGA) { Ability(ABILITY_PARENTAL_BOND); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_UPROAR, gimmick: GIMMICK_MEGA); }
+        TURN { MOVE(player, MOVE_UPROAR); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_UPROAR, player);
         HP_BAR(opponent);
