@@ -17,7 +17,7 @@ SINGLE_BATTLE_TEST("Transform fails on semi-invulnerable target in Gen2+")
     GIVEN {
         WITH_CONFIG(B_TRANSFORM_SEMI_INV_FAIL, genConfig);
         PLAYER(SPECIES_WOBBUFFET) { Speed(50); Moves(MOVE_DIG); }
-        OPPONENT(SPECIES_DITTO) { Speed(10); Moves(MOVE_TRANSFORM); }
+        OPPONENT(SPECIES_DITTO) { Ability(ABILITY_LIMBER); Speed(10); Moves(MOVE_TRANSFORM); }
     } WHEN {
         TURN { MOVE(player, MOVE_DIG); MOVE(opponent, MOVE_TRANSFORM); }
     } SCENE {
@@ -109,6 +109,10 @@ SINGLE_BATTLE_TEST("Transformed Pokemon cannot change forms in Gen5+")
     GIVEN {
         WITH_CONFIG(B_TRANSFORM_FORM_CHANGES, genConfig);
         PLAYER(SPECIES_AEGISLASH) { Moves(MOVE_TACKLE, MOVE_CELEBRATE); }
+        // No forced Ability here on purpose: a forced ability is re-applied whenever the ability is
+        // recomputed, including on form change, so it would overwrite the Stance Change this test
+        // copies from Aegislash. Imposter transforming Ditto on entry is fine - what matters is that
+        // it is transformed by the time it attacks.
         OPPONENT(SPECIES_DITTO) { Moves(MOVE_TACKLE, MOVE_TRANSFORM); }
     } WHEN {
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_TRANSFORM); }
@@ -138,7 +142,7 @@ SINGLE_BATTLE_TEST("(TERA) Transform does not copy the target's Tera Type, and i
     PARAMETRIZE { playerDoTera = GIMMICK_NONE; }
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) { Moves(MOVE_CELEBRATE, MOVE_SCRATCH, MOVE_EARTHQUAKE); TeraType(TYPE_GHOST); }
-        OPPONENT(SPECIES_DITTO) { TeraType(TYPE_FLYING); }
+        OPPONENT(SPECIES_DITTO) { Ability(ABILITY_LIMBER); TeraType(TYPE_FLYING); }
     } WHEN {
         TURN { MOVE(player, MOVE_CELEBRATE, gimmick: playerDoTera); MOVE(opponent, MOVE_TRANSFORM); }
         TURN { MOVE(player, MOVE_SCRATCH); MOVE(opponent, moveSlot: 0); }
@@ -160,7 +164,7 @@ SINGLE_BATTLE_TEST("(TERA) Transform does not copy the target's Tera Type, and i
 SINGLE_BATTLE_TEST("Transform returns the user to normal at the end of the battle after fainting")
 {
     GIVEN {
-        PLAYER(SPECIES_DITTO) { HP(1); }
+        PLAYER(SPECIES_DITTO) { Ability(ABILITY_LIMBER); HP(1); }
         PLAYER(SPECIES_WOBBUFFET);
         OPPONENT(SPECIES_PIDGEOT) { Item(ITEM_PIDGEOTITE); }
     } WHEN {
