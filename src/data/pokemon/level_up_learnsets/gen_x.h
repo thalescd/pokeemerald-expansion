@@ -9392,6 +9392,7 @@ static const struct LevelUpMove sCacturneLevelUpLearnset[] = {
     LEVEL_UP_MOVE(48, MOVE_COTTON_SPORE),
     LEVEL_UP_MOVE(53, MOVE_SANDSTORM),
     LEVEL_UP_MOVE(58, MOVE_DESTINY_BOND),
+    LEVEL_UP_MOVE(63, MOVE_IVY_CUDGEL),
     LEVEL_UP_END
 };
 #endif //P_FAMILY_CACNEA
