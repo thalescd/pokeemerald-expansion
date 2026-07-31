@@ -55,6 +55,7 @@
   - [How to use Dynamic Weather](tutorials/how_to_dynamic_weather.md)
   - [How to use Random Mon Generation](tutorials/how_to_random_mon_generator.md)
   - [How to use the Dynamic Multichoice](tutorials/how_to_dynmultichoice.md)
+  - [How to use the Mining Minigame](tutorials/how_to_mining_minigame.md)
 - [Changelog](./CHANGELOG.md)
     - [1.16.x]()
         - [Version 1.16.3](changelogs/1.16.x/1.16.3.md)

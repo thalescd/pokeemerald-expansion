@@ -82,6 +82,8 @@ A lot of features listed below can be turned off as desired. Check which ones in
 - ***NPC Followers***: ([feature branch](https://github.com/ghoulslash/pokeemerald/tree/follow_me) by @ghoulslash)
 - ***BW Map Pop-ups*** ([feature branch](https://github.com/ravepossum/pokeemerald/tree/bsbob_map_popups) by @BSBob)
 - ***XY Berry Mechanics:*** Mutations, moisture, weeds, pests.
+- ***Mining Minigame:*** ([feature branch](https://github.com/volromhacking/pokeemerald-expansion/tree/mining_minigame) by vol and psf)
+    - *A recreation of the Gen 4 Underground mining minigame. See the "How to use the Mining Minigame" tutorial.*
 - ***Obtained Item descriptions*** (feature branch by @ghoulslash).
 
 ## Developer tools
