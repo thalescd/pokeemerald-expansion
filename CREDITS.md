@@ -124,6 +124,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/e
 This project follows the [all-contributors](https://github.com/all-contributors/allcontributors.org) specification. Contributions of any kind welcome!
 
 ## Other Credits
+### Mining Minigame Credits:
+- [vol](https://github.com/volromhacking) and [psf](https://github.com/pkmnsnfrn), who wrote the feature — [original feature branch](https://github.com/volromhacking/pokeemerald-expansion/tree/mining_minigame)
+- With contributions from [skeli](https://github.com/Skeli789) and [sbird](https://github.com/SBird1337)
+
 ### Mega Evolution Overworld Sprite Credits:
 - [princess-phoenix](https://www.deviantart.com/princess-phoenix)
 - [larryturbo](https://www.deviantart.com/larryturbo)
