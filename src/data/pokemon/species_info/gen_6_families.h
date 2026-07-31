@@ -1986,7 +1986,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         FOOTPRINT(Pyroar)
         SHADOW(-1, 12, SHADOW_SIZE_L)
-        .isMegaEvolution = TRUE,
+        //.isMegaEvolution = TRUE,
         .levelUpLearnset = sPyroarMaleLevelUpLearnset,
         .teachableLearnset = sPyroarTeachableLearnset,
         //.formSpeciesIdTable = sPyroarFormSpeciesIdTable,
