@@ -2958,6 +2958,9 @@ static void GetItemOrPrintError(u8 taskId, u32 itemIndex, u32 itemId)
     if (itemId == ITEM_NONE)
         return;
 
+    if (!GetBuriedItemStatus(itemIndex))
+        return;
+
     if (AddBagItem(itemId,1))
         return;
 
