@@ -3359,13 +3359,9 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Mienfoo
+Tyrogue
 Level: 17
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-- Force Palm
-- Fake Out
-- Reversal
-- Double Slap
 
 Croagunk
 Level: 17
@@ -8011,10 +8007,10 @@ Gender: Male
 Music: Suspicious
 Double Battle: No
 
-Accelgor
+Nuzleaf
 Level: 33
 
-Ninjask
+Accelgor
 Level: 33
 
 === TRAINER_LAO_2 ===
