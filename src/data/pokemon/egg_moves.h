@@ -5518,7 +5518,6 @@ static const u16 sSalanditEggMoveLearnset[] = {
 static const u16 sStuffulEggMoveLearnset[] = {
     MOVE_ICE_PUNCH,
     MOVE_THUNDER_PUNCH,
-    MOVE_FORCE_PALM,
     MOVE_ENDURE,
     MOVE_WIDE_GUARD,
     MOVE_MEGA_KICK,
