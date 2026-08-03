@@ -347,7 +347,6 @@ Adamant Nature
 Murkrow
 Ability: Insomnia
 Level: 16
-Docile Nature
 - Pursuit
 - Wing Attack
 
@@ -3363,6 +3362,10 @@ AI: Basic Trainer
 Mienfoo
 Level: 17
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Force Palm
+- Fake Out
+- Reversal
+- Double Slap
 
 Croagunk
 Level: 17
@@ -5414,6 +5417,9 @@ IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 Wooper
 Level: 14
 IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+- Mud Shot
+- Water Gun
+- Haze
 
 === TRAINER_TED ===
 Name: TED
@@ -5660,7 +5666,7 @@ AI: Basic Trainer
 Sneasel
 Level: 24
 
-Applin
+Skiddo
 Level: 24
 
 === TRAINER_ANNA_AND_MEG_2 ===
@@ -5787,6 +5793,10 @@ AI: Basic Trainer
 
 Skwovet @ Oran Berry
 Level: 20
+- Body Slam
+- Stockpile
+- Bite
+- Swallow
 
 Eevee @ Oran Berry
 Level: 20
@@ -5960,7 +5970,7 @@ Pikachu @ Light Ball
 Level: 20
 
 Snover @ Oran Berry
-Level: 20
+Level: 21
 
 === TRAINER_ISABEL_2 ===
 Name: ISABEL
@@ -6266,6 +6276,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 Rockruff
 Level: 13
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Rock Throw
+- Tackle
+- Double Team
 
 === TRAINER_TOMMY ===
 Name: TOMMY
@@ -6607,9 +6620,17 @@ Level: 20
 
 Arrokuda
 Level: 21
+- Aqua Jet
+- Fury Attack
+- Bite
+- Laser Focus
 
 Bibarel
 Level: 22
+- Hyper Fang
+- Aqua Jet
+- Defense Curl
+- Rollout
 
 === TRAINER_IVAN ===
 Name: IVAN
@@ -6626,11 +6647,16 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Wishiwashi
 Level: 10
+- Brine
+- Feint Attack
+- Growl
 
 Finneon
 Level: 11
 Ability: Storm Drain
-IVs: 0 Atk  
+- Air Cutter
+- Water Gun
+- Attract
 
 === TRAINER_CLAUDE ===
 Name: CLAUDE
@@ -6684,9 +6710,13 @@ Goldeen
 Level: 16
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-Slowpoke
+Quaxwell
 Level: 16
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Low Sweep
+- Auqa Jet
+- Wing Attack
+- Water Gun
 
 === TRAINER_DALE ===
 Name: DALE
@@ -6700,10 +6730,10 @@ AI: Basic Trainer
 Tentacool
 Level: 22
 
-Wailmer
+Bergmite
 Level: 22
 
-Quagsire
+Wailmer
 Level: 23
 
 === TRAINER_NOLAN ===
@@ -7184,13 +7214,8 @@ Level: 24
 - Stomp
 - Tail Whip
 
-Hitmonlee @ Oran Berry
-Ability: Unburden
+Jangmo-o @ Oran Berry
 Level: 24
-- Strength
-- Sucker Punch
-- Endure
-- Double Kick
 
 === TRAINER_MARIA_2 ===
 Name: MARIA
@@ -8149,7 +8174,7 @@ AI: Basic Trainer
 
 Pinsir
 Level: 18
-IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 - Storm Throw
 - Bug Bite
 - Feint Attack
@@ -8166,7 +8191,7 @@ AI: Basic Trainer
 
 Hawlucha
 Level: 18
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 - Bulk Up
 - Karate Chop
 - Aerial Ace
@@ -9050,10 +9075,15 @@ Double Battle: Yes
 AI: Basic Trainer
 
 Lombre
-Level: 21
+Level: 22
+- Teeter Dance
+- Bubblebeam
+- Mega Drain
+- Fury Swipes
 
-Nuzleaf
-Level: 21
+Spoink
+Ability: Own Tempo
+Level: 22
 
 === TRAINER_AMY_AND_LIV_2 ===
 Name: AMY & LIV
@@ -9219,8 +9249,8 @@ Double Battle: No
 AI: Basic Trainer
 
 Crabrawler
-Level: 18
 Ability: Iron Fist
+Level: 18
 
 Numel
 Level: 18
@@ -9617,7 +9647,7 @@ Level: 20
 Dewpider
 Level: 20
 
-Fearow
+Noibat
 Level: 20
 
 === TRAINER_HECTOR ===
@@ -10532,7 +10562,7 @@ AI: Basic Trainer
 Rookidee
 Level: 23
 
-Skiddo
+Applin
 Level: 23
 
 Tinkatink
@@ -11289,7 +11319,6 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Force Palm
 - Comet Punch
 - Feint
-- Bide
 
 Mankey
 Level: 17
@@ -12133,8 +12162,6 @@ Adamant Nature
 - Bite
 - Ice Fang
 
-
-
 === TRAINER_ANDREA ===
 Name: ANDREA
 Class: Lass
@@ -12217,7 +12244,7 @@ Level: 10
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 Venipede
-Level: 10
+Level: 11
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_DOUG ===
@@ -13930,12 +13957,16 @@ Double Battle: No
 AI: Basic Trainer
 
 Fidough
-Level: 14
+Level: 15
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Yamper
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Spark
+- Bite
+- Tackle
+- Tail Whip
 
 === TRAINER_SARAH ===
 Name: SARAH
@@ -13952,7 +13983,7 @@ Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Meowth-Galar
-Level: 14
+Level: 15
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_DARIAN ===
@@ -14004,7 +14035,7 @@ AI: Basic Trainer
 Electrike
 Level: 18
 
-Tentacool
+Silicobra
 Level: 18
 
 === TRAINER_KALEB ===
@@ -14897,7 +14928,8 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Stunfisk
+Stunfisk @ Oran Berry
+Ability: Static
 Level: 13
 
 === TRAINER_JOHNSON ===
