@@ -367,14 +367,6 @@ Music: Aqua
 Double Battle: No
 AI: Basic Trainer
 
-Bibarel
-Ability: Simple
-Level: 47
-- Swords Dance
-- Aqua Jet
-- Crunch
-- Take Down
-
 Golduck
 Ability: Cloud Nine
 Level: 47
@@ -382,6 +374,14 @@ Level: 47
 - Psychic
 - Ice Beam
 - Confuse Ray
+
+Glalie
+Ability: Inner Focus
+Level: 47
+- Freeze-Dry
+- Crunch
+- Icicle Crash
+- Iron Head
 
 Banette
 Ability: Insomnia
@@ -795,12 +795,20 @@ AI: Basic Trainer
 
 Gloom
 Level: 24
+- Giga Drain
+- Sludge
+- Sleep Powder
+- Stun Spore
 
 Yanma
 Level: 24
 
 Skiploom
 Level: 24
+- Giga Drain
+- Leech Seed
+- Sleep Powder
+- Fairy Wind
 
 === TRAINER_FELIX ===
 Name: FELIX
@@ -3609,8 +3617,12 @@ AI: Basic Trainer
 Luxio
 Level: 26
 
-Oricorio-Pom-Pom
+Klang
 Level: 26
+- Wild Charge
+- Mirror Shot
+- Metal Sound
+- Autotomize
 
 === TRAINER_FERNANDO_1 ===
 Name: FERNANDO
@@ -3992,13 +4004,22 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Vullaby
+Whirlipede
 Level: 31
+- Mortal Spin
+- Steamroller
+- Rock Climb
+- Pursuit
 
 Cinccino
+Ability: Skill Link
 Level: 31
+- Rock Blast
+- Double Slap
+- Wake-Up Slap
+- Bullet Seed
 
-Whirlipede
+Dreepy
 Level: 31
 
 === TRAINER_ETHAN_2 ===
@@ -6710,7 +6731,7 @@ Quaxwell
 Level: 16
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Low Sweep
-- Auqa Jet
+- Aqua Jet
 - Wing Attack
 - Water Gun
 
@@ -6984,11 +7005,19 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Dodrio
+Combusken
 Level: 30
+- Flame Burst
+- Low Sweep
+- Aerial Ace
+- Bulk Up
 
 Rapidash
 Level: 30
+- Take Down
+- Smart Strike
+- Flame Wheel
+- Double Kick
 
 === TRAINER_BENJAMIN_2 ===
 Name: BENJAMIN
@@ -9640,7 +9669,7 @@ Level: 20
 Toedscool
 Level: 20
 
-Dewpider
+Nacli
 Level: 20
 
 Noibat
@@ -12555,6 +12584,10 @@ AI: Basic Trainer
 
 Drilbur
 Level: 24
+- Rapid Spin
+- Crush Claw
+- Metal Claw
+- Hone Claws
 
 Rolycoly
 Level: 24
