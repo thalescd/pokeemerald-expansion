@@ -1056,6 +1056,8 @@ enum __attribute__((packed)) Item
 
     ITEM_POKEVIAL = 875,
 
+    ITEM_UNKNOWN_FOSSIL = 876,
+
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,
 };

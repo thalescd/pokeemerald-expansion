@@ -97,12 +97,12 @@
             "path": "./graphics/mining_minigame/items/odd_key_stone.4bpp"
         },
         {
-            "id": "MININGID_SKULL_FOSSIL",
-            "path": "./graphics/mining_minigame/items/skull_fossil.4bpp"
+            "id": "MININGID_UNKNOWN_FOSSIL",
+            "path": "./graphics/mining_minigame/items/unknown_fossil.4bpp"
         },
         {
-            "id": "MININGID_ARMOR_FOSSIL",
-            "path": "./graphics/mining_minigame/items/armor_fossil.4bpp"
+            "id": "MININGID_OLD_AMBER",
+            "path": "./graphics/mining_minigame/items/old_amber.4bpp"
         }
     ],
     "stones": [

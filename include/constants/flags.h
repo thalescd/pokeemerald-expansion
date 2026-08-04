@@ -61,7 +61,7 @@
 #define FLAG_RECEIVED_SWORDS_DANCE_LAVARIDGE     0x27
 #define FLAG_ITEM_ROUTE_119_TM_62                0x28
 #define FLAG_ITEM_FORTREE_TM_86                  0x29
-#define FLAG_UNUSED_0x02A                        0x2A // Unused Flag
+#define FLAG_GUESSED_FOSSIL_MON                  0x2A
 #define FLAG_UNUSED_0x02B                        0x2B // Unused Flag
 #define FLAG_UNUSED_0x02C                        0x2C // Unused Flag
 #define FLAG_UNUSED_0x02D                        0x2D // Unused Flag

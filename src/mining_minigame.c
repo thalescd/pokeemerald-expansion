@@ -669,9 +669,11 @@ static const u16 gItemSunStonePal[] = INCGFX_U16("graphics/mining_minigame/items
 static const u32 gItemOddKeyStoneGfx[] = INCGFX_U32("graphics/mining_minigame/items/odd_key_stone.png", ".4bpp.smol");
 static const u16 gItemOddKeyStonePal[] = INCGFX_U16("graphics/mining_minigame/items/odd_key_stone.png", ".gbapal");
 
-static const u32 gItemSkullFossilGfx[] = INCGFX_U32("graphics/mining_minigame/items/skull_fossil.png", ".4bpp.smol");
-static const u32 gItemArmorFossilGfx[] = INCGFX_U32("graphics/mining_minigame/items/armor_fossil.png", ".4bpp.smol");
+static const u32 gItemUnknownFossilGfx[] = INCGFX_U32("graphics/mining_minigame/items/unknown_fossil.png", ".4bpp.smol");
 static const u16 gItemFossilPal[] = INCGFX_U16("graphics/mining_minigame/items/fossil.pal", ".gbapal");
+
+static const u32 gItemOldAmberGfx[] = INCGFX_U32("graphics/mining_minigame/items/old_amber.png", ".4bpp.smol");
+static const u16 gItemOldAmberPal[] = INCGFX_U16("graphics/mining_minigame/items/old_amber.pal", ".gbapal");
 
 // Stone SpriteSheets and SpritePalettes
 static const struct CompressedSpriteSheet sSpriteSheet_Stone1x4[] =
@@ -962,18 +964,18 @@ static const struct CompressedSpriteSheet sSpriteSheet_ItemOddKeyStone =
     MINING_TAG_ITEM_ODD_KEY_STONE,
 };
 
-static const struct CompressedSpriteSheet sSpriteSheet_ItemSkullFossil =
+static const struct CompressedSpriteSheet sSpriteSheet_ItemUnknownFossil =
 {
-    gItemSkullFossilGfx,
+    gItemUnknownFossilGfx,
     2048,
-    MINING_TAG_ITEM_SKULL_FOSSIL,
+    MINING_TAG_ITEM_UNKNOWN_FOSSIL,
 };
 
-static const struct CompressedSpriteSheet sSpriteSheet_ItemArmorFossil =
+static const struct CompressedSpriteSheet sSpriteSheet_ItemOldAmber =
 {
-    gItemArmorFossilGfx,
+    gItemOldAmberGfx,
     2048,
-    MINING_TAG_ITEM_ARMOR_FOSSIL,
+    MINING_TAG_ITEM_OLD_AMBER,
 };
 
 static const struct SpriteTemplate gSpriteStone1x4 =
@@ -1272,19 +1274,19 @@ static const struct MiningItem MiningItemList[] =
         .sheet = &sSpriteSheet_ItemOddKeyStone,
         .paldata = gItemOddKeyStonePal,
     },
-    [MININGID_SKULL_FOSSIL] =
+    [MININGID_UNKNOWN_FOSSIL] =
     {
-        .bagItemId = ITEM_SKULL_FOSSIL,
-        .tag = MINING_TAG_ITEM_SKULL_FOSSIL,
-        .sheet = &sSpriteSheet_ItemSkullFossil,
+        .bagItemId = ITEM_UNKNOWN_FOSSIL,
+        .tag = MINING_TAG_ITEM_UNKNOWN_FOSSIL,
+        .sheet = &sSpriteSheet_ItemUnknownFossil,
         .paldata = gItemFossilPal,
     },
-    [MININGID_ARMOR_FOSSIL] =
+    [MININGID_OLD_AMBER] =
     {
-        .bagItemId = ITEM_ARMOR_FOSSIL,
-        .tag = MINING_TAG_ITEM_ARMOR_FOSSIL,
-        .sheet = &sSpriteSheet_ItemArmorFossil,
-        .paldata = gItemFossilPal,
+        .bagItemId = ITEM_OLD_AMBER,
+        .tag = MINING_TAG_ITEM_OLD_AMBER,
+        .sheet = &sSpriteSheet_ItemOldAmber,
+        .paldata = gItemOldAmberPal,
     },
 };
 
@@ -1760,7 +1762,8 @@ static void ClearItemMap(void)
 
 static const u32 ItemRarityTable_Common[] =
 {
-    MININGID_HEART_SCALE,
+    //MININGID_HEART_SCALE,
+    MININGID_HARD_STONE,
     MININGID_RED_SHARD,
     MININGID_BLUE_SHARD,
     MININGID_YELLOW_SHARD,
@@ -1769,31 +1772,29 @@ static const u32 ItemRarityTable_Common[] =
 
 static const u32 ItemRarityTable_Uncommon[] =
 {
+    //MININGID_HARD_STONE,
     MININGID_IRON_BALL,
-    MININGID_HARD_STONE,
-    MININGID_REVIVE,
     MININGID_EVER_STONE,
+    MININGID_SUN_STONE,
+    MININGID_MOON_STONE,
+    MININGID_UNKNOWN_FOSSIL,
 };
 
 static const u32 ItemRarityTable_Rare[] =
 {
+    //MININGID_DAMP_ROCK,
+    //MININGID_HEAT_ROCK,
+    //MININGID_ICY_ROCK,
+    //MININGID_SMOOTH_ROCK,
+    //MININGID_LEAF_STONE,
+    //MININGID_FIRE_STONE,
+    //MININGID_WATER_STONE,
+    //MININGID_THUNDER_STONE,
+    //MININGID_OVAL_STONE,
     MININGID_STAR_PIECE,
-    MININGID_DAMP_ROCK,
-    MININGID_HEAT_ROCK,
-    MININGID_REVIVE_MAX,
-    MININGID_OVAL_STONE,
     MININGID_LIGHT_CLAY,
-    MININGID_ICY_ROCK,
-    MININGID_SMOOTH_ROCK,
-    MININGID_LEAF_STONE,
-    MININGID_FIRE_STONE,
-    MININGID_WATER_STONE,
-    MININGID_THUNDER_STONE,
-    MININGID_MOON_STONE,
-    MININGID_SUN_STONE,
     MININGID_ODD_KEY_STONE,
-    MININGID_SKULL_FOSSIL,
-    MININGID_ARMOR_FOSSIL,
+    MININGID_OLD_AMBER,
 };
 
 #if MINING_DEBUG_ENABLE == FALSE || MINING_DEBUG_ENABLE_ITEM_GENERATION_OPTIONS == FALSE

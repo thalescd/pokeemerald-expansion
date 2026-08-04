@@ -3563,6 +3563,23 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_FossilizedDino,
     },
 
+    [ITEM_UNKNOWN_FOSSIL] =
+    {
+        .name = ITEM_NAME("Unknown Fossil"),
+        .price = (I_PRICE >= GEN_7) ? 7000: 1000,
+        .description = COMPOUND_STRING(
+            "A worn-out fossil\n"
+            "of some ancient\n"
+            "Pokémon or other."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_FOSSIL,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 100,
+        .iconPic = gItemIcon_SkullFossil,
+        .iconPalette = gItemIconPalette_SkullFossil,
+    },
+
 // Mulch
 
     [ITEM_GROWTH_MULCH] =
