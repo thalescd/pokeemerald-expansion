@@ -1392,7 +1392,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Swellow
-Nature: Jolly
+Jolly Nature
 Level: 43
 - Dual Wingbeat
 - U-turn
@@ -1400,7 +1400,7 @@ Level: 43
 - Swords Dance
 
 Ambipom @ Silk Scarf
-Nature: Jolly
+Jolly Nature
 Ability: Technician
 Level: 43
 - Fake Out
@@ -1566,12 +1566,24 @@ AI: Basic Trainer
 
 Lucario
 Level: 33
+- Aura Sphere
+- Bone Rush
+- Bite
+- Work Up
 
 Lurantis
 Level: 33
+- Petal Blizzard
+- X-Scissor
+- Slash
+- Synthesis
 
 Luxray
 Level: 33
+- Thunder Fang
+- Night Slash
+- Taunt
+- Ice Fang
 
 === TRAINER_EDGAR ===
 Name: EDGAR
@@ -3939,6 +3951,10 @@ Level: 31
 
 Hitmonchan
 Level: 31
+- Mach Punch
+- Fire Punch
+- Ice Punch
+- Thunder Punch
 
 === TRAINER_SHANE ===
 Name: SHANE
@@ -3953,7 +3969,7 @@ Dachsbun
 Level: 35
 
 Butterfree
-Level: 35
+Level: 36
 
 === TRAINER_JUSTIN ===
 Name: JUSTIN
@@ -6686,12 +6702,24 @@ AI: Basic Trainer
 
 Seaking
 Level: 34
+- Waterfall
+- Signal Beam
+- Flip Turn
+- Psybeam
 
 Croconaw
 Level: 34
+- Aqua Tail
+- Crunch
+- Ice Punch
+- Low Kick
 
 Frillish
 Level: 34
+- Shadow Ball
+- Ominous Wind
+- Recover
+- Chilling Water
 
 === TRAINER_ELLIOT_1 ===
 Name: ELLIOT
@@ -6767,6 +6795,10 @@ Level: 34
 
 Palpitoad
 Level: 34
+- Bubblebeam
+- Mud Bomb
+- Sludge
+- Icy Wind
 
 === TRAINER_BARNY ===
 Name: BARNY
@@ -8041,6 +8073,10 @@ Level: 33
 
 Accelgor
 Level: 33
+- Water Shuriken
+- Struggle Bug
+- Giga Drain
+- Acid Spray
 
 === TRAINER_LAO_2 ===
 Name: LAO
@@ -8935,6 +8971,10 @@ AI: Basic Trainer
 
 Gurdurr
 Level: 35
+- Low Sweep
+- Wake-Up Slap
+- Rock Slide
+- Chip Away
 
 Malamar
 Level: 35
@@ -9005,6 +9045,10 @@ Level: 32
 
 Morpeko
 Level: 32
+- Spark
+- Bite
+- Flatter
+- Torment
 
 === TRAINER_DIANA_2 ===
 Name: DIANA
@@ -12428,9 +12472,17 @@ AI: Basic Trainer
 
 Magmar
 Level: 32
+- Flame Burst
+- Karate Chop
+- Clear Smog
+- Confuse Ray
 
 Machoke
 Level: 32
+- Submission
+- Knock Off
+- Strength
+- Rock Tomb
 
 === TRAINER_TRENT_1 ===
 Name: TRENT
@@ -12443,12 +12495,24 @@ AI: Basic Trainer
 
 Graveler
 Level: 31
+- Smack Down
+- Bulldoze
+- Slam
+- Self-Destruct
 
 Durant
-Level: 31
+Level: 32
+Jolly Nature
+- X-Scissor
+- Bite
+- Metal Claw
+- Hone Claws
 
 Rhyhorn
 Level: 32
+- Rock Blast
+- Bulldoze
+- Take Down
 
 === TRAINER_LENNY ===
 Name: LENNY
@@ -12464,6 +12528,10 @@ Level: 33
 
 Clodsire
 Level: 35
+- Poison Jab
+- Mud Bomb
+- Yawn
+- Slam
 
 Avalugg
 Level: 37
@@ -12477,8 +12545,12 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Hippopotas
-Level: 34
+Hippopotas @ Smooth Rock
+Level: 35
+- Sand Tomb
+- Crunch
+- Take Down
+- Yawn
 
 Stoutland
 Ability: Sand Rush
@@ -12839,7 +12911,7 @@ AI: Basic Trainer
 
 Kecleon
 Level: 39
-Nature: Modest
+Modest Nature
 - Flamethrower
 - Ancient Power
 - Foul Play
@@ -13693,6 +13765,10 @@ AI: Basic Trainer
 
 Lilligant
 Level: 36
+- Energy Ball
+- Sleep Powder
+- Leech Seed
+- Teeter Dance
 
 Lycanroc-Midnight
 Level: 36
@@ -14191,6 +14267,10 @@ AI: Basic Trainer
 
 Dwebble
 Level: 30
+- Rock Slide
+- Bug Bite
+- Slash
+- Stealth Rock
 
 Zangoose
 Level: 30
@@ -14291,6 +14371,10 @@ Level: 34
 
 Trumbeak
 Level: 33
+- Rock Blast
+- Drill Peck
+- Roost
+- Screech
 
 === TRAINER_LAWRENCE ===
 Name: LAWRENCE
@@ -14308,6 +14392,10 @@ Level: 33
 Stantler
 Ability: Intimidate
 Level: 33
+- Psyshield Bash
+- Take Down
+- Confuse Ray
+- Hypnosis
 
 === TRAINER_WYATT ===
 Name: WYATT
@@ -14320,9 +14408,17 @@ AI: Basic Trainer
 
 Mr. Mime-Galar
 Level: 33
+- Icy Wind
+- Double Kick
+- Psybeam
+- Tickle
 
 Skuntank
 Level: 33
+- Night Slash
+- Poison Tail
+- Protect
+- Toxic
 
 === TRAINER_ANGELINA ===
 Name: ANGELINA
@@ -14338,6 +14434,10 @@ Level: 36
 
 Marowak @ Thick Club
 Level: 36
+- Bone Rush
+- Superpower
+- Rock Tomb
+- Retaliate
 
 === TRAINER_KAI ===
 Name: KAI
@@ -14350,6 +14450,9 @@ AI: Basic Trainer
 
 Whiscash
 Level: 35
+- Muddy Water
+- Mud Bomb
+- Water Pulse
 
 === TRAINER_CHARLOTTE ===
 Name: CHARLOTTE
@@ -14857,6 +14960,10 @@ AI: Basic Trainer
 
 Charmeleon
 Level: 32
+- Scary Face
+- Flame Burst
+- Dragon Rage
+- Smokescreen
 
 Salandit
 Level: 32
@@ -14870,11 +14977,19 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Beedrill
+Beedrill @ Focus Sash
 Level: 33
+- Pin Missile
+- Toxic Spikes
+- Cross Poison
+- Pursuit
 
 Flapple
 Level: 33
+- Grav Apple
+- Wing Attack
+- Dragon Rush
+- Leech Seed
 
 === TRAINER_KYRA ===
 Name: KYRA
