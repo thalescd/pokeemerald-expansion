@@ -2473,6 +2473,10 @@ AI: Basic Trainer
 
 Samurott
 Level: 40
+- Secret Sword
+- Water Pulse
+- Megahorn
+- Encore
 
 === TRAINER_SHEILA ===
 Name: SHEILA
@@ -3442,7 +3446,13 @@ Double Battle: No
 AI: Basic Trainer
 
 Breloom
+Ability: Technician
 Level: 37
+Jolly Nature
+- Mach Punch
+- Bullet Seed
+- Rock Tomb
+- Force Palm
 
 === TRAINER_NOB_2 ===
 Name: NOB
@@ -3996,7 +4006,7 @@ AI: Basic Trainer
 Forretress
 Level: 38
 
-Cinccino
+Bouffalant
 Level: 38
 
 === TRAINER_AUTUMN ===
@@ -6181,6 +6191,10 @@ AI: Basic Trainer
 
 Fraxure
 Level: 38
+- Dragon Dance
+- Dragon Claw
+- Crunch
+- Slash
 
 Chimecho
 Level: 38
@@ -8269,9 +8283,17 @@ AI: Basic Trainer
 
 Crabrawler
 Level: 36
+- Mach Punch
+- Brick Break
+- Crabhammer
+- Pursuit
 
-Hawlucha
+Flareon
 Level: 36
+- Fire Fang
+- Superpower
+- Scary Face
+- Bite
 
 === TRAINER_CORA ===
 Name: CORA
@@ -9010,9 +9032,17 @@ Level: 38
 
 Bellossom
 Level: 38
+- Fiery Dance
+- Giga Drain
+- Sleep Powder
+- Venoshock
 
 Altaria
 Level: 38
+- Air Slash
+- Dragon Pulse
+- Flamethrower
+- Cotton Spore
 
 === TRAINER_CEDRIC ===
 Name: CEDRIC
@@ -9734,7 +9764,7 @@ Level: 36
 Seviper
 Level: 36
 
-Shelgon
+Deino
 Level: 36
 
 === TRAINER_TABITHA_MOSSDEEP ===
@@ -15066,6 +15096,10 @@ Level: 35
 
 Grumpig
 Level: 37
+- Power Gem
+- Psybeam
+- Teeter Dance
+- Bounce
 
 === TRAINER_DEVAN ===
 Name: DEVAN
