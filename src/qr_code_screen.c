@@ -75,6 +75,8 @@ static const u16 sQrPalette[16] =
     [QR_COLOR_DARK]  = RGB_BLACK,
 };
 
+static const u16 sBackdropColor = RGB_WHITE;
+
 static const struct BgTemplate sBgTemplates[] =
 {
     {
@@ -114,7 +116,12 @@ static const struct WindowTemplate sWindowTemplates[] =
     DUMMY_WIN_TEMPLATE
 };
 
-static const u8 sTextColors[3] = { 0, 2, 3 };
+// Background, foreground, shadow. The background must not be
+// TEXT_COLOR_TRANSPARENT: index 0 shows the backdrop through the glyphs, which
+// would leave dark text sitting on a dark layer.
+static const u8 sTextColors[3] = {
+    TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY
+};
 
 static const u8 sText_Generating[] = _("Generating\nQR code...");
 static const u8 sText_Instructions[] = _("Scan this QR\ncode to get\nyour party as\npokepaste\ntext!");
@@ -166,7 +173,7 @@ static void DrawQrCode(void)
 
 static void PrintInfo(const u8 *message, bool32 showCount)
 {
-    FillWindowPixelBuffer(WIN_INFO, PIXEL_FILL(0));
+    FillWindowPixelBuffer(WIN_INFO, PIXEL_FILL(TEXT_COLOR_WHITE));
     AddTextPrinterParameterized3(WIN_INFO, FONT_SMALL, 0, 0, sTextColors, TEXT_SKIP_DRAW, message);
 
     if (showCount)
@@ -196,10 +203,38 @@ void Script_ShowPartyQrCodeScreen(struct ScriptContext *ctx)
     ShowPartyQrCodeScreen();
 }
 
+// The overworld leaves window and blending registers configured; carrying them
+// into this screen would mask it out entirely, so everything is cleared first.
+static void ResetGpuState(void)
+{
+    DmaClearLarge16(3, (void *)VRAM, VRAM_SIZE, 0x1000);
+    DmaClear32(3, OAM, OAM_SIZE);
+    DmaClear16(3, PLTT, PLTT_SIZE);
+
+    SetGpuReg(REG_OFFSET_DISPCNT, 0);
+    SetGpuReg(REG_OFFSET_BG0CNT, 0);
+    SetGpuReg(REG_OFFSET_BG0HOFS, 0);
+    SetGpuReg(REG_OFFSET_BG0VOFS, 0);
+    SetGpuReg(REG_OFFSET_BG1CNT, 0);
+    SetGpuReg(REG_OFFSET_BG1HOFS, 0);
+    SetGpuReg(REG_OFFSET_BG1VOFS, 0);
+    SetGpuReg(REG_OFFSET_BG2CNT, 0);
+    SetGpuReg(REG_OFFSET_BG3CNT, 0);
+    SetGpuReg(REG_OFFSET_WIN0H, 0);
+    SetGpuReg(REG_OFFSET_WIN0V, 0);
+    SetGpuReg(REG_OFFSET_WIN1H, 0);
+    SetGpuReg(REG_OFFSET_WIN1V, 0);
+    SetGpuReg(REG_OFFSET_WININ, 0);
+    SetGpuReg(REG_OFFSET_WINOUT, 0);
+    SetGpuReg(REG_OFFSET_BLDCNT, 0);
+    SetGpuReg(REG_OFFSET_BLDALPHA, 0);
+    SetGpuReg(REG_OFFSET_BLDY, 0);
+}
+
 static void CB2_InitQrCodeScreen(void)
 {
-    SetGpuReg(REG_OFFSET_DISPCNT, 0);
     SetVBlankCallback(NULL);
+    ResetGpuState();
 
     sScreen = AllocZeroed(sizeof(*sScreen));
 
@@ -217,22 +252,28 @@ static void CB2_InitQrCodeScreen(void)
 
     LoadPalette(sQrPalette, BG_PLTT_ID(14), sizeof(sQrPalette));
     Menu_LoadStdPalAt(BG_PLTT_ID(15));
+    // Palette entry 0 is the backdrop, seen wherever a tile is transparent.
+    // White keeps the uncovered edges looking like paper instead of a gap.
+    LoadPalette(&sBackdropColor, BG_PLTT_ID(0), PLTT_SIZEOF(1));
 
     FillBgTilemapBufferRect(0, 0, 0, 0, 32, 32, 15);
     FillBgTilemapBufferRect(1, 0, 0, 0, 32, 32, 14);
     PutWindowTilemap(WIN_QR);
     PutWindowTilemap(WIN_INFO);
     FillWindowPixelBuffer(WIN_QR, PIXEL_FILL(QR_COLOR_LIGHT));
-    FillWindowPixelBuffer(WIN_INFO, PIXEL_FILL(0));
+    FillWindowPixelBuffer(WIN_INFO, PIXEL_FILL(TEXT_COLOR_WHITE));
 
     PrintInfo(sText_Generating, FALSE);
     CopyWindowToVram(WIN_QR, COPYWIN_FULL);
     CopyBgTilemapBufferToVram(0);
     CopyBgTilemapBufferToVram(1);
 
+    // Set the object bits first: ShowBg masks off only the background and mode
+    // bits, so writing DISPCNT afterwards would clear the layers it just
+    // enabled and leave a black screen.
+    SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
     ShowBg(0);
     ShowBg(1);
-    SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
     BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
 
     sScreen->taskId = CreateTask(Task_QrCodeScreen, 0);
