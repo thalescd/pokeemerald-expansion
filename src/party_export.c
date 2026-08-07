@@ -4,6 +4,8 @@
 #include "move.h"
 #include "pokemon.h"
 #include "string_util.h"
+#include "constants/battle.h"
+#include "constants/characters.h"
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/species.h"
@@ -221,7 +223,7 @@ u32 BuildPartyExportText(char *dst, u32 dstSize, u32 maxLen, u32 *monsWritten)
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        struct Pokemon *mon = &gPlayerParty[i];
+        struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][i];
         struct ExportMon *out = &mons[count];
         enum Species species = GetMonData(mon, MON_DATA_SPECIES, NULL);
         enum Item item;
