@@ -54,6 +54,12 @@ struct ExportMon
     bool8 isShiny;
 };
 
+// The name a species is exported under. speciesName is capped at
+// POKEMON_NAME_LENGTH, so every Urshifu form is spelled "Urshifu" and would be
+// read back as the base form; species that share a display name get a
+// Showdown-style name instead (see tools/gen_species_showdown_names.py).
+const u8 *GetSpeciesExportName(enum Species species);
+
 // Converts a charmap string (EOS-terminated) to ASCII. Returns the number of
 // characters written, always leaving dst NUL-terminated.
 u32 CharmapToAscii(char *dst, u32 dstSize, const u8 *src);

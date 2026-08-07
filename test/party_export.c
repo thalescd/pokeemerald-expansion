@@ -17,6 +17,18 @@
 // the stats are remapped, since the game orders them HP/Atk/Def/Speed/SpA/SpD
 // while Showdown puts Speed last.
 
+static bool32 TextStartsWith(const char *actual, const char *prefix)
+{
+    while (*prefix != '\0')
+    {
+        if (*actual != *prefix)
+            return FALSE;
+        actual++;
+        prefix++;
+    }
+    return TRUE;
+}
+
 static bool32 TextEquals(const char *actual, const char *expected)
 {
     while (*expected != '\0')
@@ -355,7 +367,7 @@ TEST("Party export cannot overflow the QR capacity with the longest names")
         u32 len;
         if (!IsSpeciesEnabled(i))
             continue;
-        len = AsciiLengthOf(GetSpeciesName(i));
+        len = AsciiLengthOf(GetSpeciesExportName(i));
         if (len > maxSpecies)
             maxSpecies = len;
     }
@@ -409,4 +421,39 @@ TEST("Party export cannot overflow the QR capacity with the longest names")
     // to level L for those. What must never happen is exceeding level L, which
     // is the point where a Pokemon would be cut from the export.
     EXPECT_LE(worstCase, PARTY_EXPORT_QR_CAPACITY_ECC_L);
+}
+
+// speciesName is capped at POKEMON_NAME_LENGTH, so all four Urshifu forms are
+// spelled "Urshifu" and a bare export would be read back as Single Strike --
+// Dark instead of Water. Forms must carry their Showdown-style name.
+TEST("Party export distinguishes forms that share a display name")
+{
+    char buffer[PARTY_EXPORT_BUFFER_SIZE];
+    u32 written;
+    u32 species = SPECIES_NONE;
+
+    PARAMETRIZE { species = SPECIES_URSHIFU; }
+    PARAMETRIZE { species = SPECIES_URSHIFU_RAPID_STRIKE; }
+    PARAMETRIZE { species = SPECIES_ROTOM; }
+    PARAMETRIZE { species = SPECIES_ROTOM_WASH; }
+
+    if (!IsSpeciesEnabled(species))
+        return;   // not ASSUME: a disabled form is not a failure
+
+    ZeroPlayerPartyMons();
+    SetUpMon(0, species, 50);
+    BuildPartyExportText(buffer, sizeof(buffer), PARTY_EXPORT_QR_CAPACITY, &written);
+
+    EXPECT_EQ(written, 1);
+    Test_MgbaPrintf("species %d exports as: %s", species, buffer);
+
+    // The base forms keep the bare name; the alternate forms must not.
+    if (species == SPECIES_URSHIFU)
+        EXPECT(TextStartsWith(buffer, "Urshifu ") || TextStartsWith(buffer, "Urshifu\n"));
+    else if (species == SPECIES_URSHIFU_RAPID_STRIKE)
+        EXPECT(TextStartsWith(buffer, "Urshifu-Rapid-Strike"));
+    else if (species == SPECIES_ROTOM)
+        EXPECT(TextStartsWith(buffer, "Rotom ") || TextStartsWith(buffer, "Rotom\n"));
+    else
+        EXPECT(TextStartsWith(buffer, "Rotom-Wash"));
 }

@@ -10,6 +10,7 @@
 #include "constants/moves.h"
 #include "constants/species.h"
 #include "data/charmap_ascii.h"
+#include "data/species_showdown_names.h"
 
 // Bounded text builder. Once it overflows it stops writing but keeps counting,
 // so callers can tell how much room the full text would have needed.
@@ -63,6 +64,17 @@ static void PutNum(struct TextBuf *buf, u32 n)
     }
     while (i != 0)
         PutChar(buf, digits[--i]);
+}
+
+const u8 *GetSpeciesExportName(enum Species species)
+{
+    if (species < ARRAY_COUNT(sSpeciesShowdownNames)
+     && sSpeciesShowdownNames[species] != NULL)
+        return sSpeciesShowdownNames[species];
+
+    // Unambiguous species keep their display name, which spells things the
+    // generated names cannot ("Farfetch'd" rather than "Farfetchd").
+    return GetSpeciesName(species);
 }
 
 u32 CharmapToAscii(char *dst, u32 dstSize, const u8 *src)
@@ -232,10 +244,13 @@ u32 BuildPartyExportText(char *dst, u32 dstSize, u32 maxLen, u32 *monsWritten)
         if (species == SPECIES_NONE || GetMonData(mon, MON_DATA_IS_EGG, NULL))
             continue;
 
-        out->speciesName = GetSpeciesName(species);
+        out->speciesName = GetSpeciesExportName(species);
 
+        // Compared against the display name rather than the export name: an
+        // unnamed Rotom-Wash is simply "Rotom" in the save, and measuring it
+        // against "Rotom-Wash" would mistake it for a nickname.
         GetMonData(mon, MON_DATA_NICKNAME, nicknames[count]);
-        out->nickname = StringCompare(nicknames[count], out->speciesName) != 0
+        out->nickname = StringCompare(nicknames[count], GetSpeciesName(species)) != 0
                       ? nicknames[count] : NULL;
 
         item = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
