@@ -320,10 +320,20 @@ static void Task_QrCodeScreen(u8 taskId)
         }
         else
         {
+            // Prefer medium error correction, which survives a phone camera
+            // pointed at a monitor. Only an extreme party needs level L, and
+            // weaker correction beats dropping one of its Pokemon.
             sScreen->encoded = qrcodegen_encodeText(sScreen->text, sScreen->temp,
                                                     sScreen->qrcode, qrcodegen_Ecc_MEDIUM,
                                                     1, QR_MAX_VERSION,
                                                     qrcodegen_Mask_AUTO, true);
+            if (!sScreen->encoded)
+            {
+                sScreen->encoded = qrcodegen_encodeText(sScreen->text, sScreen->temp,
+                                                        sScreen->qrcode, qrcodegen_Ecc_LOW,
+                                                        1, QR_MAX_VERSION,
+                                                        qrcodegen_Mask_AUTO, true);
+            }
             if (sScreen->encoded)
             {
                 DrawQrCode();

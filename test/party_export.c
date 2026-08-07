@@ -8,6 +8,7 @@
 #include "constants/battle.h"
 #include "constants/items.h"
 #include "constants/moves.h"
+#include "constants/abilities.h"
 #include "constants/species.h"
 
 // Exercises the half of party_export.c that reads real Pokemon through
@@ -328,4 +329,84 @@ TEST("QR code draws one module per pixel with a quiet zone")
     EXPECT_EQ(quietZoneViolations, 0);
     // Decoders need at least 4 light modules around the symbol.
     EXPECT_GE(origin, 4);
+}
+
+// Returns the ASCII length of a charmap string, since accents fold to one
+// character but the gender signs expand to two ("-M").
+static u32 AsciiLengthOf(const u8 *charmapStr)
+{
+    char scratch[64];
+    return CharmapToAscii(scratch, sizeof(scratch), charmapStr);
+}
+
+// The truncation path is graceful, but it is worth knowing whether real data
+// can ever reach it. This scans every name the exporter can emit, builds the
+// worst mon those names allow, and checks six of them still fit.
+TEST("Party export cannot overflow the QR capacity with the longest names")
+{
+    u32 i;
+    u32 maxSpecies = 0, maxMove = 0, maxItem = 0, maxAbility = 0, maxNature = 0;
+    u32 perMon, worstCase;
+
+    // This romhack disables a chunk of the dex, and GetSpeciesName asserts on
+    // those, so only reachable species count towards the worst case.
+    for (i = 1; i < NUM_SPECIES; i++)
+    {
+        u32 len;
+        if (!IsSpeciesEnabled(i))
+            continue;
+        len = AsciiLengthOf(GetSpeciesName(i));
+        if (len > maxSpecies)
+            maxSpecies = len;
+    }
+    for (i = 1; i < MOVES_COUNT; i++)
+    {
+        u32 len = AsciiLengthOf(GetMoveName(i));
+        if (len > maxMove)
+            maxMove = len;
+    }
+    for (i = 1; i < ITEMS_COUNT; i++)
+    {
+        u32 len = AsciiLengthOf(GetItemName(i));
+        if (len > maxItem)
+            maxItem = len;
+    }
+    for (i = 1; i < ABILITIES_COUNT; i++)
+    {
+        u32 len = AsciiLengthOf(gAbilitiesInfo[i].name);
+        if (len > maxAbility)
+            maxAbility = len;
+    }
+    for (i = 0; i < NUM_NATURES; i++)
+    {
+        u32 len = AsciiLengthOf(gNaturesInfo[i].name);
+        if (len > maxNature)
+            maxNature = len;
+    }
+
+    // Mirrors FormatMon, taking the longest branch at every choice.
+    perMon = (POKEMON_NAME_LENGTH + 2 + maxSpecies + 1)  // "Nick (Species)"
+           + 4                                           // " (M)"
+           + (3 + maxItem) + 1                           // " @ Item\n"
+           + (9 + maxAbility + 1)                        // "Ability: X\n"
+           + sizeof("Level: 100\n") - 1
+           + sizeof("Shiny: Yes\n") - 1
+           + sizeof("EVs: 252 HP / 252 Atk / 252 Def / 252 SpA / 252 SpD / 252 Spe\n") - 1
+           + (maxNature + sizeof(" Nature\n") - 1)
+           + sizeof("IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe\n") - 1
+           + MAX_MON_MOVES * (2 + maxMove + 1)           // "- Move\n"
+           + 1;                                          // blank line between mons
+
+    worstCase = perMon * PARTY_SIZE;
+
+    Test_MgbaPrintf("longest names: species %d, move %d, item %d, ability %d, nature %d",
+                    maxSpecies, maxMove, maxItem, maxAbility, maxNature);
+    Test_MgbaPrintf("worst mon %d bytes, party %d bytes; ECC M holds %d, ECC L holds %d",
+                    perMon, worstCase,
+                    PARTY_EXPORT_QR_CAPACITY_ECC_M, PARTY_EXPORT_QR_CAPACITY_ECC_L);
+
+    // The worst possible party is allowed to exceed level M -- the screen drops
+    // to level L for those. What must never happen is exceeding level L, which
+    // is the point where a Pokemon would be cut from the export.
+    EXPECT_LE(worstCase, PARTY_EXPORT_QR_CAPACITY_ECC_L);
 }

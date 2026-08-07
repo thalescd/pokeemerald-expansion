@@ -8,9 +8,19 @@
 // The text is plain ASCII so it can be embedded verbatim in a QR code.
 
 // v33 is the largest QR symbol that fits the 160px screen height once a
-// 4-module quiet zone is added (149 + 8 = 157). At error correction level M it
-// holds 1628 bytes in byte mode -- measured, not estimated.
-#define PARTY_EXPORT_QR_CAPACITY 1628
+// 4-module quiet zone is added (149 + 8 = 157). These are its measured byte-mode
+// capacities, not estimates.
+//
+// A party of six with maximum-length nicknames, the longest species, item,
+// ability and move names, shiny markers and full EVs comes to 1872 bytes, which
+// overflows level M. Rather than drop a Pokemon in that case, the screen falls
+// back to level L, whose capacity no possible party can exceed. Error
+// correction is only weakened for parties that would otherwise not fit at all.
+#define PARTY_EXPORT_QR_CAPACITY_ECC_M 1628
+#define PARTY_EXPORT_QR_CAPACITY_ECC_L 2068
+
+// The ceiling used when building the text, i.e. the largest symbol available.
+#define PARTY_EXPORT_QR_CAPACITY PARTY_EXPORT_QR_CAPACITY_ECC_L
 
 // Room to build the full text before deciding how much of it fits.
 #define PARTY_EXPORT_BUFFER_SIZE 2048
