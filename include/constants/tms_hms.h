@@ -60,7 +60,7 @@
     F(FLING) \
     F(ELECTROWEB) \
     F(TEMPER_FLARE) \
-    F(TACKLE) \
+    F(DUAL_WINGBEAT) \
     F(POUND) \
     F(WILL_O_WISP) \
     F(ACROBATICS) \
