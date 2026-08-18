@@ -6138,8 +6138,8 @@ static const u16 sCharcadetEggMoveLearnset[] = {
 
 #if P_FAMILY_TADBULB
 static const u16 sTadbulbEggMoveLearnset[] = {
-    MOVE_MUDDY_WATER,
     MOVE_PARABOLIC_CHARGE,
+    MOVE_SPLISHY_SPLASH,
     MOVE_SOAK,
     MOVE_UNAVAILABLE,
 };
@@ -6267,7 +6267,7 @@ static const u16 sBombirdierEggMoveLearnset[] = {
     MOVE_POWER_TRIP,
     MOVE_ROOST,
     MOVE_SKY_ATTACK,
-    MOVE_SUCKER_PUNCH,
+    MOVE_ROCK_BLAST,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_BOMBIRDIER
