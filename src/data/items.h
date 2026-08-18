@@ -3583,11 +3583,11 @@ const struct ItemInfo gItemsInfo[] =
     [ITEM_SCARLET_RELIC] =
     {
         .name = ITEM_NAME("Scarlet Relic"),
-        .price = 6000,
+        .price = 20000,
         .description = COMPOUND_STRING(
-            "An unknown relic\n"
-            "that makes certain\n"
-            "Pokémon evolve."),
+            "An relic from\n"
+            "old times. It emits\n"
+            "a mysterious aura."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EVOLUTION_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -3601,11 +3601,11 @@ const struct ItemInfo gItemsInfo[] =
     [ITEM_VIOLET_ENGINE] =
     {
         .name = ITEM_NAME("Violet Engine"),
-        .price = 6000,
+        .price = 20000,
         .description = COMPOUND_STRING(
-            "A violet mechanism\n"
-            "that makes certain\n"
-            "Pokémon evolve."),
+            "An engine from\n"
+            "a future age. It hums\n"
+            "with a strange energy."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EVOLUTION_ITEM,
         .type = ITEM_USE_PARTY_MENU,
