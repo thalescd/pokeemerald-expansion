@@ -1058,6 +1058,9 @@ enum __attribute__((packed)) Item
 
     ITEM_UNKNOWN_FOSSIL = 876,
 
+    ITEM_SCARLET_RELIC = 877,
+    ITEM_VIOLET_ENGINE = 878,
+
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,
 };
