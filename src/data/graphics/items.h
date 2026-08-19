@@ -644,8 +644,8 @@ const u16 gItemIconPalette_MasterpieceTeacup[] = INCGFX_U16("graphics/items/icon
 const u32 gItemIcon_MetalAlloy[] = INCGFX_U32("graphics/items/icons/metal_alloy.png", ".4bpp.smol");
 const u16 gItemIconPalette_MetalAlloy[] = INCGFX_U16("graphics/items/icon_palettes/metal_alloy.pal", ".gbapal");
 
-const u32 gItemIcon_ScarletRelic[] = INCGFX_U32("graphics/items/icons/scarlet_relic.png", ".4bpp.smol");
-const u16 gItemIconPalette_ScarletRelic[] = INCGFX_U16("graphics/items/icon_palettes/scarlet_relic.pal", ".gbapal");
+const u32 gItemIcon_ScarletOre[] = INCGFX_U32("graphics/items/icons/scarlet_ore.png", ".4bpp.smol");
+const u16 gItemIconPalette_ScarletOre[] = INCGFX_U16("graphics/items/icon_palettes/scarlet_ore.pal", ".gbapal");
 const u32 gItemIcon_VioletEngine[] = INCGFX_U32("graphics/items/icons/violet_engine.png", ".4bpp.smol");
 const u16 gItemIconPalette_VioletEngine[] = INCGFX_U16("graphics/items/icon_palettes/violet_engine.pal", ".gbapal");
 

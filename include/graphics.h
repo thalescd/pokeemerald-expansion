@@ -787,8 +787,8 @@ extern const u32 gItemIcon_MasterpieceTeacup[];
 extern const u16 gItemIconPalette_MasterpieceTeacup[];
 extern const u32 gItemIcon_MetalAlloy[];
 extern const u16 gItemIconPalette_MetalAlloy[];
-extern const u32 gItemIcon_ScarletRelic[];
-extern const u16 gItemIconPalette_ScarletRelic[];
+extern const u32 gItemIcon_ScarletOre[];
+extern const u16 gItemIconPalette_ScarletOre[];
 extern const u32 gItemIcon_VioletEngine[];
 extern const u16 gItemIconPalette_VioletEngine[];
 // Nectars

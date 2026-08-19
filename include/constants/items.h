@@ -1058,7 +1058,7 @@ enum __attribute__((packed)) Item
 
     ITEM_UNKNOWN_FOSSIL = 876,
 
-    ITEM_SCARLET_RELIC = 877,
+    ITEM_SCARLET_ORE = 877,
     ITEM_VIOLET_ENGINE = 878,
 
     ITEMS_COUNT,

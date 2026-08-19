@@ -3580,12 +3580,12 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_SkullFossil,
     },
 
-    [ITEM_SCARLET_RELIC] =
+    [ITEM_SCARLET_ORE] =
     {
-        .name = ITEM_NAME("Scarlet Relic"),
+        .name = ITEM_NAME("Scarlet Ore"),
         .price = 20000,
         .description = COMPOUND_STRING(
-            "An relic from\n"
+            "An ore from\n"
             "old times. It emits\n"
             "a mysterious aura."),
         .pocket = POCKET_ITEMS,
@@ -3594,8 +3594,8 @@ const struct ItemInfo gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
         .effect = gItemEffect_EvoItem,
         .flingPower = 30,
-        .iconPic = gItemIcon_ScarletRelic,
-        .iconPalette = gItemIconPalette_ScarletRelic,
+        .iconPic = gItemIcon_ScarletOre,
+        .iconPalette = gItemIconPalette_ScarletOre,
     },
 
     [ITEM_VIOLET_ENGINE] =
