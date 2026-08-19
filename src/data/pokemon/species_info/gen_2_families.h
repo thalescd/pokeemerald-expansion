@@ -7704,7 +7704,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sDonphanLevelUpLearnset,
         .teachableLearnset = sDonphanTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_PEAT_BLOCK, SPECIES_GREAT_TUSK}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_SCARLET_ORE, SPECIES_GREAT_TUSK},
+                                {EVO_ITEM, ITEM_VIOLET_ENGINE, SPECIES_IRON_TREADS}),
     },
 #endif //P_FAMILY_PHANPY
 
