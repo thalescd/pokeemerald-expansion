@@ -3603,9 +3603,9 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("Violet Engine"),
         .price = 20000,
         .description = COMPOUND_STRING(
-            "An engine from\n"
-            "a future age. It hums\n"
-            "with a strange energy."),
+            "An engine from a\n"
+            "future age. It hums\n"
+            "with strange power."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EVOLUTION_ITEM,
         .type = ITEM_USE_PARTY_MENU,
