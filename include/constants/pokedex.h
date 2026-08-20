@@ -1324,8 +1324,6 @@ enum NationalDexOrder
     F(FARIGIRAF) \
     F(PINECO) \
     F(FORRETRESS) \
-    F(DUNSPARCE) \
-    F(DUDUNSPARCE) \
     F(GLIGAR) \
     F(GLISCOR) \
     F(SNUBBULL) \
@@ -1632,11 +1630,6 @@ enum NationalDexOrder
     F(SOLOSIS) \
     F(DUOSION) \
     F(REUNICLUS) \
-    F(VANILLITE) \
-    F(VANILLISH) \
-    F(VANILLUXE) \
-    F(DEERLING) \
-    F(SAWSBUCK) \
     F(EMOLGA) \
     F(KARRABLAST) \
     F(ESCAVALIER) \
@@ -1793,7 +1786,6 @@ enum NationalDexOrder
     F(KOMALA) \
     F(TOGEDEMARU) \
     F(MIMIKYU) \
-    F(BRUXISH) \
     F(DRAMPA) \
     F(DHELMISE) \
     F(JANGMO_O) \
@@ -1950,7 +1942,9 @@ enum NationalDexOrder
     F(ROARING_MOON) \
     F(IRON_VALIANT) \
     F(POLTCHAGEIST) \
-    F(SINISTCHA)
+    F(SINISTCHA) \
+    F(KORAIDON) \
+    F(MIRAIDON)
 // Hoenn Pokédex order
 enum HoennDexOrder
 {
