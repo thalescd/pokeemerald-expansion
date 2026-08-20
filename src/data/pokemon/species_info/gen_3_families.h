@@ -4580,11 +4580,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = 35,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
-    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_KEEN_EYE, ABILITY_STALL, ABILITY_PRANKSTER },
-    #else
-        .abilities = { ABILITY_KEEN_EYE, ABILITY_NONE, ABILITY_PRANKSTER },
-    #endif
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Sableye"),
         .cryId = CRY_SABLEYE,
@@ -4635,30 +4631,31 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .levelUpLearnset = sSableyeLevelUpLearnset,
         .teachableLearnset = sSableyeTeachableLearnset,
         .eggMoveLearnset = sSableyeEggMoveLearnset,
-        .formSpeciesIdTable = sSableyeFormSpeciesIdTable,
-        .formChangeTable = sSableyeFormChangeTable,
+        //.formSpeciesIdTable = sSableyeFormSpeciesIdTable,
+        //.formChangeTable = sSableyeFormChangeTable,
+        .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_SABLEYE_MEGA}),
     },
 
 #if P_MEGA_EVOLUTIONS
     [SPECIES_SABLEYE_MEGA] =
     {
-        .baseHP        = 50,
+        .baseHP        = 60,
         .baseAttack    = 85,
         .baseDefense   = 125,
         .baseSpeed     = 20,
-        .baseSpAttack  = 85,
-        .baseSpDefense = 115,
+        .baseSpAttack  = 65,
+        .baseSpDefense = 105,
         .types = MON_TYPES(TYPE_DARK, TYPE_GHOST),
-        .catchRate = 45,
-        .expYield = 168,
+        .catchRate = 30,
+        .expYield = 198,
         .evYield_Attack = 1,
-        .evYield_Defense = 1,
+        .evYield_Defense = 2,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 25,
         .friendship = 35,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE },
+        .abilities = { ABILITY_KEEN_EYE, ABILITY_STALL, ABILITY_MAGIC_BOUNCE },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Sableye"),
     #if P_MODIFIED_MEGA_CRIES
@@ -4666,14 +4663,14 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     #else
         .cryId = CRY_SABLEYE,
     #endif // P_MODIFIED_MEGA_CRIES
-        .natDexNum = NATIONAL_DEX_SABLEYE,
+        .natDexNum = NATIONAL_DEX_SABLEYE_MEGA,
         .categoryName = _("Darkness"),
         .height = 5,
         .weight = 1610,
         .description = COMPOUND_STRING(
-            "Bathed in the energy of Mega Evolution,\n"
-            "the gemstone on its chest expands, rips\n"
-            "through its skin, and falls out."),
+            "Supporting a giant heavy jewel,\n"
+            "it can't change direction very nimbly\n"
+            "and is vulnerable to attack from behind."),
         .pokemonScale = 451,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -4705,12 +4702,12 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
             gShinyOverworldPalette_SableyeMega
         )
     #endif //OW_BATTLE_ONLY_FORMS
-        .isMegaEvolution = TRUE,
-        .levelUpLearnset = sSableyeLevelUpLearnset,
+        //.isMegaEvolution = TRUE,
+        .levelUpLearnset = sSableyeMegaLevelUpLearnset,
         .teachableLearnset = sSableyeTeachableLearnset,
-        .eggMoveLearnset = sSableyeEggMoveLearnset,
-        .formSpeciesIdTable = sSableyeFormSpeciesIdTable,
-        .formChangeTable = sSableyeFormChangeTable,
+        //.eggMoveLearnset = sSableyeEggMoveLearnset,
+        //.formSpeciesIdTable = sSableyeFormSpeciesIdTable,
+        //.formChangeTable = sSableyeFormChangeTable,
     },
 #endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_SABLEYE
@@ -4793,30 +4790,31 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .levelUpLearnset = sMawileLevelUpLearnset,
         .teachableLearnset = sMawileTeachableLearnset,
         .eggMoveLearnset = sMawileEggMoveLearnset,
-        .formSpeciesIdTable = sMawileFormSpeciesIdTable,
-        .formChangeTable = sMawileFormChangeTable,
+        //.formSpeciesIdTable = sMawileFormSpeciesIdTable,
+        //.formChangeTable = sMawileFormChangeTable,
+        .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_MAWILE_MEGA}),
     },
 
 #if P_MEGA_EVOLUTIONS
     [SPECIES_MAWILE_MEGA] =
     {
-        .baseHP        = 50,
-        .baseAttack    = 105,
-        .baseDefense   = 125,
+        .baseHP        = 60,
+        .baseAttack    = 100,
+        .baseDefense   = 120,
         .baseSpeed     = 50,
         .baseSpAttack  = 55,
-        .baseSpDefense = 95,
+        .baseSpDefense = 75,
         .types = MON_TYPES(TYPE_STEEL, TYPE_FAIRY),
-        .catchRate = 45,
-        .expYield = 168,
-        .evYield_Attack = 1,
+        .catchRate = 30,
+        .expYield = 198,
+        .evYield_Attack = 2,
         .evYield_Defense = 1,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_FAIRY),
-        .abilities = { ABILITY_HUGE_POWER, ABILITY_HUGE_POWER, ABILITY_HUGE_POWER },
+        .abilities = { ABILITY_HYPER_CUTTER, ABILITY_INTIMIDATE, ABILITY_HUGE_POWER },
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("Mawile"),
     #if P_MODIFIED_MEGA_CRIES
@@ -4824,7 +4822,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     #else
         .cryId = CRY_MAWILE,
     #endif // P_MODIFIED_MEGA_CRIES
-        .natDexNum = NATIONAL_DEX_MAWILE,
+        .natDexNum = NATIONAL_DEX_MAWILE_MEGA,
         .categoryName = _("Deceiver"),
         .height = 10,
         .weight = 235,
@@ -4864,12 +4862,12 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
             gShinyOverworldPalette_MawileMega
         )
     #endif //OW_BATTLE_ONLY_FORMS
-        .isMegaEvolution = TRUE,
-        .levelUpLearnset = sMawileLevelUpLearnset,
+        //.isMegaEvolution = TRUE,
+        .levelUpLearnset = sMawileMegaLevelUpLearnset,
         .teachableLearnset = sMawileTeachableLearnset,
-        .eggMoveLearnset = sMawileEggMoveLearnset,
-        .formSpeciesIdTable = sMawileFormSpeciesIdTable,
-        .formChangeTable = sMawileFormChangeTable,
+        //.eggMoveLearnset = sMawileEggMoveLearnset,
+        //.formSpeciesIdTable = sMawileFormSpeciesIdTable,
+        //.formChangeTable = sMawileFormChangeTable,
     },
 #endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_MAWILE

@@ -852,25 +852,25 @@ static const u16 sGalladeFormSpeciesIdTable[] = {
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_RALTS
 
-#if P_FAMILY_SABLEYE
-static const u16 sSableyeFormSpeciesIdTable[] = {
-    SPECIES_SABLEYE,
-#if P_MEGA_EVOLUTIONS
-    SPECIES_SABLEYE_MEGA,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_SABLEYE
+//#if P_FAMILY_SABLEYE
+//static const u16 sSableyeFormSpeciesIdTable[] = {
+//    SPECIES_SABLEYE,
+//#if P_MEGA_EVOLUTIONS
+//    SPECIES_SABLEYE_MEGA,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//#endif //P_FAMILY_SABLEYE
 
-#if P_FAMILY_MAWILE
-static const u16 sMawileFormSpeciesIdTable[] = {
-    SPECIES_MAWILE,
-#if P_MEGA_EVOLUTIONS
-    SPECIES_MAWILE_MEGA,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_MAWILE
+//#if P_FAMILY_MAWILE
+//static const u16 sMawileFormSpeciesIdTable[] = {
+//    SPECIES_MAWILE,
+//#if P_MEGA_EVOLUTIONS
+//    SPECIES_MAWILE_MEGA,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//#endif //P_FAMILY_MAWILE
 
 #if P_FAMILY_ARON
 static const u16 sAggronFormSpeciesIdTable[] = {

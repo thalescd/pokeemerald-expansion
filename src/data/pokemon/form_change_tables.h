@@ -485,29 +485,29 @@ static const struct FormChange sGalladeFormChangeTable[] =
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_RALTS
 
-#if P_FAMILY_SABLEYE
-static const struct FormChange sSableyeFormChangeTable[] =
-{
-#if P_MEGA_EVOLUTIONS
-    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_SABLEYE_MEGA, ITEM_SABLENITE},
-#endif
-    {FORM_CHANGE_FAINT,                         SPECIES_SABLEYE},
-    {FORM_CHANGE_END_BATTLE,                    SPECIES_SABLEYE},
-    {FORM_CHANGE_TERMINATOR},
-};
-#endif //P_FAMILY_SABLEYE
+//#if P_FAMILY_SABLEYE
+//static const struct FormChange sSableyeFormChangeTable[] =
+//{
+//#if P_MEGA_EVOLUTIONS
+//    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_SABLEYE_MEGA, ITEM_SABLENITE},
+//#endif
+//    {FORM_CHANGE_FAINT,                         SPECIES_SABLEYE},
+//    {FORM_CHANGE_END_BATTLE,                    SPECIES_SABLEYE},
+//    {FORM_CHANGE_TERMINATOR},
+//};
+//#endif //P_FAMILY_SABLEYE
 
-#if P_FAMILY_MAWILE
-static const struct FormChange sMawileFormChangeTable[] =
-{
-#if P_MEGA_EVOLUTIONS
-    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_MAWILE_MEGA, ITEM_MAWILITE},
-#endif
-    {FORM_CHANGE_FAINT,                         SPECIES_MAWILE},
-    {FORM_CHANGE_END_BATTLE,                    SPECIES_MAWILE},
-    {FORM_CHANGE_TERMINATOR},
-};
-#endif //P_FAMILY_MAWILE
+//#if P_FAMILY_MAWILE
+//static const struct FormChange sMawileFormChangeTable[] =
+//{
+//#if P_MEGA_EVOLUTIONS
+//    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_MAWILE_MEGA, ITEM_MAWILITE},
+//#endif
+//    {FORM_CHANGE_FAINT,                         SPECIES_MAWILE},
+//    {FORM_CHANGE_END_BATTLE,                    SPECIES_MAWILE},
+//    {FORM_CHANGE_TERMINATOR},
+//};
+//#endif //P_FAMILY_MAWILE
 
 #if P_FAMILY_ARON
 static const struct FormChange sAggronFormChangeTable[] =
