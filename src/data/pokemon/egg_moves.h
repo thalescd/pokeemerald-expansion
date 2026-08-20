@@ -3257,6 +3257,7 @@ static const u16 sKecleonEggMoveLearnset[] = {
     MOVE_CAMOUFLAGE,
     MOVE_POWER_UP_PUNCH,
     MOVE_DOUBLE_TEAM,
+    MOVE_ANCIENT_POWER,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_KECLEON
@@ -5246,6 +5247,7 @@ static const u16 sHawluchaEggMoveLearnset[] = {
     MOVE_BATON_PASS,
     MOVE_QUICK_GUARD,
     MOVE_FEINT,
+    MOVE_THUNDEROUS_KICK,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_HAWLUCHA
