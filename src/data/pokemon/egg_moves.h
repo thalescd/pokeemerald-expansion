@@ -2947,6 +2947,7 @@ static const u16 sCarvanhaEggMoveLearnset[] = {
     MOVE_BRINE,
     MOVE_DESTINY_BOND,
     MOVE_PSYCHIC_FANGS,
+    MOVE_ASSURANCE,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_CARVANHA
