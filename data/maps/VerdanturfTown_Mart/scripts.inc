@@ -28,6 +28,8 @@ VerdanturfTown_Mart_Pokemart_Upper:
 	.2byte ITEM_LUXURY_BALL
 	.2byte ITEM_FLUFFY_TAIL
 	.2byte ITEM_SACHET
+	.2byte ITEM_AUSPICIOUS_ARMOR
+	.2byte ITEM_MALICIOUS_ARMOR
 	pokemartlistend
 
 VerdanturfTown_Mart_EventScript_Boy::
