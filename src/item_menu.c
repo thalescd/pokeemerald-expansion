@@ -10,6 +10,7 @@
 #include "data.h"
 #include "decompress.h"
 #include "event_data.h"
+#include "event_object_lock.h"
 #include "event_object_movement.h"
 #include "event_scripts.h"
 #include "field_player_avatar.h"
@@ -18,6 +19,7 @@
 #include "gpu_regs.h"
 #include "international_string_util.h"
 #include "item.h"
+#include "item_icon.h"
 #include "item_menu_icons.h"
 #include "item_use.h"
 #include "lilycove_lady.h"
@@ -53,6 +55,8 @@
 
 #define TAG_POCKET_SCROLL_ARROW 110
 #define TAG_BAG_SCROLL_ARROW    111
+// Immune to blending; doesn't conflict with tags in event_object_movement
+#define PAL_TAG_KEY_ITEM_WHEEL  0x9000
 
 // The buffer for the bag item list needs to be large enough to hold the maximum
 // number of item slots that could fit in a single pocket, + 1 for Cancel.
@@ -215,6 +219,11 @@ static void CancelToss(u8);
 static void ConfirmSell(u8);
 static void CancelSell(u8);
 static void Task_FadeAndCloseBagMenuIfMulch(u8 taskId);
+
+// Key item wheel
+static u32 CountRegisteredItems(void);
+static void Task_RegisterUsingDpad(u8);
+static void Task_KeyItemWheel(u8);
 
 static const u8 sText_Var1CantBeHeldHere[] = _("The {STR_VAR_1} can't be held\nhere.");
 static const u8 sText_DepositHowManyVar1[] = _("Deposit how many\n{STR_VAR_1}?");
@@ -402,7 +411,131 @@ static const struct ScrollArrowsTemplate sBagScrollArrowsTemplate = {
     .palNum = 0,
 };
 
-static const u8 sRegisteredSelect_Gfx[] = INCGFX_U8("graphics/bag/select_button.png", ".4bpp");
+// Key item wheel gfx
+static const u8 sRegisterUp_Gfx[]    = INCGFX_U8("graphics/bag/select_button.png", ".4bpp");
+static const u8 sRegisterRight_Gfx[] = INCGFX_U8("graphics/bag/select_button_right.png", ".4bpp");
+static const u8 sRegisterDown_Gfx[]  = INCGFX_U8("graphics/bag/select_button_down.png", ".4bpp");
+static const u8 sRegisterLeft_Gfx[]  = INCGFX_U8("graphics/bag/select_button_left.png", ".4bpp");
+
+static const u8 *const sRegisteredSelect_Gfx[MAX_REGISTERED_ITEMS] = {
+    sRegisterUp_Gfx, sRegisterRight_Gfx, sRegisterDown_Gfx, sRegisterLeft_Gfx
+};
+
+static const u32 sKeyItemBoxGfx[] = INCGFX_U32("graphics/bag/key_item_box.png", ".4bpp");
+static const u16 sKeyItemBoxPal[] = INCGFX_U16("graphics/bag/key_item_box.png", ".gbapal");
+
+static const struct SpritePalette sSpritePalette_KeyItemBox = {
+    .data = sKeyItemBoxPal,
+    .tag = PAL_TAG_KEY_ITEM_WHEEL,
+};
+
+static const struct SpriteFrameImage sPicTable_KeyItemBox[] = {
+    obj_frame_tiles(sKeyItemBoxGfx),
+};
+
+static const struct OamData sOam_KeyItemBox = {
+    .shape = SPRITE_SHAPE(32x32),
+    .size = SPRITE_SIZE(32x32),
+    .priority = 1,
+    .objMode = ST_OAM_OBJ_BLEND,
+    .affineMode = ST_OAM_AFFINE_DOUBLE,
+};
+
+static const struct OamData sOam_KeyItemBoxWin = {
+    .shape = SPRITE_SHAPE(32x32),
+    .size = SPRITE_SIZE(32x32),
+    .priority = 1,
+    .objMode = ST_OAM_OBJ_WINDOW,
+    .affineMode = ST_OAM_AFFINE_OFF,
+};
+
+static const union AnimCmd sSpriteAnim_KeyItemBox[] =
+{
+    ANIMCMD_FRAME(0, 0),
+    ANIMCMD_END
+};
+
+static const union AnimCmd *const sSpriteAnimTable_KeyItemBox[] =
+{
+    sSpriteAnim_KeyItemBox
+};
+
+// One resting anim per slot, rotating the box's pointer toward the centre of the wheel.
+#define AFFINEANIM_KEY_ITEM_BOX(rot)                    \
+{                                                       \
+    AFFINEANIMCMD_FRAME(0x100, 0x100, (rot), 0),        \
+    AFFINEANIMCMD_END,                                  \
+}
+
+// ...and one "picked" anim per slot, squashing and then overshooting before the item is used.
+#define AFFINEANIM_KEY_ITEM_BOX_GROW(rot)               \
+{                                                       \
+    AFFINEANIMCMD_FRAME(0xE0, 0xE0, (rot), 0),          \
+    AFFINEANIMCMD_FRAME(0xC0, 0xC0, (rot), 0),          \
+    AFFINEANIMCMD_FRAME(0xE0, 0xE0, (rot), 0),          \
+    AFFINEANIMCMD_FRAME(0x100, 0x100, (rot), 0),        \
+    AFFINEANIMCMD_FRAME(0x110, 0x120, (rot), 0),        \
+    AFFINEANIMCMD_FRAME(0x120, 0x120, (rot), 0),        \
+    AFFINEANIMCMD_FRAME(0x110, 0x110, (rot), 0),        \
+    AFFINEANIMCMD_FRAME(0x100, 0x100, (rot), 0),        \
+    AFFINEANIMCMD_FRAME(0x100, 0x100, (rot), 0),        \
+    AFFINEANIMCMD_END,                                  \
+}
+
+static const union AffineAnimCmd sAffineAnim_KeyItemBoxUp[]        = AFFINEANIM_KEY_ITEM_BOX(0x00);
+static const union AffineAnimCmd sAffineAnim_KeyItemBoxRight[]     = AFFINEANIM_KEY_ITEM_BOX(0xC0);
+static const union AffineAnimCmd sAffineAnim_KeyItemBoxDown[]      = AFFINEANIM_KEY_ITEM_BOX(0x80);
+static const union AffineAnimCmd sAffineAnim_KeyItemBoxLeft[]      = AFFINEANIM_KEY_ITEM_BOX(0x40);
+static const union AffineAnimCmd sAffineAnim_KeyItemBoxGrowUp[]    = AFFINEANIM_KEY_ITEM_BOX_GROW(0x00);
+static const union AffineAnimCmd sAffineAnim_KeyItemBoxGrowRight[] = AFFINEANIM_KEY_ITEM_BOX_GROW(0xC0);
+static const union AffineAnimCmd sAffineAnim_KeyItemBoxGrowDown[]  = AFFINEANIM_KEY_ITEM_BOX_GROW(0x80);
+static const union AffineAnimCmd sAffineAnim_KeyItemBoxGrowLeft[]  = AFFINEANIM_KEY_ITEM_BOX_GROW(0x40);
+
+#undef AFFINEANIM_KEY_ITEM_BOX
+#undef AFFINEANIM_KEY_ITEM_BOX_GROW
+
+// The "grow" anims sit MAX_REGISTERED_ITEMS entries after their resting counterpart.
+static const union AffineAnimCmd *const sAffineAnims_KeyItemBox[] =
+{
+    sAffineAnim_KeyItemBoxUp,
+    sAffineAnim_KeyItemBoxRight,
+    sAffineAnim_KeyItemBoxDown,
+    sAffineAnim_KeyItemBoxLeft,
+    sAffineAnim_KeyItemBoxGrowUp,
+    sAffineAnim_KeyItemBoxGrowRight,
+    sAffineAnim_KeyItemBoxGrowDown,
+    sAffineAnim_KeyItemBoxGrowLeft,
+};
+
+static const struct SpriteTemplate sSpriteTemplate_KeyItemBox = {
+    .tileTag = PAL_TAG_KEY_ITEM_WHEEL,
+    .paletteTag = PAL_TAG_KEY_ITEM_WHEEL,
+    .oam = &sOam_KeyItemBox,
+    .anims = sSpriteAnimTable_KeyItemBox,
+    .images = sPicTable_KeyItemBox,
+    .affineAnims = sAffineAnims_KeyItemBox,
+    .callback = SpriteCallbackDummy,
+};
+
+// In dark caves the boxes are only visible if they're also drawn into the object window.
+static const struct SpriteTemplate sSpriteTemplate_KeyItemBoxWin = {
+    .tileTag = PAL_TAG_KEY_ITEM_WHEEL,
+    .paletteTag = PAL_TAG_KEY_ITEM_WHEEL,
+    .oam = &sOam_KeyItemBoxWin,
+    .anims = sSpriteAnimTable_KeyItemBox,
+    .images = sPicTable_KeyItemBox,
+    .affineAnims = sAffineAnims_KeyItemBox,
+    .callback = SpriteCallbackDummy,
+};
+
+static const u8 sKeyItemBoxXPos[MAX_REGISTERED_ITEMS] = {
+    (DISPLAY_WIDTH / 2), (DISPLAY_WIDTH / 2) + 32, (DISPLAY_WIDTH / 2), (DISPLAY_WIDTH / 2) - 32
+};
+static const u8 sKeyItemBoxYPos[MAX_REGISTERED_ITEMS] = {
+    (DISPLAY_HEIGHT / 2) - 32, (DISPLAY_HEIGHT / 2), (DISPLAY_HEIGHT / 2) + 32, (DISPLAY_HEIGHT / 2)
+};
+
+static const u8 sText_PressAnyDpadKey[] = _("Press any {DPAD_NONE} key\nto register item\nin that slot.");
 
 enum {
     COLORID_NORMAL,
@@ -580,6 +713,9 @@ static EWRAM_DATA struct ListBuffer1 *sListBuffer1 = 0;
 static EWRAM_DATA struct ListBuffer2 *sListBuffer2 = 0;
 EWRAM_DATA u16 gSpecialVar_ItemId = 0;
 static EWRAM_DATA struct TempWallyBag *sTempWallyBag = 0;
+// Holds the palette of the wheel's left-hand item so the HBlank handler can swap it
+// into place mid-frame; the four boxes need more BG palettes than the field has spare.
+static EWRAM_DATA ALIGNED(4) u16 sKeyItemWheelExtraPalette[16] = {0};
 
 void ResetBagScrollPositions(void)
 {
@@ -1013,11 +1149,10 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
             offset = GetStringRightAlignXOffset(FONT_NARROW, gStringVar4, 119);
             BagMenu_Print(windowId, FONT_NARROW, gStringVar4, offset, y, 0, 0, TEXT_SKIP_DRAW, COLORID_NORMAL);
         }
-        else
+        else if (itemSlot.itemId != ITEM_NONE && (offset = RegisteredItemIndex(itemSlot.itemId)) >= 0)
         {
-            // Print registered icon
-            if (gSaveBlock1Ptr->registeredItem != ITEM_NONE && gSaveBlock1Ptr->registeredItem == itemSlot.itemId)
-                BlitBitmapToWindow(windowId, sRegisteredSelect_Gfx, 96, y - 1, 24, 16);
+            // Print registered icon, arrow pointing at the slot it's registered to
+            BlitBitmapToWindow(windowId, sRegisteredSelect_Gfx[offset], 96, y - 1, 24, 16);
         }
     }
 }
@@ -1710,7 +1845,7 @@ static void OpenContextMenu(u8 taskId)
                 gBagMenu->contextMenuItemsPtr = gBagMenu->contextMenuItemsBuffer;
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_KeyItemsPocket);
                 memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_KeyItemsPocket, sizeof(sContextMenuItems_KeyItemsPocket));
-                if (gSaveBlock1Ptr->registeredItem == gSpecialVar_ItemId)
+                if (RegisteredItemIndex(gSpecialVar_ItemId) >= 0)
                     gBagMenu->contextMenuItemsBuffer[1] = ACTION_DESELECT;
                 if (gSpecialVar_ItemId == ITEM_MACH_BIKE || gSpecialVar_ItemId == ITEM_ACRO_BIKE || gSpecialVar_ItemId == ITEM_BICYCLE)
                 {
@@ -2022,21 +2157,155 @@ static void Task_RemoveItemFromBag(u8 taskId)
     }
 }
 
-static void ItemMenu_Register(u8 taskId)
+// Slot the given item is registered to, or -1 if it isn't.
+// If passed ITEM_NONE, finds the first occupied slot instead.
+s32 RegisteredItemIndex(enum Item item)
+{
+    s32 i;
+    bool32 anyRegistered = FALSE;
+
+    for (i = 0; i < (s32)ARRAY_COUNT(gSaveBlock1Ptr->registeredItems); i++)
+    {
+        if (gSaveBlock1Ptr->registeredItems[i] == ITEM_NONE)
+            continue;
+        anyRegistered = TRUE;
+        if (item == ITEM_NONE || gSaveBlock1Ptr->registeredItems[i] == item)
+            return i;
+    }
+
+    // Saves made before the wheel existed only carry the single registeredItem.
+    // Adopt it into slot 0, but never on top of a slot that's already in use.
+    if (!anyRegistered && item != ITEM_NONE && item == gSaveBlock1Ptr->registeredItem)
+    {
+        gSaveBlock1Ptr->registeredItems[0] = item;
+        return 0;
+    }
+    return -1;
+}
+
+// Drops registrations for items that have left the Bag, keeps registeredItem
+// pointing at something the player still carries, and returns how many are left.
+static u32 CountRegisteredItems(void)
+{
+    u32 i;
+    u32 count = 0;
+    s32 first = -1;
+
+    // Saves made before the wheel existed only carry the single registeredItem
+    if (gSaveBlock1Ptr->registeredItem != ITEM_NONE && RegisteredItemIndex(ITEM_NONE) < 0)
+        gSaveBlock1Ptr->registeredItems[0] = gSaveBlock1Ptr->registeredItem;
+
+    for (i = 0; i < ARRAY_COUNT(gSaveBlock1Ptr->registeredItems); i++)
+    {
+        if (gSaveBlock1Ptr->registeredItems[i] == ITEM_NONE)
+            continue;
+        // A registration lapses once the item is gone
+        if (!CheckBagHasItem(gSaveBlock1Ptr->registeredItems[i], 1))
+        {
+            gSaveBlock1Ptr->registeredItems[i] = ITEM_NONE;
+            continue;
+        }
+        if (first < 0)
+            first = i;
+        count++;
+    }
+
+    if (count == 0)
+        gSaveBlock1Ptr->registeredItem = ITEM_NONE;
+    else if (gSaveBlock1Ptr->registeredItem == ITEM_NONE
+          || RegisteredItemIndex(gSaveBlock1Ptr->registeredItem) < 0)
+        gSaveBlock1Ptr->registeredItem = gSaveBlock1Ptr->registeredItems[first];
+
+    return count;
+}
+
+static void RefreshBagItemList(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
     u16 *scrollPos = &gBagPosition.scrollPosition[gBagPosition.pocket];
     u16 *cursorPos = &gBagPosition.cursorPosition[gBagPosition.pocket];
 
-    if (gSaveBlock1Ptr->registeredItem == gSpecialVar_ItemId)
-        gSaveBlock1Ptr->registeredItem = ITEM_NONE;
-    else
-        gSaveBlock1Ptr->registeredItem = gSpecialVar_ItemId;
     DestroyListMenuTask(tListTaskId, scrollPos, cursorPos);
     LoadBagItemListBuffers(gBagPosition.pocket);
     tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, *scrollPos, *cursorPos);
     ScheduleBgCopyTilemapToVram(0);
+}
+
+// Returns [1-MAX_REGISTERED_ITEMS] based on the dpad, or 0 if no direction was pressed.
+// If `check`, a direction whose slot is empty counts as no input.
+static u32 DpadInputToRegisteredItemIndex(bool32 check)
+{
+    u32 i = 0;
+
+    if (JOY_NEW(DPAD_UP))
+        i = 1;
+    else if (JOY_NEW(DPAD_RIGHT))
+        i = 2;
+    else if (JOY_NEW(DPAD_DOWN))
+        i = 3;
+    else if (JOY_NEW(DPAD_LEFT))
+        i = 4;
+
+    if (i != 0 && check && gSaveBlock1Ptr->registeredItems[i - 1] == ITEM_NONE)
+        i = 0;
+    return i;
+}
+
+static void Task_RegisterUsingDpad(u8 taskId)
+{
+    u32 i;
+
+    if (JOY_NEW(B_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        ItemMenu_Cancel(taskId);
+        return;
+    }
+
+    i = DpadInputToRegisteredItemIndex(FALSE);
+    if (i == 0)
+        return;
+
+    PlaySE(SE_SELECT);
+    gSaveBlock1Ptr->registeredItems[i - 1] = gSpecialVar_ItemId;
+    gSaveBlock1Ptr->registeredItem = gSpecialVar_ItemId;
+    RefreshBagItemList(taskId);
     ItemMenu_Cancel(taskId);
+}
+
+static void ItemMenu_Register(u8 taskId)
+{
+    s32 count = CountRegisteredItems(); // prunes stale slots first
+    s32 index = RegisteredItemIndex(gSpecialVar_ItemId);
+
+    if (index >= 0)
+    {
+        // Deselect. The legacy registeredItem follows whatever slot is left, if any.
+        gSaveBlock1Ptr->registeredItems[index] = ITEM_NONE;
+        if (--count == 0 || (index = RegisteredItemIndex(ITEM_NONE)) < 0)
+            gSaveBlock1Ptr->registeredItem = ITEM_NONE;
+        else
+            gSaveBlock1Ptr->registeredItem = gSaveBlock1Ptr->registeredItems[index];
+        index = 1; // nothing left to ask about, close the menu below
+    }
+    else if (count == 0)
+    {
+        // First registration goes to the top slot without asking
+        gSaveBlock1Ptr->registeredItems[0] = gSpecialVar_ItemId;
+        gSaveBlock1Ptr->registeredItem = gSpecialVar_ItemId;
+    }
+
+    if (index >= 0 || count == 0)
+    {
+        RefreshBagItemList(taskId);
+        ItemMenu_Cancel(taskId);
+        return;
+    }
+
+    // Something is already registered, so let the player pick which slot to use
+    FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
+    BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, sText_PressAnyDpadKey, 3, 1, 0, 0, 0, COLORID_NORMAL);
+    gTasks[taskId].func = Task_RegisterUsingDpad;
 }
 
 static void ItemMenu_Give(u8 taskId)
@@ -2161,34 +2430,195 @@ static void Task_ItemContext_GiveToPC(u8 taskId)
 
 bool8 UseRegisteredKeyItemOnField(void)
 {
-    u8 taskId;
+    u32 taskId;
+    u32 count;
+    ItemUseFunc func = NULL;
 
     if (InUnionRoom() == TRUE || CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || InBattlePike() || InMultiPartnerRoom() == TRUE)
         return FALSE;
     HideMapNamePopUpWindow();
     ChangeBgY_ScreenOff(0, 0, BG_COORD_SET);
-    if (gSaveBlock1Ptr->registeredItem != ITEM_NONE)
+
+    // CountRegisteredItems has already dropped anything no longer in the Bag,
+    // so registeredItem is usable whenever count is non-zero.
+    count = CountRegisteredItems();
+    if (count > 1)
     {
-        if (CheckBagHasItem(gSaveBlock1Ptr->registeredItem, 1) == TRUE)
-        {
-            LockPlayerFieldControls();
-            FreezeObjectEvents();
-            PlayerFreeze();
-            StopPlayerAvatar();
-            gSpecialVar_ItemId = gSaveBlock1Ptr->registeredItem;
-            taskId = CreateTask(GetItemFieldFunc(gSaveBlock1Ptr->registeredItem), 8);
-            gTasks[taskId].tUsingRegisteredKeyItem = TRUE;
-            return TRUE;
-        }
-        else
-        {
-            gSaveBlock1Ptr->registeredItem = ITEM_NONE;
-        }
+        // More than one item to pick from, let the player choose
+        func = Task_KeyItemWheel;
+    }
+    else if (count == 1)
+    {
+        gSpecialVar_ItemId = gSaveBlock1Ptr->registeredItem;
+        func = GetItemFieldFunc(gSaveBlock1Ptr->registeredItem);
+    }
+
+    if (func != NULL)
+    {
+        LockPlayerFieldControls();
+        FreezeObjectEvents();
+        PlayerFreeze();
+        StopPlayerAvatar();
+        taskId = CreateTask(func, 8);
+        gTasks[taskId].tUsingRegisteredKeyItem = TRUE;
+        return TRUE;
     }
     ScriptContext_SetupScript(EventScript_SelectWithoutRegisteredItem);
     return TRUE;
 }
 
+// The wheel needs one BG palette per box, but the field only has 13-15 free.
+// The left-hand box's palette is swapped into slot 13 partway down the screen,
+// which works because that box never shares a scanline with the top box.
+static void HBlankCB_KeyItemWheel(void)
+{
+    u32 vCount = REG_VCOUNT;
+
+    if (vCount >= DISPLAY_HEIGHT)
+    {
+        sKeyItemWheelExtraPalette[0] = 0;
+        return;
+    }
+    if (vCount >= 64 && sKeyItemWheelExtraPalette[0] == 0)
+    {
+        CpuFastCopy(sKeyItemWheelExtraPalette, (void *)(BG_PLTT + PLTT_ID(13) * 2), PLTT_SIZE_4BPP);
+        sKeyItemWheelExtraPalette[0] = 0x8000; // marks the copy as done for this frame
+    }
+}
+
+#define tState          data[0]
+#define tBoxSprite      (data + 1)
+#define tBoxWinSprite   (data + 1 + MAX_REGISTERED_ITEMS)
+#define tIconWindow     (data + 1 + 2 * MAX_REGISTERED_ITEMS)
+#define tPickedSprite   data[15]
+
+enum {
+    KEY_ITEM_WHEEL_INIT,
+    KEY_ITEM_WHEEL_INPUT,
+    KEY_ITEM_WHEEL_WAIT_ANIM,
+    KEY_ITEM_WHEEL_CANCEL,
+    KEY_ITEM_WHEEL_INIT_OBJWIN,
+};
+
+static void FreeKeyItemWheelGfx(s16 *data)
+{
+    u32 i;
+
+    FreeSpriteTilesByTag(PAL_TAG_KEY_ITEM_WHEEL);
+    FreeSpritePaletteByTag(PAL_TAG_KEY_ITEM_WHEEL);
+
+    // tBoxSprite and tBoxWinSprite are adjacent, so this frees both
+    for (i = 0; i < 2 * MAX_REGISTERED_ITEMS; i++)
+    {
+        if (tBoxSprite[i] >= MAX_SPRITES)
+            continue;
+        FreeSpriteOamMatrix(&gSprites[tBoxSprite[i]]);
+        DestroySprite(&gSprites[tBoxSprite[i]]);
+    }
+
+    for (i = 0; i < MAX_REGISTERED_ITEMS; i++)
+    {
+        if (tIconWindow[i] == WINDOW_NONE)
+            continue;
+        FillWindowPixelBuffer(tIconWindow[i], PIXEL_FILL(0));
+        ClearWindowTilemap(tIconWindow[i]);
+        CopyWindowToVram(tIconWindow[i], COPYWIN_MAP);
+        RemoveWindow(tIconWindow[i]);
+    }
+
+    SetHBlankCallback(NULL);
+    DisableInterrupts(INTR_FLAG_HBLANK);
+}
+
+static void Task_KeyItemWheel(u8 taskId)
+{
+    u32 i, j;
+    s16 *data = gTasks[taskId].data;
+
+    switch (tState)
+    {
+    case KEY_ITEM_WHEEL_INIT:
+        LoadSpritePalette(&sSpritePalette_KeyItemBox);
+        LoadSpriteSheetByTemplate(&sSpriteTemplate_KeyItemBox, 0, 0);
+
+        for (i = 0; i < MAX_REGISTERED_ITEMS; i++)
+        {
+            tBoxSprite[i] = j = CreateSprite(&sSpriteTemplate_KeyItemBox, sKeyItemBoxXPos[i], sKeyItemBoxYPos[i], 0);
+            if (j < MAX_SPRITES)
+                StartSpriteAffineAnim(&gSprites[j], i);
+            tBoxWinSprite[i] = MAX_SPRITES;
+
+            tIconWindow[i] = WINDOW_NONE;
+            if (gSaveBlock1Ptr->registeredItems[i] == ITEM_NONE)
+                continue;
+
+            // The left-hand box borrows palette 13 too, see HBlankCB_KeyItemWheel
+            tIconWindow[i] = j = AddWindowParameterized(0,
+                                                       sKeyItemBoxXPos[i] / 8 - 2,
+                                                       sKeyItemBoxYPos[i] / 8 - 2,
+                                                       4, 4,
+                                                       (i == 3) ? 13 : 13 + i,
+                                                       16 * (i + 9));
+            if (j == WINDOW_NONE)
+                continue;
+            PutWindowTilemap(j);
+            BlitItemIconToWindow(gSaveBlock1Ptr->registeredItems[i], j, 4, 4,
+                                 (i == 3) ? sKeyItemWheelExtraPalette : NULL);
+            CopyWindowToVram(j, COPYWIN_FULL);
+        }
+
+        SetHBlankCallback(HBlankCB_KeyItemWheel);
+        EnableInterrupts(INTR_FLAG_HBLANK);
+        PlaySE(SE_WIN_OPEN);
+        tState = (gSaveBlock1Ptr->flashLevel > 1) ? KEY_ITEM_WHEEL_INIT_OBJWIN : KEY_ITEM_WHEEL_INPUT;
+        break;
+    case KEY_ITEM_WHEEL_INPUT:
+        if (JOY_NEW(B_BUTTON) || JOY_NEW(SELECT_BUTTON))
+        {
+            PlaySE(SE_SELECT);
+            tState = KEY_ITEM_WHEEL_CANCEL;
+            break;
+        }
+        i = DpadInputToRegisteredItemIndex(TRUE);
+        if (i == 0 || tBoxSprite[i - 1] >= MAX_SPRITES)
+            break;
+        gSpecialVar_ItemId = gSaveBlock1Ptr->registeredItem = gSaveBlock1Ptr->registeredItems[i - 1];
+        PlaySE(SE_SELECT);
+        tPickedSprite = tBoxSprite[i - 1];
+        StartSpriteAffineAnim(&gSprites[tPickedSprite], MAX_REGISTERED_ITEMS + i - 1);
+        tState = KEY_ITEM_WHEEL_WAIT_ANIM;
+        break;
+    case KEY_ITEM_WHEEL_WAIT_ANIM:
+        if (!gSprites[tPickedSprite].affineAnimEnded)
+            break;
+        FreeKeyItemWheelGfx(data);
+        i = CreateTask(GetItemFieldFunc(gSaveBlock1Ptr->registeredItem), 8);
+        gTasks[i].tUsingRegisteredKeyItem = TRUE;
+        DestroyTask(taskId);
+        break;
+    case KEY_ITEM_WHEEL_CANCEL:
+        FreeKeyItemWheelGfx(data);
+        ScriptUnfreezeObjectEvents();
+        UnlockPlayerFieldControls();
+        DestroyTask(taskId);
+        break;
+    case KEY_ITEM_WHEEL_INIT_OBJWIN:
+        // In a dark cave the boxes fall outside the flash window, so draw them
+        // into the object window as well to punch a hole for themselves.
+        SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJWIN_ON);
+        SetGpuRegBits(REG_OFFSET_WINOUT, WINOUT_WINOBJ_OBJ);
+        for (i = 0; i < MAX_REGISTERED_ITEMS; i++)
+            tBoxWinSprite[i] = CreateSprite(&sSpriteTemplate_KeyItemBoxWin, sKeyItemBoxXPos[i], sKeyItemBoxYPos[i], 0);
+        tState = KEY_ITEM_WHEEL_INPUT;
+        break;
+    }
+}
+
+#undef tState
+#undef tBoxSprite
+#undef tBoxWinSprite
+#undef tIconWindow
+#undef tPickedSprite
 #undef tUsingRegisteredKeyItem
 
 static void Task_ItemContext_Sell(u8 taskId)
