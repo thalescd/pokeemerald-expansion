@@ -201,5 +201,14 @@
     ],
     "EggMoves": [],
     "TutorMoves": []
+  },
+  "CERULEDGE": {
+    "LevelMoves": [],
+    "PreEvoMoves": [],
+    "TMMoves": [
+        "MOVE_CUT"
+    ],
+    "EggMoves": [],
+    "TutorMoves": []
   }
 }
