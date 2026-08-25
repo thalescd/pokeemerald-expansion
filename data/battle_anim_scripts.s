@@ -17077,6 +17077,69 @@ gBattleAnimMove_MalignantChain::
 gBattleAnimMove_TidalWave::
 	goto gBattleAnimMove_HeavySlam
 
+gBattleAnimMove_Volcalith::
+	goto gBattleAnimMove_RockWrecker
+
+gBattleAnimMove_Cragfang::
+	goto gBattleAnimMove_Bite
+
+@ Supersonic Skystrike without its charge-up intro: the user takes off immediately.
+gBattleAnimMove_SupersonicDive::
+	createvisualtask AnimTask_AllBattlersInvisibleExceptAttackerAndTarget, 10
+	waitforvisualfinish
+	playsewithpan SE_M_FLY, SOUND_PAN_ATTACKER
+	createsprite gFlyBallUpSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 13, 336
+	delay 2
+	createsprite gDirtPlumeSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 0, 12, 4, -16, 18
+	createsprite gDirtPlumeSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 0, 16, 4, -10, 18
+	createsprite gDirtPlumeSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 1, 14, 4, -18, 18
+	createsprite gDirtPlumeSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 1, 12, 4, -16, 18
+	delay 48
+	createvisualtask AnimTask_DoomDesireLightBeam, 5
+	delay 9
+	playsewithpan SE_M_MORNING_SUN, SOUND_PAN_ATTACKER
+	delay 9
+	playsewithpan SE_M_MORNING_SUN, SOUND_PAN_MIDDLE
+	delay 9
+	playsewithpan SE_M_MORNING_SUN, SOUND_PAN_TARGET
+	delay 25
+	fadetobg BG_SKY
+	waitbgfadeout
+	createvisualtask AnimTask_IsTargetPlayerSide, 2
+	jumpargeq 7 1 SupersonicDiveOnPlayer
+SupersonicDiveOnOpponent:
+	createvisualtask AnimTask_StartSlidingBg, 5, -2048, 2048, 0, -1
+	goto FinishSupersonicDive
+SupersonicDiveOnPlayer:
+	createvisualtask AnimTask_StartSlidingBg, 5, 2048, -2048, 0, -1
+FinishSupersonicDive:
+	waitbgfadein
+	waitforvisualfinish
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER
+	createsprite gSupersonicSkystrikeFlySpriteTemplate, ANIM_ATTACKER, 2, 20, FALSE
+	delay 16
+	create_basic_hitsplat_sprite ANIM_ATTACKER, 2, x=0, y=0, relative_to=ANIM_TARGET, animation=0
+	playsewithpan SE_M_EXPLOSION, SOUND_PAN_ATTACKER
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, -256, 21, 0, 4
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 0, 12, -24, -16, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 0, 16, -38, -10, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 1, 14, -20, -18, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 1, 12, -36, -16, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 0, 12, -48, -16, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 0, 16, -16, -10, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 1, 14, -52, -18, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 1, 12, -32, -16, 24
+	delay 48
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	createvisualtask AnimTask_AllBattlersVisible, 10
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 0, 16
+	call UnsetPsychicBg
+	waitforvisualfinish
+	end
+
 gBattleAnimMove_PopulationBomb::
 	monbg ANIM_TARGET
 	setalpha 12, 8

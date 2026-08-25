@@ -108,6 +108,7 @@ enum Language
 #define SAVED_TRENDS_COUNT 5
 #define PYRAMID_BAG_ITEMS_COUNT 10
 #define ROAMER_COUNT 1 // Number of maximum concurrent active roamers
+#define MAX_REGISTERED_ITEMS 4 // Items registerable to SELECT, shown in the key item wheel
 
 // Bag constants
 #define BAG_ITEMS_COUNT 128

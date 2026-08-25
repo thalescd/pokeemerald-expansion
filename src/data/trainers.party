@@ -935,7 +935,7 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Brambleghast
+Amoonguss
 Level: 40
 
 Pupitar
@@ -6361,7 +6361,7 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Stufful
+Roggenrola
 Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
@@ -8264,13 +8264,23 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Hawlucha
-Level: 18
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-- Bulk Up
-- Karate Chop
-- Aerial Ace
-- Taunt
+Timburr
+Ability: Rocky Payload
+Level: 17
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Rock Throw
+- Wake Up Slap
+- Low Kick
+- Power-Up Punch
+
+Stufful
+Ability: Fluffy
+Level: 17
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Brutal Swing
+- Force Palm
+- Strength
+- Baby-Doll Eyes
 
 === TRAINER_CYNDY_1 ===
 Name: CYNDY
@@ -12620,7 +12630,7 @@ Klink
 Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Timburr
+Mudbray
 Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
@@ -14751,21 +14761,62 @@ Music: Magma
 Double Battle: No
 AI: Basic Trainer
 
-Numel
-Level: 26
-IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+Pangoro @ Punching Glove
+Ability: Iron Fist
+Level: 58
+Adamant Nature
+- Wicked Blow
+- Sky Uppercut
+- Bullet Punch
+- Thunder Punch
 
-Mightyena
-Level: 28
-IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+Weezing @ Black Sludge
+Ability: Levitate
+Level: 58
+Quiet Nature
+- Sludge Bomb
+- Heat Wave
+- Clear Smog
+- Explosion
 
-Zubat
-Level: 30
-IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+Houndoom-Mega @ Life Orb
+Ability: Flash Fire
+Level: 59
+Timid Nature
+IVs: 0 Atk
+- Fire Blast
+- Fiery Wrath
+- Sludge Bomb
+- Nasty Plot
 
-Camerupt
-Level: 33
-IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+Typhlosion-Hisui @ Life Orb
+Ability: Blaze
+Level: 59
+Timid Nature
+IVs: 0 Atk
+- Flamethrower
+- Infernal Parade
+- Scorching Sands
+- Eruption
+
+Mamoswine @ Assault Vest
+Ability: Thick Fat
+Level: 58
+Adamant Nature
+- Headlong Rush
+- Icicle Crash
+- Ice Shard
+- Trailblaze
+
+Volcarona @ Heavy-Duty Boots
+Ability: Flame Body
+Level: 59
+Timid Nature
+IVs: 0 Atk
+- Fiery Dance
+- Bug Buzz
+- Giga Drain
+- Quiver Dance
 
 === TRAINER_DARCY ===
 Name: DARCY

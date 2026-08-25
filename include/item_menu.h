@@ -117,6 +117,7 @@ void CB2_ChooseMulch(void);
 void Task_FadeAndCloseBagMenu(u8 taskId);
 void BagMenu_YesNo(u8 taskId, u8 windowType, const struct YesNoFuncTable *funcTable);
 void UpdatePocketItemList(enum Pocket pocketId);
+s32 RegisteredItemIndex(enum Item item);
 void DisplayItemMessage(u8 taskId, u8 fontId, const u8 *str, TaskFunc callback);
 void DisplayItemMessageOnField(u8 taskId, const u8 *string, TaskFunc callback);
 void CloseItemMessage(u8 taskId);

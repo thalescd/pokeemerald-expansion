@@ -292,17 +292,17 @@ static const struct FormChange sEeveeFormChangeTable[] =
 };
 #endif //P_FAMILY_EEVEE
 
-#if P_FAMILY_AERODACTYL
-static const struct FormChange sAerodactylFormChangeTable[] =
-{
-#if P_MEGA_EVOLUTIONS
-    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_AERODACTYL_MEGA, ITEM_AERODACTYLITE},
-#endif
-    {FORM_CHANGE_FAINT,                         SPECIES_AERODACTYL},
-    {FORM_CHANGE_END_BATTLE,                    SPECIES_AERODACTYL},
-    {FORM_CHANGE_TERMINATOR},
-};
-#endif //P_FAMILY_AERODACTYL
+//#if P_FAMILY_AERODACTYL
+//static const struct FormChange sAerodactylFormChangeTable[] =
+//{
+//#if P_MEGA_EVOLUTIONS
+//    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_AERODACTYL_MEGA, ITEM_AERODACTYLITE},
+//#endif
+//    {FORM_CHANGE_FAINT,                         SPECIES_AERODACTYL},
+//    {FORM_CHANGE_END_BATTLE,                    SPECIES_AERODACTYL},
+//    {FORM_CHANGE_TERMINATOR},
+//};
+//#endif //P_FAMILY_AERODACTYL
 
 #if P_FAMILY_SNORLAX
 static const struct FormChange sSnorlaxFormChangeTable[] =

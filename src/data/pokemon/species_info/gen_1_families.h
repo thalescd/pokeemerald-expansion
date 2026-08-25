@@ -19514,29 +19514,30 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sAerodactylLevelUpLearnset,
         .teachableLearnset = sAerodactylTeachableLearnset,
         .eggMoveLearnset = sAerodactylEggMoveLearnset,
-        .formSpeciesIdTable = sAerodactylFormSpeciesIdTable,
-        .formChangeTable = sAerodactylFormChangeTable,
+        //.formSpeciesIdTable = sAerodactylFormSpeciesIdTable,
+        //.formChangeTable = sAerodactylFormChangeTable,
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_SCARLET_ORE, SPECIES_AERODACTYL_MEGA}),
     },
 
 #if P_MEGA_EVOLUTIONS
     [SPECIES_AERODACTYL_MEGA] =
     {
         .baseHP        = 80,
-        .baseAttack    = 135,
-        .baseDefense   = 85,
+        .baseAttack    = 130,
+        .baseDefense   = 75,
         .baseSpeed     = 150,
-        .baseSpAttack  = 70,
-        .baseSpDefense = 95,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 85,
         .types = MON_TYPES(TYPE_ROCK, TYPE_FLYING),
-        .catchRate = 45,
-        .expYield = 215,
-        .evYield_Speed = 2,
+        .catchRate = 30,
+        .expYield = 229,
+        .evYield_Speed = 3,
         .genderRatio = PERCENT_FEMALE(12.5),
         .eggCycles = 35,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FLYING),
-        .abilities = { ABILITY_TOUGH_CLAWS, ABILITY_TOUGH_CLAWS, ABILITY_TOUGH_CLAWS },
+        .abilities = { ABILITY_ROCK_HEAD, ABILITY_PRESSURE, ABILITY_TOUGH_CLAWS },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Aerodactyl"),
     #if P_MODIFIED_MEGA_CRIES
@@ -19544,14 +19545,14 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     #else
         .cryId = CRY_AERODACTYL,
     #endif // P_MODIFIED_MEGA_CRIES
-        .natDexNum = NATIONAL_DEX_AERODACTYL,
+        .natDexNum = NATIONAL_DEX_AERODACTYL_MEGA,
         .categoryName = _("Fossil"),
         .height = 21,
         .weight = 790,
         .description = COMPOUND_STRING(
-            "The power of Mega Evolution has\n"
-            "completely restored its genes. The rocks\n"
-            "on its body are harder than diamond."),
+            "Its ancient genes awaken, restoring\n"
+            "the rocks that once covered its body.\n"
+            "It will attack anything that moves."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 302,
@@ -19587,12 +19588,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gShinyOverworldPalette_AerodactylMega
         )
     #endif //OW_BATTLE_ONLY_FORMS
-        .isMegaEvolution = TRUE,
+        //.isMegaEvolution = TRUE,
         .levelUpLearnset = sAerodactylLevelUpLearnset,
         .teachableLearnset = sAerodactylTeachableLearnset,
-        .eggMoveLearnset = sAerodactylEggMoveLearnset,
-        .formSpeciesIdTable = sAerodactylFormSpeciesIdTable,
-        .formChangeTable = sAerodactylFormChangeTable,
+        //.eggMoveLearnset = sAerodactylEggMoveLearnset,
+        //.formSpeciesIdTable = sAerodactylFormSpeciesIdTable,
+        //.formChangeTable = sAerodactylFormChangeTable,
     },
 #endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_AERODACTYL

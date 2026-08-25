@@ -6,8 +6,10 @@
 #include "item_icon.h"
 #include "malloc.h"
 #include "move.h"
+#include "palette.h"
 #include "pokevial.h"
 #include "sprite.h"
+#include "window.h"
 #include "constants/items.h"
 
 // EWRAM vars
@@ -119,6 +121,27 @@ u8 AddItemIconSprite(u16 tilesTag, u16 paletteTag, enum Item itemId)
 
         return spriteId;
     }
+}
+
+// Draws an item icon straight into a BG window instead of spawning a sprite for it.
+// If paletteDest is given the icon's palette is copied there for the caller to install,
+// otherwise it is loaded into the window's own BG palette.
+bool32 BlitItemIconToWindow(enum Item itemId, u8 windowId, u16 x, u16 y, void *paletteDest)
+{
+    if (!AllocItemIconTemporaryBuffers())
+        return FALSE;
+
+    DecompressDataWithHeaderWram(GetItemIconPic(itemId), gItemIconDecompressionBuffer);
+    CopyItemIconPicTo4x4Buffer(gItemIconDecompressionBuffer, gItemIcon4x4Buffer);
+    BlitBitmapToWindow(windowId, gItemIcon4x4Buffer, x, y, 32, 32);
+
+    if (paletteDest != NULL)
+        CpuFastCopy(GetItemIconPalette(itemId), paletteDest, PLTT_SIZE_4BPP);
+    else
+        LoadPalette(GetItemIconPalette(itemId), BG_PLTT_ID(gWindows[windowId].window.paletteNum), PLTT_SIZE_4BPP);
+
+    FreeItemIconTemporaryBuffers();
+    return TRUE;
 }
 
 u8 AddCustomItemIconSprite(const struct SpriteTemplate *customSpriteTemplate, u16 tilesTag, u16 paletteTag, enum Item itemId)
