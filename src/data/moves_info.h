@@ -22058,6 +22058,29 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_SupersonicStrike,
     },
 
+    [MOVE_CRAGFANG] =
+    {
+        .name = COMPOUND_STRING("Cragfang"),
+        .description = COMPOUND_STRING(
+            "Double power if the user\n"
+            "moves before the target."),
+        .effect = EFFECT_BOLT_BEAK,
+        .power = 50,
+        .type = TYPE_ROCK,
+        .accuracy = 100,
+        .pp = 5,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .bitingMove = TRUE,
+        .contestEffect = CONTEST_EFFECT_BETTER_IF_FIRST,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_Cragfang,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

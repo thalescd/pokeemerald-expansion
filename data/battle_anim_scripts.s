@@ -17080,6 +17080,9 @@ gBattleAnimMove_TidalWave::
 gBattleAnimMove_Volcalith::
 	goto gBattleAnimMove_RockWrecker
 
+gBattleAnimMove_Cragfang::
+	goto gBattleAnimMove_Bite
+
 @ Supersonic Skystrike without its charge-up intro: the user takes off immediately.
 gBattleAnimMove_SupersonicStrike::
 	createvisualtask AnimTask_AllBattlersInvisibleExceptAttackerAndTarget, 10
