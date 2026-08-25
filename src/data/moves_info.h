@@ -22036,6 +22036,28 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_Volcalith,
     },
 
+    [MOVE_SUPERSONIC_STRIKE] =
+    {
+        .name = COMPOUND_STRING("Supersonic Strike"),
+        .description = COMPOUND_STRING(
+            "A diving blow that does more\n"
+            "damage to slower foes."),
+        .effect = EFFECT_ELECTRO_BALL,
+        .power = 1,
+        .type = TYPE_FLYING,
+        .accuracy = 100,
+        .pp = 5,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .contestEffect = CONTEST_EFFECT_BADLY_STARTLE_FRONT_MON,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_AGILITY},
+        .battleAnimScript = gBattleAnimMove_SupersonicStrike,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

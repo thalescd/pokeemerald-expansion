@@ -852,6 +852,7 @@ extern const u8 gBattleAnimMove_UpperHand[];
 extern const u8 gBattleAnimMove_MalignantChain[];
 extern const u8 gBattleAnimMove_TidalWave[];
 extern const u8 gBattleAnimMove_Volcalith[];
+extern const u8 gBattleAnimMove_SupersonicStrike[];
 extern const u8 gBattleAnimMove_BreakneckBlitz[];
 extern const u8 gBattleAnimMove_AllOutPummeling[];
 extern const u8 gBattleAnimMove_SupersonicSkystrike[];
