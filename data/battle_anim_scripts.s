@@ -17077,6 +17077,9 @@ gBattleAnimMove_MalignantChain::
 gBattleAnimMove_TidalWave::
 	goto gBattleAnimMove_HeavySlam
 
+gBattleAnimMove_Volcalith::
+	goto gBattleAnimMove_RockWrecker
+
 gBattleAnimMove_PopulationBomb::
 	monbg ANIM_TARGET
 	setalpha 12, 8

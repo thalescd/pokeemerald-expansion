@@ -22011,6 +22011,31 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_TidalWave,
     },
 
+    [MOVE_VOLCALITH] =
+    {
+        .name = COMPOUND_STRING("Volcalith"),
+        .description = COMPOUND_STRING(
+            "Pelts the foe with searing\n"
+            "rocks. May cause a burn."),
+        .effect = EFFECT_HIT,
+        .power = 90,
+        .type = TYPE_ROCK,
+        .accuracy = 100,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_BURN,
+            .chance = 30,
+        }),
+        .contestEffect = CONTEST_EFFECT_HIGHLY_APPEALING,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_Volcalith,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {
