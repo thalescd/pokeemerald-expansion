@@ -543,15 +543,15 @@ static const u16 sEeveeFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_EEVEE
 
-#if P_FAMILY_AERODACTYL
-static const u16 sAerodactylFormSpeciesIdTable[] = {
-    SPECIES_AERODACTYL,
-#if P_MEGA_EVOLUTIONS
-    SPECIES_AERODACTYL_MEGA,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_AERODACTYL
+//#if P_FAMILY_AERODACTYL
+//static const u16 sAerodactylFormSpeciesIdTable[] = {
+//    SPECIES_AERODACTYL,
+//#if P_MEGA_EVOLUTIONS
+//    SPECIES_AERODACTYL_MEGA,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//#endif //P_FAMILY_AERODACTYL
 
 #if P_FAMILY_SNORLAX
 static const u16 sSnorlaxFormSpeciesIdTable[] = {
