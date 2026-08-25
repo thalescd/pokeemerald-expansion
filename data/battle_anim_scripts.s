@@ -17084,7 +17084,7 @@ gBattleAnimMove_Cragfang::
 	goto gBattleAnimMove_Bite
 
 @ Supersonic Skystrike without its charge-up intro: the user takes off immediately.
-gBattleAnimMove_SupersonicStrike::
+gBattleAnimMove_SupersonicDive::
 	createvisualtask AnimTask_AllBattlersInvisibleExceptAttackerAndTarget, 10
 	waitforvisualfinish
 	playsewithpan SE_M_FLY, SOUND_PAN_ATTACKER
@@ -17106,13 +17106,13 @@ gBattleAnimMove_SupersonicStrike::
 	fadetobg BG_SKY
 	waitbgfadeout
 	createvisualtask AnimTask_IsTargetPlayerSide, 2
-	jumpargeq 7 1 SupersonicStrikeOnPlayer
-SupersonicStrikeOnOpponent:
+	jumpargeq 7 1 SupersonicDiveOnPlayer
+SupersonicDiveOnOpponent:
 	createvisualtask AnimTask_StartSlidingBg, 5, -2048, 2048, 0, -1
-	goto FinishSupersonicStrike
-SupersonicStrikeOnPlayer:
+	goto FinishSupersonicDive
+SupersonicDiveOnPlayer:
 	createvisualtask AnimTask_StartSlidingBg, 5, 2048, -2048, 0, -1
-FinishSupersonicStrike:
+FinishSupersonicDive:
 	waitbgfadein
 	waitforvisualfinish
 	monbg ANIM_DEF_PARTNER

@@ -22036,9 +22036,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_Volcalith,
     },
 
-    [MOVE_SUPERSONIC_STRIKE] =
+    [MOVE_SUPERSONIC_DIVE] =
     {
-        .name = COMPOUND_STRING("Supersonic Strike"),
+        .name = COMPOUND_STRING("Supersonic Dive"),
         .description = COMPOUND_STRING(
             "A diving blow that does more\n"
             "damage to slower foes."),
@@ -22055,7 +22055,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_AGILITY},
-        .battleAnimScript = gBattleAnimMove_SupersonicStrike,
+        .battleAnimScript = gBattleAnimMove_SupersonicDive,
     },
 
     [MOVE_CRAGFANG] =

@@ -757,7 +757,7 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Mega Evolution")
         FLAG_SET(TESTING_FLAG_TRAINER_SLIDES);
         VAR_SET(TESTING_VAR_TRAINER_SLIDES, TRAINER_SLIDE_MEGA_EVOLUTION);
         PLAYER(SPECIES_WOBBUFFET) { Speed(4); }
-        PARTNER(SPECIES_AERODACTYL) { Speed(2); Item(ITEM_AERODACTYLITE); }
+        PARTNER(SPECIES_GARDEVOIR) { Speed(2); Item(ITEM_GARDEVOIRITE); }
         OPPONENT_A(SPECIES_SALAMENCE) { Speed(3); Item(ITEM_SALAMENCITE); }
         OPPONENT_B(SPECIES_MEDICHAM) { Speed(1); Item(ITEM_MEDICHAMITE); }
     } WHEN {
@@ -770,7 +770,7 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Mega Evolution")
         MESSAGE("The opposing Salamence has Mega Evolved into Mega Salamence!");
         MESSAGE("Trainer Partner: This message plays before the enemy activates the Mega Evolution gimmick.{PAUSE_UNTIL_PRESS}");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, playerRight);
-        MESSAGE("Aerodactyl has Mega Evolved into Mega Aerodactyl!");
+        MESSAGE("Gardevoir has Mega Evolved into Mega Gardevoir!");
         MESSAGE("Trainer B: This message plays before the enemy activates the Mega Evolution gimmick.{PAUSE_UNTIL_PRESS}");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, opponentRight);
         MESSAGE("The opposing Medicham has Mega Evolved into Mega Medicham!");

@@ -384,6 +384,7 @@ static inline bool32 IgnoreMoveForSheerForceBoost(enum Move move)
         case MOVE_SHELL_TRAP:
         case MOVE_BOLT_BEAK:
         case MOVE_FISHIOUS_REND:
+        case MOVE_CRAGFANG:      //  Same effect as Bolt Beak
         case MOVE_AURA_WHEEL:
         case MOVE_STEEL_ROLLER:
         case MOVE_DRAGON_ENERGY:
@@ -607,6 +608,7 @@ static inline bool32 IsMoveSheerForceBoosted(enum Move move)
         case MOVE_ZING_ZAP:
         case MOVE_ELECTRO_SHOT:
         case MOVE_PSYCHIC_NOISE:
+        case MOVE_VOLCALITH:
             return TRUE;
         case MOVE_RAPID_SPIN:
             return B_SPEED_BUFFING_RAPID_SPIN >= GEN_8;
