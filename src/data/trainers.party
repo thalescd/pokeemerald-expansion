@@ -935,7 +935,7 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Brambleghast
+Amoonguss
 Level: 40
 
 Pupitar
@@ -14761,21 +14761,62 @@ Music: Magma
 Double Battle: No
 AI: Basic Trainer
 
-Numel
-Level: 26
-IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+Pangoro @ Punching Glove
+Ability: Iron Fist
+Level: 58
+Adamant Nature
+- Wicked Blow
+- Sky Uppercut
+- Bullet Punch
+- Thunder Punch
 
-Mightyena
-Level: 28
-IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+Weezing @ Black Sludge
+Ability: Levitate
+Level: 58
+Quiet Nature
+- Sludge Bomb
+- Heat Wave
+- Clear Smog
+- Explosion
 
-Zubat
-Level: 30
-IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+Houndoom-Mega @ Life Orb
+Ability: Flash Fire
+Level: 59
+Timid Nature
+IVs: 0 Atk
+- Fire Blast
+- Fiery Wrath
+- Sludge Bomb
+- Nasty Plot
 
-Camerupt
-Level: 33
-IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+Typhlosion-Hisui @ Life Orb
+Ability: Blaze
+Level: 59
+Timid Nature
+IVs: 0 Atk
+- Flamethrower
+- Infernal Parade
+- Scorching Sands
+- Eruption
+
+Mamoswine @ Assault Vest
+Ability: Thick Fat
+Level: 58
+Adamant Nature
+- Headlong Rush
+- Icicle Crash
+- Ice Shard
+- Trailblaze
+
+Volcarona @ Heavy-Duty Boots
+Ability: Flame Body
+Level: 59
+Timid Nature
+IVs: 0 Atk
+- Fiery Dance
+- Bug Buzz
+- Giga Drain
+- Quiver Dance
 
 === TRAINER_DARCY ===
 Name: DARCY
