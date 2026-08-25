@@ -6361,7 +6361,7 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Stufful
+Roggenrola
 Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
@@ -8264,13 +8264,23 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Hawlucha
-Level: 18
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-- Bulk Up
-- Karate Chop
-- Aerial Ace
-- Taunt
+Timburr
+Ability: Rocky Payload
+Level: 17
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Rock Throw
+- Wake Up Slap
+- Low Kick
+- Power-Up Punch
+
+Stufful
+Ability: Fluffy
+Level: 17
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Brutal Swing
+- Force Palm
+- Strength
+- Baby-Doll Eyes
 
 === TRAINER_CYNDY_1 ===
 Name: CYNDY
@@ -12620,7 +12630,7 @@ Klink
 Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Timburr
+Mudbray
 Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
