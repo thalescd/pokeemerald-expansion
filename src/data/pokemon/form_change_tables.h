@@ -604,20 +604,20 @@ static const struct FormChange sAltariaFormChangeTable[] =
 //};
 //#endif //P_FAMILY_CHIMECHO
 
-#if P_FAMILY_ABSOL
-static const struct FormChange sAbsolFormChangeTable[] =
-{
-#if P_MEGA_EVOLUTIONS
-    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_ABSOL_MEGA, ITEM_ABSOLITE},
-#endif
-#if P_GEN_9_MEGA_EVOLUTIONS
-    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_ABSOL_MEGA_Z, ITEM_ABSOLITE_Z},
-#endif
-    {FORM_CHANGE_FAINT,                         SPECIES_ABSOL},
-    {FORM_CHANGE_END_BATTLE,                    SPECIES_ABSOL},
-    {FORM_CHANGE_TERMINATOR},
-};
-#endif //P_FAMILY_ABSOL
+//#if P_FAMILY_ABSOL
+//static const struct FormChange sAbsolFormChangeTable[] =
+//{
+//#if P_MEGA_EVOLUTIONS
+//    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_ABSOL_MEGA, ITEM_ABSOLITE},
+//#endif
+//#if P_GEN_9_MEGA_EVOLUTIONS
+//    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_ABSOL_MEGA_Z, ITEM_ABSOLITE_Z},
+//#endif
+//    {FORM_CHANGE_FAINT,                         SPECIES_ABSOL},
+//    {FORM_CHANGE_END_BATTLE,                    SPECIES_ABSOL},
+//    {FORM_CHANGE_TERMINATOR},
+//};
+//#endif //P_FAMILY_ABSOL
 
 #if P_FAMILY_SNORUNT
 static const struct FormChange sGlalieFormChangeTable[] =

@@ -288,11 +288,11 @@ SINGLE_BATTLE_TEST("Knock Off doesn't knock off Mega Stones from Pokemon that ac
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_ABSOL) { Item(ITEM_ABSOLITE); }
+        OPPONENT(SPECIES_SALAMENCE) { Item(ITEM_SALAMENCITE); }
     } WHEN {
         TURN { MOVE(opponent, MOVE_CELEBRATE); MOVE(player, MOVE_KNOCK_OFF); }
     } SCENE {
-        NOT MESSAGE("Wobbuffet knocked off the opposing Absol's Absolite!");
+        NOT MESSAGE("Wobbuffet knocked off the opposing Salamence's Salamencite!");
     }
 }
 

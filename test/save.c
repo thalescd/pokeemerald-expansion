@@ -4,7 +4,14 @@
 
 // If you would like to ensure save compatibility, update the values below with those for your hack. You can find these through the debug menu.
 // Please note that this simple check is not 100% foolproof, but should be able to catch most unintended shifts.
-#define T_SAVEBLOCK1_SIZE 15088
+
+// SaveBlock1 grows on its own as the dex grows: dexSeen/dexCaught are sized by
+// NUM_DEX_FLAG_BYTES = ROUND_BITS_TO_BYTES(NATIONAL_DEX_COUNT + 1), so every 8 new
+// enum NationalDexOrder entries add a byte to each array and shift the fields after
+// them (trainerHillTimes onwards). That is expected here while no save has to survive.
+// Before blessing a new number, check whether include/global.h moved too: if it did,
+// the shift may be a misplaced new field instead, and those belong in filler1.
+#define T_SAVEBLOCK1_SIZE 15092
 #define T_SAVEBLOCK2_SIZE 3884
 #define T_SAVEBLOCK3_SIZE 4
 #define T_POKEMONSTORAGE_SIZE 34144

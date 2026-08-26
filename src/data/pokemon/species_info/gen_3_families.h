@@ -10462,29 +10462,31 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .levelUpLearnset = sAbsolLevelUpLearnset,
         .teachableLearnset = sAbsolTeachableLearnset,
         .eggMoveLearnset = sAbsolEggMoveLearnset,
-        .formSpeciesIdTable = sAbsolFormSpeciesIdTable,
-        .formChangeTable = sAbsolFormChangeTable,
+        //.formSpeciesIdTable = sAbsolFormSpeciesIdTable,
+        //.formChangeTable = sAbsolFormChangeTable,
+        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_ABSOL_MEGA, CONDITIONS({IF_IN_MAPSEC, MAPSEC_SKY_PILLAR})},
+                                {EVO_LEVEL, 0, SPECIES_ABSOL_MEGA_Z, CONDITIONS({IF_IN_MAPSEC, MAPSEC_CAVE_OF_ORIGIN})}),
     },
 
 #if P_MEGA_EVOLUTIONS
     [SPECIES_ABSOL_MEGA] =
     {
-        .baseHP        = 65,
-        .baseAttack    = 150,
+        .baseHP        = 75,
+        .baseAttack    = 105,
         .baseDefense   = 60,
         .baseSpeed     = 115,
-        .baseSpAttack  = 115,
+        .baseSpAttack  = 125,
         .baseSpDefense = 60,
-        .types = MON_TYPES(TYPE_DARK),
-        .catchRate = 30,
-        .expYield = 198,
-        .evYield_Attack = 2,
+        .types = MON_TYPES(TYPE_DARK, TYPE_FAIRY),
+        .catchRate = 15,
+        .expYield = 228,
+        .evYield_SpAttack = 3,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 25,
         .friendship = 35,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE },
+        .abilities = { ABILITY_FAIRY_AURA, ABILITY_SUPER_LUCK, ABILITY_MAGIC_BOUNCE },
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = TRUE,
         .speciesName = _("Absol"),
@@ -10493,8 +10495,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     #else
         .cryId = CRY_ABSOL,
     #endif // P_MODIFIED_MEGA_CRIES
-        .natDexNum = NATIONAL_DEX_ABSOL,
-        .categoryName = _("Disaster"),
+        .natDexNum = NATIONAL_DEX_ABSOL_MEGA,
+        .categoryName = _("Order"),
         .height = 12,
         .weight = 490,
         .description = COMPOUND_STRING(
@@ -10533,34 +10535,34 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
             gShinyOverworldPalette_AbsolMega
         )
     #endif //OW_BATTLE_ONLY_FORMS
-        .isMegaEvolution = TRUE,
-        .levelUpLearnset = sAbsolLevelUpLearnset,
+        //.isMegaEvolution = TRUE,
+        .levelUpLearnset = sAbsolMegaLevelUpLearnset,
         .teachableLearnset = sAbsolTeachableLearnset,
-        .eggMoveLearnset = sAbsolEggMoveLearnset,
-        .formSpeciesIdTable = sAbsolFormSpeciesIdTable,
-        .formChangeTable = sAbsolFormChangeTable,
+        //.eggMoveLearnset = sAbsolEggMoveLearnset,
+        //.formSpeciesIdTable = sAbsolFormSpeciesIdTable,
+        //.formChangeTable = sAbsolFormChangeTable,
     },
 #endif //P_MEGA_EVOLUTIONS
 
 #if P_GEN_9_MEGA_EVOLUTIONS
     [SPECIES_ABSOL_MEGA_Z] =
     {
-        .baseHP        = 65,
-        .baseAttack    = 154,
+        .baseHP        = 70,
+        .baseAttack    = 134,
         .baseDefense   = 60,
-        .baseSpeed     = 151,
+        .baseSpeed     = 141,
         .baseSpAttack  = 75,
         .baseSpDefense = 60,
         .types = MON_TYPES(TYPE_DARK, TYPE_GHOST),
-        .catchRate = 30,
-        .expYield = 198,
-        .evYield_Attack = 2,
+        .catchRate = 15,
+        .expYield = 228,
+        .evYield_Attack = 3,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 25,
         .friendship = 35,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE },
+        .abilities = { ABILITY_DARK_AURA, ABILITY_SUPER_LUCK, ABILITY_SHARPNESS },
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = TRUE,
         .speciesName = _("Absol"),
@@ -10569,8 +10571,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     #else
         .cryId = CRY_ABSOL,
     #endif // P_MODIFIED_MEGA_CRIES
-        .natDexNum = NATIONAL_DEX_ABSOL,
-        .categoryName = _("Disaster"),
+        .natDexNum = NATIONAL_DEX_ABSOL_MEGA_Z,
+        .categoryName = _("Chaos"),
         .height = 12,
         .weight = 490,
         .description = COMPOUND_STRING(
@@ -10594,12 +10596,12 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         FOOTPRINT(Absol)
         SHADOW(-1, 7, SHADOW_SIZE_XL_BATTLE_ONLY)
-        .isMegaEvolution = TRUE,
-        .levelUpLearnset = sAbsolLevelUpLearnset,
+        //.isMegaEvolution = TRUE,
+        .levelUpLearnset = sAbsolMegaZLevelUpLearnset,
         .teachableLearnset = sAbsolTeachableLearnset,
-        .eggMoveLearnset = sAbsolEggMoveLearnset,
-        .formSpeciesIdTable = sAbsolFormSpeciesIdTable,
-        .formChangeTable = sAbsolFormChangeTable,
+        //.eggMoveLearnset = sAbsolEggMoveLearnset,
+        //.formSpeciesIdTable = sAbsolFormSpeciesIdTable,
+        //.formChangeTable = sAbsolFormChangeTable,
     },
 #endif //P_GEN_9_MEGA_EVOLUTIONS
 #endif //P_FAMILY_ABSOL
