@@ -377,6 +377,7 @@ static inline bool32 IgnoreMoveForSheerForceBoost(enum Move move)
         case MOVE_GYRO_BALL:
         case MOVE_SYNCHRONOISE:
         case MOVE_ELECTRO_BALL:
+        case MOVE_SUPERSONIC_DIVE: //  Same effect as Electro Ball
         case MOVE_ROUND:
         case MOVE_BELCH:
         case MOVE_HYPERSPACE_FURY:
