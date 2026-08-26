@@ -962,18 +962,18 @@ static const u16 sCastformFormSpeciesIdTable[] = {
 //};
 //#endif //P_FAMILY_CHIMECHO
 
-#if P_FAMILY_ABSOL
-static const u16 sAbsolFormSpeciesIdTable[] = {
-    SPECIES_ABSOL,
-#if P_MEGA_EVOLUTIONS
-    SPECIES_ABSOL_MEGA,
-#endif
-#if P_GEN_9_MEGA_EVOLUTIONS
-    SPECIES_ABSOL_MEGA_Z,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_ABSOL
+//#if P_FAMILY_ABSOL
+//static const u16 sAbsolFormSpeciesIdTable[] = {
+//    SPECIES_ABSOL,
+//#if P_MEGA_EVOLUTIONS
+//    SPECIES_ABSOL_MEGA,
+//#endif
+//#if P_GEN_9_MEGA_EVOLUTIONS
+//    SPECIES_ABSOL_MEGA_Z,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//#endif //P_FAMILY_ABSOL
 
 #if P_FAMILY_SNORUNT
 static const u16 sGlalieFormSpeciesIdTable[] = {

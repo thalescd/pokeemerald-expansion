@@ -1160,7 +1160,7 @@
 #define FLAG_ITEM_ROUTE_120_HYPER_POTION                            0x453
 #define FLAG_ITEM_ROUTE_120_NEST_BALL                               0x454
 #define FLAG_ITEM_ROUTE_123_ELIXIR                                  0x455
-#define FLAG_ITEM_NEW_MAUVILLE_THUNDER_STONE                        0x456
+#define FLAG_ITEM_NEW_MAUVILLE_SHINY_STONE                          0x456
 #define FLAG_ITEM_FIERY_PATH_FIRE_STONE                             0x457
 #define FLAG_ITEM_SHOAL_CAVE_ICE_ROOM_TM79                          0x458
 #define FLAG_ITEM_SHOAL_CAVE_ICE_ROOM_NEVER_MELT_ICE                0x459
@@ -1211,7 +1211,7 @@
 #define FLAG_ITEM_ROUTE_134_CARBOS                                  0x486
 #define FLAG_ITEM_ROUTE_134_STAR_PIECE                              0x487
 #define FLAG_ITEM_ROUTE_114_ENERGY_POWDER                           0x488
-#define FLAG_ITEM_ROUTE_115_PP_UP                                   0x489
+#define FLAG_ITEM_ROUTE_115_DUSK_STONE                              0x489
 #define FLAG_ITEM_ARTISAN_CAVE_B1F_HP_UP                            0x48A
 #define FLAG_ITEM_ARTISAN_CAVE_1F_CARBOS                            0x48B
 #define FLAG_ITEM_MAGMA_HIDEOUT_2F_2R_MAX_ELIXIR                    0x48C
