@@ -11987,21 +11987,62 @@ Class: Magma Leader
 Pic: Magma Leader Maxie
 Gender: Male
 Music: Magma
-Items: Super Potion / Super Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Mightyena
-Level: 37
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Kleavor @ Focus Sash
+Ability: Sharpness
+Level: 58
+Jolly Nature
+- Stone Axe
+- X-Scissor
+- U-turn
+- Close Combat
 
-Crobat
-Level: 38
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Charizard-Mega-X @ Air Balloon
+Ability: Tough Claws
+Level: 59
+Jolly Nature
+- Flare Blitz
+- Dragon Claw
+- Thunder Punch
+- Dragon Dance
 
-Camerupt
-Level: 39
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Ceruledge @ Weakness Policy
+Ability: Weak Armor
+Level: 59
+Adamant Nature
+- Bitter Blade
+- Shadow Claw
+- Brick Break
+- Shadow Sneak
+
+Aerodactyl-Mega @ Life Orb
+Ability: Tough Claws
+Level: 58
+Jolly Nature
+- Dual Wingbeat
+- Thunder Fang
+- Night Slash
+- Crunch
+
+Baxcalibur @ Clear Amulet
+Ability: Thermal Exchange
+Level: 58
+Jolly Nature
+- Glaive Rush
+- Icicle Crash
+- Earthquake
+- Dragon Dance
+
+Camerupt-Mega @ Leftovers
+Ability: Solid Rock
+Level: 59
+Quiet Nature
+- Flamethrower
+- Earth Power
+- Rock Slide
+- Steam Eruption
 
 === TRAINER_MAXIE_MT_CHIMNEY ===
 Name: MAXIE
@@ -14759,7 +14800,7 @@ Pic: Magma Admin
 Gender: Male
 Music: Magma
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
 Pangoro @ Punching Glove
 Ability: Iron Fist
