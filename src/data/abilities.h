@@ -2493,4 +2493,12 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .description = COMPOUND_STRING("Two-turn moves are used\nin a single turn."),
         .aiRating = 8,
     },
+
+    [ABILITY_CONJUNCTION] =
+    {
+        .name = _("Conjunction"),
+        .description = COMPOUND_STRING("Not hit by Ground. Guards\nan ally that shares it."),
+        .aiRating = 8,
+        .breakable = TRUE,
+    },
 };

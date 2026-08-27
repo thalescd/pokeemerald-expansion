@@ -5,13 +5,13 @@ SINGLE_BATTLE_TEST("Levitate activates when targeted by ground type moves")
 {
     GIVEN {
         ASSUME(GetMoveType(MOVE_MUD_SLAP) == TYPE_GROUND);
-        PLAYER(SPECIES_LUNATONE) { Ability(ABILITY_LEVITATE); }
+        PLAYER(SPECIES_FLYGON) { Ability(ABILITY_LEVITATE); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
         TURN { MOVE(opponent, MOVE_MUD_SLAP); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_LEVITATE);
-        MESSAGE("It doesn't affect Lunatone…");
+        MESSAGE("It doesn't affect Flygon…");
     }
 }
 
@@ -19,7 +19,7 @@ SINGLE_BATTLE_TEST("Levitate does not activate if protected")
 {
     GIVEN {
         ASSUME(GetMoveType(MOVE_MUD_SLAP) == TYPE_GROUND);
-        PLAYER(SPECIES_LUNATONE) { Ability(ABILITY_LEVITATE); }
+        PLAYER(SPECIES_FLYGON) { Ability(ABILITY_LEVITATE); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
         TURN { MOVE(player, MOVE_PROTECT); MOVE(opponent, MOVE_MUD_SLAP); }
@@ -35,7 +35,7 @@ SINGLE_BATTLE_TEST("Levitate does not activate on status moves")
     GIVEN {
         ASSUME(GetMoveType(MOVE_SAND_ATTACK) == TYPE_GROUND);
         ASSUME(GetMoveCategory(MOVE_SAND_ATTACK) == DAMAGE_CATEGORY_STATUS);
-        PLAYER(SPECIES_LUNATONE) { Ability(ABILITY_LEVITATE); }
+        PLAYER(SPECIES_FLYGON) { Ability(ABILITY_LEVITATE); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
         TURN { MOVE(opponent, MOVE_SAND_ATTACK); }
@@ -50,7 +50,7 @@ SINGLE_BATTLE_TEST("Levitate does not activate if attacked by an opponent with M
 {
     GIVEN {
         ASSUME(GetMoveType(MOVE_MUD_SLAP) == TYPE_GROUND);
-        PLAYER(SPECIES_LUNATONE) { Ability(ABILITY_LEVITATE); }
+        PLAYER(SPECIES_FLYGON) { Ability(ABILITY_LEVITATE); }
         OPPONENT(SPECIES_TINKATON) { Ability(ABILITY_MOLD_BREAKER); }
     } WHEN {
         TURN { MOVE(player, MOVE_PROTECT); MOVE(opponent, MOVE_MUD_SLAP); }
@@ -67,7 +67,7 @@ DOUBLE_BATTLE_TEST("Levitate does not cause single remaining target to take high
     GIVEN {
         PLAYER(SPECIES_REGIROCK)  { Speed(1); }
         PLAYER(SPECIES_WOBBUFFET) { Speed(4); }
-        OPPONENT(SPECIES_LUNATONE) { Speed(3); }
+        OPPONENT(SPECIES_FLYGON) { Speed(3); }
         OPPONENT(SPECIES_WOBBUFFET) { Speed(2); }
     } WHEN {
         TURN { MOVE(playerRight, MOVE_CELEBRATE); MOVE(playerLeft, MOVE_EARTHQUAKE); }
