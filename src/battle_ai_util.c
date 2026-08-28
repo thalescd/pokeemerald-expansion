@@ -5985,6 +5985,10 @@ enum AIScore BattlerBenefitsFromAbilityScore(enum BattlerId battler, enum Abilit
         if (HasPartner(battler) && aiData->abilities[BATTLE_PARTNER(battler)] != ability)
             return BEST_EFFECT;
         break;
+    case ABILITY_CONJUNCTION: // Unlike the above, this one only pays off when the partner shares it
+        if (HasPartner(battler) && aiData->abilities[BATTLE_PARTNER(battler)] == ability)
+            return BEST_EFFECT;
+        break;
     case ABILITY_GUTS:
         if (HasMoveWithCategory(battler, DAMAGE_CATEGORY_PHYSICAL) && gBattleMons[battler].status1 & (STATUS1_CAN_MOVE))
             return GOOD_EFFECT;

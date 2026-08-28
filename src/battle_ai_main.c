@@ -3444,6 +3444,7 @@ static s32 AI_DoubleBattle(enum BattlerId battlerAtk, enum BattlerId battlerDef,
                 }
                 break;  // handled in AI_HPAware
             case ABILITY_LEVITATE:
+            case ABILITY_CONJUNCTION:
                 if (moveType != TYPE_GROUND)
                     isMoveAffectedByPartnerAbility = FALSE;
                 break;
