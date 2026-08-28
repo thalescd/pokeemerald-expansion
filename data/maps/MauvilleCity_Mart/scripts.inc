@@ -27,6 +27,7 @@ MauvilleCity_Mart_Pokemart_TM:
 	.2byte ITEM_TM_AERIAL_ACE
 	.2byte ITEM_TM_LOW_SWEEP
 	.2byte ITEM_TM57
+	.2byte ITEM_TM_INCINERATE
 	.2byte ITEM_TM67
 	.2byte ITEM_TM78
 	.2byte ITEM_TM82
