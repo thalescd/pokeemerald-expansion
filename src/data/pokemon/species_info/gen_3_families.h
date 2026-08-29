@@ -5553,7 +5553,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .teachableLearnset = sManectricTeachableLearnset,
         //.formSpeciesIdTable = sManectricFormSpeciesIdTable,
         //.formChangeTable = sManectricFormChangeTable,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_ELECTIRIZER, SPECIES_MANECTRIC_MEGA}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_MANECTRIC_MEGA, CONDITIONS({IF_HOLD_ITEM, ITEM_ELECTIRIZER})}),
     },
 
 #if P_MEGA_EVOLUTIONS
@@ -12908,7 +12908,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .baseSpeed     = 90,
         .baseSpAttack  = 100,
         .baseSpDefense = 90,
-        .types = MON_TYPES(TYPE_GROUND),
+        .types = MON_TYPES(TYPE_GROUND, TYPE_FIRE),
         .catchRate = 3,
     #if P_UPDATED_EXP_YIELDS >= GEN_8
         .expYield = 335,
