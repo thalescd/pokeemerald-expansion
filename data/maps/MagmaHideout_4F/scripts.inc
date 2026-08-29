@@ -1,9 +1,19 @@
 MagmaHideout_4F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, MagmaHideout_4F_OnTransition
 	.byte 0
+
+@ If Groudon was already awakened but Maxie hasn't been beaten yet, place Groudon
+@ where the awakening cutscene left it so the rematch can skip straight to the battle.
+MagmaHideout_4F_OnTransition:
+	goto_if_set FLAG_HIDE_MAGMA_HIDEOUT_4F_GROUDON, MagmaHideout_4F_EventScript_TransitionEnd
+	setobjectxyperm LOCALID_MAGMA_HIDEOUT_4F_GROUDON, 16, 19
+MagmaHideout_4F_EventScript_TransitionEnd:
+	end
 
 MagmaHideout_4F_EventScript_Maxie::
 	lockall
 	playbgm MUS_ENCOUNTER_MAGMA, FALSE
+	goto_if_unset FLAG_HIDE_MAGMA_HIDEOUT_4F_GROUDON, MagmaHideout_4F_EventScript_MaxieBattle
 	msgbox MagmaHideout_4F_Text_MaxieAwakenGroudon, MSGBOX_DEFAULT
 	closemessage
 	delay 20
@@ -25,15 +35,21 @@ MagmaHideout_4F_EventScript_Maxie::
 	applymovement LOCALID_MAGMA_HIDEOUT_4F_GROUDON, MagmaHideout_4F_Movement_GroudonApproach
 	waitmovement 0
 	special FadeOutOrbEffect
+	setflag FLAG_HIDE_MAGMA_HIDEOUT_4F_GROUDON_ASLEEP
+	clearflag FLAG_HIDE_MAGMA_HIDEOUT_4F_GROUDON
+
+MagmaHideout_4F_EventScript_MaxieBattle:
 	setvar VAR_0x8004, 1  @ vertical pan
 	setvar VAR_0x8005, 1  @ horizontal pan
 	setvar VAR_0x8006, 8  @ num shakes
 	setvar VAR_0x8007, 5  @ shake delay
+	trainerbattle_no_intro TRAINER_MAXIE_MAGMA_HIDEOUT, MagmaHideout_4F_Text_MaxieDefeat
 	special ShakeCamera
 	waitstate
 	applymovement LOCALID_MAGMA_HIDEOUT_4F_GROUDON, MagmaHideout_4F_Movement_GroudonExit
 	waitmovement 0
 	removeobject LOCALID_MAGMA_HIDEOUT_4F_GROUDON
+	setflag FLAG_HIDE_MAGMA_HIDEOUT_4F_GROUDON
 	delay 4
 	setvar VAR_0x8004, 2  @ vertical pan
 	setvar VAR_0x8005, 2  @ horizontal pan
@@ -53,7 +69,6 @@ MagmaHideout_4F_EventScript_Maxie::
 	waitmovement 0
 	msgbox MagmaHideout_4F_Text_MaxieOhItWasYou, MSGBOX_DEFAULT
 	closemessage
-	trainerbattle_no_intro TRAINER_MAXIE_MAGMA_HIDEOUT, MagmaHideout_4F_Text_MaxieDefeat
 	msgbox MagmaHideout_4F_Text_MaxieImGoingAfterGroudon, MSGBOX_DEFAULT
 	closemessage
 	clearflag FLAG_HIDE_SLATEPORT_CITY_CAPTAIN_STERN
