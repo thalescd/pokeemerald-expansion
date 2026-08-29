@@ -5561,6 +5561,8 @@ static inline bool32 CanFirstMonBoostHeldItemRarity(void)
         return TRUE;
     else if ((OW_SUPER_LUCK >= GEN_8) && ability == ABILITY_SUPER_LUCK)
         return TRUE;
+    else if (OW_FRISK_ITEM_RARITY && ability == ABILITY_FRISK)
+        return TRUE;
     return FALSE;
 }
 
