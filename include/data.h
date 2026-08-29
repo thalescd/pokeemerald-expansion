@@ -80,7 +80,7 @@ struct TrainerMon
     enum Type teraType:5;
     bool8 gigantamaxFactor:1;
     u8 shouldUseDynamax:1;
-    u8 padding1:1;
+    bool8 slideIn:1; // Sent out by sliding in from the side instead of from a Poké Ball, like a following Pokémon.
     u8 dynamaxLevel:4;
     u8 padding2:4;
     u32 tags;

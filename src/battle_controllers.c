@@ -1977,18 +1977,28 @@ static void SetBattlerMonData(enum BattlerId battler, struct Pokemon *party, u32
         HandleLowHpMusicChange(&party[gBattlerPartyIndexes[battler]], battler);
 }
 
-// In normal singles, if follower Pokémon exists, and the Pokémon following is being sent out, have it slide in instead of being thrown
+// In normal singles, if follower Pokémon exists, and the Pokémon following is being sent out, have it slide in instead of being thrown.
+// Opponent mons do the same when flagged as "Follower" in trainers.party, for trainers shown alongside their Pokémon.
 static bool8 ShouldDoSlideInAnim(enum BattlerId battler)
 {
-    struct ObjectEvent *followerObj = GetFollowerObject();
-    if (!followerObj || followerObj->invisible)
-        return FALSE;
+    struct ObjectEvent *followerObj;
 
     if (gBattleTypeFlags & (
         BATTLE_TYPE_LINK | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_FIRST_BATTLE |
         BATTLE_TYPE_SAFARI | BATTLE_TYPE_CATCH_TUTORIAL | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TWO_OPPONENTS |
         BATTLE_TYPE_INGAME_PARTNER | BATTLE_TYPE_RECORDED | BATTLE_TYPE_TRAINER_HILL)
     )
+        return FALSE;
+
+    if (!IsOnPlayerSide(battler))
+    {
+        if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
+            return FALSE;
+        return (gBattleStruct->opponentMonSlideIn & (1u << gBattlerPartyIndexes[battler])) != 0;
+    }
+
+    followerObj = GetFollowerObject();
+    if (!followerObj || followerObj->invisible)
         return FALSE;
 
     if (GetFirstLiveMon() != GetBattlerMon(battler))
@@ -2012,7 +2022,10 @@ void StartSendOutAnim(enum BattlerId battler, bool32 dontClearTransform, bool32 
     }
     else
     {
-        sendoutType = POKEBALL_OPPONENT_SENDOUT;
+        if (doSlideIn)
+            sendoutType = POKEBALL_OPPONENT_SLIDEIN;
+        else
+            sendoutType = POKEBALL_OPPONENT_SENDOUT;
     }
 
     ClearTemporarySpeciesSpriteData(battler, dontClearTransform, dontClearSubstituteBit);
@@ -2404,7 +2417,8 @@ void BtlController_HandleSwitchInAnim(enum BattlerId battler)
     gBattlerPartyIndexes[battler] = gBattleResources->bufferA[battler][1];
     if (isPlayerSide)
         BattleLoadMonSpriteGfx(GetBattlerMon(battler), battler);
-    StartSendOutAnim(battler, gBattleResources->bufferA[battler][2], gBattleResources->bufferA[battler][3], FALSE);
+    // Opponent mons flagged as "Follower" slide in on any send-out, not just at the intro.
+    StartSendOutAnim(battler, gBattleResources->bufferA[battler][2], gBattleResources->bufferA[battler][3], !isPlayerSide && ShouldDoSlideInAnim(battler));
     gBattlerControllerFuncs[battler] = BtlController_HandleSwitchInTryShinyAnim;
 }
 
@@ -2882,6 +2896,9 @@ void BtlController_HandleIntroTrainerBallThrow(enum BattlerId battler, u16 tagTr
     else
     {
         StoreSpriteCallbackInData6(&gSprites[gBattleStruct->trainerSlideSpriteIds[battler]], SpriteCB_FreeOpponentSprite);
+        // The mon slides in from the same side the trainer leaves through, so wait for the trainer to clear the screen first.
+        if (framesToWait < 35 && ShouldDoSlideInAnim(battler))
+            framesToWait = 35;
     }
 
     taskId = CreateTask(Task_StartSendOutAnim, 5);

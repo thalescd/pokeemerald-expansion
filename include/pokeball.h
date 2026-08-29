@@ -24,6 +24,7 @@ extern const struct PokeBallSprite gPokeBalls[];
 #define POKEBALL_PLAYER_SENDOUT     0xFF
 #define POKEBALL_OPPONENT_SENDOUT   0xFE
 #define POKEBALL_PLAYER_SLIDEIN     0xFD
+#define POKEBALL_OPPONENT_SLIDEIN   0xFC
 
 u8 DoPokeballSendOutAnimation(enum BattlerId battler, s16 pan, u8 kindOfThrow);
 void CreatePokeballSpriteToReleaseMon(u8 monSpriteId, u8 monPalNum, u8 x, u8 y, u8 oamPriority, u8 subpriority, u8 delay, u32 fadePalettes, enum Species species);

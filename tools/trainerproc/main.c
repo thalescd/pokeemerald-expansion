@@ -90,6 +90,9 @@ struct Pokemon
     bool gigantamax_factor;
     bool gigantamax_factor_line;
 
+    bool slide_in;
+    int slide_in_line;
+
     struct String tera_type;
     int tera_type_line;
 
@@ -788,10 +791,43 @@ static bool parse_pokemon_nature(struct Parser *p, struct Token *nature)
     return true;
 }
 
+// Matches an attribute written as a bare word on its own line, e.g. 'Follower'.
+// Its mere presence is the value, so 'value' is returned as an empty token.
+__attribute__((warn_unused_result))
+static bool parse_valueless_attribute(struct Parser *p, struct Token *key, struct Token *value, const struct Source *name)
+{
+    assert(p && key && value && name);
+    struct Parser p_ = *p;
+
+    if (!match_exact(&p_, (const char *)name->buffer))
+        return false;
+
+    skip_whitespace(&p_);
+    if (!match_eol(&p_))
+        return false;
+
+    key->source = name;
+    key->location = p->location;
+    key->begin = 0;
+    key->end = name->buffer_n;
+
+    value->source = name;
+    value->location = p->location;
+    value->begin = 0;
+    value->end = 0;
+
+    *p = p_;
+    return true;
+}
+
 __attribute__((warn_unused_result))
 static bool parse_attribute(struct Parser *p, struct Token *key, struct Token *value)
 {
     assert(p && key && value);
+
+    static const struct Source follower_source = { .path=NULL, .buffer=(unsigned char *)"Follower", .buffer_n=8 };
+    if (parse_valueless_attribute(p, key, value, &follower_source))
+        return true;
 
     if (parse_pokemon_nature(p, value))
     {
@@ -1504,6 +1540,17 @@ static bool parse_trainer(struct Parser *p, const struct Parsed *parsed, struct 
                 if (!token_bool(p, &value, &pokemon->gigantamax_factor))
                     any_error = !show_parse_error(p);
             }
+            else if (is_literal_token(&key, "Follower"))
+            {
+                if (pokemon->slide_in_line)
+                    any_error = !set_show_parse_error(p, key.location, "duplicate 'Follower'");
+                pokemon->slide_in_line = key.location.line;
+                // Written as a bare 'Follower' line, so its mere presence means yes.
+                if (is_empty_token(&value))
+                    pokemon->slide_in = true;
+                else if (!token_bool(p, &value, &pokemon->slide_in))
+                    any_error = !show_parse_error(p);
+            }
             else if (is_literal_token(&key, "Tera Type"))
             {
                 if (pokemon->tera_type_line)
@@ -1521,7 +1568,7 @@ static bool parse_trainer(struct Parser *p, const struct Parsed *parsed, struct 
             }
             else
             {
-                any_error = !set_show_parse_error(p, key.location, "expected one of 'EVs', 'IVs', 'Ability', 'Level', 'Ball', 'Happiness', 'Nature', 'Shiny', 'Dynamax Level', 'Gigantamax', or 'Tera Type'");
+                any_error = !set_show_parse_error(p, key.location, "expected one of 'EVs', 'IVs', 'Ability', 'Level', 'Ball', 'Happiness', 'Nature', 'Shiny', 'Dynamax Level', 'Gigantamax', 'Follower', or 'Tera Type'");
             }
         }
 
@@ -2131,6 +2178,14 @@ static void fprint_trainers(const char *output_path, FILE *f, struct Parsed *par
                 fprintf(f, "#line %d\n", pokemon->tera_type_line);
                 fprintf(f, "            .teraType = ");
                 fprint_constant(f, "TYPE", pokemon->tera_type);
+                fprintf(f, ",\n");
+            }
+
+            if (pokemon->slide_in_line)
+            {
+                fprintf(f, "#line %d\n", pokemon->slide_in_line);
+                fprintf(f, "            .slideIn = ");
+                fprint_bool(f, pokemon->slide_in);
                 fprintf(f, ",\n");
             }
 
