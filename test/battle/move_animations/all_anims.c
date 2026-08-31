@@ -157,7 +157,8 @@ static bool32 AttackerHasToSwitch(enum Move move) // User needs to send out a di
      || effect == EFFECT_FINAL_GAMBIT
      || effect == EFFECT_PARTING_SHOT
      || effect == EFFECT_SHED_TAIL
-     || effect == EFFECT_WEATHER_AND_SWITCH)
+     || effect == EFFECT_WEATHER_AND_SWITCH
+     || move == MOVE_ZONE_SHIFT)
         return TRUE;
     return FALSE;
 }

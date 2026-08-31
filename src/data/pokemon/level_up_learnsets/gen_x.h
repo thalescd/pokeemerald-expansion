@@ -15170,7 +15170,7 @@ static const struct LevelUpMove sElgyemLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sBeheeyemLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 0, MOVE_PSYCHIC_TERRAIN),
+    LEVEL_UP_MOVE( 0, MOVE_ZONE_SHIFT),
     LEVEL_UP_MOVE( 1, MOVE_CONFUSION),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
     LEVEL_UP_MOVE( 5, MOVE_MIRACLE_EYE),
@@ -20152,6 +20152,7 @@ static const struct LevelUpMove sDottlerLevelUpLearnset[] = {
 
 static const struct LevelUpMove sOrbeetleLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_SIGNAL_BEAM),
+    LEVEL_UP_MOVE( 1, MOVE_AFTER_YOU),
     LEVEL_UP_MOVE( 1, MOVE_STRUGGLE_BUG),
     LEVEL_UP_MOVE( 1, MOVE_CONFUSION),
     LEVEL_UP_MOVE( 1, MOVE_REFLECT),
@@ -20165,7 +20166,7 @@ static const struct LevelUpMove sOrbeetleLevelUpLearnset[] = {
     LEVEL_UP_MOVE(35, MOVE_BUG_BUZZ),
     LEVEL_UP_MOVE(38, MOVE_MIRROR_COAT),
     LEVEL_UP_MOVE(41, MOVE_PSYCHIC),
-    LEVEL_UP_MOVE(45, MOVE_AFTER_YOU),
+    LEVEL_UP_MOVE(45, MOVE_ZONE_SHIFT),
     LEVEL_UP_MOVE(49, MOVE_CALM_MIND),
     LEVEL_UP_MOVE(53, MOVE_PSYCHIC_TERRAIN),
     LEVEL_UP_END
