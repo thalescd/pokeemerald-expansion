@@ -653,9 +653,7 @@ bool32 IsDamageMoveUnusable(struct DamageContext *ctx)
             return TRUE;
     }
 
-    if (ctx->weather & B_WEATHER_SUN_PRIMAL && ctx->moveType == TYPE_WATER)
-        return TRUE;
-    if (ctx->weather & B_WEATHER_RAIN_PRIMAL && ctx->moveType == TYPE_FIRE)
+    if (IsMoveNullifiedByPrimalWeather(ctx->move, ctx->moveType, ctx->weather))
         return TRUE;
 
     if (IsMoveDampBanned(ctx->move) && (battlerDefAbility == ABILITY_DAMP || partnerDefAbility == ABILITY_DAMP))
@@ -1893,6 +1891,14 @@ u32 AI_GetSwitchinWeather(enum BattlerId battler)
     case ABILITY_DROUGHT:
     case ABILITY_ORICHALCUM_PULSE:
         return B_WEATHER_SUN_NORMAL;
+    // Primal weather matters most for the move immunities it grants, so that the AI
+    // sees a Desolate Land switchin as immune to Water rather than as its typing alone.
+    case ABILITY_PRIMORDIAL_SEA:
+        return B_WEATHER_RAIN_PRIMAL;
+    case ABILITY_DESOLATE_LAND:
+        return B_WEATHER_SUN_PRIMAL;
+    case ABILITY_DELTA_STREAM:
+        return B_WEATHER_STRONG_WINDS;
     case ABILITY_SAND_STREAM:
         return B_WEATHER_SANDSTORM;
     case ABILITY_SNOW_WARNING:

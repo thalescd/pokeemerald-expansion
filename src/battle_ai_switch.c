@@ -833,8 +833,7 @@ static bool32 GetHitEscapeTransformState(enum BattlerId battlerAtk, enum Move mo
         return FALSE;
 
     moveType = GetBattleMoveType(move);
-    if ((moveType == TYPE_WATER && (AI_GetWeather() & B_WEATHER_SUN_PRIMAL))
-     || (moveType == TYPE_FIRE && (AI_GetWeather() & B_WEATHER_RAIN_PRIMAL)))
+    if (IsMoveNullifiedByPrimalWeather(move, moveType, AI_GetWeather()))
         return FALSE;
 
     struct DamageContext ctx = {0};
