@@ -22081,6 +22081,29 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_Cragfang,
     },
 
+    [MOVE_ZONE_SHIFT] =
+    {
+        .name = COMPOUND_STRING("Zone Shift"),
+        .description = COMPOUND_STRING(
+            "Slower Pokémon move first\n"
+            "for 5 turns. User switches."),
+        .effect = EFFECT_TRICK_ROOM,
+        .power = 0,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 0,
+        .pp = 5,
+        .target = TARGET_FIELD,
+        .priority = -7,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_ACC_UP_1 },
+        .ignoresProtect = TRUE,
+        .contestEffect = CONTEST_EFFECT_SCRAMBLE_NEXT_TURN_ORDER,
+        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_SMART : CONTEST_CATEGORY_CUTE,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_ZoneShift,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

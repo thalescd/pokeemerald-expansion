@@ -1301,7 +1301,26 @@ BattleScript_EffectTrickRoom::
 	printfromtable gRoomsStringIds
 	waitmessage B_WAIT_TIME_LONG
 	call BattleScript_TryRoomServiceLoop
+	jumpifmove MOVE_ZONE_SHIFT, BattleScript_ZoneShiftSwitchOut
 	goto BattleScript_MoveEnd
+
+@ Zone Shift sets Trick Room exactly like the script above, then switches the user
+@ out. The room is already up by the time we get here, so every path that cannot
+@ switch simply ends the move instead of failing it.
+BattleScript_ZoneShiftSwitchOut:
+	jumpifbattletype BATTLE_TYPE_TRAINER, BattleScript_ZoneShiftTrySwitch
+	jumpifside BS_ATTACKER, B_SIDE_PLAYER, BattleScript_ZoneShiftTrySwitch
+@ A wild Pokémon has no party to switch to, so it flees like Teleport does.
+	isrunningimpossible
+	jumpifbyte CMP_EQUAL, gBattleCommunication, BATTLE_RUN_FORBIDDEN, BattleScript_MoveEnd
+	jumpifbyte CMP_EQUAL, gBattleCommunication, BATTLE_RUN_FAILURE, BattleScript_MoveEnd
+	printstring STRINGID_PKMNFLEDFROMBATTLE
+	waitmessage B_WAIT_TIME_LONG
+	setteleportoutcome BS_ATTACKER
+	goto BattleScript_MoveEnd
+BattleScript_ZoneShiftTrySwitch:
+	moveendall
+	goto BattleScript_MoveSwitch
 
 BattleScript_TryRoomServiceLoop:
 	savetarget
