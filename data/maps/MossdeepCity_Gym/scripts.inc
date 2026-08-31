@@ -53,8 +53,47 @@ MossdeepCity_Gym_EventScript_SetSwitch4Metatiles::
 	setmetatile 5, 24, METATILE_RSMossdeepGym_Switch_Down, TRUE
 	end
 
+@ The gym battle is a 2 vs 2 multi battle: player + rival vs Tate + Liza.
+@ multi_2_vs_2 does none of what trainerbattle_double did for free, so the
+@ already-defeated gate, the intro text and the trainer flags are all manual.
 MossdeepCity_Gym_EventScript_TateAndLiza::
-	trainerbattle_double TRAINER_TATE_AND_LIZA_1, MossdeepCity_Gym_Text_TateAndLizaIntro, MossdeepCity_Gym_Text_TateAndLizaDefeat, MossdeepCity_Gym_Text_TateAndLizaNeedTwoMons, MossdeepCity_Gym_EventScript_TateAndLizaDefeated, NO_MUSIC
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_MOSSDEEP_GYM, MossdeepCity_Gym_EventScript_TateAndLizaAfterBattle
+	msgbox MossdeepCity_Gym_Text_TateAndLizaIntro, MSGBOX_DEFAULT
+	closemessage
+	special SavePlayerParty
+	fadescreen FADE_TO_BLACK
+	special ChooseHalfPartyForBattle
+	goto_if_eq VAR_RESULT, 0, MossdeepCity_Gym_EventScript_TateAndLizaCancelled
+@ The rival who helps is the opposite gender of the player.
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, MossdeepCity_Gym_EventScript_TateAndLizaMultiBattleMay
+	multi_2_vs_2 TRAINER_TATE, MossdeepCity_Gym_Text_TateDefeat, TRAINER_LIZA, MossdeepCity_Gym_Text_LizaDefeat, PARTNER_BRENDAN
+	goto MossdeepCity_Gym_EventScript_TateAndLizaBattleResult
+
+MossdeepCity_Gym_EventScript_TateAndLizaMultiBattleMay::
+	multi_2_vs_2 TRAINER_TATE, MossdeepCity_Gym_Text_TateDefeat, TRAINER_LIZA, MossdeepCity_Gym_Text_LizaDefeat, PARTNER_MAY
+	goto MossdeepCity_Gym_EventScript_TateAndLizaBattleResult
+
+MossdeepCity_Gym_EventScript_TateAndLizaBattleResult::
+	switch VAR_RESULT
+	case 1, MossdeepCity_Gym_EventScript_TateAndLizaDefeated
+	fadescreen FADE_TO_BLACK
+	special SetCB2WhiteOut
+	end
+
+MossdeepCity_Gym_EventScript_TateAndLizaCancelled::
+	special LoadPlayerParty
+	release
+	end
+
+MossdeepCity_Gym_EventScript_TateAndLizaAfterBattle::
+@ ShouldTryRematchBattle resolves through TRAINER_BATTLE_PARAM.opponentA, and the
+@ rematch table still keys REMATCH_TATE_AND_LIZA off TRAINER_TATE_AND_LIZA_1.
+@ trainerbattle_double used to set that param even when it skipped the fight, so
+@ point it at the same id here to leave the rematch chain untouched.
+	setmultitrainerbattle TRAINER_TATE_AND_LIZA_1, NULL, TRAINER_NONE, NULL, PARTNER_NONE
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, MossdeepCity_Gym_EventScript_TateAndLizaRematch
 	goto_if_unset FLAG_RECEIVED_TM_CALM_MIND, MossdeepCity_Gym_EventScript_GiveCalmMind2
@@ -63,6 +102,8 @@ MossdeepCity_Gym_EventScript_TateAndLiza::
 	end
 
 MossdeepCity_Gym_EventScript_TateAndLizaDefeated::
+	settrainerflag TRAINER_TATE
+	settrainerflag TRAINER_LIZA
 	message MossdeepCity_Gym_Text_ReceivedMindBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
@@ -564,11 +605,13 @@ MossdeepCity_Gym_Text_TateAndLizaIntro:
 	.string "TATE: This combination of ours…\n"
 	.string "LIZA: Can you beat it?$"
 
-MossdeepCity_Gym_Text_TateAndLizaDefeat:
-	.string "TATE: What?! Our combination…\n"
+MossdeepCity_Gym_Text_TateDefeat:
+	.string "TATE: What?! Our combination…\p"
+	.string "It can't be helped. You've won.$"
+
+MossdeepCity_Gym_Text_LizaDefeat:
 	.string "LIZA: Was shattered!\p"
-	.string "TATE: It can't be helped. You've won…\n"
-	.string "LIZA: So, in recognition, take this.$"
+	.string "So, in recognition, take this.$"
 
 MossdeepCity_Gym_Text_ReceivedMindBadge:
 	.string "{PLAYER} received the MIND BADGE\n"

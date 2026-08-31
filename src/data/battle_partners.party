@@ -42,3 +42,85 @@ EVs: 252 Atk / 252 SpA / 6 SpD
 - Protect
 - Solar Beam
 - Dragon Claw
+
+=== PARTNER_BRENDAN ===
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+AI: Basic Trainer
+
+Staraptor
+Ability: Intimidate
+Adamant Nature
+Level: 59
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 6 Def / 252 Spe
+- Brave Bird
+- Close Combat
+- U-turn
+- Roost
+
+Vaporeon
+Ability: Water Absorb
+Modest Nature
+Level: 59
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 252 SpA / 6 SpD
+- Surf
+- Ice Beam
+- Shadow Ball
+- Protect
+
+Ceruledge
+Ability: Flash Fire
+Adamant Nature
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 6 Def / 252 Spe
+- Bitter Blade
+- Poltergeist
+- Close Combat
+- Swords Dance
+
+=== PARTNER_MAY ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+AI: Basic Trainer
+
+Staraptor
+Ability: Intimidate
+Adamant Nature
+Level: 59
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 6 Def / 252 Spe
+- Brave Bird
+- Close Combat
+- U-turn
+- Roost
+
+Vaporeon
+Ability: Water Absorb
+Modest Nature
+Level: 59
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 252 SpA / 6 SpD
+- Surf
+- Ice Beam
+- Shadow Ball
+- Protect
+
+Ceruledge
+Ability: Flash Fire
+Adamant Nature
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 6 Def / 252 Spe
+- Bitter Blade
+- Poltergeist
+- Close Combat
+- Swords Dance
