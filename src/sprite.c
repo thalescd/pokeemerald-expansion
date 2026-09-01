@@ -262,7 +262,7 @@ EWRAM_DATA struct Sprite gSprites[MAX_SPRITES + 1] = {0};
 EWRAM_DATA static u8 sSpriteOrder[MAX_SPRITES] = {0};
 EWRAM_DATA static bool8 sShouldProcessSpriteCopyRequests = 0;
 EWRAM_DATA static u8 sSpriteCopyRequestCount = 0;
-EWRAM_DATA static struct SpriteCopyRequest sSpriteCopyRequests[MAX_SPRITES] = {0};
+EWRAM_DATA static struct SpriteCopyRequest sSpriteCopyRequests[MAX_SPRITE_COPY_REQUESTS] = {0};
 EWRAM_DATA u8 gOamLimit = 0;
 static EWRAM_DATA u8 sOamDummyIndex = 0;
 EWRAM_DATA u16 gReservedSpriteTileCount = 0;
@@ -464,7 +464,7 @@ u32 CreateSpriteAtEndUnchecked(const struct SpriteTemplate *template, s16 x, s16
 
 u32 CreateInvisibleSprite(void (*callback)(struct Sprite *))
 {
-    u32 index = CreateSprite(&gDummySpriteTemplate, 0, 0, 31);
+    u32 index = CreateSprite(&gDummySpriteTemplate, 0, 0, 31);//This is not unchecked because CreateInvisibleSprite is only used in places that have no handler for when it returns MAX_SPRITES
 
     if (index == MAX_SPRITES)
     {
@@ -1743,13 +1743,13 @@ void SetSubspriteTables(struct Sprite *sprite, const struct SubspriteTable *subs
 bool8 AddSpriteToOamBuffer(struct Sprite *sprite, u8 *oamIndex)
 {
     if (*oamIndex >= gOamLimit)
-        return 1;
+        return TRUE;
 
     if (!sprite->subspriteTables || sprite->subspriteMode == SUBSPRITES_OFF)
     {
         gMain.oamBuffer[*oamIndex] = sprite->oam;
         (*oamIndex)++;
-        return 0;
+        return FALSE;
     }
     else
     {
@@ -1763,7 +1763,7 @@ bool8 AddSubspritesToOamBuffer(struct Sprite *sprite, struct OamData *destOam, u
     struct OamData *oam;
 
     if (*oamIndex >= gOamLimit)
-        return 1;
+        return TRUE;
 
     subspriteTable = &sprite->subspriteTables[sprite->subspriteTableNum];
     oam = &sprite->oam;
@@ -1772,7 +1772,7 @@ bool8 AddSubspritesToOamBuffer(struct Sprite *sprite, struct OamData *destOam, u
     {
         *destOam = *oam;
         (*oamIndex)++;
-        return 0;
+        return FALSE;
     }
     else
     {
@@ -1797,7 +1797,7 @@ bool8 AddSubspritesToOamBuffer(struct Sprite *sprite, struct OamData *destOam, u
             u16 y;
 
             if (*oamIndex >= gOamLimit)
-                return 1;
+                return TRUE;
 
             x = subspriteTable->subsprites[i].x;
             y = subspriteTable->subsprites[i].y;
@@ -1832,7 +1832,7 @@ bool8 AddSubspritesToOamBuffer(struct Sprite *sprite, struct OamData *destOam, u
         }
     }
 
-    return 0;
+    return FALSE;
 }
 
 static const u8 sSpanPerImage[4][4] =

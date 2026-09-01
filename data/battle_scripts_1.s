@@ -140,13 +140,19 @@ BattleScript_ToxicThread::
 	goto BattleScript_MoveEnd
 
 BattleScript_SwaggerConfusion::
-	seteffectprimary BS_ATTACKER, BS_TARGET, MOVE_EFFECT_CONFUSION
+	seteffectprimary BS_ATTACKER, BS_SCRIPTING, MOVE_EFFECT_CONFUSION
+	trymovestatchanges
+	goto BattleScript_MoveEnd
+
+BattleScript_SwaggerOwnTempoPrevents::
+	call BattleScript_OwnTempoPreventsRet
 	trymovestatchanges
 	goto BattleScript_MoveEnd
 
 BattleScript_NoRetreatMessage::
 	printstring STRINGID_CANTESCAPEDUETOUSEDMOVE
 	waitmessage B_WAIT_TIME_LONG
+	trymovestatchanges
 	goto BattleScript_MoveEnd
 
 BattleScript_AutotomizeMessage::
@@ -3866,7 +3872,7 @@ BattleScript_SelectingImprisonedMoveInPalace::
 	printstring STRINGID_PKMNCANTUSEMOVESEALED
 	goto BattleScript_SelectingUnusableMoveInPalace
 
-BattleScript_GrudgeTakesPp::
+BattleScript_GrudgeTakesPP::
 	printstring STRINGID_PKMNLOSTPPGRUDGE
 	waitmessage B_WAIT_TIME_LONG
 	return
@@ -3932,7 +3938,6 @@ BattleScript_FocusPunchSetUp::
 
 BattleScript_MegaEvolution::
 	flushtextbox
-	trytrainerslidemegaevolutionmsg
 	printstring STRINGID_MEGAEVOREACTING
 BattleScript_MegaEvolutionAfterString:
 	waitmessage B_WAIT_TIME_LONG
@@ -3947,7 +3952,6 @@ BattleScript_MegaEvolutionAfterString:
 
 BattleScript_WishMegaEvolution::
 	flushtextbox
-	trytrainerslidemegaevolutionmsg
 	printstring STRINGID_FERVENTWISHREACHED
 	goto BattleScript_MegaEvolutionAfterString
 
@@ -3997,6 +4001,7 @@ BattleScript_BattlerFormChangeNoPopup::
 	handleformchange BS_SCRIPTING, 0
 	playanimation BS_SCRIPTING, B_ANIM_FORM_CHANGE
 	waitanimation
+	sethword sABILITY_OVERWRITE, 0
 BattleScript_BattlerFormChangeFromAfterAnimation::
 	handleformchange BS_SCRIPTING, 1
 	switchinabilities BS_SCRIPTING
@@ -6151,7 +6156,6 @@ BattleScript_MoveEffectSteelsurge::
 
 BattleScript_DynamaxBegins::
 	flushtextbox
-	trytrainerslidedynamaxmsg
 	jumpifcangigantamax BS_ATTACKER, BattleScript_DynamaxBegins_GigantamaxString_01
 	printstring STRINGID_TIMETODYNAMAX
 	waitmessage B_WAIT_TIME_MED
