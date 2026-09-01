@@ -16840,7 +16840,7 @@ FinishSupersonicDive:
 	blendoff
 	createvisualtask AnimTask_AllBattlersVisible, 10
 	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 0, 16
-	call UnsetPsychicBg
+	call UnsetBackground
 	waitforvisualfinish
 	end
 

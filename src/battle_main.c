@@ -4404,7 +4404,7 @@ u32 GetBattlerTotalSpeedStat(enum BattlerId battler, enum Ability ability, enum 
     // other abilities
     if (ability == ABILITY_QUICK_FEET && gBattleMons[battler].status1 & STATUS1_ANY)
         speed = (speed * 150) / 100;
-    else if (ability == ABILITY_SURGE_SURFER && gFieldTimers.terrain == B_TERRAIN_ANY)
+    else if (ability == ABILITY_SURGE_SURFER && gFieldTimers.terrain != B_TERRAIN_NONE)
         speed *= 2;
     else if (ability == ABILITY_SLOW_START && gBattleMons[battler].volatiles.slowStartTimer != 0)
         speed /= 2;

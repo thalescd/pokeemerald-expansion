@@ -319,7 +319,7 @@ DOUBLE_BATTLE_TEST("Opportunist and Mirror Herb resolve correctly")
 DOUBLE_BATTLE_TEST("Opportunist activates after a Mega Evolution")
 {
     GIVEN {
-        PLAYER(SPECIES_MANECTRIC) { Item(ITEM_MANECTITE); }
+        PLAYER(SPECIES_SCRAFTY) { Ability(ABILITY_SHED_SKIN); Item(ITEM_SCRAFTINITE); }
         PLAYER(SPECIES_ESPATHRA) { Ability(ABILITY_OPPORTUNIST); }
         OPPONENT(SPECIES_MANKEY) { Ability(ABILITY_DEFIANT); }
         OPPONENT(SPECIES_WOBBUFFET);

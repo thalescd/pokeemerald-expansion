@@ -238,7 +238,7 @@ DOUBLE_BATTLE_TEST("White Herb is correctly displayed")
 SINGLE_BATTLE_TEST("White Herb activates after a Mega Evolution")
 {
     GIVEN {
-        PLAYER(SPECIES_MANECTRIC) { Item(ITEM_MANECTITE); }
+        PLAYER(SPECIES_SCRAFTY) { Ability(ABILITY_SHED_SKIN); Item(ITEM_SCRAFTINITE); }
         OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_WHITE_HERB); }
     } WHEN {
         TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_MEGA); }

@@ -388,7 +388,7 @@ SINGLE_BATTLE_TEST("Eject Pack will trigger after a Mega Evolution")
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_EJECT_PACK); }
         PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_MANECTRIC) { Item(ITEM_MANECTITE); }
+        OPPONENT(SPECIES_SCRAFTY) { Ability(ABILITY_SHED_SKIN); Item(ITEM_SCRAFTINITE); }
     } WHEN {
         TURN { MOVE(opponent, MOVE_CELEBRATE, gimmick: GIMMICK_MEGA); SEND_OUT(player, 1); }
     } SCENE {

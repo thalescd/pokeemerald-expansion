@@ -92,7 +92,7 @@ SINGLE_BATTLE_TEST("Mirror Herb copies the boost gained by an ability")
 DOUBLE_BATTLE_TEST("Mirror Herb activates after a Mega Evolution")
 {
     GIVEN {
-        PLAYER(SPECIES_MANECTRIC) { Item(ITEM_MANECTITE); }
+        PLAYER(SPECIES_SCRAFTY) { Ability(ABILITY_SHED_SKIN); Item(ITEM_SCRAFTINITE); }
         PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_MIRROR_HERB); }
         OPPONENT(SPECIES_MANKEY) { Ability(ABILITY_DEFIANT); }
         OPPONENT(SPECIES_WOBBUFFET);

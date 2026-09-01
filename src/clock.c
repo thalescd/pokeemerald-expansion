@@ -59,7 +59,6 @@ void DoDailyEvents(u32 daysSince)
     SetShoalItemFlag(daysSince);
     if (!OW_USE_DAILY_SEED_FOR_VANILLA_VARIABLES)
     {
-        UpdateMirageRnd(daysSince);
         SetRandomLotteryNumber(daysSince);
     }
     UpdateDaysPassedSinceFormChange(daysSince);
