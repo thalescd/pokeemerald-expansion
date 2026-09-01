@@ -9922,6 +9922,14 @@ bool32 HasWeatherEffect(void)
     return TRUE;
 }
 
+bool32 IsMoveNullifiedByPrimalWeather(enum Move move, enum Type moveType, u32 weather)
+{
+    if (moveType == TYPE_WATER && weather & B_WEATHER_SUN_PRIMAL)
+        return GetMoveEffect(move) != EFFECT_HYDRO_STEAM;
+
+    return moveType == TYPE_FIRE && weather & B_WEATHER_RAIN_PRIMAL;
+}
+
 bool32 TrySwitchInEjectPack(enum EjectPackTiming timing)
 {
     // Because sorting the battlers by speed takes lots of cycles, it's better to just check if any of the battlers has the Eject items.

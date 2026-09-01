@@ -17083,6 +17083,9 @@ gBattleAnimMove_Volcalith::
 gBattleAnimMove_Cragfang::
 	goto gBattleAnimMove_Bite
 
+gBattleAnimMove_ZoneShift::
+	goto gBattleAnimMove_TrickRoom
+
 @ Supersonic Skystrike without its charge-up intro: the user takes off immediately.
 gBattleAnimMove_SupersonicDive::
 	createvisualtask AnimTask_AllBattlersInvisibleExceptAttackerAndTarget, 10

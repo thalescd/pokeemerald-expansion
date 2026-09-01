@@ -1073,15 +1073,18 @@ static enum CancelerResult CancelerWeatherPrimal(struct BattleCalcValues *cv)
     if (GetMovePower(cv->move) > 0 && HasWeatherEffect())
     {
         enum Type moveType = GetBattleMoveType(cv->move);
-        if (moveType == TYPE_FIRE && gBattleWeather & B_WEATHER_RAIN_PRIMAL && (GetConfig(B_POWDER_STATUS_HEAVY_RAIN) >= GEN_7 || !TryActivatePowderStatus(cv->move)))
+        if (IsMoveNullifiedByPrimalWeather(cv->move, moveType, gBattleWeather))
         {
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PRIMAL_WEATHER_FIZZLED_BY_RAIN;
-            result = CANCELER_RESULT_FAILURE;
-        }
-        else if (moveType == TYPE_WATER && gBattleWeather & B_WEATHER_SUN_PRIMAL)
-        {
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PRIMAL_WEATHER_EVAPORATED_IN_SUN;
-            result = CANCELER_RESULT_FAILURE;
+            if (moveType == TYPE_FIRE && (GetConfig(B_POWDER_STATUS_HEAVY_RAIN) >= GEN_7 || !TryActivatePowderStatus(cv->move)))
+            {
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PRIMAL_WEATHER_FIZZLED_BY_RAIN;
+                result = CANCELER_RESULT_FAILURE;
+            }
+            else if (moveType == TYPE_WATER)
+            {
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PRIMAL_WEATHER_EVAPORATED_IN_SUN;
+                result = CANCELER_RESULT_FAILURE;
+            }
         }
         if (result == CANCELER_RESULT_FAILURE)
         {

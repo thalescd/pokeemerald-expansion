@@ -5220,7 +5220,7 @@ IVs: 0 Atk
 - Lava Plume
 - Solar Beam
 - Power Gem
-- Scald
+- Hydro Steam
 
 === TRAINER_NORMAN_1 ===
 Name: NORMAN
@@ -5338,7 +5338,7 @@ Ability: quicken
 Level: 53
 Adamant Nature
 - Earthquake
-- Sky Attack
+- Fly
 - Skull Bash
 - Scale Shot
 

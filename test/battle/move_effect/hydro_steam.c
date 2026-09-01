@@ -49,3 +49,20 @@ SINGLE_BATTLE_TEST("Hydro Steam is affected by Utility Umbrella", s16 damage)
         EXPECT_MUL_EQ(results[2].damage, Q_4_12(0.5), results[0].damage);
     }
 }
+
+SINGLE_BATTLE_TEST("Hydro Steam is not evaporated by Desolate Land")
+{
+    GIVEN {
+        ASSUME(GetMoveType(MOVE_HYDRO_STEAM) == TYPE_WATER);
+        ASSUME(GetMoveCategory(MOVE_HYDRO_STEAM) != DAMAGE_CATEGORY_STATUS);
+        PLAYER(SPECIES_GROUDON) { Item(ITEM_RED_ORB); }
+        OPPONENT(SPECIES_WOBBUFFET) { SpAttack(1); }
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_HYDRO_STEAM); }
+    } SCENE {
+        MESSAGE("The opposing Wobbuffet used Hydro Steam!");
+        NOT MESSAGE("The Water-type attack evaporated in the extremely harsh sunlight!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_HYDRO_STEAM, opponent);
+        HP_BAR(player);
+    }
+}
