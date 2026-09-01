@@ -94,8 +94,8 @@
 #define VAR_ASH_GATHER_COUNT                             0x4048
 #define VAR_BIRCH_STATE                                  0x4049
 #define VAR_CRUISE_STEP_COUNT                            0x404A
-#define VAR_POKELOT_RND1                                 0x404B
-#define VAR_POKELOT_RND2                                 0x404C
+#define VAR_POKELOT_RND1                                 0x404B // Unused if OW_USE_DAILY_SEED_FOR_VANILLA_VARIABLES is TRUE
+#define VAR_POKELOT_RND2                                 0x404C // Unused if OW_USE_DAILY_SEED_FOR_VANILLA_VARIABLES is TRUE
 #define VAR_POKELOT_PRIZE_PLACE                          0x404D
 #define VAR_STARTER_REGION                               0x404E // Used to store region selected
 #define VAR_LOTAD_SIZE_RECORD                            0x404F
