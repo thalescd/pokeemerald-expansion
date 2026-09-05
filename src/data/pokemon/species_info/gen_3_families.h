@@ -10563,7 +10563,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
         .abilities = { ABILITY_DARK_AURA, ABILITY_SUPER_LUCK, ABILITY_SHARPNESS },
-        .bodyColor = BODY_COLOR_WHITE,
+        .bodyColor = BODY_COLOR_BLACK,
         .noFlip = TRUE,
         .speciesName = _("Absol"),
     #if P_MODIFIED_MEGA_CRIES

@@ -87,7 +87,7 @@ DOUBLE_BATTLE_TEST("Parental Bond does not convert multi-target moves into a two
 SINGLE_BATTLE_TEST("Parental Bond-converted moves only hit once on Lightning Rod/Storm Drain mons")
 {
     enum Move move;
-    u32 species;
+    enum Species species;
     enum Type type;
     enum Ability ability;
     PARAMETRIZE { move = MOVE_THUNDERBOLT; ability = ABILITY_LIGHTNING_ROD; species = SPECIES_RAICHU; type = TYPE_ELECTRIC; }
@@ -129,7 +129,7 @@ SINGLE_BATTLE_TEST("Parental Bond has no affect on multi hit moves and they stil
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COMET_PUNCH, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COMET_PUNCH, player);
-        MESSAGE("The Pokémon was hit 2 time(s)!");
+        MESSAGE("The Pokémon was hit 2 times!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
     }
 }
@@ -153,7 +153,7 @@ SINGLE_BATTLE_TEST("Parental Bond has no affect on multi hit moves and they stil
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COMET_PUNCH, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COMET_PUNCH, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COMET_PUNCH, player);
-        MESSAGE("The Pokémon was hit 3 time(s)!");
+        MESSAGE("The Pokémon was hit 3 times!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
     }
 }
@@ -178,7 +178,7 @@ SINGLE_BATTLE_TEST("Parental Bond has no affect on multi hit moves and they stil
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COMET_PUNCH, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COMET_PUNCH, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COMET_PUNCH, player);
-        MESSAGE("The Pokémon was hit 4 time(s)!");
+        MESSAGE("The Pokémon was hit 4 times!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
     }
 }
@@ -205,7 +205,7 @@ SINGLE_BATTLE_TEST("Parental Bond has no affect on multi hit moves and they stil
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COMET_PUNCH, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COMET_PUNCH, player);
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_COMET_PUNCH, player);
-        MESSAGE("The Pokémon was hit 5 time(s)!");
+        MESSAGE("The Pokémon was hit 5 times!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
     }
 }
@@ -243,7 +243,7 @@ SINGLE_BATTLE_TEST("Parental Bond Snore strikes twice while asleep")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SNORE, player);
         HP_BAR(opponent, captureDamage: &damage[0]);
         HP_BAR(opponent, captureDamage: &damage[1]);
-        MESSAGE("The Pokémon was hit 2 time(s)!");
+        MESSAGE("The Pokémon was hit 2 times!");
     } THEN {
         if (B_PARENTAL_BOND_DMG >= GEN_7)
             EXPECT_MUL_EQ(damage[0], Q_4_12(0.25), damage[1]);

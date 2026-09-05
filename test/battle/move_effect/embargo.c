@@ -144,7 +144,7 @@ SINGLE_BATTLE_TEST("Embargo negates a held item's Speed reduction")
 
 SINGLE_BATTLE_TEST("Embargo doesn't block a held item's form-changing effect, but it does block its other effects", s16 damage)
 {
-    u32 heldItem;
+    enum Item heldItem;
 
     PARAMETRIZE { heldItem = ITEM_NONE; }
     PARAMETRIZE { heldItem = ITEM_MEADOW_PLATE; }
@@ -165,7 +165,8 @@ SINGLE_BATTLE_TEST("Embargo doesn't block a held item's form-changing effect, bu
 
 SINGLE_BATTLE_TEST("Embargo makes Fling and Natural Gift fail")
 {
-    u32 heldItem, moveId;
+    enum Item heldItem;
+    enum Move moveId;
 
     PARAMETRIZE { heldItem = ITEM_LIGHT_BALL; moveId = MOVE_FLING; }
     PARAMETRIZE { heldItem = ITEM_CHERI_BERRY; moveId = MOVE_NATURAL_GIFT; }
@@ -256,7 +257,7 @@ SINGLE_BATTLE_TEST("Embargo doesn't block the effects of berries obtained throug
 
 SINGLE_BATTLE_TEST("Embargo disables the effect of the Plate items on the move Judgment", s16 damage)
 {
-    u32 heldItem;
+    enum Item heldItem;
 
     PARAMETRIZE { heldItem = ITEM_NONE; }
     PARAMETRIZE { heldItem = ITEM_PIXIE_PLATE; }
@@ -277,7 +278,7 @@ SINGLE_BATTLE_TEST("Embargo disables the effect of the Plate items on the move J
 
 SINGLE_BATTLE_TEST("Embargo disables the effect of the Drive items on the move Techno Blast", s16 damage)
 {
-    u32 heldItem;
+    enum Item heldItem;
 
     PARAMETRIZE { heldItem = ITEM_NONE; }
     PARAMETRIZE { heldItem = ITEM_SHOCK_DRIVE; }
@@ -298,7 +299,7 @@ SINGLE_BATTLE_TEST("Embargo disables the effect of the Drive items on the move T
 
 SINGLE_BATTLE_TEST("Embargo disables the effect of the Memory items on the move Multi Attack", s16 damage)
 {
-    u32 heldItem;
+    enum Item heldItem;
 
     PARAMETRIZE { heldItem = ITEM_NONE; }
     PARAMETRIZE { heldItem = ITEM_FIRE_MEMORY; }
