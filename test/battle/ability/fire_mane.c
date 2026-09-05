@@ -16,10 +16,10 @@ SINGLE_BATTLE_TEST("Fire Mane increases Fire-type move damage", s16 damage[2])
         ASSUME(GetMoveType(MOVE_FLAMETHROWER) == TYPE_FIRE);
         ASSUME(GetMoveCategory(MOVE_FLAME_CHARGE) == DAMAGE_CATEGORY_PHYSICAL);
         ASSUME(GetMoveCategory(MOVE_FLAMETHROWER) == DAMAGE_CATEGORY_SPECIAL);
-        PLAYER(SPECIES_PYROAR) { Item(ITEM_PYROARITE); }
+        PLAYER(SPECIES_PYROAR_M) { Ability(ABILITY_FIRE_MANE); }
         OPPONENT(SPECIES_WOBBUFFET) { HP(1000); MaxHP(1000); }
     } WHEN {
-        TURN { MOVE(player, move, gimmick: GIMMICK_MEGA); MOVE(opponent, MOVE_SKILL_SWAP); }
+        TURN { MOVE(player, move); MOVE(opponent, MOVE_SKILL_SWAP); }
         TURN { MOVE(player, move); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, move, player);

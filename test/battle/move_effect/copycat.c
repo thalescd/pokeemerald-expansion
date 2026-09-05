@@ -47,6 +47,7 @@ SINGLE_BATTLE_TEST("Copycat deducts power points from itself, not the copied mov
 
 DOUBLE_BATTLE_TEST("Copycat can copy a move that fainted its target")
 {
+    ASSUME(GetMovePriority(MOVE_EXTREME_SPEED) > GetMovePriority(MOVE_COPYCAT));
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) { Speed(4); }
         PLAYER(SPECIES_WOBBUFFET) { Speed(3); }
@@ -54,13 +55,13 @@ DOUBLE_BATTLE_TEST("Copycat can copy a move that fainted its target")
         OPPONENT(SPECIES_WOBBUFFET) { Speed(1); }
     } WHEN {
         TURN {
-            MOVE(playerLeft, MOVE_SCRATCH, target: opponentLeft);
+            MOVE(playerLeft, MOVE_EXTREME_SPEED, target: opponentLeft);
             MOVE(playerRight, MOVE_COPYCAT, target: opponentRight);
         }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerLeft);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_EXTREME_SPEED, playerLeft);
         HP_BAR(opponentLeft);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerRight);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_EXTREME_SPEED, playerRight);
         HP_BAR(opponentRight);
     }
 }
