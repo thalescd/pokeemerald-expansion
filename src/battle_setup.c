@@ -99,6 +99,7 @@ EWRAM_DATA u16 gPartnerTrainerId = 0;
 EWRAM_DATA static u8 *sTrainerBattleEndScript = NULL;
 EWRAM_DATA static bool8 sShouldCheckTrainerBScript = FALSE;
 EWRAM_DATA static u8 sNoOfPossibleTrainerRetScripts = 0;
+EWRAM_DATA static u8 sSlideInMons[MAX_BATTLE_TRAINERS] = {0};
 
 // The first transition is used if the enemy Pokémon are lower level than our Pokémon.
 // Otherwise, the second transition is used.
@@ -2226,12 +2227,34 @@ void SetMultiTrainerBattle(struct ScriptContext *ctx)
     gPartnerTrainerId = TRAINER_PARTNER(ScriptReadHalfword(ctx));
 };
 
+bool32 IsTrainerPartyMonSlideIn(enum BattleTrainer trainer, u32 partyIndex)
+{
+    if (trainer >= MAX_BATTLE_TRAINERS || partyIndex >= PARTY_SIZE)
+        return FALSE;
+
+    return (sSlideInMons[trainer] & (1u << partyIndex)) != 0;
+}
+
+static enum BattleTrainer GetBattleTrainerFromParty(const struct Pokemon *party)
+{
+    for (u32 trainer = 0; trainer < MAX_BATTLE_TRAINERS; trainer++)
+    {
+        if (party == gParties[trainer])
+            return trainer;
+    }
+
+    return MAX_BATTLE_TRAINERS;
+}
+
 void CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer)
 {
     s32 i;
     u8 monsCount;
+    enum BattleTrainer slideInTrainer = GetBattleTrainerFromParty(party);
 
     ZeroPartyMons(party);
+    if (slideInTrainer != MAX_BATTLE_TRAINERS)
+        sSlideInMons[slideInTrainer] = 0;
 
     monsCount = trainer->partySize;
     if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS && (B_MULTI_HALF_TEAMS || trainer->multiTeamSize == MULTI_TEAM_SIZE_HALF))
@@ -2249,6 +2272,10 @@ void CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Traine
     {
         u32 monIndex = monIndices[i];
         GenerateMonFromTrainerMon(&party[i], &trainer->party[monIndex], trainerGen);
+        // Recorded against the final party slot i rather than the trainer's monIndex, because the
+        // pool decides which mons make it in and in what order.
+        if (trainer->party[monIndex].slideIn && slideInTrainer != MAX_BATTLE_TRAINERS)
+            sSlideInMons[slideInTrainer] |= 1u << i;
     }
     Free(trainerGen);
 }

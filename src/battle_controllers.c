@@ -1994,7 +1994,7 @@ static bool8 ShouldDoSlideInAnim(enum BattlerId battler)
     {
         if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
             return FALSE;
-        return (gBattleStruct->opponentMonSlideIn & (1u << gBattlerPartyIndexes[battler])) != 0;
+        return IsTrainerPartyMonSlideIn(GetBattlerTrainer(battler), gBattlerPartyIndexes[battler]);
     }
 
     followerObj = GetFollowerObject();
