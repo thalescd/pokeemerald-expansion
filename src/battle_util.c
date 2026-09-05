@@ -3368,6 +3368,32 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             if (shouldAbilityTrigger && TryChangeWeatherWithAbility(battler, GetConfig(B_SNOW_WARNING) >= GEN_9 ? BATTLE_WEATHER_SNOW : BATTLE_WEATHER_HAIL, gLastUsedAbility))
                 effect++;
             break;
+        case ABILITY_FORECAST:
+            // Holding a weather rock lets Forecast summon that weather on switch-in, then change form to match it.
+            if (!shouldAbilityTrigger)
+                break;
+            switch (GetBattlerHoldEffect(battler))
+            {
+            case HOLD_EFFECT_DAMP_ROCK:
+                if (TryChangeWeatherWithAbility(battler, BATTLE_WEATHER_RAIN, gLastUsedAbility))
+                    effect++;
+                break;
+            case HOLD_EFFECT_HEAT_ROCK:
+                if (TryChangeWeatherWithAbility(battler, BATTLE_WEATHER_SUN, gLastUsedAbility))
+                    effect++;
+                break;
+            case HOLD_EFFECT_SMOOTH_ROCK:
+                if (TryChangeWeatherWithAbility(battler, BATTLE_WEATHER_SANDSTORM, gLastUsedAbility))
+                    effect++;
+                break;
+            case HOLD_EFFECT_ICY_ROCK:
+                if (TryChangeWeatherWithAbility(battler, GetConfig(B_SNOW_WARNING) >= GEN_9 ? BATTLE_WEATHER_SNOW : BATTLE_WEATHER_HAIL, gLastUsedAbility))
+                    effect++;
+                break;
+            default:
+                break;
+            }
+            break;
         case ABILITY_ELECTRIC_SURGE:
             if (!shouldAbilityTrigger)
                 break;

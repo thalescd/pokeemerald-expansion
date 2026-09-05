@@ -482,3 +482,145 @@ DOUBLE_BATTLE_TEST("Forecast: All Forecast mons revert on the field if Primal We
     }
 }
 
+
+SINGLE_BATTLE_TEST("Forecast summons sun and turns Castform Sunny when holding a Heat Rock")
+{
+    GIVEN {
+        ASSUME(gItemsInfo[ITEM_HEAT_ROCK].holdEffect == HOLD_EFFECT_HEAT_ROCK);
+        PLAYER(SPECIES_CASTFORM_NORMAL) { Ability(ABILITY_FORECAST); Item(ITEM_HEAT_ROCK); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN {}
+    } SCENE {
+        ABILITY_POPUP(player, ABILITY_FORECAST);
+        MESSAGE("The sunlight turned harsh!");
+        ABILITY_POPUP(player, ABILITY_FORECAST);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FORM_CHANGE, player);
+        MESSAGE("Castform transformed!");
+    } THEN {
+        EXPECT_EQ(player->species, SPECIES_CASTFORM_SUNNY);
+    }
+}
+
+SINGLE_BATTLE_TEST("Forecast summons rain and turns Castform Rainy when holding a Damp Rock")
+{
+    GIVEN {
+        ASSUME(gItemsInfo[ITEM_DAMP_ROCK].holdEffect == HOLD_EFFECT_DAMP_ROCK);
+        PLAYER(SPECIES_CASTFORM_NORMAL) { Ability(ABILITY_FORECAST); Item(ITEM_DAMP_ROCK); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN {}
+    } SCENE {
+        ABILITY_POPUP(player, ABILITY_FORECAST);
+        MESSAGE("It started to rain!");
+        ABILITY_POPUP(player, ABILITY_FORECAST);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FORM_CHANGE, player);
+        MESSAGE("Castform transformed!");
+    } THEN {
+        EXPECT_EQ(player->species, SPECIES_CASTFORM_RAINY);
+    }
+}
+
+SINGLE_BATTLE_TEST("Forecast summons hail and turns Castform Snowy when holding an Icy Rock (Gen6-8)")
+{
+    GIVEN {
+        WITH_CONFIG(B_SNOW_WARNING, GEN_8);
+        ASSUME(gItemsInfo[ITEM_ICY_ROCK].holdEffect == HOLD_EFFECT_ICY_ROCK);
+        PLAYER(SPECIES_CASTFORM_NORMAL) { Ability(ABILITY_FORECAST); Item(ITEM_ICY_ROCK); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN {}
+    } SCENE {
+        ABILITY_POPUP(player, ABILITY_FORECAST);
+        MESSAGE("It started to hail!");
+        ABILITY_POPUP(player, ABILITY_FORECAST);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FORM_CHANGE, player);
+        MESSAGE("Castform transformed!");
+    } THEN {
+        EXPECT_EQ(player->species, SPECIES_CASTFORM_SNOWY);
+    }
+}
+
+SINGLE_BATTLE_TEST("Forecast summons snow and turns Castform Snowy when holding an Icy Rock (Gen9+)")
+{
+    GIVEN {
+        WITH_CONFIG(B_SNOW_WARNING, GEN_9);
+        ASSUME(gItemsInfo[ITEM_ICY_ROCK].holdEffect == HOLD_EFFECT_ICY_ROCK);
+        PLAYER(SPECIES_CASTFORM_NORMAL) { Ability(ABILITY_FORECAST); Item(ITEM_ICY_ROCK); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN {}
+    } SCENE {
+        ABILITY_POPUP(player, ABILITY_FORECAST);
+        MESSAGE("It started to snow!");
+        ABILITY_POPUP(player, ABILITY_FORECAST);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FORM_CHANGE, player);
+        MESSAGE("Castform transformed!");
+    } THEN {
+        EXPECT_EQ(player->species, SPECIES_CASTFORM_SNOWY);
+    }
+}
+
+SINGLE_BATTLE_TEST("Forecast summons a sandstorm with a Smooth Rock but Castform stays in its base form")
+{
+    GIVEN {
+        ASSUME(gItemsInfo[ITEM_SMOOTH_ROCK].holdEffect == HOLD_EFFECT_SMOOTH_ROCK);
+        PLAYER(SPECIES_CASTFORM_NORMAL) { Ability(ABILITY_FORECAST); Item(ITEM_SMOOTH_ROCK); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN {}
+    } SCENE {
+        ABILITY_POPUP(player, ABILITY_FORECAST);
+        MESSAGE("A sandstorm kicked up!");
+        MESSAGE("The sandstorm is raging.");
+        MESSAGE("Castform is buffeted by the sandstorm!");
+    } THEN {
+        EXPECT_EQ(player->species, SPECIES_CASTFORM_NORMAL);
+    }
+}
+
+SINGLE_BATTLE_TEST("Forecast's weather rock extends its own weather to 8 turns")
+{
+    GIVEN {
+        WITH_CONFIG(B_ABILITY_WEATHER, GEN_6);
+        ASSUME(gItemsInfo[ITEM_HEAT_ROCK].holdEffect == HOLD_EFFECT_HEAT_ROCK);
+        PLAYER(SPECIES_CASTFORM_NORMAL) { Ability(ABILITY_FORECAST); Item(ITEM_HEAT_ROCK); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN {}
+        TURN {}
+        TURN {}
+        TURN {}
+        TURN {}
+        TURN {}
+        TURN {}
+        TURN {}
+    } SCENE {
+        ABILITY_POPUP(player, ABILITY_FORECAST);
+        MESSAGE("The sunlight is strong.");
+        MESSAGE("The sunlight is strong.");
+        MESSAGE("The sunlight is strong.");
+        MESSAGE("The sunlight is strong.");
+        MESSAGE("The sunlight is strong.");
+        MESSAGE("The sunlight is strong.");
+        MESSAGE("The sunlight is strong.");
+        MESSAGE("The sunlight faded.");
+    }
+}
+
+SINGLE_BATTLE_TEST("Forecast does not summon any weather without a weather rock")
+{
+    GIVEN {
+        PLAYER(SPECIES_CASTFORM_NORMAL) { Ability(ABILITY_FORECAST); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN {}
+    } SCENE {
+        NONE_OF {
+            ABILITY_POPUP(player, ABILITY_FORECAST);
+            MESSAGE("Castform transformed!");
+        }
+    } THEN {
+        EXPECT_EQ(player->species, SPECIES_CASTFORM_NORMAL);
+    }
+}
