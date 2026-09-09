@@ -283,6 +283,7 @@ enum  BattleMoveEffects
     EFFECT_CEASELESS_EDGE, // Same applies to spikes
     EFFECT_SPECIES_POWER_OVERRIDE, // Uses argument field to for the species, power and (number of hits, used only for multi hit moves)
     EFFECT_SCALE_SHOT,
+    EFFECT_LOAF_AROUND, // Fails without Truant. Brings the ability's idle turn forward so the next turn is free.
     NUM_BATTLE_MOVE_EFFECTS,
 };
 

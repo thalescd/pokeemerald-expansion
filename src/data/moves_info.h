@@ -22211,6 +22211,36 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_ZoneShift,
     },
 
+    [MOVE_LOAF_AROUND] =
+    {
+        .name = COMPOUND_STRING("Loaf Around"),
+        .description = COMPOUND_STRING(
+            "Loafs early to act next\n"
+            "turn. Restores a little HP."),
+        .effect = EFFECT_LOAF_AROUND,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 10,
+        .target = TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_RESET_STATS },
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .metronomeBanned = TRUE,
+        .mimicBanned = TRUE,
+        .copycatBanned = TRUE,
+        .assistBanned = TRUE,
+        .sleepTalkBanned = TRUE,
+        .instructBanned = TRUE,
+        .contestEffect = CONTEST_EFFECT_BETTER_WHEN_LATER,
+        .contestCategory = CONTEST_CATEGORY_CUTE,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_LoafAround,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

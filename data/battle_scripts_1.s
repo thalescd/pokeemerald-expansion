@@ -1951,6 +1951,22 @@ BattleScript_EffectCelebrate::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectLoafAround::
+	attackcanceler
+	tryloafaround BattleScript_ButItFailed, BattleScript_EffectLoafAroundNoHeal
+	attackanimation
+	waitanimation
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER, ASSURANCE_DOUBLE
+	goto BattleScript_EffectLoafAroundMessage
+BattleScript_EffectLoafAroundNoHeal:
+	attackanimation
+	waitanimation
+BattleScript_EffectLoafAroundMessage:
+	printstring STRINGID_PKMNLOAFING
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
 BattleScript_EffectHappyHour::
 	attackcanceler
 	attackanimation

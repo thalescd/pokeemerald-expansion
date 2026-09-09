@@ -1294,6 +1294,12 @@
 	.4byte \ptr
 	.endm
 
+	.macro tryloafaround failInstr:req, noHealInstr:req
+	callnative BS_TryLoafAround
+	.4byte \failInstr
+	.4byte \noHealInstr
+	.endm
+
 	.macro tryrecycleberry, ptr:req
 	callnative BS_TryRecycleBerry
 	.4byte \ptr

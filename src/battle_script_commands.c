@@ -10260,6 +10260,32 @@ void BS_HealOneSixth(void)
         gBattlescriptCurrInstr = cmd->nextInstr;    // can heal
 }
 
+// Brings Truant's idle turn forward, so that the attacker is free to act on the following turn.
+// Setting the counter here is undone by the ABILITYEFFECT_ENDTURN flip, which leaves it at 0.
+void BS_TryLoafAround(void)
+{
+    NATIVE_ARGS(const u8 *failInstr, const u8 *noHealInstr);
+
+    if (GetBattlerAbility(gBattlerAttacker) != ABILITY_TRUANT)
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+        return;
+    }
+
+    gBattleMons[gBattlerAttacker].volatiles.truantCounter = 1;
+
+    // The heal is a bonus, not the point of the move, so Heal Block or full HP only skips it.
+    if (gBattleMons[gBattlerAttacker].volatiles.healBlockTimer
+     || gBattleMons[gBattlerAttacker].hp == gBattleMons[gBattlerAttacker].maxHP)
+    {
+        gBattlescriptCurrInstr = cmd->noHealInstr;
+        return;
+    }
+
+    SetHealAmount(gBattlerAttacker, GetNonDynamaxMaxHP(gBattlerAttacker) / 8);
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
 // Recycles the target's item if it is specifically holding a berry.
 void BS_TryRecycleBerry(void)
 {

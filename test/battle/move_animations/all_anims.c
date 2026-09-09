@@ -45,6 +45,11 @@ static void ParametrizeMovesAndSpecies(u32 j, enum Move *pMove, enum Species *pS
         *pMove = j;
         *pSpecies = SPECIES_KLINKLANG;
     }
+    else if (effect == EFFECT_LOAF_AROUND) // User needs to have Truant
+    {
+        *pMove = j;
+        *pSpecies = SPECIES_SLAKING;
+    }
     else if (effect == EFFECT_PLACEHOLDER) // Ignore placeholder *pMoves
     {
         *pMove = MOVE_POUND;

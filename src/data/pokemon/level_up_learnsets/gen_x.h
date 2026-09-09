@@ -8326,7 +8326,7 @@ static const struct LevelUpMove sVigorothLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sSlakingLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 0, MOVE_SWAGGER),
+    LEVEL_UP_MOVE( 0, MOVE_LOAF_AROUND),
     LEVEL_UP_MOVE( 1, MOVE_YAWN),
     LEVEL_UP_MOVE( 1, MOVE_SLACK_OFF),
     LEVEL_UP_MOVE( 1, MOVE_FLAIL),
@@ -8346,6 +8346,7 @@ static const struct LevelUpMove sSlakingLevelUpLearnset[] = {
     LEVEL_UP_MOVE(43, MOVE_FLING),
     LEVEL_UP_MOVE(46, MOVE_PLAY_ROUGH),
     LEVEL_UP_MOVE(52, MOVE_MEGA_KICK),
+    LEVEL_UP_MOVE(57, MOVE_SWAGGER),
     LEVEL_UP_MOVE(63, MOVE_HAMMER_ARM),
     LEVEL_UP_END
 };

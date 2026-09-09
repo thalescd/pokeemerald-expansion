@@ -1310,8 +1310,10 @@ static s32 AI_CheckBadMove(enum BattlerId battlerAtk, enum BattlerId battlerDef,
         RETURN_SCORE_MINUS(10);
 
     // Don't use moves that miss against already semi-invulnerable targets when we move first.
+    // Loaf Around is exempt: not being able to reach the target is exactly when it is worth using.
     if (!CanBreakThroughSemiInvulnerablity(battlerAtk, battlerDef, aiData->abilities[battlerAtk], aiData->abilities[battlerDef], move)
-     && moveEffect != EFFECT_SEMI_INVULNERABLE && AI_IsFaster(battlerAtk, battlerDef, move, predictedMove, CONSIDER_PRIORITY)
+     && moveEffect != EFFECT_SEMI_INVULNERABLE && moveEffect != EFFECT_LOAF_AROUND
+     && AI_IsFaster(battlerAtk, battlerDef, move, predictedMove, CONSIDER_PRIORITY)
      && abilityAtk != ABILITY_NO_GUARD && abilityDef != ABILITY_NO_GUARD)
     {
         RETURN_SCORE_MINUS(10);
@@ -2997,6 +2999,10 @@ static s32 AI_CheckBadMove(enum BattlerId battlerAtk, enum BattlerId battlerDef,
         if (gBattleMons[battlerAtk].species != SPECIES_HOOPA_UNBOUND)
             ADJUST_SCORE(-10);
         break;
+    case EFFECT_LOAF_AROUND:
+        if (abilityAtk != ABILITY_TRUANT)
+            ADJUST_SCORE(-10);
+        break;
     case EFFECT_PLACEHOLDER:
         return 0;   // cannot even select
     } // move effect checks
@@ -4675,6 +4681,15 @@ static s32 AI_CalcMoveEffectScore(enum BattlerId battlerAtk, enum BattlerId batt
     case EFFECT_HAPPY_HOUR:
     case EFFECT_LAST_RESORT:
         if (IsConsideringZMove(battlerAtk, battlerDef, move))
+            ADJUST_SCORE(BEST_EFFECT);
+        break;
+    case EFFECT_LOAF_AROUND:
+        // The target cannot be reached this turn regardless, so spend the turn moving Truant's
+        // idle turn forward instead, which leaves us free to attack once the target is back.
+        if (aiData->abilities[battlerAtk] == ABILITY_TRUANT
+         && IsSemiInvulnerable(battlerDef, CHECK_ALL)
+         && AI_IsFaster(battlerAtk, battlerDef, move, predictedMove, CONSIDER_PRIORITY)
+         && aiData->abilities[battlerDef] != ABILITY_NO_GUARD)
             ADJUST_SCORE(BEST_EFFECT);
         break;
     case EFFECT_TELEPORT:
