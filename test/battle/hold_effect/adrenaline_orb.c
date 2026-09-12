@@ -90,3 +90,24 @@ SINGLE_BATTLE_TEST("Adrenaline Orb doesn't activate if attack doesn't drop")
         EXPECT_EQ(opponent->statStages[STAT_SPEED], DEFAULT_STAT_STAGE);
     }
 }
+
+SINGLE_BATTLE_TEST("Adrenaline Orb names itself in the item pop-up after an unrelated item was used")
+{
+    GIVEN {
+        ASSUME(GetItemHoldEffect(ITEM_LEFTOVERS) == HOLD_EFFECT_LEFTOVERS);
+        PLAYER(SPECIES_WOBBUFFET) { MaxHP(100); HP(50); Item(ITEM_LEFTOVERS); }
+        PLAYER(SPECIES_INCINEROAR) { Ability(ABILITY_INTIMIDATE); }
+        OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_ADRENALINE_ORB); }
+    } WHEN {
+        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
+        TURN { SWITCH(player, 1); MOVE(opponent, MOVE_CELEBRATE); }
+    } SCENE {
+        // Leftovers leaves its own item id behind in gLastUsedItem.
+        ITEM_POPUP(player, ITEM_LEFTOVERS);
+        ABILITY_POPUP(player, ABILITY_INTIMIDATE);
+        // The orb's pop-up must show the orb, not whatever item was used last.
+        ITEM_POPUP(opponent, ITEM_ADRENALINE_ORB);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
+        MESSAGE("The opposing Wobbuffet's Speed rose!");
+    }
+}

@@ -97,7 +97,7 @@ SINGLE_BATTLE_TEST("Weakness berries do not activate unless a move is super effe
     } WHEN {
         TURN { MOVE(player, move); }
     } SCENE {
-        NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
+        NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, opponent);
     }
 }
 
@@ -119,8 +119,8 @@ SINGLE_BATTLE_TEST("Weakness berries do not decrease the power of Struggle", s16
         TURN { MOVE(player, MOVE_STRUGGLE); }
     } SCENE {
         NONE_OF {
-            ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
-            MESSAGE("The Chilan Berry weakened the damage to the opposing Wobbuffet!");
+            ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, opponent);
+            MESSAGE("The opposing Wobbuffet's Chilan Berry lessened the damage it took!");
         }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STRUGGLE, player);
         HP_BAR(opponent, captureDamage: &results[i].damage);
@@ -141,9 +141,32 @@ SINGLE_BATTLE_TEST("Weakness berries do not activate if Disguise blocks the dama
         TURN { MOVE(player, MOVE_METAL_CLAW); }
     } SCENE {
         NONE_OF {
-            ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
-            MESSAGE("The Babiri Berry weakened the damage to the opposing Mimikyu!");
+            ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, opponent);
+            MESSAGE("The opposing Mimikyu's Babiri Berry lessened the damage it took!");
         }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_METAL_CLAW, player);
+    }
+}
+
+SINGLE_BATTLE_TEST("Weakness berries name themselves in the item pop-up after an unrelated item was used")
+{
+    GIVEN {
+        ASSUME(GetItemHoldEffect(ITEM_KEBIA_BERRY) == HOLD_EFFECT_RESIST_BERRY);
+        ASSUME(GetItemHoldEffectParam(ITEM_KEBIA_BERRY) == TYPE_POISON);
+        ASSUME(GetMoveType(MOVE_POISON_STING) == TYPE_POISON);
+        ASSUME(GetItemHoldEffect(ITEM_LEFTOVERS) == HOLD_EFFECT_LEFTOVERS);
+        ASSUME(gTypeEffectivenessTable[TYPE_POISON][GetSpeciesType(SPECIES_GOGOAT, 0)] > UQ_4_12(1.0));
+        PLAYER(SPECIES_WOBBUFFET) { MaxHP(100); HP(50); Item(ITEM_LEFTOVERS); }
+        OPPONENT(SPECIES_GOGOAT) { Item(ITEM_KEBIA_BERRY); }
+    } WHEN {
+        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
+        TURN { MOVE(player, MOVE_POISON_STING); MOVE(opponent, MOVE_CELEBRATE); }
+    } SCENE {
+        // Leftovers leaves its own item id behind in gLastUsedItem.
+        ITEM_POPUP(player, ITEM_LEFTOVERS);
+        // The berry pop-up must show the berry, not whatever item was used last.
+        ITEM_POPUP(opponent, ITEM_KEBIA_BERRY);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, opponent);
+        MESSAGE("The opposing Gogoat's Kebia Berry lessened the damage it took!");
     }
 }
