@@ -950,29 +950,14 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Baltoy
-Level: 27
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Psybeam
-- Self Destruct
-- Sandstorm
-- Ancient Power
+Armaldo
+Level: 53
 
-Sandshrew
-Level: 27
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Dig
-- Slash
-- Sand Attack
-- Poison Sting
+Runerigus
+Level: 53
 
-Sandslash
-Level: 27
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Dig
-- Slash
-- Sand Attack
-- Poison Sting
+Claydol
+Level: 53
 
 === TRAINER_FOSTER ===
 Name: FOSTER
@@ -1962,9 +1947,8 @@ Items: Full Restore
 Double Battle: No
 AI: Basic Trainer
 
-Sableye
-Level: 30
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Sableye-Mega
+Level: 53
 
 === TRAINER_HOPE ===
 Name: HOPE
@@ -4005,9 +3989,17 @@ AI: Basic Trainer
 
 Forretress
 Level: 38
+- Explosion
+- Lunge
+- Heavy Slam
+- Payback
 
-Bouffalant
+Tauros
+Nature: Jolly
 Level: 38
+- Raging Bull
+- Pursuit
+- Zen Headbutt
 
 === TRAINER_AUTUMN ===
 Name: AUTUMN
@@ -4181,17 +4173,14 @@ Music: Suspicious
 Double Battle: No
 AI: Basic Trainer
 
-Surskit
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Parasect
+Level: 54
 
-Surskit
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Scolipede
+Level: 54
 
-Surskit
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Shedinja
+Level: 54
 
 === TRAINER_DEREK ===
 Name: DEREK
@@ -7865,13 +7854,11 @@ Music: Cool
 Double Battle: No
 AI: Basic Trainer
 
-Wingull
-Level: 28
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Dodrio
+Level: 51
 
-Natu
-Level: 28
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Mandibuzz
+Level: 51
 
 === TRAINER_ROBERT_1 ===
 Name: ROBERT
@@ -7882,9 +7869,8 @@ Music: Cool
 Double Battle: No
 AI: Basic Trainer
 
-Swablu
-Level: 29
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Honchkrow
+Level: 50
 
 === TRAINER_BENNY ===
 Name: BENNY
@@ -8468,12 +8454,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Castform
-Level: 30
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Rain Dance
-- Weather Ball
-- Thunder
-- Water Pulse
+Level: 52
 
 === TRAINER_MADELINE_2 ===
 Name: MADELINE
@@ -11094,17 +11075,14 @@ Items: Full Restore
 Double Battle: No
 AI: Basic Trainer
 
-Seedot
-Level: 28
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Gogoat
+Level: 53
 
-Nuzleaf
-Level: 28
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Goodra
+Level: 53
 
-Lombre
-Level: 28
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Golem
+Level: 53
 
 === TRAINER_SEBASTIAN ===
 Name: SEBASTIAN
@@ -11207,19 +11185,32 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
-AI: Basic Trainer / Force Setup First Turn
+AI: Smart Trainer / Force Setup First Turn
 
-Lotad
-Level: 28
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Ursaring @ Toxic Orb
+Ability: Quick Feet
+Nature: Jolly
+Level: 53
+- Swords Dance
+- Facade
+- Crunch
+- Thunder Punch
 
-Lombre
-Level: 28
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Florges
+Level: 53
+- Calm Mind
+- Moonblast
+- Grass Knot
+- Synthesis
 
-Nuzleaf
-Level: 28
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Nidoking @ Life Orb
+Ability: Sheer Force
+Nature: Timid
+Level: 53
+- Earth Power
+- Sludge Bomb
+- Ice Beam
+- Thunderbolt
 
 === TRAINER_SOPHIA ===
 Name: SOPHIA
@@ -13096,21 +13087,11 @@ Music: Suspicious
 Double Battle: No
 AI: Basic Trainer
 
-Koffing
-Level: 28
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Poison Gas
-- Self Destruct
-- Sludge
-- Smokescreen
+Shiftry
+Level: 53
 
-Ninjask
-Level: 28
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Sand Attack
-- Double Team
-- Fury Cutter
-- Swords Dance
+Electrode
+Level: 53
 
 === TRAINER_RILEY ===
 Name: RILEY
@@ -13121,21 +13102,11 @@ Music: Suspicious
 Double Battle: No
 AI: Basic Trainer
 
-Nincada
-Level: 28
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Leech Life
-- Fury Swipes
-- Mind Reader
-- Dig
+Stunfisk-Galar
+Level: 52
 
-Koffing
-Level: 28
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
-- Self Destruct
-- Sludge
-- Smokescreen
+Sceptile
+Level: 52
 
 === TRAINER_FLINT ===
 Name: FLINT
@@ -15346,12 +15317,8 @@ Items: Hyper Potion
 Double Battle: No
 AI: Basic Trainer
 
-Manectric
-Level: 30
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Thunder
-- Quick Attack
-- Thunder Wave
+Appletun
+Level: 52
 
 === TRAINER_CALLIE ===
 Name: CALLIE
@@ -15362,13 +15329,11 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Meditite
-Level: 28
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Medicham
+Level: 52
 
-Makuhita
-Level: 28
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Chesnaught
+Level: 52
 
 === TRAINER_CALE ===
 Name: CALE
