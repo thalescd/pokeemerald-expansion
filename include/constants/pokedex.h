@@ -1679,7 +1679,6 @@ enum NationalDexOrder
     F(PAWNIARD) \
     F(BISHARP) \
     F(KINGAMBIT) \
-    F(BOUFFALANT) \
     F(RUFFLET) \
     F(BRAVIARY) \
     F(VULLABY) \
