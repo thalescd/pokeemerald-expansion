@@ -2171,13 +2171,11 @@ Music: Suspicious
 Double Battle: No
 AI: Basic Trainer
 
-Duskull
-Level: 29
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Trevenant
+Level: 54
 
-Shuppet
-Level: 29
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Haunter
+Level: 54
 
 === TRAINER_VALERIE_1 ===
 Name: VALERIE
@@ -2495,21 +2493,11 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Kecleon
-Level: 29
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Bind
-- Lick
-- Fury Swipes
-- Feint Attack
+Granbull
+Level: 54
 
-Seviper
-Level: 29
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Poison Tail
-- Screech
-- Glare
-- Crunch
+Arboliva
+Level: 54
 
 === TRAINER_CONNIE ===
 Name: CONNIE
@@ -4647,11 +4635,50 @@ Pic: Gentleman
 Gender: Male
 Music: Rich
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Ace Pokemon
 
-Manectric
-Level: 29
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Weezing-Galar @ Focus Sash
+Ability: Misty Surge
+Level: 55
+- Explosion
+- Strange Steam
+- Sludge Bomb
+- Fire Blast
+
+Hatterene @ Focus Sash
+Ability: Magic Bounce
+Nature: Modest
+Level: 55
+- Misty Explosion
+
+Golem-Alola @ Focus Sash
+Ability: Galvanize
+Nature: Adamant
+Level: 55
+- Explosion
+
+Electrode @ Focus Sash
+Ability: Transistor
+Nature: Hasty
+Level: 55
+- Explosion
+- Foul Play
+- Thunderbolt
+
+Glalie-Mega @ Focus Sash
+Ability: Refrigerate
+Nature: Adamant
+Level: 55
+- Explosion
+
+Kingambit @ Lum Berry
+Ability: Supreme Overlord
+Nature: Adamant
+Level: 55
+- Sucker Punch
+- Kowtow Cleave
+- Iron head
+- Low Kick
 
 === TRAINER_MICAH ===
 Name: MICAH
@@ -5695,21 +5722,11 @@ Music: Twins
 Double Battle: Yes
 AI: Basic Trainer
 
-Spinda
-Level: 30
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Hypnosis
-- Psybeam
-- Dizzy Punch
-- Teeter Dance
+Pachirisu
+Level: 55
 
 Slaking
-Level: 32
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Focus Punch
-- Yawn
-- Slack Off
-- Feint Attack
+Level: 55
 
 === TRAINER_ANNA_AND_MEG_1 ===
 Name: ANNA & MEG
@@ -15344,13 +15361,14 @@ Music: Suspicious
 Double Battle: No
 AI: Basic Trainer
 
-Dustox
-Level: 29
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Golisopod
+Level: 54
 
-Beautifly
-Level: 29
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Lokix
+Level: 54
+
+Beedrill-Mega
+Level: 54
 
 === TRAINER_MYLES ===
 Name: MYLES
@@ -15361,29 +15379,24 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Makuhita
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Slugma
+Ability: Flame Body
+Level: 54
 
-Wingull
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Cubone @ Thick Club
+Level: 54
 
-Tropius
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Petilil
+Level: 54
 
-Zigzagoon
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Ferroseed
+Level: 54
 
-Electrike
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Wynaut
+Level: 54
 
-Numel
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Audino
+Level: 54
 
 === TRAINER_PAT ===
 Name: PAT
@@ -15394,29 +15407,24 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Poochyena
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Litwick
+Ability: Flame Body
+Level: 54
 
-Shroomish
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Cubchoo
+Level: 54
 
-Electrike
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Rowlet
+Level: 54
 
-Marill
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Ditto
+Level: 54
 
-Sandshrew
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Psyduck
+Level: 54
 
-Gulpin
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Mawile
+Level: 54
 
 === TRAINER_CRISTIN_1 ===
 Name: CRISTIN
