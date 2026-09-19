@@ -4835,7 +4835,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS),
-        .abilities = { ABILITY_SWEET_VEIL, ABILITY_NONE, ABILITY_AROMA_VEIL },
+        .abilities = { ABILITY_SWEET_VEIL, ABILITY_PASTEL_VEIL, ABILITY_AROMA_VEIL },
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Milcery"),
         .cryId = CRY_MILCERY,
@@ -5089,7 +5089,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,                                      \
         .growthRate = GROWTH_MEDIUM_FAST,                                       \
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS),      \
-        .abilities = { ABILITY_SWEET_VEIL, ABILITY_NONE, ABILITY_AROMA_VEIL },  \
+        .abilities = { ABILITY_SWEET_VEIL, ABILITY_PASTEL_VEIL, ABILITY_AROMA_VEIL },  \
         .bodyColor = color
 
 #define ALCREMIE_REGULAR_SPECIES_INFO(sweet, cream, color)                                      \
