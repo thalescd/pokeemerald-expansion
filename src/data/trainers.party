@@ -260,13 +260,11 @@ Items: Hyper Potion
 Double Battle: No
 AI: Basic Trainer
 
-Manectric
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Glimmora
+Level: 54
 
-Shiftry
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Typhlosion
+Level: 54
 
 === TRAINER_ALBERTO ===
 Name: ALBERTO
@@ -5724,9 +5722,18 @@ AI: Basic Trainer
 
 Pachirisu
 Level: 55
+- Super Fang
+- Follow Me
+- Nuzzle
+- Helping Hand
 
-Slaking
+Machamp
+Ability: No Guard
 Level: 55
+- Dynamic Punch
+- Rock Slide
+- Knock Off
+- Facade
 
 === TRAINER_ANNA_AND_MEG_1 ===
 Name: ANNA & MEG
@@ -6006,9 +6013,13 @@ Music: Twins
 Double Battle: No
 AI: Basic Trainer
 
-Pikachu @ Oran Berry
-Level: 30
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Snorlax @ Sitrus Berry
+Ability: Thick Fat
+Level: 56
+- Body Slam
+- Curse
+- Crunch
+- Recycle
 
 === TRAINER_BETHANY ===
 Name: BETHANY
@@ -15436,13 +15447,11 @@ Items: Hyper Potion
 Double Battle: No
 AI: Basic Trainer
 
-Loudred
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Oranguru
+Level: 54
 
-Vigoroth
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Breloom
+Level: 54
 
 === TRAINER_MAY_RUSTBORO_TREECKO ===
 Name: MAY
