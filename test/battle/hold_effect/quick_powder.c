@@ -17,7 +17,7 @@ SINGLE_BATTLE_TEST("Quick Powder doubles an untransformed Ditto's Speed")
     PARAMETRIZE { item = ITEM_QUICK_POWDER; opponentSpeed = 201; playerFirst = FALSE; }
 
     GIVEN {
-        PLAYER(SPECIES_DITTO) { Speed(100); Item(item); }
+        PLAYER(SPECIES_DITTO) { Ability(ABILITY_LIMBER); Speed(100); Item(item); }
         OPPONENT(SPECIES_WOBBUFFET) { Speed(opponentSpeed); }
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH); MOVE(opponent, MOVE_SCRATCH); }
@@ -61,8 +61,8 @@ SINGLE_BATTLE_TEST("Quick Powder does not boost Ditto's Speed after it transform
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_TRANSFORM) == EFFECT_TRANSFORM);
         ASSUME_STAT_CHANGE(MOVE_DRAGON_DANCE, attack: 1, speed: 1);
-        PLAYER(SPECIES_DITTO) { Speed(100); Moves(MOVE_DRAGON_DANCE, MOVE_SCRATCH); }
-        OPPONENT(SPECIES_DITTO) { Speed(200); Item(ITEM_QUICK_POWDER); Moves(MOVE_TRANSFORM, MOVE_SCRATCH); }
+        PLAYER(SPECIES_DITTO) { Ability(ABILITY_LIMBER); Speed(100); Moves(MOVE_DRAGON_DANCE, MOVE_SCRATCH); }
+        OPPONENT(SPECIES_DITTO) { Ability(ABILITY_LIMBER); Speed(200); Item(ITEM_QUICK_POWDER); Moves(MOVE_TRANSFORM, MOVE_SCRATCH); }
     } WHEN {
         TURN { MOVE(player, MOVE_DRAGON_DANCE); MOVE(opponent, MOVE_TRANSFORM); }
         TURN { MOVE(player, MOVE_SCRATCH); MOVE(opponent, MOVE_SCRATCH); }
