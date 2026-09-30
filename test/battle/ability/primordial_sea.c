@@ -236,6 +236,7 @@ SINGLE_BATTLE_TEST("Primordial Sea fails if overworld weather is present (Gen9)"
     SetStartingStatus(STARTING_STATUS_WEATHER_SUN);
 
     GIVEN {
+        WITH_CONFIG(B_OVERWORLD_WEATHER_OVERRIDE, GEN_9);
         PLAYER(SPECIES_KYOGRE) { Item(ITEM_BLUE_ORB); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
