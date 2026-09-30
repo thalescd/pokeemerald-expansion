@@ -261,7 +261,7 @@ SINGLE_BATTLE_TEST("Transform gives each copied move 5 PP regardless of the targ
         ASSUME(GetMovePP(MOVE_WATER_GUN) >= 5);
         ASSUME(GetMovePP(MOVE_GROWL) >= 5);
         ASSUME(GetMovePP(MOVE_CELEBRATE) >= 5);
-        PLAYER(SPECIES_DITTO) { Moves(MOVE_TRANSFORM); }
+        PLAYER(SPECIES_DITTO) { Ability(ABILITY_LIMBER); Moves(MOVE_TRANSFORM); }
         OPPONENT(SPECIES_WOBBUFFET) {
             MovesWithPP({MOVE_SCRATCH, 1}, {MOVE_WATER_GUN, 2}, {MOVE_GROWL, 3}, {MOVE_CELEBRATE, 4});
         }
