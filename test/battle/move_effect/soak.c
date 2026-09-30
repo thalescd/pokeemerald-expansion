@@ -75,7 +75,7 @@ SINGLE_BATTLE_TEST("Soak/Magic Powder's type change is overwritten if the target
         ASSUME(GetSpeciesType(SPECIES_GOLEM, 0) == TYPE_ROCK);
         ASSUME(GetSpeciesType(SPECIES_GOLEM, 1) == TYPE_GROUND);
         PLAYER(SPECIES_GOLEM) { Speed(20); }
-        OPPONENT(SPECIES_DITTO) { Speed(10); }
+        OPPONENT(SPECIES_DITTO) { Ability(ABILITY_LIMBER); Speed(10); }
     } WHEN {
         TURN { MOVE(player, move); MOVE(opponent, MOVE_TRANSFORM); }
     } SCENE {
