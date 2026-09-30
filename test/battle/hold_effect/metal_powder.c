@@ -21,7 +21,7 @@ SINGLE_BATTLE_TEST("Metal Powder doubles an untransformed Ditto's Defense", s16 
         ASSUME(GetMoveCategory(MOVE_PSYSHOCK) == DAMAGE_CATEGORY_SPECIAL);
         ASSUME(GetMoveEffect(MOVE_PSYSHOCK) == EFFECT_PSYSHOCK);
         PLAYER(SPECIES_WOBBUFFET) { Attack(200); SpAttack(200); Moves(move); }
-        OPPONENT(SPECIES_DITTO) { Defense(100); Item(item); }
+        OPPONENT(SPECIES_DITTO) { Ability(ABILITY_LIMBER); Defense(100); Item(item); }
     } WHEN {
         TURN { MOVE(player, move); }
     } SCENE {
@@ -70,8 +70,8 @@ SINGLE_BATTLE_TEST("Metal Powder does not boost Ditto's Defense after it transfo
 
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_TRANSFORM) == EFFECT_TRANSFORM);
-        PLAYER(SPECIES_DITTO) { Attack(100); Defense(200); Speed(50); Moves(MOVE_CELEBRATE, MOVE_SCRATCH); }
-        OPPONENT(SPECIES_DITTO) { Speed(100); Item(item); Moves(MOVE_TRANSFORM); }
+        PLAYER(SPECIES_DITTO) { Ability(ABILITY_LIMBER); Attack(100); Defense(200); Speed(50); Moves(MOVE_CELEBRATE, MOVE_SCRATCH); }
+        OPPONENT(SPECIES_DITTO) { Ability(ABILITY_LIMBER); Speed(100); Item(item); Moves(MOVE_TRANSFORM); }
     } WHEN {
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_TRANSFORM); }
         TURN { MOVE(player, MOVE_SCRATCH); }
