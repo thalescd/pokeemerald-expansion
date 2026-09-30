@@ -200,7 +200,7 @@ AI_DOUBLE_BATTLE_TEST("Both player Pokemon gain experience in double battles")
     GIVEN {
         ASSUME(5 < GetCurrentLevelCap());
         PLAYER(SPECIES_WOBBUFFET) { Level(5); }
-        PLAYER(SPECIES_DITTO) { Level(1); }
+        PLAYER(SPECIES_DITTO) { Ability(ABILITY_LIMBER); Level(1); }
         OPPONENT(SPECIES_BRELOOM) { Moves(MOVE_MEMENTO); }
         OPPONENT(SPECIES_BRELOOM) { Moves(MOVE_CELEBRATE); }
     } WHEN {
@@ -215,7 +215,7 @@ AI_TWO_VS_ONE_BATTLE_TEST("Partner Pokemon do not gain experience")
 {
     GIVEN {
         PLAYER(SPECIES_METAPOD) { Level(1); }
-        PARTNER(SPECIES_DITTO) { Level(1); }
+        PARTNER(SPECIES_DITTO) { Ability(ABILITY_LIMBER); Level(1); }
         OPPONENT(SPECIES_BRELOOM) { Moves(MOVE_MEMENTO); }
         OPPONENT(SPECIES_BRELOOM) { Moves(MOVE_CELEBRATE); }
     } WHEN {
