@@ -154,7 +154,7 @@ SINGLE_BATTLE_TEST("Future Sight is not affected by type effectiveness (Gen 2-4)
         ASSUME(GetSpeciesType(SPECIES_STARMIE, 1) == TYPE_PSYCHIC);
         ASSUME(GetSpeciesType(SPECIES_HOUNDOOM, 0) == TYPE_DARK);
         PLAYER(SPECIES_PIKACHU);
-        OPPONENT(species) { HP(1000); MaxHP(1000); SpDefense(100); }
+        OPPONENT(species) { Ability(ABILITY_LIMBER); HP(1000); MaxHP(1000); SpDefense(100); }
     } WHEN {
         TURN { MOVE(player, MOVE_FUTURE_SIGHT); }
         TURN {}
