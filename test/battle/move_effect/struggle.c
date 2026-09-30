@@ -108,25 +108,24 @@ SINGLE_BATTLE_TEST("Struggle is Normal-type in Gen 1 and typeless in Gen 2+")
     }
 }
 
-SINGLE_BATTLE_TEST("Struggle does not receive STAB from Normal-type users")
+SINGLE_BATTLE_TEST("Struggle does not receive STAB from Normal-type users", s16 damage)
 {
-    // Compare with Cut, which does receive normal-type STAB
-    ASSUME(GetSpeciesType(SPECIES_ZANGOOSE, 0) == TYPE_NORMAL);
-    ASSUME(GetMovePower(MOVE_CUT) == GetMovePower(MOVE_STRUGGLE));
-    ASSUME(GetMoveCategory(MOVE_CUT) == GetMoveCategory(MOVE_STRUGGLE));
-    ASSUME(GetMoveType(MOVE_CUT) == TYPE_NORMAL);
+    // Measured by changing the attacker's type rather than by comparing against a control move of
+    // equal power: Cut is Steel-typed in this romhack, so it no longer works as the control.
+    // Attack is forced equal so the attacker's type is the only difference between the two runs.
     if (GetConfig(B_UPDATED_MOVE_FLAGS) >= GEN_2)
         ASSUME(GetMoveType(MOVE_STRUGGLE) == TYPE_MYSTERY);
     else
         ASSUME(GetMoveType(MOVE_STRUGGLE) == TYPE_NORMAL);
 
-    s16 cutDamage;
-    s16 struggleDamage;
+    u32 species;
+    PARAMETRIZE { species = SPECIES_ZANGOOSE; } // Normal-type, would get the STAB if Struggle were Normal
+    PARAMETRIZE { species = SPECIES_SEVIPER; }  // Not Normal-type
 
     GIVEN {
-        ASSUME(GetSpeciesType(SPECIES_ZANGOOSE, 0) == GetMoveType(MOVE_STRUGGLE));
-        ASSUME(GetSpeciesType(SPECIES_SEVIPER, 0) != GetMoveType(MOVE_STRUGGLE));
-        ASSUME(GetSpeciesType(SPECIES_SEVIPER, 1) != GetMoveType(MOVE_STRUGGLE));
+        ASSUME(GetSpeciesType(SPECIES_ZANGOOSE, 0) == TYPE_NORMAL);
+        ASSUME(GetSpeciesType(SPECIES_SEVIPER, 0) != TYPE_NORMAL);
+        ASSUME(GetSpeciesType(SPECIES_SEVIPER, 1) != TYPE_NORMAL);
         PLAYER(species) { Attack(100); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
