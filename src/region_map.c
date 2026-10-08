@@ -1512,6 +1512,31 @@ mapsec_u16_t GetRegionMapSecIdAt(u16 x, u16 y)
     return GetMapSecIdAt(x, y);
 }
 
+// The Eon Flute's soar screen moves over the region map without opening it,
+// so these run the region map's own logic on a RegionMap the caller owns.
+void RegionMap_InitPlayerLocation(struct RegionMap *regionMap)
+{
+    struct RegionMap *prevRegionMap = sRegionMap;
+
+    sRegionMap = regionMap;
+    InitMapBasedOnPlayerLocation();
+    sRegionMap = prevRegionMap;
+}
+
+void RegionMap_SetCursorPos(struct RegionMap *regionMap, u16 x, u16 y)
+{
+    struct RegionMap *prevRegionMap = sRegionMap;
+
+    sRegionMap = regionMap;
+    sRegionMap->zoomed = FALSE;
+    sRegionMap->cursorPosX = x;
+    sRegionMap->cursorPosY = y;
+    sRegionMap->mapSecId = GetMapSecIdAt(x, y);
+    sRegionMap->mapSecType = GetMapsecType(sRegionMap->mapSecId);
+    GetPositionOfCursorWithinMapSec();
+    sRegionMap = prevRegionMap;
+}
+
 static mapsec_u16_t CorrectSpecialMapSecId_Internal(mapsec_u16_t mapSecId)
 {
     u32 i;

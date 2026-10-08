@@ -1485,6 +1485,16 @@ void ReturnToFieldFromFlyMapSelect(void)
     gFieldCallback = FieldCallback_UseFly;
 }
 
+// For the Eon Flute: the take-off already happened on the soar screen,
+// so warp straight to the destination set by SetFlyDestination and land.
+void WarpAndFlyIntoMap(void)
+{
+    Overworld_ResetStateAfterFly();
+    WarpIntoMap();
+    SetMainCallback2(CB2_LoadMap);
+    gFieldCallback = FieldCallback_FlyIntoMap;
+}
+
 void FieldCallback_UseFly(void)
 {
     FadeInFromBlack();

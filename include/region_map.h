@@ -121,6 +121,8 @@ u8 DoRegionMapInputCallback(void);
 bool8 UpdateRegionMapZoom(void);
 void FreeRegionMapIconResources(void);
 mapsec_u16_t GetRegionMapSecIdAt(u16 x, u16 y);
+void RegionMap_InitPlayerLocation(struct RegionMap *regionMap);
+void RegionMap_SetCursorPos(struct RegionMap *regionMap, u16 x, u16 y);
 void CreateRegionMapPlayerIcon(u16 tileTag, u16 paletteTag);
 void CreateRegionMapCursor(u16 tileTag, u16 paletteTag);
 bool32 IsEventIslandMapSecId(mapsec_u8_t mapSecId);

@@ -1061,6 +1061,8 @@ enum __attribute__((packed)) Item
     ITEM_SCARLET_ORE = 877,
     ITEM_VIOLET_ENGINE = 878,
 
+    ITEM_EON_FLUTE = 879,
+
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,
 };

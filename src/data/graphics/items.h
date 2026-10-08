@@ -648,6 +648,8 @@ const u32 gItemIcon_ScarletOre[] = INCGFX_U32("graphics/items/icons/scarlet_ore.
 const u16 gItemIconPalette_ScarletOre[] = INCGFX_U16("graphics/items/icon_palettes/scarlet_ore.pal", ".gbapal");
 const u32 gItemIcon_VioletEngine[] = INCGFX_U32("graphics/items/icons/violet_engine.png", ".4bpp.smol");
 const u16 gItemIconPalette_VioletEngine[] = INCGFX_U16("graphics/items/icon_palettes/violet_engine.pal", ".gbapal");
+const u32 gItemIcon_EonFlute[] = INCGFX_U32("graphics/items/icons/eon_flute.png", ".4bpp.smol");
+const u16 gItemIconPalette_EonFlute[] = INCGFX_U16("graphics/items/icon_palettes/eon_flute.pal", ".gbapal");
 
 // Nectars
 

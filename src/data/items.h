@@ -3574,6 +3574,22 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_VioletEngine,
     },
 
+    [ITEM_EON_FLUTE] =
+    {
+        .name = ITEM_NAME("Eon Flute"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A flute that can\n"
+            "summon Latias or\n"
+            "Latios to soar."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_EonFlute,
+        .iconPic = gItemIcon_EonFlute,
+        .iconPalette = gItemIconPalette_EonFlute,
+    },
+
 // Mulch
 
     [ITEM_GROWTH_MULCH] =

@@ -37,7 +37,9 @@
 #include "pokeblock.h"
 #include "pokemon.h"
 #include "pokevial.h"
+#include "regions.h"
 #include "script.h"
+#include "soar.h"
 #include "sound.h"
 #include "strings.h"
 #include "string_util.h"
@@ -312,6 +314,23 @@ static void ItemUseOnFieldCB_Bike(u8 taskId)
     ScriptUnfreezeObjectEvents();
     UnlockPlayerFieldControls();
     DestroyTask(taskId);
+}
+
+// Soaring lands on the same spots as Fly, so it follows Fly's rules.
+// The soar screen only draws the Hoenn map.
+void ItemUseOutOfBattle_EonFlute(u8 taskId)
+{
+    if (CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_LEAVE_ROUTE)
+     && Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE
+     && GetCurrentRegion() == REGION_HOENN)
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_EonFlute;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else
+    {
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
 }
 
 static bool32 CanFish(void)

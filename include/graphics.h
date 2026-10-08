@@ -791,6 +791,8 @@ extern const u32 gItemIcon_ScarletOre[];
 extern const u16 gItemIconPalette_ScarletOre[];
 extern const u32 gItemIcon_VioletEngine[];
 extern const u16 gItemIconPalette_VioletEngine[];
+extern const u32 gItemIcon_EonFlute[];
+extern const u16 gItemIconPalette_EonFlute[];
 // Nectars
 extern const u32 gItemIcon_Nectar[];
 extern const u16 gItemIconPalette_RedNectar[];
