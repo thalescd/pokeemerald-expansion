@@ -156,9 +156,9 @@ bool8 TryAddRoamer(enum Species species, u8 level)
 void InitRoamer(void)
 {
     if (gSpecialVar_0x8004 == 0) // Red
-        TryAddRoamer(SPECIES_LATIAS, 40);
+        TryAddRoamer(SPECIES_LATIAS, 60);
     else
-        TryAddRoamer(SPECIES_LATIOS, 40);
+        TryAddRoamer(SPECIES_LATIOS, 60);
 }
 
 void UpdateLocationHistoryForRoamer(void)

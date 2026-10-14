@@ -296,6 +296,9 @@ static void UpdateMapSecPopup(void)
 
     RegionMap_SetCursorPos(&sSoar->regionMap, Q_24_8_TO_INT(sPlayerPosX) / 8, Q_24_8_TO_INT(sPlayerPosY) / 8);
     mapSecId = sSoar->regionMap.mapSecId;
+    // Like on the Fly map, the Battle Frontier stays a secret until the player has been there
+    if (mapSecId == MAPSEC_BATTLE_FRONTIER && !FlagGet(FLAG_LANDMARK_BATTLE_FRONTIER))
+        mapSecId = MAPSEC_NONE;
     if (mapSecId == sSoar->shownMapSecId)
         return;
 
@@ -515,8 +518,10 @@ static void HandleSoarInput(void)
     struct Sprite *eon = &gSprites[sSoar->eonSpriteId];
     s32 sinYaw, cosYaw, speed;
     u8 mapSecType = sSoar->regionMap.mapSecType;
+    mapsec_u16_t mapSecId = sSoar->regionMap.mapSecId;
 
-    if (JOY_NEW(A_BUTTON) && (mapSecType == MAPSECTYPE_CITY_CANFLY || mapSecType == MAPSECTYPE_BATTLE_FRONTIER))
+    // The Southern Island isn't a Fly destination: soaring is the only way to land there
+    if (JOY_NEW(A_BUTTON) && (mapSecType == MAPSECTYPE_CITY_CANFLY || mapSecType == MAPSECTYPE_BATTLE_FRONTIER || mapSecId == MAPSEC_SOUTHERN_ISLAND))
     {
         PlaySE(SE_SELECT);
         ShowLandPrompt();
