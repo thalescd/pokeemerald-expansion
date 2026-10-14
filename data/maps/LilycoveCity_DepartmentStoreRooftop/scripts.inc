@@ -187,10 +187,12 @@ LilycoveCity_DepartmentStoreRooftop_EventScript_ExitVendingMachine::
 LilycoveCity_DepartmentStoreRooftop_EventScript_Reporter::
 	lockall
 	applymovement LOCALID_LILYCOVE_DEPARTMENT_STORE_ROOFTOP_REPORTER, Common_Movement_FaceRight
+	applymovement LOCALID_LILYCOVE_DEPARTMENT_STORE_ROOFTOP_CAMERAMAN, Common_Movement_FaceLeft
 	waitmovement 0
 	msgbox LilycoveCity_DepartmentStoreRooftop_Text_ReporterBroadcast, MSGBOX_DEFAULT
-	faceplayer
 	msgbox LilycoveCity_DepartmentStoreRooftop_Text_ReporterMicCrackled, MSGBOX_DEFAULT
+	faceplayer
+	msgbox LilycoveCity_DepartmentStoreRooftop_Text_ReporterAskColor, MSGBOX_DEFAULT
 	multichoice 22, 8, MULTI_TV_LATI, TRUE
 	copyvar VAR_0x8004, VAR_RESULT
 	special InitRoamer
@@ -237,7 +239,13 @@ LilycoveCity_DepartmentStoreRooftop_Movement_ReporterExit:
 	step_end
 
 LilycoveCity_DepartmentStoreRooftop_EventScript_Cameraman::
-	msgbox LilycoveCity_DepartmentStoreRooftop_Text_CameramanDontLookAtMe, MSGBOX_NPC
+	lock
+	faceplayer
+	msgbox LilycoveCity_DepartmentStoreRooftop_Text_CameramanDontLookAtMe, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_LILYCOVE_DEPARTMENT_STORE_ROOFTOP_CAMERAMAN, Common_Movement_FaceDown
+	waitmovement LOCALID_LILYCOVE_DEPARTMENT_STORE_ROOFTOP_CAMERAMAN
+	release
 	end
 
 LilycoveCity_DepartmentStoreRooftop_EventScript_Enthusiast::
@@ -288,6 +296,9 @@ LilycoveCity_DepartmentStoreRooftop_EventScript_EnthusiastShownLatios::
 	end
 
 LilycoveCity_DepartmentStoreRooftop_EventScript_EnthusiastGiveFlute::
+	playse SE_PIN
+	applymovement LOCALID_LILYCOVE_DEPARTMENT_STORE_ROOFTOP_ENTHUSIAST, Common_Movement_ExclamationMark
+	waitmovement LOCALID_LILYCOVE_DEPARTMENT_STORE_ROOFTOP_ENTHUSIAST
 	msgbox LilycoveCity_DepartmentStoreRooftop_Text_EnthusiastFluteSinging, MSGBOX_DEFAULT
 	giveitem ITEM_EON_FLUTE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
@@ -396,7 +407,9 @@ LilycoveCity_DepartmentStoreRooftop_Text_ReporterBroadcast:
 
 LilycoveCity_DepartmentStoreRooftop_Text_ReporterMicCrackled:
 	.string "Hm? Cut, cut! Did the mic crackle\n"
-	.string "again?!\p"
+	.string "again?!$"
+
+LilycoveCity_DepartmentStoreRooftop_Text_ReporterAskColor:
 	.string "You there, TRAINER! Did you hear\n"
 	.string "what I just said?\p"
 	.string "What color was that POKéMON?$"
@@ -449,7 +462,6 @@ LilycoveCity_DepartmentStoreRooftop_Text_EnthusiastNotNow:
 	.string "Oh… Maybe next time, then.$"
 
 LilycoveCity_DepartmentStoreRooftop_Text_EnthusiastFluteSinging:
-	.string "…!\p"
 	.string "The flute is singing! It's a\n"
 	.string "{STR_VAR_1}!\p"
 	.string "It was never broken. It just needed\n"
