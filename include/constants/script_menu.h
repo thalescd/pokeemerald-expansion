@@ -172,6 +172,7 @@ enum
 };
 
 #define MULTI_REGION                       159
+#define MULTI_EON_FLUTE_LATI               160
 
 #define MULTI_NONE 255
 

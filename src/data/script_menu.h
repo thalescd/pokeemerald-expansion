@@ -764,6 +764,13 @@ static const struct MenuAction MultichoiceList_TVLati[] =
     {COMPOUND_STRING("BLUE")},
 };
 
+static const struct MenuAction MultichoiceList_EonFluteLati[] =
+{
+    {COMPOUND_STRING("LATIAS")},
+    {COMPOUND_STRING("LATIOS")},
+    {gText_Cancel},
+};
+
 static const struct MenuAction MultichoiceList_BattleTowerFeelings[] =
 {
     {COMPOUND_STRING("I'll battle now!")},
@@ -1308,6 +1315,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_HOF_VICTORIES_QUIT]                         = MULTICHOICE(sMultichoiceList_HOF_Victories_Quit),
     [MULTI_EGGS_VICTORIES_QUIT]                        = MULTICHOICE(sMultichoiceList_Eggs_Victories_Quit),
     [MULTI_HOF_EGGS_VICTORIES_QUIT]                    = MULTICHOICE(sMultichoiceList_HOF_Eggs_Victories_Quit),
+    [MULTI_EON_FLUTE_LATI]                             = MULTICHOICE(MultichoiceList_EonFluteLati),
 };
 
 const u8 *const gStdStrings[] =
