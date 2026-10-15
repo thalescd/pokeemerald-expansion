@@ -83,8 +83,17 @@ Controles atuais: ← → vira, ↑ ↓ altitude, L (segurar) dobra a velocidade
 liberada), B/START sai. **O voo sempre avança sozinho** (herdado do original; igual ao ORAS).
 
 **Testado no emulador (2026-10-14):** o soar e a flauta registrada no SELECT funcionam bem. Controles aprovados
-como estão (inclusive o avanço contínuo). Ainda não testados: pouso na Southern Island e o evento do telhado,
-porque nada disso foi implementado.
+como estão (inclusive o avanço contínuo). O pouso na Southern Island e o evento do telhado foram testados depois (ver
+"Progresso da implementação").
+
+**Ainda em aberto, a pedido do usuário (2026-10-15): o chão tremendo.** O soar desenha o chão com um efeito que muda a
+imagem **a cada linha da tela**, calculado dentro da interrupção de HBlank (`HBlankCB_Soar` em `src/soar.c`). Se esse
+cálculo demorar mais do que o tempo que a linha dá, o chão pode tremer ou ter linhas tortas. O usuário viu o soar
+funcionando, mas **quer testar isso com mais calma depois** (por exemplo, voando em altitudes diferentes, em movimento
+rápido com L, e em emulador de precisão e em hardware real, que são mais exigentes que um emulador rápido).
+**Plano B, se tremer:** tirar os cálculos do HBlank e fazê-los antes, no VBlank (uma tabela por linha preenchida a cada
+quadro), ou usar o recurso de efeito por linha (`scanline effect`) do jogo. A tabela de recíprocos que já existe
+(`sDepthReciprocals`) foi feita justamente para aliviar esse custo.
 
 ---
 
@@ -479,6 +488,7 @@ the camera.
 - [x] `FLAG_EON_LATI 0` em `flags_frlg.h`: **descartado**, o FRLG não precisa ser alterado (decisão do usuário).
 - [x] Controles do soar: aprovados como estão (avanço contínuo incluído).
 - [x] Testar o soar no emulador e a flauta registrada no SELECT: funcionam bem.
+- [ ] **Testar com mais calma o chão tremendo** (HBlank do soar). Em aberto por escolha do usuário; plano B na seção 1.
 - [x] Alvo de pouso da ilha 1x1: **manter 1x1 por enquanto**. Rever só depois de implementar o pouso na ilha,
       se na prática for difícil de acertar.
 - [x] Nome no popup do soar antes da primeira visita: decidido. **Southern Island: sempre visível** (ajuda a achar
@@ -545,9 +555,22 @@ Build é do usuário, no WSL: `make -j20`. O `map_event_ids.h` (os `LOCALID_*` n
 
 ## 10. Levantamento: remover o porto da Southern Island (sem Eon Ticket)
 
-Decisão do usuário (2026-10-15): como o Eon Ticket nunca é dado, não faz sentido a ilha ter porto. Ele vai tirar o cais do
-mapa (Porymap) depois. Esta seção é **só o levantamento**: **nada foi alterado no código**. Números de linha são de
-2026-10-15 e podem deslocar.
+**Status: em dúvida (2026-10-15).** O usuário pensou em tirar o porto porque o Eon Ticket nunca é dado, mas **ainda não
+decidiu**: talvez mantenha o Eon Ticket para um **caso específico no futuro**. Por isso a remoção abaixo fica **suspensa**.
+Esta seção é **só o levantamento**: **nada foi alterado no código**. Números de linha são de 2026-10-15 e podem deslocar.
+
+**Se o ticket voltar a ser usado, três coisas precisam ser pensadas** (não são problema hoje, só ficam registradas):
+1. O porto, o marinheiro, o barco e o fluxo do porto de Lilycove (itens B a E abaixo) existem **justamente** para esse caminho
+   de ticket. Se o ticket ficar, eles devem ficar.
+2. **O encontro dos Lati@s na ilha hoje só aceita a flauta.** O portão em `SouthernIsland_Interior/scripts.inc` checa
+   `checkitem ITEM_EON_FLUTE`. Quem chegasse de ferry com o ticket, e sem a flauta, só veria a placa. Se o ticket voltar,
+   o portão deve aceitar também `FLAG_ENABLE_SHIP_SOUTHERN_ISLAND` (a flauta **ou** o ticket).
+3. A **entrega do ticket** (Mystery Gift e Record Mixing, itens D e E) é um código que já existe e que **nunca** dispara hoje
+   (`ShouldDistributeEonTicket` é sempre falso). O "caso específico" teria que criar a nova forma de entregar o ticket.
+
+**Se a decisão for mexer só em parte**, o que dá para fazer **sem comprometer** nenhuma das duas opções é a **ordem**:
+mover os 4 labels `Ferry_*` para `event_scripts.s` (item A) é seguro nos dois cenários e evita a armadilha de quebrar as
+outras ilhas no dia em que o arquivo da ilha for mexido.
 
 **Como se sai da ilha depois:** Fly (HM) e a própria flauta (os dois mapas da ilha são `MAP_TYPE_ROUTE`). Quem chega lá
 está com a flauta, que é item-chave e não se joga fora, então sempre há saída.
@@ -636,4 +659,5 @@ definido** (só aparece no debug) ou reaproveitar o slot; remover só se quiser 
    dar pelo debug); as saídas de ferry de Battle Frontier, Birth Island, Navel Rock e Faraway Island ainda partem; o soar
    ainda pousa na ilha; sair da ilha pela flauta e pelo Fly.
 
-- [ ] Remover o porto da Southern Island (execução pendente; usuário quer fazer o mapa antes).
+- [ ] Remover o porto da Southern Island: **suspenso, em dúvida** (o usuário talvez mantenha o Eon Ticket para um caso futuro).
+      Decidir primeiro se o ticket fica; ver o início da seção 10.
