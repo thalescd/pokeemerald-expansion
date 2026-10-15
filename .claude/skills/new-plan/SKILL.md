@@ -25,9 +25,9 @@ Create the branch and the plan file for a new piece of work. The plan name is: $
 ## Create
 
 1. `git switch -c plan/<slug>`.
-2. If `plans/<TITLE>.md` already exists as an untracked file, **adopt it** and keep its content. If it has no header with a `Branch:` line, add the header from [plan-template.md](plan-template.md) at the top, above the existing content, without deleting anything.
+2. If `plans/<TITLE>.md` already exists as an untracked file, **adopt it** and keep all of its content. If it has no `Branch:` line, insert only the header fields from [plan-template.md](plan-template.md) (from the `- **Branch:**` line through the `Valores de **Status**` line) right below the file's existing `# ` title line. Do not add a second title and do not delete or reword anything else.
    Otherwise copy [plan-template.md](plan-template.md) to `plans/<TITLE>.md`.
-3. Fill the header: the title, `Branch: plan/<slug>`, `Status: planejado` and today's date. Leave `Escopo` and `Fora de escopo` as placeholders unless the user already gave them.
+3. Fill the header: `Branch: plan/<slug>`, `Status: planejado` and today's date (and the title too, when you copied the template). Leave `Escopo` and `Fora de escopo` as placeholders unless the user already gave them. For an adopted plan whose body already states a status or a date, leave that text as it is and mention it to the user so they can tidy it.
 4. Commit only that file: `git add -- "plans/<TITLE>.md"`, then commit with the message `docs: add the <name> plan`, following the repo's commit conventions and attribution lines. Never use `git add -A` or `git add .`.
 
 ## After
