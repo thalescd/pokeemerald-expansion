@@ -4,7 +4,7 @@ Documento de continuidade da branch `feature/eon-flute`. O soar (seção 1) est�
 descrito abaixo **está implementado e commitado**: o build compila e o `make check` passa, mas **ainda não foi
 testado no emulador** (ver "Progresso da implementação").
 
-Última atualização: 2026-10-14.
+Última atualização: 2026-10-15.
 
 ## Progresso da implementação
 
@@ -30,14 +30,37 @@ O que **não** foi feito: teste no emulador (o usuário não podia testar no mom
       **Código órfão mantido de propósito** (inofensivo): os scripts `MomNoticesLatiBroadcast*`,
       `PlayerApproachTVForLati*`, `MomApproachPlayerAfterTV*`, seus movimentos, e os textos `IsThatABreakingStory`,
       `WhatColorDidTheySay` e `StillUnknownPokemon`.
+- [x] **Telhado como `MAP_TYPE_CITY`** (2026-10-15, `map.json` do telhado): antes era `MAP_TYPE_INDOOR`, e por isso o Fly, o
+      Teleport e a Eon Flute não funcionavam lá (`Overworld_MapTypeAllowsTeleportAndFly` só aceita rota, cidade, vila e rota
+      oceânica). O 5F e os outros andares da loja continuam `INDOOR`, então dentro do prédio o Fly segue bloqueado.
+      Efeitos colaterais conferidos, todos inofensivos: animação de "mostrar o Pokémon" no estilo ao ar livre; ao descer
+      para o 5F o ponto de escape vira o telhado (o 5F tem `allow_escaping: false`); VS Seeker e seguidores grandes passam
+      a funcionar no telhado; a tinta de dia e noite só se aplicaria com `OW_ENABLE_DNS` ligado (hoje desligado); a posição
+      inicial do soar a partir do telhado vem da posição no telhado, e não do ponto de escape (continua em Lilycove).
+      Correr, bicicleta e música são campos separados e não mudaram. Nenhum outro telhado do jogo base é ao ar livre
+      (todos são `INDOOR`), então esta é a primeira exceção. Alternativa descartada: exceção por mapa em C.
 - [x] **Menu** `MULTI_EON_FLUTE_LATI` (LATIAS / LATIOS / CANCEL) em `include/constants/script_menu.h` e `src/data/script_menu.h`.
       Id **160**, definido ao lado de `MULTI_REGION` (159, fixo). Dentro do enum ele caía no 159 e o build falhava com
       `initialized field overwritten`.
 - [x] **Telhado**: scripts, movimentos e textos em `LilycoveCity_DepartmentStoreRooftop/scripts.inc`, e os três NPCs
       ligados no `map.json` (scripts e a `FLAG_HIDE_..._REPORTER` na repórter e no cameraman).
-- [x] **Build** (`make -j20`): compila. **`make check`**: sem falhas.
+- [x] **Ajustes de interação do usuário** (commit `007299e3ef`, "Script adjustments", só no `scripts.inc` do telhado):
+      - Cena: a repórter vira para a câmera **e o cameraman vira para ela** (`Common_Movement_FaceLeft`).
+      - O "Hm? Cut, cut! Did the mic crackle again?!" é dito ainda virada para o cameraman; só depois ela vira para o
+        jogador (`faceplayer`) e faz a pergunta da cor numa caixa separada (`Text_ReporterAskColor`).
+      - Cameraman, antes da cena: vira para o jogador e **volta a olhar para baixo** no fim da fala.
+      - Enthusiast, ao reconhecer o Lati@s: `SE_PIN` + emote de "!" antes do texto, e o "…!" inicial saiu do texto.
+- [x] **Build** (`make -j20`): compila. **`make check`**: sem falhas. (Verificado antes dos ajustes acima.)
 - [x] **Commits**: feitos (ver `git log`; quatro commits: flags e cena da casa, níveis/ilha/soar, telhado e menu, este plano).
-- [ ] **Teste no emulador** (usuário), quando puder. Roteiro de teste na seção 8. É o único passo que falta.
+- [ ] **Teste no emulador** (usuário), em andamento. Roteiro na seção 8. Verificado até agora (2026-10-15):
+      - [x] Pouso na Southern Island (alvo 1x1): funciona, **fica como está**.
+      - [x] Popup **não** mostra o nome da Battle Frontier sem a flag.
+      - [x] Saída da repórter e do cameraman pela escada: funciona. Como a repórter só pode ser abordada de um lado
+            (o norte, (11,4)), a coreografia é consistente.
+      - [x] Roamer e encontro na ilha em **nível 60**; o Lati@s da ilha é o **oposto** da cor escolhida.
+      - [x] Fluxo do enthusiast: o usuário avaliou como "bem redondinho". (A troca de montaria com os dois na
+            party não foi citada explicitamente; conferir se ainda não foi vista.)
+      - [ ] Falta ver: volta da ilha, cena da casa pós-Liga. O usuário vai testando.
 
 ---
 
@@ -283,11 +306,13 @@ The identity of this POKéMON is
 currently unknown.
 ```
 
-O microfone chia:
+O microfone chia (ainda virada para o cameraman, que olha para ela):
 ```
 Hm? Cut, cut! Did the mic crackle
 again?!
-
+```
+Ela vira para o jogador e pergunta (caixa separada):
+```
 You there, TRAINER! Did you hear
 what I just said?
 
@@ -359,10 +384,9 @@ your POKéMON, maybe? Show me!
 Hm... The flute doesn't react to that
 one. It must be another.
 ```
-- Mostrou LATIAS/LATIOS (`{STR_VAR_1}` = espécie):
+- Mostrou LATIAS/LATIOS (`{STR_VAR_1}` = espécie). Antes do texto o enthusiast toca `SE_PIN` e mostra o emote de "!"
+  (por isso o "…!" inicial saiu do texto):
 ```
-...!
-
 The flute is singing! It's a
 {STR_VAR_1}!
 
@@ -420,7 +444,7 @@ Escolha: **LATIAS / LATIOS / CANCEL**.
 
 Roamer perdido: **sem fala própria** (decidido). O enthusiast não reage ao nocaute; segue no diálogo de "sem Lati@s na party".
 
-### 6.2b Cameraman (antes da cena; sai junto com a repórter depois)
+### 6.2b Cameraman (antes da cena; vira para o jogador e volta a olhar para baixo; sai junto com a repórter depois)
 ```
 Don't look at me. I only point
 the camera.
@@ -473,29 +497,36 @@ the camera.
 
 Build é do usuário, no WSL: `make -j20`. O `map_event_ids.h` (os `LOCALID_*` novos) é gerado nesse build.
 
-### 8.1 Soar (já testado, repetir só o que mudou)
+### 8.1 Soar (itens 2, 3 e 4 já verificados; falta o 5)
 1. Pegar a **EON FLUTE** pelo menu de debug. Para a Latias, setar a flag `FLAG_EON_LATI` (`0x881`); sem ela aparece o Latios.
-2. A sobre a **Southern Island** (alvo 1x1, ao sul) abre "Would you like to land here?" e "sim" pousa na praia da ilha.
-3. Sobrevoar a **Battle Frontier** sem `FLAG_LANDMARK_BATTLE_FRONTIER`: o popup **não** deve mostrar o nome. Com a flag, mostra e deixa pousar.
-4. Na ilha: entrar no interior e conferir o encontro (**nível 60**, Soul Dew, Lati@s **oposto** ao que vaga). Sem a flauta na bolsa, só a placa.
+2. ✅ A sobre a **Southern Island** (alvo 1x1, ao sul) abre "Would you like to land here?" e "sim" pousa na praia da ilha. *(verificado)*
+3. ✅ Sobrevoar a **Battle Frontier** sem `FLAG_LANDMARK_BATTLE_FRONTIER`: o popup **não** mostra o nome. *(verificado; com a flag, deve mostrar e deixar pousar)*
+4. ✅ Na ilha: entrar no interior e conferir o encontro (**nível 60**, Lati@s **oposto** ao que vaga). *(verificado)* Sem a flauta na bolsa, só a placa.
 5. Voltar da ilha: marinheiro da praia (leva a Lilycove), Fly (HM) ou a própria flauta.
 
 ### 8.2 Evento do telhado (Lilycove Department Store, `MAP_LILYCOVE_CITY_DEPARTMENT_STORE_ROOFTOP`)
-1. **Antes da cena**: falar com o enthusiast → "Shh! I'm being interviewed!". Falar com o cameraman → "Don't look at me...".
+1. **Antes da cena**: falar com o enthusiast → "Shh! I'm being interviewed!". Falar com o cameraman → ele vira para o
+   jogador, "Don't look at me...", e **volta a olhar para baixo** no fim.
 2. **Cena**: falar com a repórter. Ela só é alcançável **pelo norte**, de (11,4). Conferir: transmissão virada para a câmera,
-   depois vira para o jogador, pergunta a cor (RED/BLUE, sem cancelar), reação com a cor escolhida, fecho.
-3. **Saída**: o cameraman sobe, vai à direita e sai pela escada (13,3); a repórter espera um passo e vai pelo mesmo caminho
+   o cameraman vira para ela; "Cut, cut! Did the mic crackle again?!" ainda virada para a câmera; depois ela vira para o
+   jogador e pergunta a cor (RED/BLUE, sem cancelar), reação com a cor escolhida, fecho.
+3. ✅ **Saída** *(verificada)*: o cameraman sobe, vai à direita e sai pela escada (13,3); a repórter espera um passo e vai pelo mesmo caminho
    sem atravessar o jogador nem o cameraman. Os dois somem e **não voltam** ao reentrar no mapa.
-4. **Roamer**: conferir que ele existe e está nível 60 (RED = Latias vaga, BLUE = Latios vaga).
-5. **Enthusiast sem Lati@s na party**: texto da reportagem e da flauta "quebrada".
+4. ✅ **Roamer**: existe e está nível 60 (RED = Latias vaga, BLUE = Latios vaga). *(verificado)*
+5. ✅ **Enthusiast sem Lati@s na party**: texto da reportagem e da flauta "quebrada". *(fluxo do enthusiast avaliado como bom)*
 6. **Enthusiast com um Lati@s** (dar um pelo debug): "a flauta está brilhando", abre a tela de party.
    - cancelar → "Maybe next time"; escolher outro Pokémon → "doesn't react to that one";
-   - escolher o Lati@s → texto animado, **recebe a EON FLUTE**, `FLAG_RECEIVED_EON_FLUTE` fica setada e `FLAG_EON_LATI`
+   - escolher o Lati@s → "!" com som de alerta, texto animado, **recebe a EON FLUTE**, `FLAG_RECEIVED_EON_FLUTE` fica setada e `FLAG_EON_LATI`
      fica setada (Latias) ou limpa (Latios) conforme o mostrado, e ele deixa a pista da ilha.
 7. **Depois da entrega**: conversa normal; antes da primeira visita à ilha uma fala, depois outra (`FLAG_LANDMARK_SOUTHERN_ISLAND`).
 8. **Com os dois na party**: menu LATIAS / LATIOS / CANCEL; escolher alterna `FLAG_EON_LATI`; cancelar e B só dão "Take your time".
 9. **Atalho de teste**: setar `FLAG_RECEIVED_EON_FLUTE` pelo debug pula a entrega; limpá-la permite repetir. Limpar
    `FLAG_HIDE_LILYCOVE_DEPARTMENT_STORE_ROOFTOP_REPORTER` (`0x264`) refaz a cena (reentre no mapa para a repórter e o cameraman reaparecerem).
+
+### 8.2b Telhado ao ar livre (`MAP_TYPE_CITY`)
+1. No telhado, usar o **Fly (HM)** e a **Eon Flute**: ambos devem funcionar. Dentro do prédio (5F e abaixo) devem continuar bloqueados.
+2. Usar a flauta no telhado e conferir que o soar começa em Lilycove.
+3. Descer para o 5F e voltar: a cena do telhado, o enthusiast e os NPCs não devem ter mudado.
 
 ### 8.3 Casa pós-Liga
 1. Depois do Hall da Fama, entrar em casa: o pai entrega o **SS Ticket**, a mãe fala do pai e **acaba**, sem TV nem pergunta de cor.
@@ -509,3 +540,100 @@ Build é do usuário, no WSL: `make -j20`. O `map_event_ids.h` (os `LOCALID_*` n
 - Não há saves de jogadores ainda: layout do SaveBlock pode crescer sem preocupação.
 - Arquivos soltos no repo (`pokemon_stats.csv`, `trainer_classes.csv`, `trainer_names_classes.csv`,
   `trainers.txt`) não são desta feature; ficam fora dos commits.
+
+---
+
+## 10. Levantamento: remover o porto da Southern Island (sem Eon Ticket)
+
+Decisão do usuário (2026-10-15): como o Eon Ticket nunca é dado, não faz sentido a ilha ter porto. Ele vai tirar o cais do
+mapa (Porymap) depois. Esta seção é **só o levantamento**: **nada foi alterado no código**. Números de linha são de
+2026-10-15 e podem deslocar.
+
+**Como se sai da ilha depois:** Fly (HM) e a própria flauta (os dois mapas da ilha são `MAP_TYPE_ROUTE`). Quem chega lá
+está com a flauta, que é item-chave e não se joga fora, então sempre há saída.
+
+### A. Armadilha: não dá para apagar o arquivo da ilha de uma vez
+`Ferry_EventScript_DepartIslandSouth`, `Ferry_EventScript_DepartIslandWest` e os movimentos `Ferry_Movement_DepartIslandBoardSouth/West`
+estão **definidos** em `data/maps/SouthernIsland_Exterior/scripts.inc` (linhas 32-49), mas são **chamados** por
+`Common_EventScript_FerryDepartIsland` (`data/event_scripts.s:1326-1332`). Esse script comum é usado pelas saídas de ferry de
+`BattleFrontier_OutsideWest`, `BirthIsland_Harbor`, `FarawayIsland_Entrance` e `NavelRock_Harbor`. Remover sem mover dá
+símbolo indefinido no build e quebra as quatro. **Primeiro mover esses 4 labels** para perto de
+`Common_EventScript_FerryDepartIsland`, em `event_scripts.s`.
+
+### B. Mapa da ilha (exterior), `data/maps/SouthernIsland_Exterior/`
+Remover:
+- Objeto 1, o marinheiro `LOCALID_SOUTHERN_ISLAND_SAILOR` (13,23), e objeto 2, o barco `LOCALID_SOUTHERN_ISLAND_SS_TIDAL` (13,25).
+- Scripts `SouthernIsland_Exterior_EventScript_Sailor` e `_AsYouLike` (linhas 9-30).
+- Texto `EventTicket_Text_SouthernIslandSailBack` (`data/text/event_ticket_1.inc:23`), só usado pelo marinheiro.
+- Os tiles do cais no layout (Porymap, usuário).
+
+Manter:
+- `SouthernIsland_Exterior_OnTransition`, que faz `setflag FLAG_LANDMARK_SOUTHERN_ISLAND` (lida pelo mapa de Fly e pelo enthusiast).
+- Os warps para o interior e a placa.
+- **O tile do pouso do soar:** `HEAL_LOCATION_SOUTHERN_ISLAND_EXTERIOR` em (15,20) (`src/data/heal_locations.json`) precisa
+  continuar andável depois de mexer no cais.
+- Os textos `EventTicket_Text_SailHome` (também usado por Birth Island, Faraway Island e Navel Rock) e
+  `EventTicket_Text_AsYouLike` (usado por 4 outros mapas): **não remover**.
+
+### C. Porto de Lilycove, `data/maps/LilycoveCity_Harbor/scripts.inc`
+Compartilhado com os ingressos Aurora, Mystic e Old Sea Map. Remover só o que é do Eon Ticket:
+- Os labels `GetEonTicketState` (~99-107), `SetFirstTimeShowingEonTicket` (~147), `SetHasEonTicket` (~171),
+  `EonTicketFirstTime` (~187), `GoToSouthernIslandFirstTime` (~196) e `GoToSouthernIsland` (~52).
+- As linhas que os chamam: `call ..._GetEonTicketState` (~13), `goto_if_eq VAR_TEMP_B, 1, ..._EonTicketFirstTime` (~20),
+  `case 2, ..._GoToSouthernIsland` (~44), `call_if_eq VAR_TEMP_E, 2, ..._SetFirstTimeShowingEonTicket` (~141),
+  `call_if_eq VAR_TEMP_E, 1, ..._SetHasEonTicket` (~165) e `case 2, ..._GoToSouthernIslandFirstTime` (~289).
+- O texto `EventTicket_Text_ShowEonTicket`, só usado por `EonTicketFirstTime`.
+- `VAR_TEMP_E` fica sem uso no mapa (os 5 usos são todos do Eon).
+
+Cuidado: `VAR_TEMP_B` e `VAR_TEMP_A` são bitmasks (1 = Eon, 2 = Aurora, 4 = Old Sea Map, 8 = Mystic). Tirar o bit 1 não muda
+os outros, e `MultipleEventTicketsFirstTime` continua válido para as combinações que sobram.
+
+### D. Código C e specials
+- `src/script_menu.c` ~842-857: o bloco `if (CheckBagHasItem(ITEM_EON_TICKET, 1) ...` que adiciona
+  `SSTIDAL_SELECTION_SOUTHERN_ISLAND` e seta `FLAG_SHOWN_EON_TICKET`. Remover o bloco todo.
+- `src/record_mixing.c` ~971-972: remover só `if (*item == ITEM_EON_TICKET) FlagSet(FLAG_ENABLE_SHIP_SOUTHERN_ISLAND);`.
+  O resto de `ReceiveGiftItem` é genérico (qualquer item-chave) e fica.
+- `src/field_specials.c` ~3677-3684: `ShouldDistributeEonTicket` (já documentada como "Always returns FALSE"), e
+  `data/specials.inc:519`: `def_special ShouldDistributeEonTicket`.
+- **Manter** (inofensivos e posicionais, as outras ilhas usam as mesmas listas): `SSTIDAL_SELECTION_SOUTHERN_ISLAND`
+  (`include/constants/script_menu.h:182`), `gText_SouthernIsland`, as listas `MultichoiceList_UnusedSSTidal*` e o
+  `SCROLL_MULTI_SS_TIDAL_DESTINATION`.
+
+### E. Mystery Gift, `data/scripts/cable_club.inc`
+- Remover `CableClub_EventScript_DistributeEonTicket` (linhas 33-43) e as chamadas a `ShouldDistributeEonTicket`
+  nas linhas 6 e 22, com os `goto_if_eq` que dependem delas (linhas 7 e 23).
+- **Atenção:** `CableClub_EventScript_HideOrShowMysteryGiftMan` (linha 5) usa esse resultado para **mostrar** o NPC.
+  Ao remover, manter a outra checagem (`ValidateSavedWonderCard`).
+- Remover os textos `MysteryGift_Text_TheresATicketForYou` e `MysteryGift_Text_TryUsingItAtLilycovePort`
+  (`data/text/questionnaire.inc:33,39`), só usados ali.
+
+### F. Flags, vars e item
+Ficam sem uso (viram `FLAG_UNUSED_0x...` / `VAR_UNUSED_...`, como o resto do repo):
+- `FLAG_ENABLE_SHIP_SOUTHERN_ISLAND` (`SYSTEM_FLAGS + 0x53`): usada por script_menu.c, record_mixing.c, cable_club.inc e o porto.
+  As outras `FLAG_ENABLE_SHIP_*` ficam (Birth Island, Faraway Island, Navel Rock).
+- `FLAG_SHOWN_EON_TICKET` (`0x1AE`): usada por script_menu.c e o porto.
+- `VAR_DISTRIBUTE_EON_TICKET` (`0x403F`): usada por field_specials.c e cable_club.inc.
+
+**Manter:** `FLAG_LANDMARK_SOUTHERN_ISLAND`; `FLAG_HIDE_SOUTHERN_ISLAND_EON_STONE` e `FLAG_HIDE_SOUTHERN_ISLAND_UNCHOSEN_EON_DUO_MON`
+(são dos objetos do **interior**, `new_game.inc:223-224`); `FLAG_ENCOUNTERED/CAUGHT/DEFEATED_LATIAS_OR_LATIOS`.
+
+**Item `ITEM_EON_TICKET` (728):** remover deixa um buraco na numeração. Arquivos: `include/constants/items.h:890`,
+`src/data/items.h:14438`, `gItemIcon_EonTicket` em `src/data/graphics/items.h:1911-1912` e `include/graphics.h:1630-1631`,
+mais `graphics/items/icons/eon_ticket.png` e `graphics/items/icon_palettes/eon_ticket.pal`. Recomendação: **manter o item
+definido** (só aparece no debug) ou reaproveitar o slot; remover só se quiser limpar.
+
+### G. Fora do escopo (não mexer)
+`HEAL_LOCATION_SOUTHERN_ISLAND_EXTERIOR` (pouso do soar), `MAPSEC_SOUTHERN_ISLAND` (mapa e popup), `FilterFlyDestination`,
+`src/item_use.c:1580-1581` (lista de mapas internos), o interior e os Lati@s.
+
+### H. Ordem sugerida e teste
+1. Mover os 4 labels `Ferry_*` para `event_scripts.s`.
+2. Porto de Lilycove (C) e o código C (D).
+3. Mystery Gift (E).
+4. Exterior (B): objetos no Porymap e scripts.
+5. Flags e vars (F).
+6. Build e `make check`. Testar: o porto de Lilycove ainda funciona com os outros ingressos (Aurora, Mystic, Old Sea Map, dá para
+   dar pelo debug); as saídas de ferry de Battle Frontier, Birth Island, Navel Rock e Faraway Island ainda partem; o soar
+   ainda pousa na ilha; sair da ilha pela flauta e pelo Fly.
+
+- [ ] Remover o porto da Southern Island (execução pendente; usuário quer fazer o mapa antes).
