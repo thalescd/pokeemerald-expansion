@@ -1,15 +1,26 @@
 # Plano: usar as sprites de follower nos Pokémon do overworld (NPCs e cenas)
 
 - **Branch:** `plan/follow-sprite`
-- **Status:** planejado
+- **Status:** em andamento
 - **Criado em:** 2026-10-15
-- **Escopo (pode alterar):** <arquivos, pastas ou sistemas que este plano pode tocar>
-- **Fora de escopo:** <o que não deve ser tocado>
+- **Escopo (pode alterar):** `data/maps/Route101/map.json`, `data/maps/SouthernIsland_Interior/scripts.inc` (teste inicial);
+  o restante da fase 1 só depois do resultado do teste
+- **Fora de escopo:** as constantes e os `gObjectEventGraphicsInfo_*` antigos (não remover), os mapas `*_Frlg`, o teleférico
+  e as sprites de cena (fase 3)
 
 Este plano só pode ser trabalhado na branch acima. As regras de trabalho (levantamento antes de executar, anotar o
 progresso aqui, uma decisão por vez) estão no `CLAUDE.md`.
 
 Valores de **Status**: `planejado`, `em andamento`, `concluído`, `abandonado`.
+
+## Progresso
+
+- [x] 2026-10-15: decisão do usuário: começar por um **teste** só com o Zigzagoon do Birch (Route101) e os Lati@s da
+      Southern Island. O resto da fase 1 (Mt. Chimney, Route120, Route114, Lilycove Lady) fica para depois do teste.
+- [x] 2026-10-15: Route101 (`map.json`) e Southern Island (`scripts.inc`) trocados para `OBJ_EVENT_GFX_SPECIES(...)`.
+      **Não compilado, não testado** (o build é do usuário).
+- [ ] Usuário compila (`make -j20`) e confere em jogo (seção 6, itens 1, 2 e 5).
+- [ ] Resto da fase 1.
 
 Levantamento feito em 2026-10-15. **Nada foi alterado no código ou nos mapas**; este documento só diz o que existe, o que
 quebra e o que precisa ser feito. Números de linha são de 2026-10-15 e podem deslocar. Eu não compilo: o build e os
