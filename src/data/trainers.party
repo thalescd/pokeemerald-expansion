@@ -261,10 +261,10 @@ Double Battle: No
 AI: Basic Trainer
 
 Glimmora
-Level: 54
+Level: 53
 
 Typhlosion
-Level: 54
+Level: 53
 
 === TRAINER_ALBERTO ===
 Name: ALBERTO
@@ -275,13 +275,11 @@ Music: Cool
 Double Battle: No
 AI: Basic Trainer
 
-Pelipper
-Level: 30
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Staraptor
+Level: 54
 
-Xatu
-Level: 30
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Altaria
+Level: 54
 
 === TRAINER_ED ===
 Name: ED
@@ -292,13 +290,23 @@ Music: Suspicious
 Double Battle: No
 AI: Basic Trainer
 
-Zangoose
-Level: 30
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Electrode-Hisui
+Level: 52
 
-Seviper
-Level: 30
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Tinkatuff
+Level: 52
+
+Carbink
+Level: 52
+
+Ninetales
+Level: 52
+
+Minior
+Level: 52
+
+Klinklang
+Level: 52
 
 === TRAINER_GRUNT_SEAFLOOR_CAVERN_4 ===
 Name: GRUNT
@@ -606,13 +614,11 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Makuhita
-Level: 30
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Mienshao
+Level: 54
 
-Machoke
-Level: 30
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Bronzong
+Level: 54
 
 === TRAINER_MATT ===
 Name: MATT
@@ -949,13 +955,13 @@ Double Battle: No
 AI: Basic Trainer
 
 Armaldo
-Level: 53
+Level: 52
 
 Runerigus
-Level: 53
+Level: 52
 
 Claydol
-Level: 53
+Level: 52
 
 === TRAINER_FOSTER ===
 Name: FOSTER
@@ -1458,45 +1464,14 @@ Items: Hyper Potion
 Double Battle: No
 AI: Basic Trainer
 
-Swellow
-Level: 28
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Focus Energy
-- Quick Attack
-- Wing Attack
-- Endeavor
-
-Trapinch
-Level: 28
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Bite
-- Dig
-- Feint Attack
-- Sand Tomb
-
-Wailmer
-Level: 28
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Rollout
-- Whirlpool
-- Astonish
-- Water Pulse
-
-Magneton
-Level: 28
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Thunderbolt
-- Supersonic
-- Thunder Wave
-- Sonic Boom
+Flygon
+Level: 53
 
 Shiftry
-Level: 28
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Giga Drain
-- Feint Attack
-- Double Team
-- Swagger
+Level: 53
+
+Magneton
+Level: 53
 
 === TRAINER_VINCENT ===
 Name: VINCENT
@@ -1858,29 +1833,27 @@ Items: Full Restore
 Double Battle: No
 AI: Basic Trainer / Force Setup First Turn
 
-Mawile
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Baton Pass
-- Feint Attack
-- Fake Tears
-- Bite
+Abomasnow @ Focus Sash
+Level: 53
+- Aurora Veil
+- Blizzard
+- Wood Hammer
+- Earthquake
 
-Roselia
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Mega Drain
-- Magical Leaf
-- Grass Whistle
-- Leech Seed
+Cetitan @ Sitrus Berry
+Ability: Thick Fat
+Level: 53
+- Belly Drum
+- Liquidation
+- Ice Shard
+- Icicle Crash
 
-Pelipper
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Fly
-- Water Gun
-- Mist
-- Protect
+Eelektross @ Ability Shield
+Level: 53
+- Supercell sLAM
+- Drain Punch
+- Coil
+- Fire Punch
 
 === TRAINER_KEIRA ===
 Name: KEIRA
@@ -2152,13 +2125,11 @@ Music: Suspicious
 Double Battle: No
 AI: Basic Trainer
 
-Duskull
-Level: 30
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Houndstone
+Level: 53
 
-Shuppet
-Level: 30
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Delphox
+Level: 53
 
 === TRAINER_TAMMY ===
 Name: TAMMY
@@ -2170,10 +2141,10 @@ Double Battle: No
 AI: Basic Trainer
 
 Trevenant
-Level: 54
+Level: 52
 
 Haunter
-Level: 54
+Level: 52
 
 === TRAINER_VALERIE_1 ===
 Name: VALERIE
@@ -2492,10 +2463,10 @@ Double Battle: No
 AI: Basic Trainer
 
 Granbull
-Level: 54
+Level: 52
 
 Arboliva
-Level: 54
+Level: 52
 
 === TRAINER_CONNIE ===
 Name: CONNIE
@@ -3625,13 +3596,11 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Electrike
-Level: 30
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Toxtricity Amped
+Level: 54
 
-Loudred
-Level: 30
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Toxtricity Low Key
+Level: 54
 
 === TRAINER_DALTON_1 ===
 Name: DALTON
@@ -4160,13 +4129,13 @@ Double Battle: No
 AI: Basic Trainer
 
 Parasect
-Level: 54
+Level: 52
 
 Scolipede
-Level: 54
+Level: 52
 
 Shedinja
-Level: 54
+Level: 52
 
 === TRAINER_DEREK ===
 Name: DEREK
@@ -4380,9 +4349,8 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Solrock
-Level: 31
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Hypno
+Level: 54
 
 === TRAINER_CAMERON_2 ===
 Name: CAMERON
@@ -4550,13 +4518,11 @@ Music: Intense
 Double Battle: No
 AI: Basic Trainer
 
-Kadabra
-Level: 30
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Noctowl
+Level: 54
 
-Lunatone
-Level: 30
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Duosion
+Level: 54
 
 === TRAINER_JACKI_2 ===
 Name: JACKI
@@ -4637,7 +4603,7 @@ AI: Smart Trainer / Ace Pokemon
 
 Weezing-Galar @ Focus Sash
 Ability: Misty Surge
-Level: 55
+Level: 54
 - Explosion
 - Strange Steam
 - Sludge Bomb
@@ -4646,19 +4612,19 @@ Level: 55
 Hatterene @ Focus Sash
 Ability: Magic Bounce
 Nature: Modest
-Level: 55
+Level: 54
 - Misty Explosion
 
 Golem-Alola @ Focus Sash
 Ability: Galvanize
 Nature: Adamant
-Level: 55
+Level: 54
 - Explosion
 
 Electrode @ Focus Sash
 Ability: Transistor
 Nature: Hasty
-Level: 55
+Level: 54
 - Explosion
 - Foul Play
 - Thunderbolt
@@ -4666,13 +4632,13 @@ Level: 55
 Glalie-Mega @ Focus Sash
 Ability: Refrigerate
 Nature: Adamant
-Level: 55
+Level: 54
 - Explosion
 
 Kingambit @ Lum Berry
 Ability: Supreme Overlord
 Nature: Adamant
-Level: 55
+Level: 54
 - Sucker Punch
 - Kowtow Cleave
 - Iron head
@@ -5721,7 +5687,7 @@ Double Battle: Yes
 AI: Basic Trainer
 
 Pachirisu
-Level: 55
+Level: 54
 - Super Fang
 - Follow Me
 - Nuzzle
@@ -5729,7 +5695,7 @@ Level: 55
 
 Machamp
 Ability: No Guard
-Level: 55
+Level: 54
 - Dynamic Punch
 - Rock Slide
 - Knock Off
@@ -6015,7 +5981,7 @@ AI: Basic Trainer
 
 Snorlax @ Sitrus Berry
 Ability: Thick Fat
-Level: 56
+Level: 54
 - Body Slam
 - Curse
 - Crunch
@@ -9640,13 +9606,13 @@ Music: Suspicious
 Double Battle: No
 AI: Basic Trainer
 
-Koffing
-Level: 31
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Toxic
-- Thunder
-- Self Destruct
-- Sludge Bomb
+Greninja
+Ability: Protean
+Level: 54
+- Hydro Pump
+- Dark Pulse
+- Gunk Shot
+- Ice beam
 
 === TRAINER_KAYLEY ===
 Name: KAYLEY
@@ -9657,13 +9623,12 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Castform
-Level: 31
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Sunny Day
-- Weather Ball
-- Flamethrower
-- Solar Beam
+Slurpuff @ Sitrus Berry
+Level: 54
+- Play Rough
+- Drain Punch
+- Body Slam
+- Belly Drum
 
 === TRAINER_AURON ===
 Name: AURON
@@ -11104,13 +11069,13 @@ Double Battle: No
 AI: Basic Trainer
 
 Gogoat
-Level: 53
+Level: 52
 
 Goodra
-Level: 53
+Level: 52
 
 Golem
-Level: 53
+Level: 52
 
 === TRAINER_SEBASTIAN ===
 Name: SEBASTIAN
@@ -11218,14 +11183,14 @@ AI: Smart Trainer / Force Setup First Turn
 Ursaring @ Toxic Orb
 Ability: Quick Feet
 Nature: Jolly
-Level: 53
+Level: 52
 - Swords Dance
 - Facade
 - Crunch
 - Thunder Punch
 
 Florges
-Level: 53
+Level: 52
 - Calm Mind
 - Moonblast
 - Grass Knot
@@ -11234,7 +11199,7 @@ Level: 53
 Nidoking @ Life Orb
 Ability: Sheer Force
 Nature: Timid
-Level: 53
+Level: 52
 - Earth Power
 - Sludge Bomb
 - Ice Beam
@@ -13116,10 +13081,10 @@ Double Battle: No
 AI: Basic Trainer
 
 Shiftry
-Level: 53
+Level: 52
 
 Electrode
-Level: 53
+Level: 52
 
 === TRAINER_RILEY ===
 Name: RILEY
@@ -13131,10 +13096,10 @@ Double Battle: No
 AI: Basic Trainer
 
 Stunfisk-Galar
-Level: 52
+Level: 51
 
 Sceptile
-Level: 52
+Level: 51
 
 === TRAINER_FLINT ===
 Name: FLINT
@@ -15358,10 +15323,10 @@ Double Battle: No
 AI: Basic Trainer
 
 Medicham
-Level: 52
+Level: 51
 
 Chesnaught
-Level: 52
+Level: 51
 
 === TRAINER_CALE ===
 Name: CALE
@@ -15373,10 +15338,10 @@ Double Battle: No
 AI: Basic Trainer
 
 Golisopod
-Level: 54
+Level: 52
 
 Lokix
-Level: 54
+Level: 53
 
 Beedrill-Mega
 Level: 54
@@ -15392,22 +15357,22 @@ AI: Basic Trainer
 
 Slugma
 Ability: Flame Body
-Level: 54
+Level: 52
 
 Cubone @ Thick Club
-Level: 54
+Level: 52
 
 Petilil
-Level: 54
+Level: 52
 
 Ferroseed
-Level: 54
+Level: 52
 
 Wynaut
-Level: 54
+Level: 52
 
 Audino
-Level: 54
+Level: 52
 
 === TRAINER_PAT ===
 Name: PAT
@@ -15423,19 +15388,19 @@ Ability: Flame Body
 Level: 54
 
 Cubchoo
-Level: 54
+Level: 52
 
 Rowlet
-Level: 54
+Level: 52
 
 Ditto
-Level: 54
+Level: 52
 
 Psyduck
-Level: 54
+Level: 52
 
 Mawile
-Level: 54
+Level: 52
 
 === TRAINER_CRISTIN_1 ===
 Name: CRISTIN
@@ -15448,10 +15413,10 @@ Double Battle: No
 AI: Basic Trainer
 
 Oranguru
-Level: 54
+Level: 53
 
 Breloom
-Level: 54
+Level: 53
 
 === TRAINER_MAY_RUSTBORO_TREECKO ===
 Name: MAY
