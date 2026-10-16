@@ -19,8 +19,25 @@ Valores de **Status**: `planejado`, `em andamento`, `concluído`, `abandonado`.
       Southern Island. O resto da fase 1 (Mt. Chimney, Route120, Route114, Lilycove Lady) fica para depois do teste.
 - [x] 2026-10-15: Route101 (`map.json`) e Southern Island (`scripts.inc`) trocados para `OBJ_EVENT_GFX_SPECIES(...)`.
       **Não compilado, não testado** (o build é do usuário).
-- [ ] Usuário compila (`make -j20`) e confere em jogo (seção 6, itens 1, 2 e 5).
-- [ ] Resto da fase 1.
+- [x] 2026-10-16: usuário compilou em outra máquina e testou em jogo: o build aceitou a macro no `map.json` (canário
+      OK), o Zigzagoon do Birch (Route101) e o **Latios** (Southern Island) aparecem com a sprite de follower.
+      **Ainda não testados**: o Latias, o movimento completo da perseguição na Route101 (direções e olhar final) e o
+      objeto sumir após capturar/derrotar o Lati@s.
+- [x] 2026-10-16: decisões do usuário: converter Mt. Chimney e Route114; na **Route120 trocar os Poochyenas por
+      Mightyenas** (não por Poochyena de follower); Lilycove Lady fica para o usuário checar antes. Mt. Chimney (23,19)
+      confirmado: `RUN_IN_PLACE_LEFT` → `JOG_IN_PLACE_LEFT`.
+- [x] 2026-10-16: editados `MtChimney/map.json` (10× `OBJ_EVENT_GFX_SPECIES(POOCHYENA)` + o movimento do (23,19)),
+      `Route114/map.json` (1×) e `Route120/map.json` (2× `OBJ_EVENT_GFX_SPECIES(MIGHTYENA)`). O `Bufoh!` dos
+      Mightyenas não cita a espécie e ficou como está. **Não compilado, não testado.**
+- [x] 2026-10-16: o usuário lembrou que um grunt da Route120 fala de Poochyena: `Route120_Text_KeepMakingMoreLand`
+      (em `data/maps/Route110/scripts.inc`, grunt `Route120_EventScript_BusyMagmaGrunt`) trocado de "POOCHYENA isn't even a
+      WATER POKéMON!" para "MIGHTYENA ...", para bater com os Mightyenas ao lado. Mt. Chimney não tem
+      texto que cite a espécie (só os labels `MtChimney_EventScript_*Poochyena`), então nada muda lá.
+- [ ] Usuário compila e confere Mt. Chimney (o do Aqua no (23,19) não pode tocar animação de bola), Route120 e Route114.
+- [ ] Lilycove Lady (aguardando o usuário checar).
+- [x] 2026-10-16: o usuário pediu para verificar Kecleon (Fortree, Route119/120) e os Regis. Levantamento na seção 2.3:
+      nenhum tem estado ligado/desligado na sprite, nenhum tem comparação por id no C. Nada alterado ainda; aguardando as
+      decisões (o Kecleon da ponte e a sombra, e se quer os Regis).
 
 Levantamento feito em 2026-10-15. **Nada foi alterado no código ou nos mapas**; este documento só diz o que existe, o que
 quebra e o que precisa ser feito. Números de linha são de 2026-10-15 e podem deslocar. Eu não compilo: o build e os
@@ -137,6 +154,39 @@ Mesma lógica: o NPC usa a sprite antiga e o jogador pode ter o follower da mesm
 `RAYQUAZA`/`RAYQUAZA_STILL` (`src/rayquaza_scene.c:1246`), `KYOGRE_*`/`GROUDON_*`, `REGIROCK/REGICE/REGISTEEL`,
 `DEOXYS*`, `LUGIA`, `HOOH`, `VIGOROTH_*` (carregando caixa), os bonecos de decoração. São sprites de cena, não "um Pokémon
 andando".
+
+(Atualização de 2026-10-16: **Kecleon** e **Regis** foram reavaliados a pedido do usuário, ver 2.3. A recomendação acima
+não vale mais para eles.)
+
+### 2.3 Kecleon e Regis (verificado em 2026-10-16, nada alterado)
+
+**Nenhum dos dois tem estado "ligado/desligado" na sprite.** A invisibilidade do Kecleon é do objeto, não da imagem, e os
+Regis têm uma única imagem. Não há código C que compare `OBJ_EVENT_GFX_KECLEON*` ou `OBJ_EVENT_GFX_REGI*` (conferido), então
+a troca por `OBJ_EVENT_GFX_SPECIES(...)` é possível. As sprites de follower dos 4 existem (`overworld.png`, 192x32 = 32x32).
+
+**Regirock / Regice / Registeel** (1 objeto cada: `DesertRuins`, `IslandCave`, `AncientTomb`, todos `FACE_DOWN`)
+- A sprite antiga é **uma imagem só, a mesma para os três** (`pokemon_old/regi.png`, `sPicTable_Regi` repete o mesmo quadro
+  9×), pintada com paleta diferente em cada um; é `inanimate = TRUE`. Não existe versão "desligada".
+- A de follower é a figura normal do Pokémon (de frente/costas/lado), 32x32 igual à antiga: **não muda tamanho nem posição**.
+- Os scripts só usam `special StartRegiBattle` e flags, sem `applymovement`. Seguro, 3 linhas de `map.json`.
+- Diferença visual: a antiga é uma pose compacta e igual nos três; a de follower é a figura individual de cada um.
+  Vale olhar em jogo se continua com cara de "lendário parado".
+
+**Kecleon** (`OBJ_EVENT_GFX_KECLEON`, sprite antiga **16x16**; a de follower é 32x32, então **o tamanho muda**)
+| Onde | Objetos | Tipo | Observação |
+|---|---|---|---|
+| `FortreeCity` | 1, (25,8) | invisível até o Devon Scope | `FortreeCity_Movement_KecleonFlee` é só `walk_right` |
+| `Route119` | 2, (31,6) e (25,15) | invisível | batalha por `data/scripts/kecleon.inc` |
+| `Route120` | **5** (+1 da ponte) | invisível | os 5 em `kecleon.inc`; o da ponte (12,16) tem script próprio (cena do Steven / Devon Scope) |
+| `Route117` | 1, (39,4) | **visível**, `LOOK_AROUND`, sem script | pet de NPC |
+| `LilycoveCity_House1`, `SootopolisCity_House1` | 1 em cada | **visível**, `FACE_DOWN` | falam com `playmoncry` |
+- Os 8 invisíveis só usam `set_visible`/`set_invisible` (`Movement_KecleonAppears`), `Common_Movement_FacePlayer` e `walk_right`:
+  nenhum movimento `faster`/`fastest`, então a armadilha 3.1 não aparece.
+- **O da ponte da Route120 tem um objeto-sombra** (`OBJ_EVENT_GFX_KECLEON_BRIDGE_SHADOW`, também 16x16, no mesmo (12,16)).
+  Se o Kecleon da ponte virar 32x32 e a sombra ficar 16x16, os dois deixam de casar. **Decisão do usuário** (trocar só os
+  outros, ou trocar os dois).
+- Total contado: Fortree 1 + Route119 2 + Route120 5 (+1 ponte, +1 sombra) + 3 visíveis.
+- Paleta (3.3): no máximo uma espécie extra por mapa nesses casos, sem problema.
 
 ---
 

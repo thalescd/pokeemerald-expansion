@@ -632,7 +632,7 @@
       "flag": "FLAG_BADGE06_GET"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MIGHTYENA)",
       "x": 5,
       "y": 18,
       "elevation": 0,
@@ -645,7 +645,7 @@
       "flag": "FLAG_BADGE06_GET"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MIGHTYENA)",
       "x": 6,
       "y": 18,
       "elevation": 0,
