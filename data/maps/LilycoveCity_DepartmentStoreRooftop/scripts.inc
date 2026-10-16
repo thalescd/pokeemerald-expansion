@@ -471,8 +471,8 @@ LilycoveCity_DepartmentStoreRooftop_Text_EnthusiastFluteSinging:
 	.string "You must be a truly skilled TRAINER\n"
 	.string "to have earned such a magnificent\l"
 	.string "POKéMON's trust!\p"
-	.string "Take it, {PLAYER}. It belongs with\n"
-	.string "someone who can actually fly with it.$"
+	.string "Take it. It belongs with someone\n"
+	.string "who can actually fly with it.$"
 
 LilycoveCity_DepartmentStoreRooftop_Text_EnthusiastIslandHint:
 	.string "I heard there's an island far to the\n"
