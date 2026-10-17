@@ -1,7 +1,7 @@
 # Plano: usar as sprites de follower nos Pokémon do overworld (NPCs e cenas)
 
 - **Branch:** `plan/follow-sprite`
-- **Status:** em andamento
+- **Status:** concluído
 - **Criado em:** 2026-10-15
 - **Escopo (pode alterar):** `data/maps/Route101/map.json`, `data/maps/SouthernIsland_Interior/scripts.inc` (teste inicial);
   o restante da fase 1 só depois do resultado do teste
@@ -97,6 +97,17 @@ Valores de **Status**: `planejado`, `em andamento`, `concluído`, `abandonado`.
       (`DesertRuins`), Regice (`IslandCave`), Registeel (`AncientTomb`), todos (8,7) `FACE_DOWN`. Conferido que a ponte e a
       sombra continuam com a constante antiga. **Não compilado, não testado.**
 - [x] 2026-10-17: usuário testou em jogo e confirmou os **10 Kecleons e os 3 Regis**.
+- [x] 2026-10-17: **plano encerrado pelo usuário** (pode reabrir se precisar). Decisões finais:
+      - **Não fazer, por causa das interações com estados diferentes:** Sudowoodo, Rayquaza, Kyogre, Groudon, Vigoroth.
+      - **Deixados de fora por enquanto** (talvez dê para fazer, mas o usuário ainda não decidiu se dará acesso ao local
+        deles, e fora do jogo a sprite não faz diferença): Mew, Deoxys, Ho-Oh, Lugia.
+      - **Lilycove Lady**: adiada (a edição foi revertida, `src/data/lilycove_lady.h` está no original).
+      - **Teleférico** (`cable_car.c`) e **mapas da Battle Frontier** (incl. `battle_pike.c`): fora, como no plano.
+      - **Ponte da Route 120** (Kecleon + sombra): ficam com a sprite antiga.
+      - **Pendente de conferência pelo usuário** (já commitado em `fb2386a5b7`): Route 104 casa do Briney, Rusturf Tunnel e
+        SS Tidal corredor (os 3 Wingull/Peeko).
+      - Commits do plano: `4ea2f339e8` (Azurill + Route114), `940f623a26` (fase 2 conferida), `fb2386a5b7` (Peekos),
+        `7478f64e20` (Kecleons e Regis).
 - [ ] Pendentes de conferência: Route 104 casa do Briney, Rusturf Tunnel e SS Tidal corredor (usuário vê depois). (tamanho 16x16 → 32x32, Route119_House com 6 Wingulls, paleta na Route117
       e no Fan Club de Slateport, e o Wingull saindo da casa de Fortree sem animação de Poké Bola).
 - [ ] Decisões abertas: Kecleon e Regis (seção 2.3).
@@ -394,7 +405,7 @@ Comando: `make -j20` no WSL. O `make check` não deve mudar (nenhum teste refere
 - Arquivos soltos no repo (`pokemon_stats.csv`, `trainer_classes.csv`, `trainer_names_classes.csv`, `trainers.txt`) não são
   desta feature; ficam fora dos commits.
 
-- [ ] Fase 1: execução pendente (aguardando as decisões da seção 4).
+- [x] Fase 1 executada (ver a lista de Progresso no topo). As decisões da seção 4 foram tomadas ao longo da conversa.
 
 ---
 
