@@ -53,7 +53,41 @@ Valores de **Status**: `planejado`, `em andamento`, `concluído`, `abandonado`.
 - [x] 2026-10-17: decisão do usuário: **Lilycove Lady fica de lado** (adiada, sem prazo). A edição acima foi
       **revertida**: `src/data/lilycove_lady.h` voltou ao original (constantes antigas `OBJ_EVENT_GFX_*`).
 - [x] 2026-10-17: usuário testou em jogo e o **Azurill de Fallarbor está certo**.
-- [ ] Fase 1 sem pendências de teste (Lilycove Lady adiada). Falta só decidir Kecleon e Regis (seção 2.3) e commitar.
+- [x] 2026-10-17: fase 1 commitada (`4ea2f339e8`). Lilycove Lady adiada; Kecleon e Regis (2.3) seguem em aberto.
+- [x] 2026-10-17: usuário pediu para começar a fase 2. Levantamento na seção 8. **Nada alterado; aguardando aprovação e
+      as decisões da seção 8.5.**
+- [x] 2026-10-17: decisão do usuário: **ignorar todos os mapas da Battle Frontier** (Battle Pike, Palace, Outside East,
+      Pokémon Center) e o `battle_pike.c`. A lista por local está na seção 8.6; aguardando aprovação para editar.
+- [x] 2026-10-17: decisão do usuário: editar **todos de uma vez** para checar em massa. Editados os 31 objetos da seção 8.6
+      em 21 `map.json` (`graphics_id` → `OBJ_EVENT_GFX_SPECIES(...)`) e `FortreeCity_House4/scripts.inc`
+      (`WingullExit`: `walk_in_place_faster_down` → `walk_in_place_fast_down`). **Não compilado, não testado.**
+- [x] 2026-10-17: decisão do usuário: em **Dewford Town, casa 1** o Zigzagoon vira **Pawmi** (espécie, não só sprite).
+      `DewfordTown_House1/map.json` → `OBJ_EVENT_GFX_SPECIES(PAWMI)`; `scripts.inc`: `playmoncry SPECIES_PAWMI` e a fala
+      `PAWMI: Pawmi!`. O label `DewfordTown_House1_EventScript_Zigzagoon` e o label do texto foram mantidos.
+      Pawmi conferido: `P_FAMILY_PAWMI` ligado e `overworld.png` 192x32. **Não compilado, não testado.**
+- [x] 2026-10-17: conferidos em jogo pelo usuário: Dewford (Pawmi), Fallarbor, Fortree casa 1, Fortree casa 4, Lilycove,
+      Mossdeep casa 2, Pacifidlog, Route 119 casa, Rustboro apto 2 e casa 3. **Ainda não conferidos (usuário vê depois):**
+      Route 104 casa do Briney, Rusturf Tunnel, SS Tidal corredor.
+- [x] 2026-10-17: decisões do usuário, trocas de espécie (sprite + `playmoncry` + fala do mon; falas inventadas por mim, só
+      o nome da espécie é certo, ajustar se quiser):
+      Fortree casa 5 → **Pikipek** (`PIKIPEK: Pipipi!`); Lavaridge casa → **Meowth de Galar** (`SPECIES_MEOWTH_GALAR`,
+      `MEOWTH: Nyaa!`); Mossdeep casa 4 → **Snover** (`SNOVER: Fuuu?`); Route 109 → **Oshawott** (`OSHAWOTT: Osha?`, e o
+      texto do velho `Route109_Text_ZigzagoonPicksUpLitter` agora diz "my OSHAWOTT"); Route 117 → Zigzagoon→**Magby**,
+      Kecleon→**Eevee**, Azumarill→**Poliwag** (o Pikachu em (51,1) ficou como estava; esses 3 não têm script);
+      Slateport Fan Club → Zigzagoon→**Growlithe de Hisui** (`SPECIES_GROWLITHE_HISUI`), Skitty→**Snubbull**,
+      Azumarill→**Lombre**; Sootopolis casa 4 → **Slowking**; Verdanturf casa do Friendship Rater → **Clefairy**.
+      Todas as espécies têm `overworld.png` (conferido, inclusive os de Galar e Hisui). Labels dos scripts e dos textos
+      mantidos com o nome antigo (ver o item de 2026-10-17 abaixo, que os renomeou). **Não compilado, não testado.**
+- [x] 2026-10-17: usuário testou em jogo e confirmou **todas as trocas de espécie acima** (Fortree casa 5, Lavaridge,
+      Mossdeep casa 4, Route 109, Route 117, Slateport Fan Club, Sootopolis casa 4, Verdanturf).
+- [x] 2026-10-17: pedido do usuário: **labels renomeados** para bater com a nova espécie, em `scripts.inc` e `map.json`
+      de 8 mapas: `EventScript_`/`Text_` Zigzagoon→Pawmi (Dewford), →Pikipek (Fortree casa 5), →Meowth (Lavaridge),
+      →Oshawott (Route109, inclusive `Text_OshawottPicksUpLitter` e `Text_OshawottCry`); Skitty→Snover (Mossdeep casa 4);
+      Slateport Fan Club Zigzagoon→Growlithe, Skitty→Snubbull, Azumarill→Lombre; Azumarill→Slowking (Sootopolis);
+      Pikachu→Clefairy (Verdanturf). Conferido que cada label tem a definição e a referência no `map.json`.
+      **Não compilado.** Se faltar algum label, o assembler acusa na hora do build.
+- [ ] Pendentes de conferência: Route 104 casa do Briney, Rusturf Tunnel e SS Tidal corredor (usuário vê depois). (tamanho 16x16 → 32x32, Route119_House com 6 Wingulls, paleta na Route117
+      e no Fan Club de Slateport, e o Wingull saindo da casa de Fortree sem animação de Poké Bola).
 - [ ] Decisões abertas: Kecleon e Regis (seção 2.3).
 - [ ] Lilycove Lady (aguardando o usuário checar).
 - [x] 2026-10-16: o usuário pediu para verificar Kecleon (Fortree, Route119/120) e os Regis. Levantamento na seção 2.3:
@@ -350,3 +384,94 @@ Comando: `make -j20` no WSL. O `make check` não deve mudar (nenhum teste refere
   desta feature; ficam fora dos commits.
 
 - [ ] Fase 1: execução pendente (aguardando as decisões da seção 4).
+
+---
+
+## 8. Levantamento da fase 2: pets de casa (2026-10-17)
+
+Nada foi alterado. Conferido agora: as 8 espécies têm `overworld.png` (192x32 = quadros de 32x32). As sprites antigas de
+**todas** elas são 16x16 (inclusive `ZIGZAGOON_2`, `WINGULL`, `AZUMARILL`, `AZURILL`, `SKITTY`, `PIKACHU`, `KIRLIA`,
+`DUSCLOPS`), então **todo objeto trocado fica maior (32x32)**. O Azurill de Fallarbor (já feito) tinha o mesmo caso.
+O Azurill de Fallarbor sai desta lista (feito na fase 1), restam 4.
+
+### 8.1 Objetos (só `map.json` de Hoenn, sem `*_Frlg`)
+| Espécie | Qtd | Mapas (x,y) / movimento |
+|---|---|---|
+| `ZIGZAGOON_2` | 9 | `BattleFrontier_OutsideEast` (40,56) · `DewfordTown_House1` (4,2) · `FortreeCity_House1` (2,3) · `FortreeCity_House5` (6,3) · `LavaridgeTown_House` (6,6) · `Route109` (32,6) · `Route117` (33,3) · `SlateportCity_PokemonFanClub` (3,9) · `BattlePalaceCorridor` (4,9) |
+| `WINGULL` | 12 | `FortreeCity_House4` (2,3) · `MossdeepCity_House2` (4,5) · `Route104_MrBrineysHouse` (6,3, Peeko) · `RusturfTunnel` (14,4, Peeko) · `SSTidalCorridor` (7,2, Peeko) · `Route119_House` ×6 (`WANDER_AROUND`) · `BattlePalaceCorridor` (3,10) |
+| `AZUMARILL` | 5 | `LilycoveCity_DepartmentStore_1F` (2,6) · `Route117` (42,2) · `SlateportCity_PokemonFanClub` (10,8) · `SootopolisCity_House4` (2,3) · `BattlePalaceCorridor` (13,9) |
+| `AZURILL` | 4 | `PacifidlogTown_House2` (8,6) e (1,7) · `BattlePalaceBattleRoom` (13,1) · `BattlePalaceCorridor` (3,5) |
+| `SKITTY` | 5 | `BattleFrontier_PokemonCenter_1F` (1,3) · `FallarborTown_Mart` (2,5) · `MossdeepCity_House4` (2,4) · `RustboroCity_Flat2_1F` (11,4) · `SlateportCity_PokemonFanClub` (8,3) |
+| `PIKACHU` | 4 | `RustboroCity_House3` (4,4) · `VerdanturfTown_FriendshipRatersHouse` (4,4) · `Route117` (51,1) · `BattlePalaceCorridor` (15,5) |
+| `KIRLIA` | 1 | `BattlePalaceCorridor` (12,6) |
+| `DUSCLOPS` | 1 | `BattlePalaceBattleRoom` (13,1) |
+
+Total: 41 objetos em `map.json`. Movimentos usados nos mapas: `FACE_*`, `LOOK_AROUND`, `FACE_LEFT_AND_RIGHT`,
+`WANDER_AROUND`. Nenhum é `RUN_IN_PLACE_*`, então a armadilha 3.1 não aparece pelo `movement_type`.
+
+### 8.2 Código C
+`src/battle_pike.c`: linha 548 (`VarSet(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_DUSCLOPS)`), 569 e 571 (`objGfx2` = `DUSCLOPS`/`KIRLIA`,
+`u16`, cabe). Nenhum outro C, script em `data/scripts` ou teste referencia essas constantes (conferido). Nenhuma comparação
+por id.
+
+### 8.3 Scripts com `faster` (a armadilha 3.1) — **só 2 casos reais**
+- `FortreeCity_House4_Movement_WingullExit` (`scripts.inc:47`) termina com `walk_in_place_faster_down` **no Wingull**; depois
+  vem `removeobject`. Em follower isso toca "entrar na Poké Bola" antes de sumir. Conserto de 1 linha:
+  `walk_in_place_fast_down`.
+- `BattlePalaceBattleRoom`: `DusclopsEnter` e `AzurillEnter` (`scripts.inc` ~linhas 410 e 420) terminam com
+  `walk_in_place_faster_left` nos dois Pokémon. Mesmo conserto: `walk_in_place_fast_left`.
+- **Não são problema** (conferido): `Route109` `SailToDewford` é do barco do Briney, não do Zigzagoon; `RusturfTunnel` e
+  `SSTidalCorridor` têm `faster` só no jogador/Wanda/Scott/marinheiro; os Peeko usam só `walk_*`/`lock_facing_direction`.
+
+### 8.4 Paleta (3.3) e tamanho
+- Cada espécie distinta ocupa 1 slot de paleta de objeto no mapa. Mais de 2 espécies por mapa: **`BattlePalaceCorridor` (6
+  espécies: Zigzagoon, Wingull, Azumarill, Azurill, Pikachu, Kirlia, mais os NPCs)**, `Route117` (3, fora o Kecleon) e
+  `SlateportCity_PokemonFanClub` (3, mais NPCs). O Palace Corridor é o único com risco real de faltar slot.
+- Os objetos crescem de 16x16 para 32x32: casas pequenas e `Route119_House` (6 Wingulls em `WANDER_AROUND`) podem ficar
+  apertadas ou se sobrepor. Só dá para julgar em jogo.
+
+### 8.5 Decisões suas
+- [ ] **Escopo**: converter todas as 8 espécies, ou só algumas (por exemplo, deixar fora Wingull ou Zigzagoon_2)?
+- [ ] **`BattlePalaceCorridor`** (6 espécies, risco de paleta): deixar de fora (recomendado) ou converter e ver em jogo?
+- [ ] **`BattlePalaceBattleRoom`** (Azurill + Dusclops, `walk_in_place_faster_left` → `fast`): converter com o ajuste ou
+      deixar de fora?
+- [ ] **`FortreeCity_House4`**: converter e trocar o `faster` por `fast` no `WingullExit` (recomendado)?
+- [ ] **`battle_pike.c`** (Kirlia/Dusclops, 3 linhas): converter ou deixar? É sala de desafio, o ganho é pequeno.
+- [ ] Ordem: tudo de uma vez, ou por espécie/mapa para você testar em partes (recomendado: por espécie).
+
+### 8.6 Lista por local (2026-10-17, depois da decisão de ignorar a Battle Frontier)
+**Fora do escopo por decisão do usuário:** `BattleFrontier_OutsideEast`, `BattleFrontier_PokemonCenter_1F`,
+`BattleFrontier_BattlePalaceCorridor`, `BattleFrontier_BattlePalaceBattleRoom` e `src/battle_pike.c`. Sobram **31 objetos
+em 20 mapas**, só `map.json` (e 1 linha de script em Fortree). Nenhum mapa tem `RUN_IN_PLACE`.
+
+| Local (mapa) | Objeto (x,y), movimento | Troca |
+|---|---|---|
+| Dewford Town, casa (`DewfordTown_House1`) | Zigzagoon (4,2) `FACE_DOWN` | `ZIGZAGOON_2` → `SPECIES(ZIGZAGOON)` |
+| Fallarbor Town, loja (`FallarborTown_Mart`) | Skitty (2,5) `LOOK_AROUND` | `SKITTY` → `SPECIES(SKITTY)` |
+| Fortree City, casa 1 (`FortreeCity_House1`) | Zigzagoon (2,3) `FACE_LEFT` | `ZIGZAGOON_2` → `SPECIES(ZIGZAGOON)` |
+| Fortree City, casa 4 (`FortreeCity_House4`) | Wingull (2,3) `FACE_DOWN`, flag `FLAG_HIDE_FORTREE_CITY_HOUSE_4_WINGULL` | `WINGULL` → `SPECIES(WINGULL)` **e** `scripts.inc:47-53`, `WingullExit`: último passo `walk_in_place_faster_down` → `walk_in_place_fast_down` |
+| Fortree City, casa 5 (`FortreeCity_House5`) | Zigzagoon (6,3) `FACE_DOWN` | `ZIGZAGOON_2` → `SPECIES(ZIGZAGOON)` |
+| Lavaridge Town, casa (`LavaridgeTown_House`) | Zigzagoon (6,6) `LOOK_AROUND` | `ZIGZAGOON_2` → `SPECIES(ZIGZAGOON)` |
+| Lilycove City, loja de departamentos 1F (`LilycoveCity_DepartmentStore_1F`) | Azumarill (2,6) `LOOK_AROUND` | `AZUMARILL` → `SPECIES(AZUMARILL)` |
+| Mossdeep City, casa 2 (`MossdeepCity_House2`) | Wingull (4,5) `FACE_UP`, flag `FLAG_HIDE_MOSSDEEP_CITY_HOUSE_2_WINGULL` | `WINGULL` → `SPECIES(WINGULL)` |
+| Mossdeep City, casa 4 (`MossdeepCity_House4`) | Skitty (2,4) `LOOK_AROUND` | `SKITTY` → `SPECIES(SKITTY)` |
+| Pacifidlog Town, casa 2 (`PacifidlogTown_House2`) | Azurill feliz (8,6) e Azurill triste (1,7), `LOOK_AROUND` | 2× `AZURILL` → `SPECIES(AZURILL)` |
+| Route 104, casa do Mr. Briney (`Route104_MrBrineysHouse`) | Wingull/Peeko (6,3) `FACE_DOWN`, flag `FLAG_HIDE_BRINEYS_HOUSE_PEEKO` | `WINGULL` → `SPECIES(WINGULL)` |
+| Route 109 | Zigzagoon (32,6) `LOOK_AROUND` | `ZIGZAGOON_2` → `SPECIES(ZIGZAGOON)` |
+| Route 117 | Zigzagoon (33,3), Azumarill (42,2), Pikachu (51,1), todos `LOOK_AROUND` (3 espécies novas no mapa, mais o Kecleon antigo) | 3 trocas |
+| Route 119, casa (`Route119_House`) | 6 Wingulls `WANDER_AROUND`: (1,6) (0,4) (2,2) (8,5) (6,6) (5,3) | 6× `WINGULL` → `SPECIES(WINGULL)` |
+| Rustboro City, apto 2 1F (`RustboroCity_Flat2_1F`) | Skitty (11,4) `FACE_LEFT` | `SKITTY` → `SPECIES(SKITTY)` |
+| Rustboro City, casa 3 (`RustboroCity_House3`) | Pikachu (4,4) `FACE_DOWN` | `PIKACHU` → `SPECIES(PIKACHU)` |
+| Rusturf Tunnel (`RusturfTunnel`) | Wingull/Peeko (14,4) `FACE_LEFT`, flag `FLAG_HIDE_RUSTURF_TUNNEL_PEEKO` (cena do Briney; só usa `walk_*`) | `WINGULL` → `SPECIES(WINGULL)` |
+| Slateport City, Pokémon Fan Club (`SlateportCity_PokemonFanClub`) | Zigzagoon (3,9), Azumarill (10,8), Skitty (8,3), todos `LOOK_AROUND` (3 espécies novas no mapa, mais os NPCs) | 3 trocas |
+| SS Tidal, corredor (`SSTidalCorridor`) | Wingull/Peeko (7,2) `LOOK_AROUND`, flag `FLAG_HIDE_SS_TIDAL_CORRIDOR_MR_BRINEY` | `WINGULL` → `SPECIES(WINGULL)` |
+| Sootopolis City, casa 4 (`SootopolisCity_House4`) | Azumarill (2,3) `LOOK_AROUND` | `AZUMARILL` → `SPECIES(AZUMARILL)` |
+| Verdanturf Town, casa do Friendship Rater (`VerdanturfTown_FriendshipRatersHouse`) | Pikachu (4,4) `FACE_DOWN` | `PIKACHU` → `SPECIES(PIKACHU)` |
+
+Resumo por espécie: Zigzagoon 7, Wingull 11, Azumarill 4, Azurill 2, Skitty 4, Pikachu 3 = **31**. Mantém-se o que já era
+regra: não remover constantes nem `gObjectEventGraphicsInfo_*` antigos.
+
+Pontos de atenção na checagem: (1) todo objeto cresce de 16x16 para 32x32, principalmente nas casas pequenas e nos 6
+Wingulls da `Route119_House`; (2) `Route117` e `Slateport Fan Club` têm 3 espécies de follower cada (paleta); (3) o
+`FortreeCity_House4` é o único com mudança de script; (4) vale conferir o cry e a fala de cada um, que não mudam.
+
