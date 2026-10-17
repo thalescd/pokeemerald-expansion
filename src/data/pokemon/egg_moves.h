@@ -1632,6 +1632,7 @@ static const u16 sSpinarakEggMoveLearnset[] = {
     MOVE_NIGHT_SLASH,
     MOVE_MEGAHORN,
     MOVE_LUNGE,
+    MOVE_SHADOW_SNEAK,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_SPINARAK
