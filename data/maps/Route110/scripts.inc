@@ -1103,7 +1103,7 @@ Route120_Text_LessHabitatForWaterPokemon:
 	.string "less habitats for WATER POKéMON!$"
 	
 Route120_Text_KeepMakingMoreLand:
-	.string "POOCHYENA isn't even a WATER POKéMON!$"
+	.string "MIGHTYENA isn't even a WATER POKéMON!$"
 	
 Route120_Text_Bufoh:
 	.string "Bufoh!$"
