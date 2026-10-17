@@ -33,7 +33,28 @@ Valores de **Status**: `planejado`, `em andamento`, `concluído`, `abandonado`.
       (em `data/maps/Route110/scripts.inc`, grunt `Route120_EventScript_BusyMagmaGrunt`) trocado de "POOCHYENA isn't even a
       WATER POKéMON!" para "MIGHTYENA ...", para bater com os Mightyenas ao lado. Mt. Chimney não tem
       texto que cite a espécie (só os labels `MtChimney_EventScript_*Poochyena`), então nada muda lá.
-- [ ] Usuário compila e confere Mt. Chimney (o do Aqua no (23,19) não pode tocar animação de bola), Route120 e Route114.
+- [x] 2026-10-17: usuário testou em jogo e **Mt. Chimney está certo** (o do Aqua no (23,19) não toca animação de bola).
+- [x] 2026-10-17: usuário testou em jogo e **os Mightyenas da Route120 estão certos**. Nota: eles aparecem **antes** da
+      6ª insígnia (`FLAG_BADGE06_GET` 0x86C desligada); flag ligada esconde o objeto.
+- [x] 2026-10-17: decisão do usuário: o Poochyena da Route114 (19,12) passa de `FACE_RIGHT` para
+      `WALK_IN_PLACE_RIGHT`, como os do Mt. Chimney. Editado em `Route114/map.json`. **Não compilado, não testado.**
+- [x] 2026-10-17: pedido do usuário: o Azurill de Fallarbor Town (8,12, `LOOK_AROUND`, flag
+      `FLAG_HIDE_FALLARBOR_AZURILL`) trocado para `OBJ_EVENT_GFX_SPECIES(AZURILL)` em `FallarborTown/map.json`. Item da
+      fase 2 (tabela 2.2) feito fora de ordem. A sprite antiga é 16x16 e a de follower é 32x32: **o tamanho muda**.
+      Movimento `LOOK_AROUND` é seguro (3.1). **Não compilado, não testado.**
+- [ ] Usuário confere o Azurill de Fallarbor (tamanho/posição na grama, cry e fala ao conversar).
+- [x] 2026-10-17: usuário testou em jogo e confirmou: **Route114 certa** (Poochyena andando no lugar), **sprites
+      sobrevivem a salvar e resetar no mesmo mapa**, **Southern Island toda certa** (Latias, objeto sumindo após
+      capturar) e **Route101 toda certa** (perseguição completa).
+- [x] 2026-10-17: decisão do usuário: Lilycove Lady converte **os 5**. Editado `src/data/lilycove_lady.h`: os 5
+      `.monGfxId` (Zigzagoon, Skitty, Poochyena, Kecleon, Pikachu) viraram `OBJ_EVENT_GFX_SPECIES(...)`. O objeto no
+      `LilycoveCity_PokemonCenter_1F/map.json` usa `FACE_DOWN` (seguro, sem "faster"). Skitty, Kecleon e Pikachu eram
+      16x16 e viram 32x32: **o tamanho muda**. **Não compilado, não testado.**
+- [x] 2026-10-17: decisão do usuário: **Lilycove Lady fica de lado** (adiada, sem prazo). A edição acima foi
+      **revertida**: `src/data/lilycove_lady.h` voltou ao original (constantes antigas `OBJ_EVENT_GFX_*`).
+- [x] 2026-10-17: usuário testou em jogo e o **Azurill de Fallarbor está certo**.
+- [ ] Fase 1 sem pendências de teste (Lilycove Lady adiada). Falta só decidir Kecleon e Regis (seção 2.3) e commitar.
+- [ ] Decisões abertas: Kecleon e Regis (seção 2.3).
 - [ ] Lilycove Lady (aguardando o usuário checar).
 - [x] 2026-10-16: o usuário pediu para verificar Kecleon (Fortree, Route119/120) e os Regis. Levantamento na seção 2.3:
       nenhum tem estado ligado/desligado na sprite, nenhum tem comparação por id no C. Nada alterado ainda; aguardando as
