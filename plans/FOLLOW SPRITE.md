@@ -86,6 +86,17 @@ Valores de **Status**: `planejado`, `em andamento`, `concluído`, `abandonado`.
       Slateport Fan Club Zigzagoon→Growlithe, Skitty→Snubbull, Azumarill→Lombre; Azumarill→Slowking (Sootopolis);
       Pikachu→Clefairy (Verdanturf). Conferido que cada label tem a definição e a referência no `map.json`.
       **Não compilado.** Se faltar algum label, o assembler acusa na hora do build.
+- [x] 2026-10-17: fase 2 commitada em 2 commits (`940f623a26` os conferidos, `fb2386a5b7` os 3 Peekos). Os 3 Peekos
+      (Route 104, Rusturf, SS Tidal) seguem para o usuário conferir.
+- [x] 2026-10-17: usuário pediu **Regis e Kecleons**. Decisão sobre a ponte da Route 120: **deixar o Kecleon da ponte
+      (`LOCALID_BRIDGE_KECLEON`) e a sombra (`KECLEON_BRIDGE_SHADOW`) como estão**, a sombra tem paleta de reflexo própria
+      e converter exigiria C novo. Os dois ficam 16x16 e casam entre si. O `walk_in_place_faster_right` do script
+      `Route120_EventScript_StevenBattleKecleon` fica como está (o objeto segue com a sprite antiga).
+- [x] 2026-10-17: editados 13 objetos em 8 `map.json` (`OBJ_EVENT_GFX_SPECIES(...)`): Kecleon ×10 (`FortreeCity` 1,
+      `Route119` 2, `Route120` 5 sem a ponte, `LilycoveCity_House1` 1, `SootopolisCity_House1` 1) e Regirock
+      (`DesertRuins`), Regice (`IslandCave`), Registeel (`AncientTomb`), todos (8,7) `FACE_DOWN`. Conferido que a ponte e a
+      sombra continuam com a constante antiga. **Não compilado, não testado.**
+- [x] 2026-10-17: usuário testou em jogo e confirmou os **10 Kecleons e os 3 Regis**.
 - [ ] Pendentes de conferência: Route 104 casa do Briney, Rusturf Tunnel e SS Tidal corredor (usuário vê depois). (tamanho 16x16 → 32x32, Route119_House com 6 Wingulls, paleta na Route117
       e no Fan Club de Slateport, e o Wingull saindo da casa de Fortree sem animação de Poké Bola).
 - [ ] Decisões abertas: Kecleon e Regis (seção 2.3).
