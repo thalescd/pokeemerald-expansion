@@ -1431,8 +1431,8 @@ enum NationalDexOrder
     F(ELECTRIKE) \
     F(MANECTRIC) \
     HOENN_DEX_IF(P_MEGA_EVOLUTIONS, F(MANECTRIC_MEGA)) \
-    F(PLUSLE) \
-    F(MINUN) \
+    F(VOLBEAT) \
+    F(ILLUMISE) \
     F(BUDEW) \
     F(ROSELIA) \
     F(ROSERADE) \
