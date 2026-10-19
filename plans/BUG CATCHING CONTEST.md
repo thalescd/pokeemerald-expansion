@@ -228,6 +228,14 @@ deixar a equipe), prêmios Oran Berry e Sun Stone, e batalhas normais fora do co
 desmaio (o usuário acredita que acabam do mesmo jeito), prêmios do 2º e 3º lugar, mochila cheia, gatilho sem dinheiro,
 ovo ou Pokémon desmaiado, e a Safari Zone.
 
+2026-10-19: ajustes de texto a pedido do usuário. (1) Anúncios do 1º, 2º e 3º lugar quebravam a caixa de texto: o nome
+(classe + nome do rival) e a espécie agora ficam em linhas separadas; mesma quebra nas falas dos rivais e em alguns
+textos longos. (2) Padrão de maiúsculas dos scripts do jogo: nos scripts de mapa o jogo usa POKéMON, nomes de lugar e
+de evento em maiúsculas, BAG, BOX, EGG e CONTEST (2484 POKéMON contra 24 Pokémon). Os textos dos scripts do concurso
+foram ajustados (POKéMON, MOTH GARDEN, PARK BALLS, BUG CATCHING CONTEST, BAG, BOX, EGG, CONTEST). As strings de batalha
+em `src/battle_message.c` seguem o padrão misto da expansão ("Safari Balls", "Pokémon"), então ficaram como estão. O
+nome do mapa no mapa regional já era MOTH GARDEN, só o texto dos diálogos estava em minúsculas. Não testado no jogo.
+
 Diferenças em relação ao levantamento:
 - Sem `ResetBugContest` e sem flag de modo: o estado é só EWRAM e some no reset, como previsto. Viagem rápida:
   2026-10-19, o usuário viu que Fly/Teleport/Eon Flute ainda funcionavam. Todos perguntam
