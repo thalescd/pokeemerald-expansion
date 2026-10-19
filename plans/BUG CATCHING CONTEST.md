@@ -74,83 +74,111 @@ funcionamento do sistema, o que precisa ser portado para cá e o que o usuário 
   regional, como a Navel Rock) em `region_map_sections.json`; `MothGarden/map.json` aponta para ele. Sem tema de popup
   próprio por enquanto (usa o padrão do índice, como a Devon Corp); não testado, depende do build.
 
+- 2026-10-19: batalha do concurso = opção A, fiel ao Gold (batalha normal com menu FIGHT / PKMN / PARK BALL / RUN),
+  por causa de um erro do levantamento anterior (que dizia "sem luta"). Mantém EXP do Pokémon do jogador (sim) e o
+  concurso termina, em vez de whiteout, se o Pokémon do jogador desmaia (sim).
+
 ## Levantamento
 
-**Obrigatório antes de executar. Aprovado pelo usuário em:** _(ainda não)_
+**Obrigatório antes de executar. Aprovado pelo usuário em:** 2026-10-19 (levantamento reescrito depois da correção
+abaixo; o usuário aprovou a versão para a opção A)
 
-Base no Emerald: a Safari Zone (`src/safari_zone.c`, `src/battle_controller_safari.c`, `BATTLE_TYPE_SAFARI`,
-`data/scripts/safari_zone.inc`, `Route121_SafariZoneEntrance`). Já tem: flag de modo, contador de bolas, menu de
-batalha sem luta, entrada com taxa (500 lá, 5000 aqui), saída por script e menu de início só com "Retire".
+**Correção (2026-10-19):** a primeira versão deste levantamento partia de uma premissa errada do Gold. A batalha do
+concurso do Gold NÃO é do tipo Safari: é uma batalha selvagem normal (`BATTLETYPE_CONTEST`), menu FIGHT / PKMN /
+PARKBALL×N / RUN (`pokegold/engine/battle/menu.asm`). O jogador luta com o 1º Pokémon para enfraquecer o inseto, joga
+a Park Ball direto (sem abrir a mochila, `engine/battle/core.asm` ~4703), pode fugir sempre, e a batalha acaba quando as
+bolas zeram (`CheckContestBattleOver`). Decisão do usuário: opção A, fiel ao Gold.
 
-- **O que muda** (arquivos, símbolos, flags e vars):
-  - Novo `src/bug_catching_contest.c` + `include/bug_catching_contest.h`: flag de modo, 20 Park Balls
-    (`ITEM_PARK_BALL` já existe), timer de 20 min, pokémon capturado do concurso (um só, em EWRAM, não salvo),
-    pontuação (HP máx ×4 + Atk + Def + Spe + SpA + SpD + HP atual/8 + 1 se segura item, mais termo de IV a definir),
-    tabela dos 10 rivais, sorteio de 5, ranking 1º/2º/3º, guarda e devolução do resto da equipe.
-  - `src/battle_setup.c`: `BattleSetup_StartWildBattle` e um `DoBugContestBattle` (como `DoSafariBattle`).
-  - Menu da batalha do concurso só com Bola/Fugir (reaproveitar o controlador Safari ou uma variante dele).
-  - Captura: com o concurso ativo, o pokémon capturado NÃO vai para a equipe/PC; fica no slot do concurso, com a
-    pergunta de trocar se já houver um (pontos em `data/battle_scripts_2.s` e `Cmd_givecaughtmon`).
-  - `src/field_control_avatar.c`: checar o timer a cada passo (ao lado de `SafariZoneTakeStep`).
-  - `src/start_menu.c`: menu de início do concurso (Retire + janela com bolas e tempo), como o do Safari.
-  - `src/data/wild_encounters.json`: entrada de encounters do mapa do concurso (12 slots finais), só quando o mapa
-    existir.
-  - `data/specials.inc`, `data/scripts/` (novo `bug_catching_contest.inc`): scripts de entrada (taxa de 5000,
-    deixar o resto da equipe com o oficial), fim por tempo/bolas, juiz e prêmios (Sun Stone, Everstone, Sitrus Berry,
-    Oran Berry), textos em inglês.
-  - Flags/vars novas em `include/constants/flags.h` e `vars.h` (modo concurso; estado da entrada/saída).
-- **O que é compartilhado e pode quebrar:**
-  - `GetSafariZoneFlag()` e `BATTLE_TYPE_SAFARI` aparecem em ~15 pontos (batalha, healthbox, reshow, controllers,
-    start menu, overworld, double battle). Reusar o modo Safari muda o comportamento da Safari Zone real se eu errar a
-    condição; por isso o contest precisa de flag própria e o Safari deve continuar idêntico.
-  - Multa/taxa e retorno de mapa seguem o padrão da Safari; `src/overworld.c` limpa o flag do Safari em várias
-    transições (linhas ~409-486 e ~1634) e eu preciso fazer o mesmo para o flag do concurso.
-  - A tabela de encounters é compartilhada com o mapa novo; nenhum mapa existente é alterado.
-  - A pontuação depende de `CalculateMonStats` e dos campos de IV de `struct Pokemon`; só leio, não altero.
-- **Reaproveitamento do Pokémon Contest do Emerald (`src/contest.c`, `src/contest_util.c`):** só como padrão, não
-  dá para chamar nada direto (tudo é `static` ou preso a `gContestOpponents`/4 competidores):
-  - Sorteio sem repetição (`SetContestants`, contest.c ~2962): lista de candidatos, sorteia, remove da lista. Copiar o
-    padrão para sortear 5 dos 10 rivais.
-  - Desempate no ranking (`DetermineFinalStandings`, contest.c ~3648): sorteia uma ordem aleatória por competidor
-    antes de ordenar. Usar a mesma ideia no ranking 1º/2º/3º (melhor que o empate do Gold, que favorece quem entra
-    por último na comparação).
-  - Specials que põem nomes nas strings do script (`BufferContestantTrainerName`, `BufferContestWinnerTrainerName`,
-    contest_util.c ~1953): mesmo padrão para o juiz anunciar "classe + nome" e a espécie.
-  - Não reaproveitar: rodadas/apelos, IA, tela de resultados (4 competidores fixos) e `struct ContestPokemon`
-    (carrega golpes e condições que não usamos). O resultado sai em caixas de texto, como no Gold.
-- **Mapas e NPCs (feitos pelo usuário; recomendação, a confirmar):** dois mapas, como no Gold e na Safari Zone.
-  - Portão (entrada e resultado): oficial (entrada, taxa, juiz, prêmios) + 10 objetos de rival, todos começando
-    escondidos; depois do concurso os 5 sorteados aparecem. Mínimo: 11 NPCs. Dá para reduzir a 1 oficial + 5 rivais
-    trocando sprite e fala por variável, mas dá mais script; a recomendação é 11 objetos simples.
-  - Mapa do concurso (a grama): nenhum NPC obrigatório; só a grama com os encounters finais, a saída e, se quiser,
-    itens. Como os encounters são por mapa, a grama do concurso nunca dá encontro fora do concurso.
-  - Motivo de dois mapas: se a grama e o oficial ficarem no mesmo mapa, o mapa sempre daria os encounters do concurso
-    (ou precisaria de script para bloquear a área), e o fim do concurso teria que reorganizar o mesmo mapa (esconder a
-    grama, mostrar os rivais). Com portão separado, o fim é só um warp para o portão.
-- **O que não será tocado:**
-  - A Safari Zone do Hoenn (mapas, scripts, tabelas), os mapas existentes e os encounters das rotas.
-  - O mapa do concurso e o portão (criados pelo usuário); só deixo o espaço (IDs de flags e objetos dos 10 rivais).
-  - Sistema de captura de batalhas normais, evolução, EXP, e a tabela de treinadores (os 10 rivais já existem lá).
-- **Riscos e dúvidas:**
-  - Termo de IV da pontuação: DECIDIDO, sem termo extra; os IVs entram só via stats (a tabela de calibração vale).
-  - Timer: DECIDIDO (2026-10-17), contar passos como na Safari Zone, com 250 passos (decidido pelo usuário em
-    2026-10-17; constante única, fácil de mudar depois do teste). Mesmo ponto de ligação da Safari
-    (`field_control_avatar.c`, ao lado de `SafariZoneTakeStep`), e a janela do menu de início já mostra passos e bolas.
-    Isso troca a ideia anterior de usar o contador de tempo de jogo (`play_time.c`), descartada pelo usuário.
-  - Guardar o resto da equipe: não pode salvar durante o concurso (menu só com "Retire", como no Safari), mas um reset
-    ou desligar no meio devolve o save antigo com a equipe intacta (não salvamos no meio), então o backup só precisa
-    existir em EWRAM.
-  - Pergunta de trocar o pokémon capturado: DECIDIDO manter. A batalha já tem caixa Sim/Não em script
-    (`yesnobox` / `Cmd_yesnobox`, e o mesmo mecanismo de `Cmd_trygivecaughtmonnick`), então a pergunta dentro da
-    batalha parece viável. Plano B (se complicar muito): perguntar depois da batalha e, se o jogador tiver mais de
-    1 Pokémon, ele escolhe qual sai da equipe.
-  - Catch rate / Park Ball: DECIDIDO usar a taxa normal da espécie com a Park Ball como no Gold, onde a Park Ball
-    multiplica por 1,5 (mesma conta da Great Ball no Gold). No Emerald, `ITEM_PARK_BALL` existe (`secondaryId =
-    BALL_PARK`) mas `ComputeBallData` (`battle_script_commands.c` ~8018) não tem um `case BALL_PARK`, então hoje vale
-    1x. Falta adicionar `case BALL_PARK: ball->multiplier = 150`. Atenção: se a batalha do concurso reaproveitar
-    `BATTLE_TYPE_SAFARI`, a captura usa `safariCatchFactor` em vez da taxa da espécie; o concurso precisa de tipo de
-    batalha próprio (ou desviar essa condição) para usar a taxa normal.
-  - Nada será compilado por mim (regra do repo): você roda `make -j20`.
+### Regras (Gold) e como ficam aqui
+
+- Entrada: oficial pergunta, cobra 5000, deixa o resto da equipe com ele (só o 1º Pokémon, vivo e não ovo, fica),
+  dá 20 Park Balls e inicia o contador (aqui 250 passos, não 20 min).
+- Batalha: selvagem normal, 1 Pokémon do jogador, ganha EXP; menu com a Park Ball no lugar da mochila.
+- Só 1 capturado (`BugContest_SetCaughtContestMon`): a 1ª captura fica guardada. Se já houver uma guardada, o jogo
+  mostra "You already caught a X", compara (nome, nível, HP máx dos dois) e pergunta "Switch #MON?": Sim = o novo
+  substitui o antigo, Não = o novo é solto. A bola é gasta de qualquer jeito. Aqui: a mesma pergunta, dentro da
+  batalha, com `yesnobox` (mecanismo que a batalha já tem); texto simples com os dois lado a lado no lugar da tela de
+  comparação. Plano B, se travar: perguntar depois da batalha, num script de campo.
+- Fim: por passos, por bolas ou se o Pokémon do jogador desmaia (decisão do usuário: em vez de whiteout, vai para os
+  resultados). Volta ao portão, o juiz anuncia 3º, 2º e 1º e o resultado do jogador, o oficial dá o prêmio; o
+  Pokémon capturado vai para a equipe (ou caixa se cheia); a equipe volta.
+
+### O que muda (arquivos, símbolos, flags e vars)
+
+- Novo `src/bug_catching_contest.c` + `include/bug_catching_contest.h` (estado em EWRAM, nada salvo): contest ativo,
+  Park Balls restantes, passos restantes, Pokémon capturado (`struct Pokemon`), backup da equipe, rivais sorteados;
+  início e fim do concurso, passo (`BugContestTakeStep`), pontuação, tabela dos 10 rivais, sorteio dos 5,
+  ranking com desempate aleatório, specials de anúncio (nomes/espécies/pontos nas strings) e de entrega.
+  Pontuação: HP máx ×4 + Atk + Def + Spe + SpA + SpD + HP atual/8 + 1 se segura item (IVs só via stats).
+- `src/battle_controller_player.c` (`HandleInputChooseAction`, caso do botão de cima à direita): no concurso, emitir
+  `B_ACTION_THROW_BALL` no lugar de `B_ACTION_USE_ITEM`. Já existe o caminho de jogar bola direto (usado pelo "último
+  item usado"), então não preciso abrir a mochila.
+- `src/battle_util.c` (`HandleAction_ThrowBall`): no concurso, a bola é `ITEM_PARK_BALL` e desconta o contador do
+  concurso em vez de `RemoveBagItem`.
+- Texto do menu de ação ("BAG" -> "PARK BALL ×N") em `src/battle_controller_player.c` / `battle_message.c`.
+- `src/battle_main.c`: fim da batalha por bolas zeradas (reaproveitar `B_OUTCOME_NO_SAFARI_BALLS` ou nova condição, na
+  checagem de fim de turno), e Fugir sempre permitido.
+- `src/battle_script_commands.c`: `Cmd_givecaughtmon` (e `Cmd_trygivecaughtmonnick` sem apelido) com ramo do concurso,
+  que guarda o Pokémon no slot do concurso com a pergunta de trocar; `ComputeBallData` com `case BALL_PARK` x1,5 como
+  no Gold. Dados em `data/battle_scripts_*.s` e strings novas em `include/constants/battle_string_ids.h` /
+  `src/battle_message.c`.
+- `src/battle_setup.c`: `CB2_EndWildBattle` (e o caminho de derrota) com ramo do concurso: bolas zeradas ou lead
+  desmaiado -> script de fim; captura normal -> volta ao campo.
+- Whiteout: `src/overworld.c` (`DoWhiteOut`, `CB2_WhiteOut`) e `src/field_poison.c` (envenenamento no campo) com ramo
+  do concurso -> resultados, em vez de whiteout.
+- `src/field_control_avatar.c`: um passo do concurso ao lado de `SafariZoneTakeStep`.
+- `src/start_menu.c`: menu de início do concurso (Pokémon, Bolsa, Retire; sem Salvar) + janela com bolas e passos,
+  como a da Safari (`BuildSafariZoneStartMenu`, `ShowSafariBallsWindow`).
+- `src/data/wild_encounters.json`: entrada de `MAP_MOTH_GARDEN` com os 12 slots finais.
+- `data/specials.inc` e novo `data/scripts/bug_catching_contest.inc`: entrada (taxa de 5000, deixar a equipe, 20 bolas),
+  fim por tempo/bolas/desmaio, juiz, prêmios (Sun Stone, Everstone, Sitrus Berry, Oran Berry) e fala de cada rival;
+  textos em inglês. Scripts do portão em `data/maps/VerdanturfTown_MothGarden_Entrance/scripts.inc` e guarda em
+  `data/maps/MothGarden/scripts.inc`.
+- `include/constants/flags.h`: 10 flags de "rival escondido" (uma por rival; só os 5 sorteados aparecem no portão
+  depois do concurso). Sem flag de modo: o estado do concurso fica em EWRAM e some no reset.
+
+### Reaproveitamento do Pokémon Contest do Emerald (`src/contest.c`, `src/contest_util.c`)
+
+Só como padrão, nada é chamável (tudo `static` ou preso a `gContestOpponents`/4 competidores):
+- Sorteio sem repetição (`SetContestants`, contest.c ~2962): para sortear 5 dos 10 rivais.
+- Desempate aleatório (`DetermineFinalStandings`, contest.c ~3648): sorteia uma ordem por competidor antes de ordenar.
+- Specials que põem nomes nas strings (`BufferContestantTrainerName`, contest_util.c ~1953): modelo para o juiz.
+- Não reaproveitar: rodadas/apelos, IA, tela de resultados e `struct ContestPokemon`.
+
+### Mapas e NPCs
+
+Os dois mapas já existem (ver Decisões de 2026-10-18). NPCs que o usuário coloca no Porymap, ligando aos scripts que eu
+escrevo: no portão, 1 oficial + 10 rivais (todos escondidos pelas flags novas; só os sorteados aparecem); no
+Moth Garden, nenhum obrigatório. Não vou criar objetos nos mapas (posição e sprite são escolhas dele). Os 2 warps
+do portão para o Moth Garden hoje levam direto para a grama: o ideal é trocá-los por gatilhos (coord event) que chamam
+o script de entrada, e eu ponho uma guarda no Moth Garden (se o concurso não estiver ativo, volta ao portão).
+
+### O que é compartilhado e pode quebrar
+
+- Menu de ação, lançamento de bola, fim de batalha, whiteout e passos valem para TODAS as batalhas e para o jogo
+  todo; cada mudança fica atrás de "concurso ativo" (EWRAM). Fora do concurso o comportamento precisa continuar
+  idêntico. Risco maior: `HandleAction_ThrowBall` e `Cmd_givecaughtmon` (captura normal) e `DoWhiteOut`.
+- A equipe fica mascarada durante o concurso (backup em EWRAM, restauro no fim). Sem salvar no meio (menu do concurso
+  não tem Salvar); um reset volta ao save antigo com a equipe intacta.
+- `ITEM_PARK_BALL` já existe (Pal Park); o `case BALL_PARK` só vale quando alguém joga uma Park Ball, que hoje só o
+  concurso faz.
+- A tabela de encounters é por mapa: o Moth Garden só dá os encounters do concurso, nenhum outro mapa muda.
+- A Safari Zone não é tocada (o concurso não usa o modo nem o contador dela).
+
+### O que não será tocado
+
+- A Safari Zone (mapas, scripts, tabelas), os outros mapas e encounters, a tabela de treinadores (os 10 rivais já
+  existem lá) e o sistema de captura de batalhas normais fora do concurso.
+- Layout, objetos e eventos dos dois mapas (do usuário).
+
+### Riscos e dúvidas
+
+- Pergunta de trocar dentro da batalha: o `yesnobox` existe, mas preciso de strings novas com nomes e níveis nas
+  duas espécies; se ficar frágil, plano B (perguntar depois da batalha).
+- Desmaio do lead durante o concurso: terminar o concurso exige cortar o caminho de derrota do `CB2_EndWildBattle`
+  antes do whiteout (e igual no veneno do campo); é o ponto mais delicado.
+- Catch rate: taxa normal da espécie x1,5 (Park Ball). A pontuação e os rivais ficam como definidos acima.
+- Nada será compilado por mim (regra do repo): você roda `make -j20`.
 
 ## Pontos de código
 
@@ -158,7 +186,7 @@ batalha sem luta, entrada com taxa (500 lá, 5000 aqui), saída por script e men
 
 ## Progresso
 
-- [ ] Levantamento aprovado
+- [x] Levantamento aprovado (2026-10-19)
 - [ ] Implementação
 - [ ] Build e `make check`
 - [ ] Teste no emulador
