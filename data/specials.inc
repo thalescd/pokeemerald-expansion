@@ -228,6 +228,7 @@ gSpecials::
 	def_special BugContest_CheckEntry
 	def_special BugContest_Start
 	def_special BugContest_Finish
+	def_special BugContest_CheckBoard
 	def_special BugContest_BufferPlace
 	def_special BugContest_BufferPlayerResult
 	def_special BugContest_GivePlayerMon

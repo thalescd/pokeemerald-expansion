@@ -148,6 +148,7 @@ EWRAM_DATA static u16 sRivalSpecies[NUM_BUG_CONTEST_RIVALS] = {0};
 EWRAM_DATA static u16 sRivalScore[NUM_BUG_CONTEST_RIVALS] = {0};
 EWRAM_DATA static struct BugContestStanding sStandings[NUM_BUG_CONTEST_CONTESTANTS] = {0};
 EWRAM_DATA static u8 sPlayerPlace = 0; // 1-3 if the player placed, otherwise 0
+EWRAM_DATA static bool8 sHasStandings = FALSE; // a contest has been judged since the game was started
 
 static const u8 sText_BattleMenuStart[] = _("Battle{CLEAR_TO 56}Ball ");
 static const u8 sText_BattleMenuEnd[] = _("\nPokémon{CLEAR_TO 56}Run");
@@ -303,6 +304,8 @@ static void JudgeContest(void)
         }
     }
 
+    sHasStandings = TRUE;
+
     sPlayerPlace = 0;
     if (sHasContestMon)
     {
@@ -413,6 +416,13 @@ void BugContest_Finish(void)
 {
     if (sIsActive)
         FinishContest();
+}
+
+// gSpecialVar_Result: TRUE if there are results of a contest to show on the board.
+// They are only kept in memory, so they are gone after the game is reset.
+void BugContest_CheckBoard(void)
+{
+    gSpecialVar_Result = sHasStandings;
 }
 
 // gSpecialVar_0x8004: 0 first place, 1 second place, 2 third place

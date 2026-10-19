@@ -5,6 +5,9 @@
 @   Officer      script VerdanturfTown_MothGarden_Entrance_EventScript_Officer
 @   Trigger      coord event on the tile in front of the counter, script VerdanturfTown_MothGarden_Entrance_EventScript_EntranceTrigger
 @   Rival N      script VerdanturfTown_MothGarden_Entrance_EventScript_RivalN, flag FLAG_HIDE_BUG_CONTEST_RIVAL_N (N = 1 to 10)
+@   Receptionist script VerdanturfTown_MothGarden_Entrance_EventScript_Receptionist, at (6,9) facing left behind the counter
+@   Sign         bg event, script VerdanturfTown_MothGarden_Entrance_EventScript_RankingBoard
+@ After a contest the player is walked to (4,9), in front of the receptionist, who announces the results.
 
 VerdanturfTown_MothGarden_Entrance_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, VerdanturfTown_MothGarden_Entrance_OnTransition
@@ -30,9 +33,65 @@ VerdanturfTown_MothGarden_Entrance_EventScript_HideRivals::
 	return
 
 VerdanturfTown_MothGarden_Entrance_OnFrame:
-	map_script_2 VAR_BUG_CONTEST_STATE, BUG_CONTEST_STATE_RESULTS, BugContest_EventScript_Results
+	map_script_2 VAR_BUG_CONTEST_STATE, BUG_CONTEST_STATE_RESULTS, VerdanturfTown_MothGarden_Entrance_EventScript_WalkToReceptionist
 	map_script_2 VAR_BUG_CONTEST_STATE, BUG_CONTEST_STATE_IN_CONTEST, VerdanturfTown_MothGarden_Entrance_EventScript_LeftContestEarly
 	.2byte 0
+
+@ Every end of a contest brings the player back on the warp at (4,21). The receptionist, at (6,9) behind the counter
+@ at (5,9), announces the results to the player standing at (4,9).
+VerdanturfTown_MothGarden_Entrance_EventScript_WalkToReceptionist::
+	lockall
+	applymovement LOCALID_PLAYER, VerdanturfTown_MothGarden_Entrance_Movement_WalkToReceptionist
+	waitmovement 0
+	goto BugContest_EventScript_Results
+	end
+
+VerdanturfTown_MothGarden_Entrance_Movement_WalkToReceptionist:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	face_right
+	step_end
+
+VerdanturfTown_MothGarden_Entrance_EventScript_Receptionist::
+	lockall
+	faceplayer
+	goto_if_ne VAR_BUG_CONTEST_PRIZE, ITEM_NONE, VerdanturfTown_MothGarden_Entrance_EventScript_HandOverPrize
+	msgbox VerdanturfTown_MothGarden_Entrance_Text_ReceptionistInfo, MSGBOX_DEFAULT
+	releaseall
+	end
+
+@ The board shows the first three places of the last contest. They are only kept in memory.
+VerdanturfTown_MothGarden_Entrance_EventScript_RankingBoard::
+	lockall
+	special BugContest_CheckBoard
+	goto_if_eq VAR_RESULT, FALSE, VerdanturfTown_MothGarden_Entrance_EventScript_BoardEmpty
+	msgbox VerdanturfTown_MothGarden_Entrance_Text_BoardTitle, MSGBOX_DEFAULT
+	setvar VAR_0x8004, 0
+	special BugContest_BufferPlace
+	msgbox VerdanturfTown_MothGarden_Entrance_Text_BoardFirst, MSGBOX_DEFAULT
+	setvar VAR_0x8004, 1
+	special BugContest_BufferPlace
+	msgbox VerdanturfTown_MothGarden_Entrance_Text_BoardSecond, MSGBOX_DEFAULT
+	setvar VAR_0x8004, 2
+	special BugContest_BufferPlace
+	msgbox VerdanturfTown_MothGarden_Entrance_Text_BoardThird, MSGBOX_DEFAULT
+	releaseall
+	end
+
+VerdanturfTown_MothGarden_Entrance_EventScript_BoardEmpty::
+	msgbox VerdanturfTown_MothGarden_Entrance_Text_BoardEmpty, MSGBOX_DEFAULT
+	releaseall
+	end
 
 @ The player walked out of the garden while the contest was still running.
 VerdanturfTown_MothGarden_Entrance_EventScript_LeftContestEarly::
@@ -292,3 +351,29 @@ VerdanturfTown_MothGarden_Entrance_Text_RivalResult:
 VerdanturfTown_MothGarden_Entrance_Text_RivalNotCompeting:
 	.string "I wasn't in this CONTEST.\n"
 	.string "Maybe next time!$"
+
+VerdanturfTown_MothGarden_Entrance_Text_ReceptionistInfo:
+	.string "The results of the last CONTEST are\n"
+	.string "posted on the board.\p"
+	.string "If you want to take part, please\n"
+	.string "talk to the officer at the counter.$"
+
+VerdanturfTown_MothGarden_Entrance_Text_BoardEmpty:
+	.string "BUG CATCHING CONTEST\n"
+	.string "No CONTEST has been held yet.$"
+
+VerdanturfTown_MothGarden_Entrance_Text_BoardTitle:
+	.string "BUG CATCHING CONTEST\n"
+	.string "Results of the last CONTEST$"
+
+VerdanturfTown_MothGarden_Entrance_Text_BoardFirst:
+	.string "1st: {STR_VAR_1}\n"
+	.string "{STR_VAR_2}, {STR_VAR_3} points$"
+
+VerdanturfTown_MothGarden_Entrance_Text_BoardSecond:
+	.string "2nd: {STR_VAR_1}\n"
+	.string "{STR_VAR_2}, {STR_VAR_3} points$"
+
+VerdanturfTown_MothGarden_Entrance_Text_BoardThird:
+	.string "3rd: {STR_VAR_1}\n"
+	.string "{STR_VAR_2}, {STR_VAR_3} points$"

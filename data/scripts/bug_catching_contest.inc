@@ -130,6 +130,7 @@ BugContest_Text_OutOfBalls:
 	.string "The CONTEST is over!$"
 
 BugContest_Text_ReadyToJudge:
+	.string "Welcome back!\p"
 	.string "Let's judge the\n"
 	.string "BUG CATCHING CONTEST!\p"
 	.string "We'll announce the results now.$"
