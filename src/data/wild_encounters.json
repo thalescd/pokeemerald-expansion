@@ -36947,6 +36947,75 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_MOTH_GARDEN",
+          "base_label": "gMothGarden",
+          "land_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 9,
+                "max_level": 19,
+                "species": "SPECIES_WURMPLE"
+              },
+              {
+                "min_level": 9,
+                "max_level": 17,
+                "species": "SPECIES_GRUBBIN"
+              },
+              {
+                "min_level": 9,
+                "max_level": 18,
+                "species": "SPECIES_SURSKIT"
+              },
+              {
+                "min_level": 9,
+                "max_level": 18,
+                "species": "SPECIES_CUTIEFLY"
+              },
+              {
+                "min_level": 13,
+                "max_level": 18,
+                "species": "SPECIES_SIZZLIPEDE"
+              },
+              {
+                "min_level": 13,
+                "max_level": 18,
+                "species": "SPECIES_SKORUPI"
+              },
+              {
+                "min_level": 14,
+                "max_level": 16,
+                "species": "SPECIES_SCYTHER"
+              },
+              {
+                "min_level": 14,
+                "max_level": 16,
+                "species": "SPECIES_PINSIR"
+              },
+              {
+                "min_level": 14,
+                "max_level": 15,
+                "species": "SPECIES_HERACROSS"
+              },
+              {
+                "min_level": 14,
+                "max_level": 16,
+                "species": "SPECIES_DURANT"
+              },
+              {
+                "min_level": 14,
+                "max_level": 15,
+                "species": "SPECIES_HERACROSS"
+              },
+              {
+                "min_level": 14,
+                "max_level": 16,
+                "species": "SPECIES_DURANT"
+              }
+            ]
+          }
         }
       ]
     },

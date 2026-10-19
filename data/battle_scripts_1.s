@@ -2911,6 +2911,7 @@ BattleScript_RivalBattleLostSkipMonRecall::
 	end
 
 BattleScript_LocalBattleLost::
+	jumpifbattletype BATTLE_TYPE_BUG_CONTEST, BattleScript_BugContestLost
 	jumpifbattletype BATTLE_TYPE_DOME, BattleScript_CheckDomeDrew
 	jumpifbattletype BATTLE_TYPE_FRONTIER, BattleScript_LocalBattleLostPrintTrainersWinText
 	jumpifbattletype BATTLE_TYPE_TRAINER_HILL, BattleScript_LocalBattleLostPrintTrainersWinText
@@ -2942,6 +2943,11 @@ BattleScript_LocalBattleLostEnd::
 BattleScript_LocalBattleLostEnd::
 	end
 .endif
+
+BattleScript_BugContestLost::
+	printstring STRINGID_BUGCONTESTLOST
+	waitmessage B_WAIT_TIME_LONG
+	end
 
 BattleScript_CheckDomeDrew::
 	jumpifbyte CMP_EQUAL, gBattleOutcome, B_OUTCOME_DREW, BattleScript_LocalBattleLostEnd_

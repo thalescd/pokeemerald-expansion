@@ -5,6 +5,7 @@
 #include "battle_arena.h"
 #include "battle_environment.h"
 #include "battle_pyramid.h"
+#include "bug_catching_contest.h"
 #include "battle_util.h"
 #include "battle_controllers.h"
 #include "battle_interface.h"
@@ -706,6 +707,11 @@ bool32 TryRunFromBattle(enum BattlerId battler)
     {
         effect = TRUE;
     }
+    else if (gBattleTypeFlags & BATTLE_TYPE_BUG_CONTEST)
+    {
+        // The player can always run away from the Bug Catching Contest
+        effect = TRUE;
+    }
     else
     {
         enum BattlerId runningFromBattler = GetOppositeBattler(battler);
@@ -861,9 +867,18 @@ void HandleAction_ThrowBall(void)
     gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
-    gLastUsedItem = gBallToDisplay;
-    if (!GetItemImportance(gLastUsedItem))
-        RemoveBagItem(gLastUsedItem, 1);
+    if (gBattleTypeFlags & BATTLE_TYPE_BUG_CONTEST)
+    {
+        // The Bug Catching Contest has its own Park Balls, they are not in the Bag
+        gNumBugContestBalls--;
+        gLastUsedItem = ITEM_PARK_BALL;
+    }
+    else
+    {
+        gLastUsedItem = gBallToDisplay;
+        if (!GetItemImportance(gLastUsedItem))
+            RemoveBagItem(gLastUsedItem, 1);
+    }
     gBattlescriptCurrInstr = BattleScript_BallThrow;
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }
