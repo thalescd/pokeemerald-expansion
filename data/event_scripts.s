@@ -1740,3 +1740,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/apricorn_tree.inc"
 	.include "data/scripts/wild_encounter.inc"
 	.include "data/maps/ScorchedSlab_B1F/scripts.inc"
+
+	.include "data/maps/MothGarden/scripts.inc"
+
+	.include "data/maps/VerdanturfTown_MothGarden_Entrance/scripts.inc"
