@@ -1720,8 +1720,6 @@ enum NationalDexOrder
     F(AEGISLASH) \
     F(SPRITZEE) \
     F(AROMATISSE) \
-    F(SWIRLIX) \
-    F(SLURPUFF) \
     F(INKAY) \
     F(MALAMAR) \
     F(SKRELP) \
