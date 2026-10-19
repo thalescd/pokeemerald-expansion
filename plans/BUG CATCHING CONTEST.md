@@ -208,7 +208,7 @@ o script de entrada, e eu ponho uma guarda no Moth Garden (se o concurso não es
 
 - [x] Levantamento aprovado (2026-10-19)
 - [x] Implementação (2026-10-19)
-- [x] Build (o usuário compilou e testou; `make check` não rodado)
+- [x] Build e `make check` (2026-10-19: o usuário rodou `make check`, sem novas falhas)
 - [ ] Teste no emulador (parcial: captura, troca e avaliação ok; ver o Progresso)
 - [ ] Commits
 - [ ] Merge na `master`
@@ -235,6 +235,20 @@ de evento em maiúsculas, BAG, BOX, EGG e CONTEST (2484 POKéMON contra 24 Poké
 foram ajustados (POKéMON, MOTH GARDEN, PARK BALLS, BUG CATCHING CONTEST, BAG, BOX, EGG, CONTEST). As strings de batalha
 em `src/battle_message.c` seguem o padrão misto da expansão ("Safari Balls", "Pokémon"), então ficaram como estão. O
 nome do mapa no mapa regional já era MOTH GARDEN, só o texto dos diálogos estava em minúsculas. Não testado no jogo.
+
+2026-10-19: melhorias do portão pedidas pelo usuário (objetos novos no mapa: uma placa em (4,1) e uma recepcionista
+`OBJ_EVENT_GFX_CABLE_CLUB_RECEPTIONIST` em (6,9)). Decisões: (1) a placa mostra só os 3 primeiros do último concurso e
+fica só em memória (não vai para o save); sem resultado em memória, ela diz que ainda não houve concurso. (2) Depois de
+qualquer fim de concurso o jogador chega no warp (4,21) e é levado andando até (4,9), em frente à recepcionista, que
+anuncia os resultados e entrega o prêmio. Implementado: script `..._EventScript_WalkToReceptionist` (movimento de 12
+passos para cima e virar à direita, conferido na grade de colisão do layout), `..._EventScript_Receptionist` (entrega o
+prêmio guardado ou explica onde está o ranking), `..._EventScript_RankingBoard`, special `BugContest_CheckBoard` e texto
+"Welcome back!" nos resultados; os dois scripts foram ligados no `map.json`. Não testado no jogo.
+
+2026-10-19: testado pelo usuário, OK: prêmio do 2º lugar, placa de ranking e recepcionista (o jogador anda até ela e ela
+anuncia os resultados). Também testado pelo usuário, OK: gatilho do balcão com Pokémon desmaiado, e todos os fins do concurso (passos, bolas,
+Retire, saída do jardim e desmaio) com o mesmo resultado. Ainda sem teste: prêmio do 3º lugar, mochila cheia, gatilho
+sem dinheiro e com ovo, Fly/Teleport/Eon Flute bloqueados e a Safari Zone.
 
 Diferenças em relação ao levantamento:
 - Sem `ResetBugContest` e sem flag de modo: o estado é só EWRAM e some no reset, como previsto. Viagem rápida:
