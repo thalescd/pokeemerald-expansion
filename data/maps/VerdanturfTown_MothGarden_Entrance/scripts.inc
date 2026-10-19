@@ -220,71 +220,75 @@ VerdanturfTown_MothGarden_Entrance_EventScript_RivalNotCompeting::
 	end
 
 VerdanturfTown_MothGarden_Entrance_Text_WouldYouLikeToJoin:
-	.string "Welcome to the Bug Catching Contest!\p"
-	.string "Catch the best bug Pokémon in the\n"
-	.string "Moth Garden and compete for prizes.\p"
+	.string "Welcome to the\n"
+	.string "BUG CATCHING CONTEST!\p"
+	.string "Catch the best bug POKéMON in the\n"
+	.string "MOTH GARDEN and compete for prizes.\p"
 	.string "The entry fee is ¥5,000.\n"
 	.string "Would you like to take part?$"
 
 VerdanturfTown_MothGarden_Entrance_Text_AskToUseFirstMon:
-	.string "Only your first Pokémon takes part.\p"
+	.string "Only your first POKéMON takes part.\p"
 	.string "We'll hold on to the rest of your\n"
-	.string "party until the contest is over.\p"
+	.string "party until the CONTEST is over.\p"
 	.string "Is that all right?$"
 
 VerdanturfTown_MothGarden_Entrance_Text_ThatWillBe5000Please:
 	.string "That will be ¥5,000, please.$"
 
 VerdanturfTown_MothGarden_Entrance_Text_HereAreYourParkBalls:
-	.string "Here are your Park Balls.$"
+	.string "Here are your PARK BALLS.$"
 
 VerdanturfTown_MothGarden_Entrance_Text_ReceivedParkBalls:
-	.string "{PLAYER} received 20 Park Balls!$"
+	.string "{PLAYER} received 20 PARK BALLS!$"
 
 VerdanturfTown_MothGarden_Entrance_Text_ExplainRules:
-	.string "The Pokémon you catch must be the\n"
-	.string "best of the Moth Garden.\p"
-	.string "You have 20 Park Balls and 250 steps.\p"
-	.string "You can only keep one Pokémon.\n"
+	.string "You start with 20 PARK BALLS for\n"
+	.string "catching POKéMON in the MOTH GARDEN.\p"
+	.string "The CONTEST is over when you run\n"
+	.string "out of PARK BALLS, or when you've\l"
+	.string "walked 250 steps.\p"
+	.string "You can only keep one POKéMON.\n"
 	.string "The rest are released.\p"
-	.string "Whoever catches the best Pokémon\n"
+	.string "Whoever catches the best POKéMON\n"
 	.string "wins. Good luck!$"
 
 VerdanturfTown_MothGarden_Entrance_Text_TakePartInFuture:
 	.string "Please take part in the next one!$"
 
 VerdanturfTown_MothGarden_Entrance_Text_ChooseMonAndComeBack:
-	.string "Choose the Pokémon you want to use\n"
+	.string "Choose the POKéMON you want to use\n"
 	.string "and come back.$"
 
 VerdanturfTown_MothGarden_Entrance_Text_EggAsFirstMon:
-	.string "Your first Pokémon is an Egg.\p"
-	.string "Please put a Pokémon that can battle\n"
+	.string "Your first POKéMON is an EGG.\p"
+	.string "Please put a POKéMON that can battle\n"
 	.string "first and come back.$"
 
 VerdanturfTown_MothGarden_Entrance_Text_FirstMonCantBattle:
-	.string "Your first Pokémon can't battle.\p"
+	.string "Your first POKéMON can't battle.\p"
 	.string "Please heal it or choose another one\n"
 	.string "and come back.$"
 
 VerdanturfTown_MothGarden_Entrance_Text_MakeRoom:
-	.string "Your party and your Boxes are full.\p"
-	.string "Please make room for the Pokémon you\n"
-	.string "may catch and come back.$"
+	.string "Your party and your BOXES are full.\p"
+	.string "Please make room for the POKéMON\n"
+	.string "you may catch and come back.$"
 
 VerdanturfTown_MothGarden_Entrance_Text_NotEnoughMoney:
 	.string "You don't have enough money.$"
 
 VerdanturfTown_MothGarden_Entrance_Text_WantToFinish:
-	.string "Do you want to finish the contest now?$"
+	.string "Do you want to finish the CONTEST now?$"
 
 VerdanturfTown_MothGarden_Entrance_Text_OkGoFinish:
 	.string "Okay! Go catch more bugs!$"
 
 VerdanturfTown_MothGarden_Entrance_Text_RivalResult:
-	.string "{STR_VAR_1}: I caught a {STR_VAR_2}.\n"
+	.string "{STR_VAR_1}:\n"
+	.string "I caught a {STR_VAR_2}.\p"
 	.string "It scored {STR_VAR_3} points.$"
 
 VerdanturfTown_MothGarden_Entrance_Text_RivalNotCompeting:
-	.string "I wasn't in this contest.\n"
+	.string "I wasn't in this CONTEST.\n"
 	.string "Maybe next time!$"

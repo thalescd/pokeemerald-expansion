@@ -19,6 +19,6 @@ MothGarden_EventScript_ContestNotRunning::
 	end
 
 MothGarden_Text_ContestNotRunning:
-	.string "The Bug Catching Contest isn't\n"
+	.string "The BUG CATCHING CONTEST isn't\n"
 	.string "running. Please talk to the officer\l"
 	.string "at the gate first.$"

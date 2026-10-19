@@ -117,35 +117,41 @@ BugContest_EventScript_NoPrize::
 	return
 
 BugContest_Text_WouldYouLikeToQuit:
-	.string "Would you like to end the Bug Catching\n"
-	.string "Contest right now?$"
+	.string "Would you like to end the\n"
+	.string "BUG CATCHING CONTEST right now?$"
 
 BugContest_Text_TimesUp:
 	.string "ANNOUNCER: Time's up!\p"
-	.string "The Bug Catching Contest is over!$"
+	.string "The BUG CATCHING CONTEST is over!$"
 
 BugContest_Text_OutOfBalls:
-	.string "ANNOUNCER: You're out of Park Balls!\p"
-	.string "The Bug Catching Contest is over!$"
+	.string "ANNOUNCER: You've run out of\n"
+	.string "PARK BALLS!\p"
+	.string "The CONTEST is over!$"
 
 BugContest_Text_ReadyToJudge:
-	.string "Let's judge the Bug Catching Contest!\p"
+	.string "Let's judge the\n"
+	.string "BUG CATCHING CONTEST!\p"
 	.string "We'll announce the results now.$"
 
 BugContest_Text_ThirdPlace:
-	.string "Placing third was {STR_VAR_1},\n"
+	.string "Placing third was\n"
+	.string "{STR_VAR_1},\l"
 	.string "who caught a {STR_VAR_2}!\p"
 	.string "The score was {STR_VAR_3} points!$"
 
 BugContest_Text_SecondPlace:
-	.string "Placing second was {STR_VAR_1},\n"
+	.string "Placing second was\n"
+	.string "{STR_VAR_1},\l"
 	.string "who caught a {STR_VAR_2}!\p"
 	.string "The score was {STR_VAR_3} points!$"
 
 BugContest_Text_FirstPlace:
-	.string "This Bug Catching Contest winner is\n"
-	.string "{STR_VAR_1}, who caught a {STR_VAR_2}!\p"
-	.string "The winning score was {STR_VAR_3} points!$"
+	.string "The winner of the CONTEST is\n"
+	.string "{STR_VAR_1}!\l"
+	.string "The winner caught a {STR_VAR_2}!\p"
+	.string "The winning score was\n"
+	.string "{STR_VAR_3} points!$"
 
 BugContest_Text_YouPlacedFirst:
 	.string "{PLAYER}, you won with your\n"
@@ -169,21 +175,21 @@ BugContest_Text_DidNotPlace:
 	.string "prize for taking part!$"
 
 BugContest_Text_NothingCaught:
-	.string "{PLAYER}, you didn't catch a Pokémon.\p"
+	.string "{PLAYER}, you didn't catch a POKéMON.\p"
 	.string "Here's a prize for taking part!$"
 
 BugContest_Text_WellHoldPrize:
-	.string "Your Bag is full.\p"
-	.string "We'll hold the prize for you. Come back\n"
-	.string "when you've made room.$"
+	.string "Your BAG is full.\p"
+	.string "We'll hold the prize for you.\n"
+	.string "Come back when you've made room.$"
 
 BugContest_Text_MonJoinedParty:
-	.string "The {STR_VAR_1} you caught has joined\n"
-	.string "your party!$"
+	.string "The {STR_VAR_1} you caught\n"
+	.string "has joined your party!$"
 
 BugContest_Text_PartyFullSentToBox:
-	.string "Your party is full, so the {STR_VAR_1}\n"
-	.string "you caught was sent to a Box.$"
+	.string "Your party is full, so the\n"
+	.string "{STR_VAR_1} you caught went to a BOX.$"
 
 BugContest_Text_JoinUsNextTime:
-	.string "Please join us for the next contest!$"
+	.string "Please join us for the next CONTEST!$"
