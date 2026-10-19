@@ -182,23 +182,89 @@ o script de entrada, e eu ponho uma guarda no Moth Garden (se o concurso não es
 
 ## Pontos de código
 
-<Arquivos e trechos que serão alterados, depois do levantamento aprovado.>
+- `src/bug_catching_contest.c` + `include/bug_catching_contest.h` + `include/constants/bug_catching_contest.h` (novos):
+  estado em EWRAM, tabela dos 10 rivais, sorteio, pontuação, ranking, specials, `BugContest_DoWhiteOut`.
+- `data/scripts/bug_catching_contest.inc` (novo): fim por tempo/bolas/desistência, resultados, prêmio, textos.
+- `data/maps/VerdanturfTown_MothGarden_Entrance/scripts.inc`: oficial, cena de resultados, saída antecipada, 10 rivais,
+  esconder rivais. `data/maps/MothGarden/scripts.inc`: guarda (volta ao portão se o concurso não está rodando).
+- `include/constants/flags.h` (10 flags `FLAG_HIDE_BUG_CONTEST_RIVAL_N`, eram `FLAG_UNUSED_0x02B`-`0x034`),
+  `include/constants/vars.h` (`VAR_BUG_CONTEST_STATE` = antigo `VAR_UNUSED_0x40DB`, `VAR_BUG_CONTEST_PRIZE` = antigo
+  `VAR_UNUSED_0x40DC`), `include/constants/battle.h` (`BATTLE_TYPE_BUG_CONTEST` = antigo `BATTLE_TYPE_14`, sem uso).
+- `src/battle_controller_player.c`: botão da mochila vira jogar Park Ball; texto do menu "Ball NN".
+- `src/battle_util.c`: `HandleAction_ThrowBall` (Park Ball + contador do concurso), `TryRunFromBattle` (fugir sempre).
+- `src/battle_interface.c`: `CanThrowLastUsedBall` desligado no concurso.
+- `src/battle_script_commands.c`: `case BALL_PARK` x1,5; `Cmd_givecaughtmon` com ramo do concurso e a pergunta de
+  trocar (`yesnobox` no mesmo estilo da pergunta de enviar o Pokémon para a equipe).
+- `data/battle_scripts_2.s`: sem apelido no concurso; fim por bolas zeradas. `data/battle_scripts_1.s`: derrota do
+  concurso sem perder dinheiro.
+- `src/battle_message.c` + `include/constants/battle_string_ids.h`: 3 strings novas.
+- `src/battle_setup.c`: tipo de batalha do concurso e fim por bolas zeradas. `src/overworld.c`: `DoWhiteOut` /
+  `CB2_WhiteOut` terminam o concurso. `src/field_control_avatar.c`: passo. `src/start_menu.c`: menu do concurso.
+  `src/wild_encounter.c`: sem batalha dupla no concurso. `src/party_menu.c`: sem Fly no concurso.
+- `src/data/wild_encounters.json`: `MAP_MOTH_GARDEN` com os 12 slots, taxa 30.
+- `data/specials.inc`, `data/event_scripts.s`: specials e include do novo `.inc`.
 
 ## Progresso
 
 - [x] Levantamento aprovado (2026-10-19)
-- [ ] Implementação
-- [ ] Build e `make check`
-- [ ] Teste no emulador
+- [x] Implementação (2026-10-19)
+- [x] Build (o usuário compilou e testou; `make check` não rodado)
+- [ ] Teste no emulador (parcial: captura, troca e avaliação ok; ver o Progresso)
 - [ ] Commits
 - [ ] Merge na `master`
 
-<Registrar aqui, com data, o que foi feito e o que foi verificado ou ainda não foi testado.>
+2026-10-19: implementação escrita seguindo o levantamento. Verificado só por leitura do código (não compilei, regra do
+repositório; o usuário roda `make -j20`). Nada foi testado no jogo.
+
+2026-10-19: primeiro teste do usuário no emulador, falhou: as capturas iam para a party e o 6º para o PC, e a equipe
+guardada apagava os 5 ao voltar. Causa: `displaydexinfo` deixa `gBattleCommunication[0]` alto e o caminho do concurso
+pulava o passo do apelido, que o zerava; `givecaughtmon` começava em "entregar à party". Corrigido com um
+`setbyte gBattleCommunication, 0` antes do `givecaughtmon` (`BattleScript_BugContestGiveCaughtMon`).
+
+2026-10-19: testes do usuário no emulador, OK: várias capturas seguidas, pergunta de trocar com Sim e com Não, Pokémon
+mantido e avaliado no fim, capturado com a party cheia indo para a caixa, gatilho do balcão (recusar entrar e recusar
+deixar a equipe), prêmios Oran Berry e Sun Stone, e batalhas normais fora do concurso. Falhou: Fly/Teleport/Eon Flute
+(ver abaixo, corrigido, aguardando teste). NÃO testado ainda: acabar por passos, por bolas, Retire, sair do jardim e
+desmaio (o usuário acredita que acabam do mesmo jeito), prêmios do 2º e 3º lugar, mochila cheia, gatilho sem dinheiro,
+ovo ou Pokémon desmaiado, e a Safari Zone.
+
+Diferenças em relação ao levantamento:
+- Sem `ResetBugContest` e sem flag de modo: o estado é só EWRAM e some no reset, como previsto. Viagem rápida:
+  2026-10-19, o usuário viu que Fly/Teleport/Eon Flute ainda funcionavam. Todos perguntam
+  `Overworld_MapTypeAllowsTeleportAndFly` (Fly, Teleport, Eon Flute, mapa regional e Pokénav), então o bloqueio agora
+  está nessa função (`src/overworld.c`), e o do `SetUpFieldMove_Fly` foi retirado. Escape Rope e Dig dependem de
+  `allow_escaping`, que está `false` nos dois mapas. Não usei `map_type` do mapa porque ele também muda iluminação e
+  clima, e a função cobre qualquer mapa. Aguardando teste do usuário.
+- A pergunta de trocar mostra só os nomes das duas espécies (os buffers de texto da batalha são pequenos demais para
+  nível e HP). A tela comparativa do Gold ficou para depois.
+- O concurso usa `gNumBugContestBalls` próprio (não o da Safari) e `B_OUTCOME_NO_SAFARI_BALLS` só como "sem bolas".
+- Os objetos (oficial, 10 rivais e o gatilho do balcão) não foram criados por mim: o usuário os colocou no Porymap
+  (conferido em 2026-10-19: scripts e flags batem).
 
 ## Pendências
 
-<O que ficou em aberto e depende de uma decisão ou de um teste.>
+- Colocar no portão o oficial e os 10 rivais, com os scripts e flags indicados no topo do `scripts.inc` do portão.
+- Gatilho (coord event) do portão: decidido em 2026-10-19 pôr na tile em frente ao balcão, (9,4), por onde passa quem
+  vai das portas para o lado do jardim (as jardineiras fecham a fileira de baixo). Script
+  `VerdanturfTown_MothGarden_Entrance_EventScript_EntranceTrigger` (só age andando para oeste; recusar empurra o
+  jogador de volta). Os warps (3,21) e (4,21) do portão ficam só para a chegada do jardim e deixam de ser alcançáveis a
+  pé. Falta criar o coord event no Porymap.
+- Posição de chegada no portão depois do concurso: hoje usa o warp 0 do portão, ou seja, a tile (4,21).
+- Grama do Moth Garden com os encounters (já cadastrados), e a taxa 30 pode ser ajustada depois do teste.
+- Recalibrar as pontuações dos rivais depois de ver as pontuações reais dos Pokémon capturados.
+- Tela de comparação ao trocar o Pokémon (com nível e HP), se o usuário quiser.
 
 ## Como testar
 
-<Roteiro passo a passo para o usuário conferir no emulador.>
+1. Compile: `make -j20`. Se der erro de compilação, me mande a saída.
+2. Fale com o oficial do portão (depois de colocá-lo no Porymap): entrar custa ¥5.000. Com mais de um Pokémon na equipe
+   ele pergunta se pode ficar com o resto.
+3. Dentro do Moth Garden, ande na grama: o menu de início mostra os passos restantes (250) e as bolas (20); o menu de
+   batalha tem "Ball 20" no lugar de "Bag" e joga a Park Ball direto.
+4. Capture um Pokémon, depois outro: deve perguntar se quer trocar. Sim troca, Não solta o novo.
+5. Teste os fins: acabar os passos, gastar as 20 bolas, desistir (Retire no menu de início), sair do jardim pela
+   saída, e deixar o Pokémon desmaiar. Em todos o jogador volta ao portão e ouve os resultados (3º, 2º, 1º e o seu).
+6. Confira o prêmio (1º Sun Stone, 2º Everstone, 3º Sitrus Berry, sem lugar Oran Berry), a equipe de volta, e o
+   Pokémon capturado na equipe (ou na caixa se a equipe estiver cheia).
+7. Confira que fora do concurso nada mudou: batalha selvagem normal, jogar bola da mochila, fugir, capturar, e a
+   Safari Zone.
