@@ -13,7 +13,151 @@
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_2",
+      "x": 9,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VerdanturfTown_MothGarden_Entrance_EventScript_Officer",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+      "x": 1,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VerdanturfTown_MothGarden_Entrance_EventScript_Rival1",
+      "flag": "FLAG_HIDE_BUG_CONTEST_RIVAL_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+      "x": 6,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VerdanturfTown_MothGarden_Entrance_EventScript_Rival2",
+      "flag": "FLAG_HIDE_BUG_CONTEST_RIVAL_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+      "x": 5,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VerdanturfTown_MothGarden_Entrance_EventScript_Rival3",
+      "flag": "FLAG_HIDE_BUG_CONTEST_RIVAL_3"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+      "x": 1,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VerdanturfTown_MothGarden_Entrance_EventScript_Rival4",
+      "flag": "FLAG_HIDE_BUG_CONTEST_RIVAL_4"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "x": 2,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VerdanturfTown_MothGarden_Entrance_EventScript_Rival5",
+      "flag": "FLAG_HIDE_BUG_CONTEST_RIVAL_5"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "x": 2,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VerdanturfTown_MothGarden_Entrance_EventScript_Rival6",
+      "flag": "FLAG_HIDE_BUG_CONTEST_RIVAL_6"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "x": 2,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VerdanturfTown_MothGarden_Entrance_EventScript_Rival7",
+      "flag": "FLAG_HIDE_BUG_CONTEST_RIVAL_7"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 5,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VerdanturfTown_MothGarden_Entrance_EventScript_Rival8",
+      "flag": "FLAG_HIDE_BUG_CONTEST_RIVAL_8"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
+      "x": 5,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VerdanturfTown_MothGarden_Entrance_EventScript_Rival9",
+      "flag": "FLAG_HIDE_BUG_CONTEST_RIVAL_9"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
+      "x": 6,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VerdanturfTown_MothGarden_Entrance_EventScript_Rival10",
+      "flag": "FLAG_HIDE_BUG_CONTEST_RIVAL_10"
+    }
+  ],
   "warp_events": [
     {
       "x": 4,
@@ -31,19 +175,29 @@
     },
     {
       "x": 15,
-      "y": 13,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_VERDANTURF_TOWN",
       "dest_warp_id": "7"
     },
     {
       "x": 16,
-      "y": 13,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_VERDANTURF_TOWN",
       "dest_warp_id": "7"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "VerdanturfTown_MothGarden_Entrance_EventScript_EntranceTrigger"
+    }
+  ],
   "bg_events": []
 }
