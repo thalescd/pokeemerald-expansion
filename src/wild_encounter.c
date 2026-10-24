@@ -2,6 +2,7 @@
 #include "battle_setup.h"
 #include "battle_pike.h"
 #include "battle_pyramid.h"
+#include "bug_catching_contest.h"
 #include "event_data.h"
 #include "fieldmap.h"
 #include "fishing.h"
@@ -1195,6 +1196,7 @@ static void ApplyCleanseTagEncounterRateMod(u32 *encRate)
 bool8 TryDoDoubleWildBattle(void)
 {
     if (GetSafariZoneFlag()
+      || IsBugContestActive()
       || (WE_DOUBLE_WILD_REQUIRE_2_MONS && GetMonsStateToDoubles() != PLAYER_HAS_TWO_USABLE_MONS))
         return FALSE;
     if (FollowerNPCIsBattlePartner() && FNPC_FLAG_PARTNER_WILD_BATTLES != 0

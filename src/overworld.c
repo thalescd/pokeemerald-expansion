@@ -5,6 +5,7 @@
 #include "battle_util.h"
 #include "berry.h"
 #include "bg.h"
+#include "bug_catching_contest.h"
 #include "cable_club.h"
 #include "credits_frlg.h"
 #include "clock.h"
@@ -394,6 +395,13 @@ static void (*const sMovementStatusHandler[])(struct LinkPlayerObjectEvent *, st
 // code
 void DoWhiteOut(void)
 {
+    if (IsBugContestActive())
+    {
+        // The Bug Catching Contest ends instead of a whiteout
+        BugContest_DoWhiteOut();
+        return;
+    }
+
     RunScriptImmediately(EventScript_WhiteOut);
     HealPlayerParty();
     Overworld_ResetStateAfterWhiteOut();
@@ -1556,6 +1564,10 @@ bool8 IsMapTypeOutdoors(enum MapType mapType)
 
 bool8 Overworld_MapTypeAllowsTeleportAndFly(enum MapType mapType)
 {
+    // No quick travel during the Bug Catching Contest (Fly, Teleport, Eon Flute and the like all ask this)
+    if (IsBugContestActive())
+        return FALSE;
+
     if (mapType == MAP_TYPE_ROUTE
      || mapType == MAP_TYPE_TOWN
      || mapType == MAP_TYPE_OCEAN_ROUTE
@@ -1951,6 +1963,8 @@ void CB2_WhiteOut(void)
 
     if (++gMain.state >= 120)
     {
+        bool32 isBugContest = IsBugContestActive();
+
         FieldClearVBlankHBlankCallbacks();
         StopMapMusic();
         ResetSafariZoneFlag_();
@@ -1958,7 +1972,7 @@ void CB2_WhiteOut(void)
         ResetInitialPlayerAvatarState();
         ScriptContext_Init();
         UnlockPlayerFieldControls();
-        if (IsWhiteoutCutscene())
+        if (!isBugContest && IsWhiteoutCutscene())
             gFieldCallback = FieldCB_RushInjuredPokemonToCenter;
         else
             gFieldCallback = FieldCB_WarpExitFadeFromBlack;

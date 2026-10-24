@@ -62,16 +62,16 @@
 #define FLAG_ITEM_ROUTE_119_TM_62                0x28
 #define FLAG_ITEM_FORTREE_TM_86                  0x29
 #define FLAG_GUESSED_FOSSIL_MON                  0x2A
-#define FLAG_UNUSED_0x02B                        0x2B // Unused Flag
-#define FLAG_UNUSED_0x02C                        0x2C // Unused Flag
-#define FLAG_UNUSED_0x02D                        0x2D // Unused Flag
-#define FLAG_UNUSED_0x02E                        0x2E // Unused Flag
-#define FLAG_UNUSED_0x02F                        0x2F // Unused Flag
-#define FLAG_UNUSED_0x030                        0x30 // Unused Flag
-#define FLAG_UNUSED_0x031                        0x31 // Unused Flag
-#define FLAG_UNUSED_0x032                        0x32 // Unused Flag
-#define FLAG_UNUSED_0x033                        0x33 // Unused Flag
-#define FLAG_UNUSED_0x034                        0x34 // Unused Flag
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_1            0x2B // Hidden Bug Catching Contest rival 1
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_2            0x2C // Hidden Bug Catching Contest rival 2
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_3            0x2D // Hidden Bug Catching Contest rival 3
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_4            0x2E // Hidden Bug Catching Contest rival 4
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_5            0x2F // Hidden Bug Catching Contest rival 5
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_6            0x30 // Hidden Bug Catching Contest rival 6
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_7            0x31 // Hidden Bug Catching Contest rival 7
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_8            0x32 // Hidden Bug Catching Contest rival 8
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_9            0x33 // Hidden Bug Catching Contest rival 9
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_10           0x34 // Hidden Bug Catching Contest rival 10
 #define FLAG_UNUSED_0x035                        0x35 // Unused Flag
 #define FLAG_UNUSED_0x036                        0x36 // Unused Flag
 #define FLAG_UNUSED_0x037                        0x37 // Unused Flag

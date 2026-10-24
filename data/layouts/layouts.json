@@ -159,7 +159,7 @@
       "id": "LAYOUT_VERDANTURF_TOWN",
       "name": "VerdanturfTown_Layout",
       "width": 20,
-      "height": 20,
+      "height": 33,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/VerdanturfTown/border.bin",
@@ -9334,6 +9334,26 @@
       "border_height": 2,
       "border_width": 2,
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_MOTH_GARDEN",
+      "name": "MothGarden_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/MothGarden/border.bin",
+      "blockdata_filepath": "data/layouts/MothGarden/map.bin"
+    },
+    {
+      "id": "LAYOUT_VERDANTURF_TOWN_MOTH_GARDEN_ENTRANCE",
+      "name": "VerdanturfTown_MothGarden_Entrance_Layout",
+      "width": 20,
+      "height": 23,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/VerdanturfTown_MothGarden_Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/VerdanturfTown_MothGarden_Entrance/map.bin"
     }
   ]
 }
