@@ -1,7 +1,7 @@
 # Plano: BUG CATCHING CONTEST
 
 - **Branch:** `plan/bug-catching-contest`
-- **Status:** planejado
+- **Status:** concluído
 - **Criado em:** 2026-10-17
 - **Escopo (pode alterar):** sistema do concurso (novo `bug_catching_contest.c/.h`, scripts e textos do concurso), pontos
   de ligação em batalha, menu de início, passos do jogador, flags/vars e specials (ver Levantamento)
@@ -209,9 +209,9 @@ o script de entrada, e eu ponho uma guarda no Moth Garden (se o concurso não es
 - [x] Levantamento aprovado (2026-10-19)
 - [x] Implementação (2026-10-19)
 - [x] Build e `make check` (2026-10-19: o usuário rodou `make check`, sem novas falhas)
-- [ ] Teste no emulador (parcial: captura, troca e avaliação ok; ver o Progresso)
-- [ ] Commits
-- [ ] Merge na `master`
+- [x] Teste no emulador (parcial, ver "Não testado antes do merge" em Pendências)
+- [x] Commits
+- [x] Merge na `master` (2026-10-24, a pedido do usuário; o usuário chamou a `master` de "main")
 
 2026-10-19: implementação escrita seguindo o levantamento. Verificado só por leitura do código (não compilei, regra do
 repositório; o usuário roda `make -j20`). Nada foi testado no jogo.
@@ -264,6 +264,10 @@ Diferenças em relação ao levantamento:
   (conferido em 2026-10-19: scripts e flags batem).
 
 ## Pendências
+
+**Não testado antes do merge (2026-10-24):** prêmio do 3º lugar (Sitrus Berry), mochila cheia (o oficial e a
+recepcionista guardam o prêmio), gatilho do balcão sem dinheiro e com ovo, Fly/Teleport/Eon Flute bloqueados durante o
+concurso, e a Safari Zone. O usuário decidiu fazer o merge mesmo assim.
 
 - Colocar no portão o oficial e os 10 rivais, com os scripts e flags indicados no topo do `scripts.inc` do portão.
 - Gatilho (coord event) do portão: decidido em 2026-10-19 pôr na tile em frente ao balcão, (9,4), por onde passa quem
