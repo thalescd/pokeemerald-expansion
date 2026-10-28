@@ -2776,6 +2776,10 @@ GabbyAndTy_Text_PerfectWellBeSeeingYou:
 	.string "Okay!\n"
 	.string "We'll be seeing you!$"
 
+GabbyAndTy_Text_TakeThisForTheInterview:
+	.string "GABBY: Oh, wait! Before you go,\n"
+	.string "take this as thanks for the interview!$"
+
 GabbyAndTy_Text_DontGiveUpKeepingEyeOut:
 	.string "GABBY: Oh…\p"
 	.string "Okay, but don't give up!\n"
