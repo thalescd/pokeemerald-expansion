@@ -534,8 +534,10 @@ SlateportCity_EventScript_PowerTMClerk::
 
 	.align 2
 SlateportCity_Pokemart_PowerTMs:
-	.2byte ITEM_TM_TRAILBLAZE
-	.2byte ITEM_TM_SECRET_POWER
+	.2byte ITEM_TM_FLING
+	.2byte ITEM_TM_GYRO_BALL
+	.2byte ITEM_TM_INFESTATION
+	.2byte ITEM_TM_GRASSY_GLIDE
 	pokemartlistend
 
 SlateportCity_EventScript_MintClerk::
