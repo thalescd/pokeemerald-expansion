@@ -3505,7 +3505,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_VIGOROTH] =
     {
         .baseHP        = 80,
-        .baseAttack    = 80,
+        .baseAttack    = 90,
         .baseDefense   = 80,
         .baseSpeed     = 90,
         .baseSpAttack  = 55,
