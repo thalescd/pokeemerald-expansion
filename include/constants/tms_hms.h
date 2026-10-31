@@ -97,7 +97,7 @@
     F(WILD_CHARGE) \
     F(THROAT_CHOP) \
     F(SNARL) \
-    F(MUD_SPORT) \
+    F(GRASSY_GLIDE) \
     F(DARK_PULSE) \
     F(WEATHER_BALL) \
     F(DAZZLING_GLEAM) \

@@ -302,6 +302,9 @@ GabbyAndTy_EventScript_Interview::
 	goto_if_eq VAR_RESULT, 0, GabbyAndTy_EventScript_DontGiveUpKeepingEyeOut
 	msgbox GabbyAndTy_Text_PerfectWellBeSeeingYou, MSGBOX_DEFAULT
 	special GabbyAndTyAfterInterview
+	msgbox GabbyAndTy_Text_TakeThisForTheInterview, MSGBOX_DEFAULT
+	giveitem ITEM_LINKING_CORD
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_TEMP_SKIP_GABBY_INTERVIEW
 	release
 	end
