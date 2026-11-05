@@ -33,7 +33,8 @@ SINGLE_BATTLE_TEST("Surger Surfer doesn't double speed if Neutralizing Gas is on
     }
 }
 
-SINGLE_BATTLE_TEST("Surger Sufer doesn't double speed in terrains other than Electric Terrain.")
+// Upstream only doubles Speed in Electric Terrain; in this romhack Surge Surfer works in any Terrain.
+SINGLE_BATTLE_TEST("Surger Sufer doubles speed in terrains other than Electric Terrain.")
 {
     enum Move move;
     PARAMETRIZE { move = MOVE_MISTY_TERRAIN; }
@@ -48,7 +49,7 @@ SINGLE_BATTLE_TEST("Surger Sufer doesn't double speed in terrains other than Ele
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, move, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
     }
 }
