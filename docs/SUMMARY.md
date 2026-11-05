@@ -60,6 +60,7 @@
   - [How to use the Mining Minigame](tutorials/how_to_mining_minigame.md)
 - [Changelog](./CHANGELOG.md)
     - [1.17.x]()
+        - [Version 1.17.2](changelogs/1.17.x/1.17.2.md)
         - [Version 1.17.1](changelogs/1.17.x/1.17.1.md)
         - [Version 1.17.0](changelogs/1.17.x/1.17.0.md)
     - [1.16.x]()

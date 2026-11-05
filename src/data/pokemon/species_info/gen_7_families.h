@@ -2538,6 +2538,17 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-4, 7, SHADOW_SIZE_L)
         FOOTPRINT(Wishiwashi)
+    #if OW_BATTLE_ONLY_FORMS
+        OVERWORLD(
+            sPicTable_WishiwashiSchool,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_WishiwashiSchool,
+            gShinyOverworldPalette_WishiwashiSchool
+        )
+    #endif //OW_BATTLE_ONLY_FORMS
         .levelUpLearnset = sWishiwashiLevelUpLearnset,
         .teachableLearnset = sWishiwashiTeachableLearnset,
         .eggMoveLearnset = sWishiwashiEggMoveLearnset,
@@ -4660,8 +4671,8 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
             SHADOW_SIZE_M,                                                          \
             TRACKS_FOOT,                                                            \
             sAnimTable_Following,                                                   \
-            gOverworldPalette_Silvally,                                             \
-            gShinyOverworldPalette_Silvally                                         \
+            gOverworldPalette_Silvally##_palette,                                   \
+            gShinyOverworldPalette_Silvally##_palette                               \
         )                                                                           \
         .isSubLegendary = TRUE,                                                     \
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,                               \
@@ -4795,6 +4806,15 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .iconPalIndex = iconPal,                                \
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,                 \
         SHADOW(-2, 12, SHADOW_SIZE_S)                           \
+        OVERWORLD(                                              \
+            sPicTable_MiniorCore,                               \
+            SIZE_32x32,                                         \
+            SHADOW_SIZE_M,                                      \
+            TRACKS_FOOT,                                        \
+            sAnimTable_Following,                               \
+            gOverworldPalette_MiniorCore##Form,                 \
+            gShinyOverworldPalette_MiniorCore                   \
+        )                                                       \
         .formChangeTable = sMinior ##Form##FormChangeTable,     \
         MINIOR_MISC_INFO(color),                                \
     }
@@ -5137,8 +5157,8 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
             SHADOW_SIZE_M,
             TRACKS_FOOT,
             sAnimTable_Following_Asym,
-            gOverworldPalette_MimikyuDisguised,
-            gShinyOverworldPalette_MimikyuDisguised
+            gOverworldPalette_Mimikyu,
+            gShinyOverworldPalette_Mimikyu
         )
         .levelUpLearnset = sMimikyuLevelUpLearnset,
         .teachableLearnset = sMimikyuTeachableLearnset,
@@ -5194,6 +5214,17 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         SHADOW(-3, 1, SHADOW_SIZE_S)
         FOOTPRINT(Mimikyu)
+    #if OW_BATTLE_ONLY_FORMS
+        OVERWORLD(
+            sPicTable_MimikyuBusted,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following_Asym,
+            gOverworldPalette_Mimikyu,
+            gShinyOverworldPalette_Mimikyu
+        )
+    #endif //OW_BATTLE_ONLY_FORMS
         .levelUpLearnset = sMimikyuLevelUpLearnset,
         .teachableLearnset = sMimikyuTeachableLearnset,
         .eggMoveLearnset = sMimikyuEggMoveLearnset,
@@ -5254,8 +5285,8 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
             SHADOW_SIZE_M,
             TRACKS_FOOT,
             sAnimTable_Following,
-            gOverworldPalette_MimikyuDisguised,
-            gShinyOverworldPalette_MimikyuDisguised
+            gOverworldPalette_Mimikyu,
+            gShinyOverworldPalette_Mimikyu
         )
         .isTotem = TRUE,
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
@@ -5313,6 +5344,17 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-3, 1, SHADOW_SIZE_S)
         FOOTPRINT(Mimikyu)
+    #if OW_BATTLE_ONLY_FORMS
+        OVERWORLD(
+            sPicTable_MimikyuBusted,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following_Asym,
+            gOverworldPalette_Mimikyu,
+            gShinyOverworldPalette_Mimikyu
+        )
+    #endif //OW_BATTLE_ONLY_FORMS
         .isTotem = TRUE,
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
         .levelUpLearnset = sMimikyuLevelUpLearnset,
