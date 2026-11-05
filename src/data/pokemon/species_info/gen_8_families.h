@@ -5290,7 +5290,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
             TRACKS_FOOT,
             sAnimTable_Following,
             gOverworldPalette_AlcremieStrawberryVanillaCream,
-            gShinyOverworldPalette_AlcremieStrawberryVanillaCream
+            gShinyOverworldPalette_AlcremieStrawberry
         )
         .isGigantamax = TRUE,
         .levelUpLearnset = sAlcremieLevelUpLearnset,
