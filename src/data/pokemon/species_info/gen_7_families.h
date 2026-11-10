@@ -1166,11 +1166,11 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
     [SPECIES_CHARJABUG] =
     {
         .baseHP        = 57,
-        .baseAttack    = 82,
+        .baseAttack    = 92,
         .baseDefense   = 95,
         .baseSpeed     = 36,
         .baseSpAttack  = 55,
-        .baseSpDefense = 75,
+        .baseSpDefense = 85,
         .types = MON_TYPES(TYPE_BUG, TYPE_ELECTRIC),
         .catchRate = 120,
         .expYield = 140,
@@ -1229,17 +1229,15 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         )
         .levelUpLearnset = sCharjabugLevelUpLearnset,
         .teachableLearnset = sCharjabugTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_VIKAVOLT, CONDITIONS({IF_IN_MAPSEC, MAPSEC_NEW_MAUVILLE})},
-                                {EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_VIKAVOLT}),
-                                //{EVO_NONE, 0, SPECIES_VIKAVOLT_TOTEM}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_ELECTIRIZER, SPECIES_VIKAVOLT}),
     },
 
     [SPECIES_VIKAVOLT] =
     {
         .baseHP        = 77,
-        .baseAttack    = 70,
+        .baseAttack    = 55,
         .baseDefense   = 90,
-        .baseSpeed     = 43,
+        .baseSpeed     = 78,
         .baseSpAttack  = 145,
         .baseSpDefense = 75,
         .types = MON_TYPES(TYPE_BUG, TYPE_ELECTRIC),
