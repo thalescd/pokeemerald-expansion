@@ -490,15 +490,15 @@ static const u16 sScizorFormSpeciesIdTable[] = {
 #endif //P_GEN_2_CROSS_EVOS
 #endif //P_FAMILY_SCYTHER
 
-#if P_FAMILY_PINSIR
-static const u16 sPinsirFormSpeciesIdTable[] = {
-    SPECIES_PINSIR,
-#if P_MEGA_EVOLUTIONS
-    SPECIES_PINSIR_MEGA,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_PINSIR
+//#if P_FAMILY_PINSIR
+//static const u16 sPinsirFormSpeciesIdTable[] = {
+//    SPECIES_PINSIR,
+//#if P_MEGA_EVOLUTIONS
+//    SPECIES_PINSIR_MEGA,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//#endif //P_FAMILY_PINSIR
 
 #if P_FAMILY_TAUROS
 static const u16 sTaurosFormSpeciesIdTable[] = {
@@ -764,15 +764,15 @@ static const u16 sSkarmoryFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_SKARMORY
 
-#if P_FAMILY_HOUNDOUR
-static const u16 sHoundoomFormSpeciesIdTable[] = {
-    SPECIES_HOUNDOOM,
-#if P_MEGA_EVOLUTIONS
-    SPECIES_HOUNDOOM_MEGA,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_HOUNDOUR
+//#if P_FAMILY_HOUNDOUR
+//static const u16 sHoundoomFormSpeciesIdTable[] = {
+//    SPECIES_HOUNDOOM,
+//#if P_MEGA_EVOLUTIONS
+//    SPECIES_HOUNDOOM_MEGA,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//#endif //P_FAMILY_HOUNDOUR
 
 #if P_FAMILY_LARVITAR
 static const u16 sTyranitarFormSpeciesIdTable[] = {
@@ -912,25 +912,25 @@ static const u16 sSharpedoFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_CARVANHA
 
-#if P_FAMILY_NUMEL
-static const u16 sCameruptFormSpeciesIdTable[] = {
-    SPECIES_CAMERUPT,
-#if P_MEGA_EVOLUTIONS
-    SPECIES_CAMERUPT_MEGA,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_NUMEL
+//#if P_FAMILY_NUMEL
+//static const u16 sCameruptFormSpeciesIdTable[] = {
+//    SPECIES_CAMERUPT,
+//#if P_MEGA_EVOLUTIONS
+//    SPECIES_CAMERUPT_MEGA,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//#endif //P_FAMILY_NUMEL
 
-#if P_FAMILY_SWABLU
-static const u16 sAltariaFormSpeciesIdTable[] = {
-    SPECIES_ALTARIA,
-#if P_MEGA_EVOLUTIONS
-    SPECIES_ALTARIA_MEGA,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_SWABLU
+//#if P_FAMILY_SWABLU
+//static const u16 sAltariaFormSpeciesIdTable[] = {
+//    SPECIES_ALTARIA,
+//#if P_MEGA_EVOLUTIONS
+//    SPECIES_ALTARIA_MEGA,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//#endif //P_FAMILY_SWABLU
 
 #if P_FAMILY_CASTFORM
 static const u16 sCastformFormSpeciesIdTable[] = {
@@ -975,23 +975,23 @@ static const u16 sCastformFormSpeciesIdTable[] = {
 //};
 //#endif //P_FAMILY_ABSOL
 
-#if P_FAMILY_SNORUNT
-static const u16 sGlalieFormSpeciesIdTable[] = {
-    SPECIES_GLALIE,
-#if P_MEGA_EVOLUTIONS
-    SPECIES_GLALIE_MEGA,
-#endif
-    FORM_SPECIES_END,
-};
+//#if P_FAMILY_SNORUNT
+//static const u16 sGlalieFormSpeciesIdTable[] = {
+//    SPECIES_GLALIE,
+//#if P_MEGA_EVOLUTIONS
+//    SPECIES_GLALIE_MEGA,
+//#endif
+//    FORM_SPECIES_END,
+//};
 
-static const u16 sFroslassFormSpeciesIdTable[] = {
-    SPECIES_FROSLASS,
-#if P_GEN_9_MEGA_EVOLUTIONS
-    SPECIES_FROSLASS_MEGA,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_SNORUNT
+//static const u16 sFroslassFormSpeciesIdTable[] = {
+//    SPECIES_FROSLASS,
+//#if P_GEN_9_MEGA_EVOLUTIONS
+//    SPECIES_FROSLASS_MEGA,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//#endif //P_FAMILY_SNORUNT
 
 #if P_FAMILY_BAGON
 static const u16 sSalamenceFormSpeciesIdTable[] = {
