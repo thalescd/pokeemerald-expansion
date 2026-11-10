@@ -6926,8 +6926,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 #if P_MEGA_EVOLUTIONS
     [SPECIES_CAMERUPT_MEGA] =
     {
-        .baseHP        = 85,
-        .baseAttack    = 100,
+        .baseHP        = 100,
+        .baseAttack    = 95,
         .baseDefense   = 90,
         .baseSpeed     = 25,
         .baseSpAttack  = 125,
