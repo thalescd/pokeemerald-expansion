@@ -1933,15 +1933,15 @@ static const u16 sSalazzleFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_FOMANTIS
 
-#if P_FAMILY_WIMPOD
-static const u16 sGolisopodFormSpeciesIdTable[] = {
-    SPECIES_GOLISOPOD,
-#if P_GEN_9_MEGA_EVOLUTIONS
-    SPECIES_GOLISOPOD_MEGA,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_WIMPOD
+//#if P_FAMILY_WIMPOD
+//static const u16 sGolisopodFormSpeciesIdTable[] = {
+//    SPECIES_GOLISOPOD,
+//#if P_GEN_9_MEGA_EVOLUTIONS
+//    SPECIES_GOLISOPOD_MEGA,
+//#endif
+//    FORM_SPECIES_END,
+//};
+//#endif //P_FAMILY_WIMPOD
 
 #if P_FAMILY_TYPE_NULL
 static const u16 sSilvallyFormSpeciesIdTable[] = {

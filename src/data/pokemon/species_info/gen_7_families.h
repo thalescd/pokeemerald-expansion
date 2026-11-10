@@ -4267,23 +4267,24 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         )
         .levelUpLearnset = sGolisopodLevelUpLearnset,
         .teachableLearnset = sGolisopodTeachableLearnset,
-        .formSpeciesIdTable = sGolisopodFormSpeciesIdTable,
-        .formChangeTable = sGolisopodFormChangeTable,
+        //.formSpeciesIdTable = sGolisopodFormSpeciesIdTable,
+        //.formChangeTable = sGolisopodFormChangeTable,
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_METAL_ALLOY, SPECIES_GOLISOPOD_MEGA}),
     },
 
 #if P_GEN_9_MEGA_EVOLUTIONS
     [SPECIES_GOLISOPOD_MEGA] =
     {
         .baseHP        = 75,
-        .baseAttack    = 150,
-        .baseDefense   = 175,
+        .baseAttack    = 140,
+        .baseDefense   = 165,
         .baseSpeed     = 40,
         .baseSpAttack  = 70,
-        .baseSpDefense = 120,
+        .baseSpDefense = 110,
         .types = MON_TYPES(TYPE_BUG, TYPE_STEEL),
-        .catchRate = 45,
-        .expYield = 186,
-        .evYield_Defense = 2,
+        .catchRate = 15,
+        .expYield = 270,
+        .evYield_Defense = 3,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
@@ -4297,7 +4298,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
     #else
         .cryId = CRY_GOLISOPOD,
     #endif // P_MODIFIED_MEGA_CRIES
-        .natDexNum = NATIONAL_DEX_GOLISOPOD,
+        .natDexNum = NATIONAL_DEX_GOLISOPOD_MEGA,
         .categoryName = _("Hard Scale"),
         .height = 23,
         .weight = 1480,
@@ -4322,11 +4323,11 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         FOOTPRINT(Golisopod)
         SHADOW(0, 10, SHADOW_SIZE_XL_BATTLE_ONLY)
-        .isMegaEvolution = TRUE,
+        //.isMegaEvolution = TRUE,
         .levelUpLearnset = sGolisopodLevelUpLearnset,
         .teachableLearnset = sGolisopodTeachableLearnset,
-        .formSpeciesIdTable = sGolisopodFormSpeciesIdTable,
-        .formChangeTable = sGolisopodFormChangeTable,
+        //.formSpeciesIdTable = sGolisopodFormSpeciesIdTable,
+        //.formChangeTable = sGolisopodFormChangeTable,
     },
 #endif //P_GEN_9_MEGA_EVOLUTIONS
 #endif //P_FAMILY_WIMPOD
