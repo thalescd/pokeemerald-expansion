@@ -104,16 +104,19 @@ Ver a lista de arquivos no item de implementação em Progresso.
 
 - [x] Levantamento aprovado (2026-11-13)
 - [x] Implementação (2026-11-13, escrita; **não compilada**)
-- [ ] Build e `make check`
+- [x] Build e `make check` (2026-11-13; ver a nota sobre quais testes rodaram)
 - [ ] Teste no emulador
-- [ ] Commits
-- [ ] Scripts 1, 2 e 3 do debug descartados (nunca commitados)
+- [x] Commits (2026-11-13; sem push)
+- [ ] Scripts 1, 2 e 3 do debug descartados (agora **commitados**, num commit à parte; descartar = reverter esse commit ou voltar o arquivo ao estado da `master`)
 - [ ] Merge na `master`
 
 - 2026-11-13: adicionados **Script 2** (batalha selvagem contra Snorlax nv 20 com **só** Flamethrower; `move2` a `move4` = `MOVE_NONE`) e **Script 3** (idem com Thunderbolt) no menu de debug (`data/scripts/debug.inc`), usando `setwildbattle` + `createmon B_SIDE_OPPONENT` + `dowildbattle`. Temporários, como o Script 1. Não compilado, não testado.
 - 2026-11-13: Script 1 do debug ajustado: Snorlax nv 50 agora tem Recover, Slack Off, Roost e Reforge; e dá também um Corviknight nv 50 com Roost, Reforge, Recover e Drill Peck. Não compilado, não testado.
 - 2026-11-13: adicionado o **Script 1** do menu de debug (`data/scripts/debug.inc`): dá um Snorlax nv 50 com Recover, Slack Off e Roost, para comparar as animações. É **temporário**: deve ser removido (voltar a `release` + `end`) antes de fechar o plano. Não compilado, não testado.
-- 2026-11-13: decisão: o `data/scripts/debug.inc` não entra em nenhum commit; commits planejados: (1) refactor do Roost, (2) Reforge, (3) docs do plano.
+- 2026-11-13: `make check` do usuário: falhou `values_moves_over_splash.c:591` ("AI values moves above Splash, 801-900"): o Reforge (índice ~853, `EFFECT_RESTORE_HP`) cai nesse intervalo e o `switch` do intervalo não pulava `EFFECT_RESTORE_HP`, que já é pulado nos intervalos 1-100 e 301-400 em "TODO: AI TESTS". Correção: `case EFFECT_RESTORE_HP:` adicionado em "TODO: AI TESTS" do intervalo 801-900 (commit `699c18705d`). **Verificado pelo usuário:** depois do fix, `values_moves_over_splash` passou sem falhas. A falha acima foi a única reportada na rodada de `make check`; o usuário não detalhou quais testes rodou, então a lista completa não está registrada aqui.
+- 2026-11-13: o usuário fez o commit `a170fdbe73` ("Reforge distribution", distribuição inicial do move).
+- 2026-11-13: decisão **revista** pelo usuário: o `data/scripts/debug.inc` **entra** num commit próprio (`chore: ...`), porque o teste no emulador será feito em outro PC e a branch precisa levar os scripts. Antes a decisão era não commitar. Os scripts continuam temporários: devem ser removidos antes do merge na `master` (reverter o commit `chore`). O push é do usuário; avisei que fica por conta dele.
+- 2026-11-13: decisão anterior (superada acima): o `data/scripts/debug.inc` não entra em nenhum commit; commits planejados: (1) refactor do Roost, (2) Reforge, (3) docs do plano.
 - 2026-11-13: implementação escrita, **nada compilado nem testado** (build é do usuário). Feito:
   - `include/move.h`: `suppressedType:8` na union `argument` de `AdditionalEffect`.
   - `include/constants/battle_set_effect.h` + `src/battle_set_effect.c`: `MOVE_EFFECT_SUPPRESS_TYPE` e `HandleSetEffectSuppressType` (liga o volátil no atacante; não mexe nos tipos reais).
@@ -130,7 +133,7 @@ Ver a lista de arquivos no item de implementação em Progresso.
 
 ## Pendências
 
-- **Descartar os Scripts 1, 2 e 3 do debug** (`Debug_EventScript_Script_1/2/3` em `data/scripts/debug.inc`) ao terminar o plano. Decisão de 2026-11-13: eles **não são commitados**; descartar = `git restore data/scripts/debug.inc` (o arquivo fica só como alteração local).
+- **Descartar os Scripts 1, 2 e 3 do debug** (`Debug_EventScript_Script_1/2/3` em `data/scripts/debug.inc`) ao terminar o plano. Decisão de 2026-11-13 (revista no mesmo dia): eles **são commitados** num commit `chore` próprio, para o teste em outro PC; antes do merge na `master`, reverter esse commit (`git revert <hash>`), não deixar os scripts irem junto.
 
 Decisões que o usuário precisa tomar antes de eu editar código:
 
