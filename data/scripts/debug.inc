@@ -204,14 +204,22 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
+	givemon SPECIES_SNORLAX, 50, ITEM_NONE, move1 = MOVE_RECOVER, move2 = MOVE_SLACK_OFF, move3 = MOVE_ROOST, move4 = MOVE_REFORGE
+	givemon SPECIES_CORVIKNIGHT, 50, ITEM_NONE, move1 = MOVE_ROOST, move2 = MOVE_REFORGE, move3 = MOVE_RECOVER, move4 = MOVE_DRILL_PECK
 	release
 	end
 
 Debug_EventScript_Script_2::
+	setwildbattle SPECIES_SNORLAX, 20
+	createmon B_SIDE_OPPONENT, 0, SPECIES_SNORLAX, 20, move1 = MOVE_FLAMETHROWER, move2 = MOVE_NONE, move3 = MOVE_NONE, move4 = MOVE_NONE
+	dowildbattle
 	release
 	end
 
 Debug_EventScript_Script_3::
+	setwildbattle SPECIES_SNORLAX, 20
+	createmon B_SIDE_OPPONENT, 0, SPECIES_SNORLAX, 20, move1 = MOVE_THUNDERBOLT, move2 = MOVE_NONE, move3 = MOVE_NONE, move4 = MOVE_NONE
+	dowildbattle
 	release
 	end
 
