@@ -47,6 +47,7 @@ struct AdditionalEffect
         enum MoveEffect randomMoveEffects[MAX_RANDOM_ADDITIONAL_EFFECTS]; // Used by MOVE_EFFECT_RANDOM_FROM_LIST
         enum WrappedStringID wrapped:8;
         enum BrokeProtectionStringID brokeProtect:8;
+        enum Type suppressedType:8; // Used by MOVE_EFFECT_SUPPRESS_TYPE
         u8 absorbPercentage;
     } argument; // argument field for MOVE_EFFECTS
 

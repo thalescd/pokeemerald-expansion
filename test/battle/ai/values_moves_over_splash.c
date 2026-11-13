@@ -269,7 +269,6 @@ AI_DOUBLE_BATTLE_TEST("AI values moves above Splash, 301-400")
 
         //TODO: AI TESTS
         case EFFECT_RESTORE_HP:
-        case EFFECT_ROOST:
         case EFFECT_TAILWIND:
         case EFFECT_POWER_TRICK:
         case EFFECT_MAGNET_RISE:

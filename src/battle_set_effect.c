@@ -272,6 +272,13 @@ static void HandleSetEffectRemoveArgType(struct BattleCalcValues *cv, struct Set
     RemoveBattlerType(se->effectBattler, type);
 }
 
+static void HandleSetEffectSuppressType(struct BattleCalcValues *cv, struct SetEffect *se)
+{
+    // Unlike MOVE_EFFECT_REMOVE_ARG_TYPE, the battler's real types are untouched. GetBattlerTypes hides the type until the end of the turn.
+    gBattleMons[cv->battlerAtk].volatiles.suppressedType = se->additionalEffect->argument.suppressedType;
+    gBattlescriptCurrInstr = se->script;
+}
+
 static void HandleSetEffectRecharge(struct BattleCalcValues *cv, struct SetEffect *se)
 {
     if (B_SKIP_RECHARGE == GEN_1 && !IsBattlerAlive(cv->battlerDef))  // Skip recharge if gen 1 and foe is KO'd
@@ -1378,6 +1385,7 @@ static void (*const sSetEffectHandlers[])(struct BattleCalcValues *cv, struct Se
     [MOVE_EFFECT_RAINBOW] = HandleSetEffectRainbow,
     [MOVE_EFFECT_SEA_OF_FIRE] = HandleSetEffectSeaOfFire,
     [MOVE_EFFECT_SWAMP] = HandleSetEffectSwamp,
+    [MOVE_EFFECT_SUPPRESS_TYPE] = HandleSetEffectSuppressType,
     [MOVE_EFFECT_SUN] = HandleSetEffectWeather,
     [MOVE_EFFECT_RAIN] = HandleSetEffectWeather,
     [MOVE_EFFECT_SANDSTORM] = HandleSetEffectWeather,

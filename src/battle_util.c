@@ -9862,14 +9862,15 @@ void GetBattlerTypes(enum BattlerId battler, bool32 ignoreTera, enum Type types[
     types[1] = gBattleMons[battler].types[1];
     types[2] = gBattleMons[battler].types[2];
 
-    // Roost.
-    if (!isTera && gBattleMons[battler].volatiles.roostActive)
+    // Roost, Reforge.
+    enum Type suppressedType = gBattleMons[battler].volatiles.suppressedType;
+    if (!isTera && suppressedType != TYPE_NONE)
     {
-        if (types[0] == TYPE_FLYING && types[1] == TYPE_FLYING)
+        if (types[0] == suppressedType && types[1] == suppressedType)
             types[0] = types[1] = B_ROOST_PURE_FLYING >= GEN_5 ? TYPE_NORMAL : TYPE_MYSTERY;
-        else if (types[0] == TYPE_FLYING)
+        else if (types[0] == suppressedType)
             types[0] = TYPE_MYSTERY;
-        else if (types[1] == TYPE_FLYING)
+        else if (types[1] == suppressedType)
             types[1] = TYPE_MYSTERY;
     }
 }

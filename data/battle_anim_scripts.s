@@ -135,6 +135,8 @@ gBattleAnimMove_Roost::
 	createsprite gFallingFeatherSpriteTemplate, ANIM_ATTACKER, 0, 0, -16, 96, 2, 104, 11304, 32, 1
 	waitforvisualfinish
 	clearmonbg ANIM_ATTACKER
+	call HealingEffect
+	waitforvisualfinish
 	end
 
 gBattleAnimMove_Gravity::

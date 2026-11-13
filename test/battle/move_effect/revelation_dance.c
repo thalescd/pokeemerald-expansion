@@ -8,7 +8,7 @@ ASSUMPTIONS
     ASSUME(IsMoveEffectRemoveSpeciesType(MOVE_BURN_UP, MOVE_EFFECT_REMOVE_ARG_TYPE, TYPE_FIRE));
     ASSUME(GetMoveEffect(MOVE_FORESTS_CURSE) == EFFECT_THIRD_TYPE);
     ASSUME(GetMoveArgType(MOVE_FORESTS_CURSE) == TYPE_GRASS);
-    ASSUME(GetMoveEffect(MOVE_ROOST) == EFFECT_ROOST);
+    ASSUME(MoveHasAdditionalEffect(MOVE_ROOST, MOVE_EFFECT_SUPPRESS_TYPE));
 }
 
 SINGLE_BATTLE_TEST("Revelation Dance changes its type depending on the user's 1st Type")

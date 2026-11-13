@@ -9751,7 +9751,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "Restores the user's HP by\n"
             "half of its max HP."),
-        .effect = EFFECT_ROOST,
+        .effect = EFFECT_RESTORE_HP,
         .power = 0,
         .type = TYPE_FLYING,
         .accuracy = 0,
@@ -9764,6 +9764,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .snatchAffected = TRUE,
         .ignoresProtect = TRUE,
         .mirrorMoveBanned = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_SUPPRESS_TYPE,
+            .argument.suppressedType = TYPE_FLYING,
+        }),
         .contestEffect = CONTEST_EFFECT_HIGHLY_APPEALING, //CONTEST_EFFECT_QUICKLY_GROW_BORED
         .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_SMART : CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
