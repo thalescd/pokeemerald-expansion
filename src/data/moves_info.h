@@ -22225,6 +22225,36 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_ZoneShift,
     },
 
+    [MOVE_REFORGE] =
+    {
+        .name = COMPOUND_STRING("Reforge"),
+        .description = COMPOUND_STRING(
+            "Restores the user's HP by\n"
+            "half of its max HP."),
+        .effect = EFFECT_RESTORE_HP,
+        .power = 0,
+        .type = TYPE_STEEL,
+        .accuracy = 0,
+        .pp = B_UPDATED_MOVE_DATA >= GEN_9 ? 5 : 10,
+        .target = TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_RESET_STATS },
+        .healingMove = TRUE,
+        .snatchAffected = TRUE,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_SUPPRESS_TYPE,
+            .argument.suppressedType = TYPE_STEEL,
+        }),
+        .contestEffect = CONTEST_EFFECT_HIGHLY_APPEALING,
+        .contestCategory = CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_Recover, // Placeholder until Reforge gets its own animation.
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {
