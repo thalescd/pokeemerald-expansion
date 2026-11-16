@@ -489,7 +489,6 @@ static inline bool32 IsMoveSheerForceBoosted(enum Move move)
         case MOVE_PSYBEAM:
         case MOVE_PSYCHIC:
         case MOVE_RAZOR_SHELL:
-        case MOVE_ROCK_CLIMB:
         case MOVE_ROCK_SLIDE:
         case MOVE_ROCK_SMASH:
         case MOVE_ROCK_TOMB:

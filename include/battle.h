@@ -480,8 +480,10 @@ struct BattleGimmickData
 
 struct LostItem
 {
-    enum Item originalItem:15;
+    enum Item originalItem;
     u16 stolen:1;
+    u16 restoreAfterBattle:1;
+    u16 wildItemPending:1;
 };
 
 struct BattleVideo {
@@ -650,7 +652,7 @@ struct BattleStruct
     } multiBuffer;
     u8 battlerKOAnimsRunning:3;
     u8 fickleBeamBoosted:1;
-    u8 unused2:1;
+    u8 ignoreOrbFailure:1; // Toxic / Flame orb aren't prevented by Safeguard / Flower Veil
     u8 toxicChainPriority:1; // If Toxic Chain will trigger on target, all other non volatiles will be blocked
     u8 battlersSorted:1; // To avoid unnessasery computation
     u8 unused1:1;
@@ -678,7 +680,7 @@ struct BattleStruct
     enum Ability tracedAbility[MAX_BATTLERS_COUNT];
     struct Illusion illusion[MAX_BATTLERS_COUNT];
     enum BattlerId soulheartBattlerId;
-    struct LostItem itemLost[MAX_BATTLE_TRAINERS][PARTY_SIZE];  // Pokemon that had items consumed or stolen (two bytes per party member per side)
+    struct LostItem itemLost[MAX_BATTLE_TRAINERS][PARTY_SIZE];
     u8 blunderPolicy:1; // should blunder policy activate
     u8 redCardActivated :1;
     u8 snatchedMoveIsUsed:1;
