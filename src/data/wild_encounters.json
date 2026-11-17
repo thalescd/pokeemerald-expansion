@@ -73,6 +73,16 @@
               9
             ]
           }
+        },
+        {
+          "type": "grotto_mons",
+          "encounter_rates": [
+            60,
+            30,
+            5,
+            4,
+            1
+          ]
         }
       ],
       "encounters": [
@@ -908,6 +918,36 @@
                 "species": "SPECIES_PINCURCHIN"
               }
             ]
+          },
+          "grotto_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 16,
+                "max_level": 18,
+                "species": "SPECIES_ELECTRIKE"
+              },
+              {
+                "min_level": 16,
+                "max_level": 18,
+                "species": "SPECIES_PONYTA"
+              },
+              {
+                "min_level": 16,
+                "max_level": 18,
+                "species": "SPECIES_GULPIN"
+              },
+              {
+                "min_level": 16,
+                "max_level": 18,
+                "species": "SPECIES_CHATOT"
+              },
+              {
+                "min_level": 16,
+                "max_level": 18,
+                "species": "SPECIES_CHATOT"
+              }
+            ]
           }
         },
         {
@@ -1092,6 +1132,36 @@
                 "species": "SPECIES_BARBOACH"
               }
             ]
+          },
+          "grotto_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 29,
+                "max_level": 32,
+                "species": "SPECIES_SANDILE"
+              },
+              {
+                "min_level": 29,
+                "max_level": 32,
+                "species": "SPECIES_SILICOBRA"
+              },
+              {
+                "min_level": 29,
+                "max_level": 33,
+                "species": "SPECIES_BRAMBLIN"
+              },
+              {
+                "min_level": 29,
+                "max_level": 32,
+                "species": "SPECIES_BRAMBLIN"
+              },
+              {
+                "min_level": 29,
+                "max_level": 32,
+                "species": "SPECIES_GIBLE"
+              }
+            ]
           }
         },
         {
@@ -1258,6 +1328,36 @@
                 "min_level": 25,
                 "max_level": 28,
                 "species": "SPECIES_MINCCINO"
+              }
+            ]
+          },
+          "grotto_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 25,
+                "max_level": 28,
+                "species": "SPECIES_SPINDA"
+              },
+              {
+                "min_level": 25,
+                "max_level": 28,
+                "species": "SPECIES_CUFANT"
+              },
+              {
+                "min_level": 25,
+                "max_level": 28,
+                "species": "SPECIES_GREAVARD"
+              },
+              {
+                "min_level": 25,
+                "max_level": 28,
+                "species": "SPECIES_SKARMORY"
+              },
+              {
+                "min_level": 25,
+                "max_level": 28,
+                "species": "SPECIES_SKARMORY"
               }
             ]
           }
@@ -1444,6 +1544,36 @@
                 "species": "SPECIES_CORSOLA_GALAR"
               }
             ]
+          },
+          "grotto_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 26,
+                "max_level": 29,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 26,
+                "max_level": 29,
+                "species": "SPECIES_WOOPER_PALDEA"
+              },
+              {
+                "min_level": 26,
+                "max_level": 29,
+                "species": "SPECIES_ZANGOOSE"
+              },
+              {
+                "min_level": 26,
+                "max_level": 29,
+                "species": "SPECIES_SLOWPOKE_GALAR"
+              },
+              {
+                "min_level": 26,
+                "max_level": 29,
+                "species": "SPECIES_SLOWPOKE_GALAR"
+              }
+            ]
           }
         },
         {
@@ -1541,6 +1671,36 @@
                 "min_level": 10,
                 "max_level": 12,
                 "species": "SPECIES_NINCADA"
+              }
+            ]
+          },
+          "grotto_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_PANCHAM"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_PANCHAM"
+              },
+              {
+                "min_level": 8,
+                "max_level": 9,
+                "species": "SPECIES_MEOWTH_GALAR"
+              },
+              {
+                "min_level": 8,
+                "max_level": 9,
+                "species": "SPECIES_MUNNA"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_MUNNA"
               }
             ]
           }
@@ -1879,6 +2039,36 @@
                 "min_level": 40,
                 "max_level": 45,
                 "species": "SPECIES_SHARPEDO"
+              }
+            ]
+          },
+          "grotto_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 34,
+                "max_level": 37,
+                "species": "SPECIES_LINOONE_GALAR"
+              },
+              {
+                "min_level": 34,
+                "max_level": 37,
+                "species": "SPECIES_FOMANTIS"
+              },
+              {
+                "min_level": 34,
+                "max_level": 37,
+                "species": "SPECIES_ESPURR"
+              },
+              {
+                "min_level": 34,
+                "max_level": 37,
+                "species": "SPECIES_DURANT"
+              },
+              {
+                "min_level": 34,
+                "max_level": 37,
+                "species": "SPECIES_DURANT"
               }
             ]
           }
@@ -3602,6 +3792,36 @@
                 "species": "SPECIES_WAILMER"
               }
             ]
+          },
+          "grotto_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 31,
+                "max_level": 35,
+                "species": "SPECIES_RUFFLET"
+              },
+              {
+                "min_level": 31,
+                "max_level": 35,
+                "species": "SPECIES_JIGGLYPUFF"
+              },
+              {
+                "min_level": 32,
+                "max_level": 35,
+                "species": "SPECIES_EMOLGA"
+              },
+              {
+                "min_level": 33,
+                "max_level": 35,
+                "species": "SPECIES_TANGELA"
+              },
+              {
+                "min_level": 33,
+                "max_level": 35,
+                "species": "SPECIES_TANGELA"
+              }
+            ]
           }
         },
         {
@@ -3825,6 +4045,36 @@
                 "species": "SPECIES_CARVANHA"
               }
             ]
+          },
+          "grotto_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 35,
+                "max_level": 39,
+                "species": "SPECIES_STEENEE"
+              },
+              {
+                "min_level": 35,
+                "max_level": 39,
+                "species": "SPECIES_ZOROARK"
+              },
+              {
+                "min_level": 35,
+                "max_level": 39,
+                "species": "SPECIES_TREVENANT"
+              },
+              {
+                "min_level": 35,
+                "max_level": 39,
+                "species": "SPECIES_SINISTEA_PHONY"
+              },
+              {
+                "min_level": 35,
+                "max_level": 39,
+                "species": "SPECIES_SINISTEA_PHONY"
+              }
+            ]
           }
         },
         {
@@ -3979,6 +4229,36 @@
                 "species": "SPECIES_BARBOACH"
               }
             ]
+          },
+          "grotto_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 37,
+                "max_level": 41,
+                "species": "SPECIES_TRUMBEAK"
+              },
+              {
+                "min_level": 37,
+                "max_level": 41,
+                "species": "SPECIES_TRUMBEAK"
+              },
+              {
+                "min_level": 37,
+                "max_level": 41,
+                "species": "SPECIES_MR_MIME"
+              },
+              {
+                "min_level": 37,
+                "max_level": 41,
+                "species": "SPECIES_ABSOL"
+              },
+              {
+                "min_level": 37,
+                "max_level": 41,
+                "species": "SPECIES_KECLEON"
+              }
+            ]
           }
         },
         {
@@ -4131,6 +4411,36 @@
                 "min_level": 40,
                 "max_level": 45,
                 "species": "SPECIES_WAILMER"
+              }
+            ]
+          },
+          "grotto_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 40,
+                "max_level": 44,
+                "species": "SPECIES_SHUPPET"
+              },
+              {
+                "min_level": 40,
+                "max_level": 44,
+                "species": "SPECIES_HATTREM"
+              },
+              {
+                "min_level": 40,
+                "max_level": 44,
+                "species": "SPECIES_ELGYEM"
+              },
+              {
+                "min_level": 40,
+                "max_level": 44,
+                "species": "SPECIES_TINKATUFF"
+              },
+              {
+                "min_level": 40,
+                "max_level": 44,
+                "species": "SPECIES_TINKATUFF"
               }
             ]
           }
@@ -4374,6 +4684,36 @@
                 "min_level": 40,
                 "max_level": 45,
                 "species": "SPECIES_WAILMER"
+              }
+            ]
+          },
+          "grotto_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_CORVISQUIRE"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_SNOVER"
+              },
+              {
+                "min_level": 42,
+                "max_level": 45,
+                "species": "SPECIES_INDEEDEE_F"
+              },
+              {
+                "min_level": 42,
+                "max_level": 45,
+                "species": "SPECIES_ABOMASNOW"
+              },
+              {
+                "min_level": 42,
+                "max_level": 45,
+                "species": "SPECIES_SNORLAX"
               }
             ]
           }
@@ -5017,6 +5357,36 @@
                 "species": "SPECIES_WAILMER"
               }
             ]
+          },
+          "grotto_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 35,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 10,
+                "max_level": 30,
+                "species": "SPECIES_WINGULL"
+              },
+              {
+                "min_level": 15,
+                "max_level": 25,
+                "species": "SPECIES_WINGULL"
+              },
+              {
+                "min_level": 25,
+                "max_level": 30,
+                "species": "SPECIES_PELIPPER"
+              },
+              {
+                "min_level": 25,
+                "max_level": 30,
+                "species": "SPECIES_PELIPPER"
+              }
+            ]
           }
         },
         {
@@ -5193,6 +5563,36 @@
                 "min_level": 40,
                 "max_level": 45,
                 "species": "SPECIES_WAILMER"
+              }
+            ]
+          },
+          "grotto_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 35,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 10,
+                "max_level": 30,
+                "species": "SPECIES_WINGULL"
+              },
+              {
+                "min_level": 15,
+                "max_level": 25,
+                "species": "SPECIES_WINGULL"
+              },
+              {
+                "min_level": 25,
+                "max_level": 30,
+                "species": "SPECIES_PELIPPER"
+              },
+              {
+                "min_level": 25,
+                "max_level": 30,
+                "species": "SPECIES_PELIPPER"
               }
             ]
           }

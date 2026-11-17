@@ -641,3 +641,6 @@ gSpecials::
 	def_special PokevialGetDose
 	def_special PokevialGetSize
 	def_special PokevialRefill
+	def_special SetupHiddenGrottoInterior
+	def_special CreateHiddenGrottoMon
+	def_special ClearHiddenGrottoMon

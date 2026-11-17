@@ -533,9 +533,7 @@ bool32 SetUpFieldMove_SecretPower(void)
 {
     u8 mb;
 
-    CheckPlayerHasSecretBase();
-
-    if (gSpecialVar_Result == 1 || GetPlayerFacingDirection() != DIR_NORTH)
+    if (GetPlayerFacingDirection() != DIR_NORTH)
         return FALSE;
 
     GetXYCoordsOneStepInFrontOfPlayer(&gPlayerFacingPosition.x, &gPlayerFacingPosition.y);

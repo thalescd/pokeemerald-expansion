@@ -1124,9 +1124,10 @@ struct SaveBlock1
     /*0x560*/ struct Bag bag;
     /*0x848*/ struct Pokeblock pokeblocks[POKEBLOCKS_COUNT];
 #if FREE_EXTRA_SEEN_FLAGS_SAVEBLOCK1 == FALSE
-    /*0x988*/ u8 filler1[0x2C]; // Previously Dex Flags, feel free to remove.
+    /*0x988*/ u8 filler1[0x2C - HIDDEN_GROTTO_STATE_BYTES]; // Previously Dex Flags, feel free to remove.
 #endif //FREE_EXTRA_SEEN_FLAGS_SAVEBLOCK1
     // Carved out of filler1 so that every offset below stays where vanilla put it.
+              u8 hiddenGrottoStates[HIDDEN_GROTTO_STATE_BYTES]; // see src/hidden_grotto.c
     /*0x9B4*/ u16 registeredItems[MAX_REGISTERED_ITEMS]; // registered for use with SELECT button
     /*0x9BC*/ u16 berryBlenderRecords[3];
     /*0x9C2*/ u8 unused_9C2[2];

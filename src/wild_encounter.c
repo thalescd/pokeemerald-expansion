@@ -317,6 +317,30 @@ u32 ChooseWildMonIndex_Rocks(void)
     return wildMonIndex;
 }
 
+// NUM_GROTTO_MONS_ENCOUNTER_SLOTS
+STATIC_ASSERT(NUM_GROTTO_MONS_ENCOUNTER_SLOTS == 5, GrottoMonsSlotCountMatchesChooser);
+u32 ChooseWildMonIndex_Grotto(void)
+{
+    return RandomWeighted(RNG_HIDDEN_GROTTO_SLOT,
+                          ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_0,
+                          ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_1 - ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_0,
+                          ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_2 - ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_1,
+                          ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_3 - ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_2,
+                          ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_4 - ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_3);
+}
+
+// Looked up by the grotto entrance's map, because the player is standing inside the grotto when this is needed.
+const struct WildPokemonInfo *GetGrottoMonsInfo(u8 mapGroup, u8 mapNum)
+{
+    for (u32 i = 0; gWildMonHeaders[i].mapGroup != MAP_GROUP(MAP_UNDEFINED); i++)
+    {
+        if (gWildMonHeaders[i].mapGroup == mapGroup && gWildMonHeaders[i].mapNum == mapNum)
+            return gWildMonHeaders[i].encounterTypes[OW_TIME_OF_DAY_FALLBACK].grottoMonsInfo;
+    }
+
+    return NULL;
+}
+
 // NUM_FISHING_MONS_ENCOUNTER_SLOTS
 static u32 ChooseWildMonIndex_Fishing(u8 rod)
 {

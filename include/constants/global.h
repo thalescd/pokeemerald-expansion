@@ -95,6 +95,8 @@ enum Language
 #define OBJECT_EVENTS_COUNT 16
 #define MAIL_COUNT (10 + PARTY_SIZE)
 #define SECRET_BASES_COUNT 20
+#define HIDDEN_GROTTO_COUNT 75 // One per secret base entrance (see include/constants/secret_bases.h)
+#define HIDDEN_GROTTO_STATE_BYTES ((HIDDEN_GROTTO_COUNT + 1) / 2) // 4 bits per grotto
 #define POKE_NEWS_COUNT 16
 #define PC_ITEMS_COUNT 50
 #define OBJECT_EVENT_TEMPLATES_COUNT 64

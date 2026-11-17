@@ -15,6 +15,7 @@
 #include "fieldmap.h"
 #include "fldeff.h"
 #include "fldeff_misc.h"
+#include "hidden_grotto.h"
 #include "international_string_util.h"
 #include "item_menu.h"
 #include "link.h"
@@ -418,8 +419,6 @@ static void SetSecretBaseWarpDestination(void)
 
 static void Task_EnterSecretBase(u8 taskId)
 {
-    u16 secretBaseIdx;
-
     switch (gTasks[taskId].tState)
     {
     case 0:
@@ -427,10 +426,6 @@ static void Task_EnterSecretBase(u8 taskId)
             gTasks[taskId].tState = 1;
         break;
     case 1:
-        secretBaseIdx = VarGet(VAR_CURRENT_SECRET_BASE);
-        if (gSaveBlock1Ptr->secretBases[secretBaseIdx].numTimesEntered < 255)
-            gSaveBlock1Ptr->secretBases[secretBaseIdx].numTimesEntered++;
-
         SetSecretBaseWarpDestination();
         WarpIntoMap();
         gFieldCallback = FieldCB_ContinueScriptHandleMusic;
@@ -444,6 +439,7 @@ static void Task_EnterSecretBase(u8 taskId)
 
 void EnterSecretBase(void)
 {
+    SetCurrentHiddenGrotto(sCurSecretBaseId);
     CreateTask(Task_EnterSecretBase, 0);
     FadeScreen(FADE_TO_BLACK, 0);
     SetDynamicWarp(0, gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, WARP_ID_NONE);
@@ -515,36 +511,16 @@ bool8 CurMapIsSecretBase(void)
         return FALSE;
 }
 
+// The interiors are hidden grottos now: no decorations, and the PC becomes plain ground.
 void InitSecretBaseAppearance(bool8 hidePC)
 {
-    u16 secretBaseIdx;
-    s16 x, y = 0;
-    u8 *decorations;
-    u8 *decorPos;
+    s16 x = -1, y = -1;
 
     if (CurMapIsSecretBase())
     {
-        secretBaseIdx = VarGet(VAR_CURRENT_SECRET_BASE);
-        decorations = gSaveBlock1Ptr->secretBases[secretBaseIdx].decorations;
-        decorPos = gSaveBlock1Ptr->secretBases[secretBaseIdx].decorationPositions;
-        for (x = 0; x < DECOR_MAX_SECRET_BASE; x++)
-        {
-            if (decorations[x] > 0 && decorations[x] <= NUM_DECORATIONS && gDecorations[decorations[x]].permission != DECORPERM_SPRITE)
-                ShowDecorationOnMap((decorPos[x] >> 4) + MAP_OFFSET, (decorPos[x] & 0xF) + MAP_OFFSET, decorations[x]);
-        }
-
-        if (secretBaseIdx != 0)
-        {
-            // Another player's secret base. Change PC type to the "Register" PC.
-            FindMetatileIdMapCoords(&x, &y, METATILE_SecretBase_PC);
-            MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, METATILE_SecretBase_RegisterPC | MAPGRID_IMPASSABLE);
-        }
-        else if (hidePC == TRUE && VarGet(VAR_SECRET_BASE_INITIALIZED) == 1)
-        {
-            // Change PC to regular ground tile.
-            FindMetatileIdMapCoords(&x, &y, METATILE_SecretBase_PC);
+        FindMetatileIdMapCoords(&x, &y, METATILE_SecretBase_PC);
+        if (x >= 0)
             MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, METATILE_SecretBase_Ground | MAPGRID_IMPASSABLE);
-        }
     }
 }
 

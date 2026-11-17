@@ -26,8 +26,6 @@ SecretBase_Text_DiscoveredSmallEntrance:
 
 SecretBase_EventScript_CheckEntrance::
 	special GetSecretBaseTypeInFrontOfPlayer
-	special CheckPlayerHasSecretBase
-	goto_if_eq VAR_RESULT, TRUE, SecretBase_EventScript_AlreadyHasSecretBase
 	checkfieldmove FIELD_MOVE_SECRET_POWER
 	setfieldeffectargument 0, VAR_RESULT
 	buffermovename STR_VAR_2, MOVE_SECRET_POWER
@@ -129,17 +127,12 @@ SecretBase_EventScript_ShrubEnter::
 	goto SecretBase_EventScript_InitSecretBase
 	end
 
+@ Every entrance leads into a hidden grotto (see data/scripts/hidden_grotto.inc).
 SecretBase_EventScript_InitSecretBase::
 	closemessage
 	playse SE_EXIT
 	setvar VAR_INIT_SECRET_BASE, 0
-	setflag FLAG_HIDE_SECRET_BASE_TRAINER
-	special SetPlayerSecretBase
 	special EnterSecretBase
-	setvar VAR_0x8004, 0
-	setvar VAR_0x8005, 0
-	special InitSecretBaseDecorationSprites
-	setvar VAR_SECRET_BASE_INITIALIZED, 1
 	waitstate
 	end
 

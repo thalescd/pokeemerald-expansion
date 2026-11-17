@@ -5,6 +5,7 @@
 #include "event_data.h"
 #include "field_specials.h"
 #include "field_weather.h"
+#include "hidden_grotto.h"
 #include "lottery_corner.h"
 #include "main.h"
 #include "mass_outbreak.h"
@@ -63,6 +64,7 @@ void DoDailyEvents(u32 daysSince)
     }
     UpdateDaysPassedSinceFormChange(daysSince);
     DailyResetApricornTrees();
+    RefillAllHiddenGrottos();
 }
 
 static void UpdatePerDay(struct Time *localTime)

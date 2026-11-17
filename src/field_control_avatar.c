@@ -20,6 +20,7 @@
 #include "field_screen_effect.h"
 #include "field_specials.h"
 #include "fldeff_misc.h"
+#include "hidden_grotto.h"
 #include "follower_npc.h"
 #include "item_menu.h"
 #include "link.h"
@@ -466,9 +467,10 @@ static const u8 *GetInteractedBackgroundEventScript(struct MapPosition *position
     case BG_EVENT_SECRET_BASE:
         if (direction == DIR_NORTH)
         {
+            // Every entrance leads to a hidden grotto, so it never counts as already taken.
             gSpecialVar_0x8004 = bgEvent->bgUnion.secretBaseId;
-            if (TrySetCurSecretBase())
-                return SecretBase_EventScript_CheckEntrance;
+            TrySetCurSecretBase();
+            return SecretBase_EventScript_CheckEntrance;
         }
         return NULL;
     }
@@ -757,6 +759,7 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
     UpdateFriendshipStepCounter();
     UpdateFarawayIslandStepCounter();
     UpdateFollowerStepCounter();
+    UpdateHiddenGrottoStepCounter();
 
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED_MOVE) && !MetatileBehavior_IsForcedMovementTile(metatileBehavior))
     {
