@@ -78,7 +78,7 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
 
 ## Levantamento
 
-**Obrigatório antes de executar. Aprovado pelo usuário em:** _(ainda não)_
+**Obrigatório antes de executar. Aprovado pelo usuário em:** 2026-11-17
 
 Feito em 2026-11-17, só leitura, sem compilar. Os números de linha valem para o commit `543d86b799`.
 
@@ -261,11 +261,56 @@ Menus que acompanham esses prêmios: `field_specials.c:2495-2543`, `src/data/bat
 Nomes herdados que a fase 2 renomeia: `FLAG_HIDE_SECRET_BASE_TRAINER` (esconde o Pokémon), `VAR_INIT_SECRET_BASE`
 (controla os 2 passos de entrada), `SecretBase_EventScript_CheckEntrance` e os blocos Cave/Tree/Shrub.
 
+### Fase 2 (escrita em 2026-11-17)
+
+- **Apagados:** `src/secret_base.c`, `include/secret_base.h`, `data/scripts/secret_base.inc`,
+  `data/scripts/shared_secret_base.inc`, `data/text/secret_base_trainers.inc`.
+- **Movido para `hidden_grotto.c`** (com nomes novos): tabela de metatiles da entrada, mapa interior por grupo,
+  `SetCurrentHiddenGrottoFromPosition`, `GetHiddenGrottoEntranceType` (special), `ToggleHiddenGrottoEntranceMetatile`,
+  `EnterHiddenGrotto` (special), `CurMapIsHiddenGrotto`, `InitHiddenGrottoMetatiles`. O ID da entrada não vive mais em
+  EWRAM: vai direto para `VAR_HIDDEN_GROTTO_ID` quando o jogador encara a entrada.
+- **Scripts da entrada** em `data/scripts/hidden_grotto.inc` como `HiddenGrotto_EventScript_*` e `HiddenGrotto_Text_*`
+  (mesmos textos de antes).
+- **Quarto:** `InitPlayerRoomDecorationSprites` (special) e `HidePlayerRoomDecorationSprites` em `src/decoration.c`;
+  scripts `PlayerRoom_EventScript_*` em `data/scripts/player_room_decoration.inc`; os 2 quartos chamam os nomes novos
+  (`BrendansHouse_2F` `.pory` e `.inc`, `MaysHouse_2F`). `DoSecretBaseDecorationMenu` saiu; o cancelar do menu de
+  decoração sempre volta ao PC do quarto.
+- **`secret_power_tm.inc`** agora é incluído direto em `data/event_scripts.s`.
+- **Campo:** `field_control_avatar.c` (PC da base, móveis e pôster de amigo, tapetes de nota e de brilho, porta aberta de
+  base), `fldeff_misc.c` (desligar PC, balão, porta quebrável, tapetes, escudo/TV, decoração quebrável),
+  `fieldmap.c` (o pulo de decoração quebrável ao restaurar o mapa salvo), `field_tasks.c` (o slot
+  `STEP_CB_SECRET_BASE` aponta para o callback vazio), `event_object_movement.c` (script de boneco/almofada de amigo),
+  `overworld.c` (popup e saída de base de amigo), `region_map.c` (nome "<dono>'s BASE"), `item.c`, `new_game.c`,
+  `field_specials.c` (`GetSecretBaseNearbyMapName`), `strings.c` (textos do registro).
+- **Batalha:** saiu `gBattleResources->secretBase` e o que o lia (`battle_util2.c`, `battle_message.c`,
+  `battle_controller_opponent.c`, `battle_script_commands.c`, `battle_setup.c`) e o time/foto/classe do dono em
+  `pokemon.c`.
+- **Record mixing:** `secretBases` saiu dos pacotes RS e Emerald (`record_mixing.c`).
+- **TV:** saíram os programas Secret Base Visit e Secret Base Secrets (`tv.c`, 57 textos de `data/text/tv.inc`,
+  constantes `SBSECRETS_*` e `SECRET_BASE_USED_*` de `constants/tv.h`).
+- **NPC:** `MossdeepCity_House4` fica sempre na fala "faça uma secret base" (TODO no script).
+- **Specials:** 31 removidos; `EnterSecretBase` → `EnterHiddenGrotto`, `GetSecretBaseTypeInFrontOfPlayer` →
+  `GetHiddenGrottoEntranceType`, `InitSecretBaseDecorationSprites` → `InitPlayerRoomDecorationSprites`.
+- **Constantes:** `FLAG_HIDE_HIDDEN_GROTTO_POKEMON` (0xAD), `VAR_HIDDEN_GROTTO_WALKED_IN` (0x4097),
+  `VAR_PLAYER_ROOM_DECOR_INITIALIZED` (0x4089), também em `flags_frlg.h` e nos 24 `map.json`. Ficaram livres:
+  `FLAG_UNUSED_0x10C`, `FLAG_UNUSED_0x922` (era a daily da base), vars 0x4026, 0x4054, 0x40EC-0x40F0.
+
+Escolhas de implementação da fase 2 (fora do levantamento):
+
+- Batalha mexida o mínimo, por causa dos merges do upstream: `BATTLE_TYPE_SECRET_BASE`, `TRAINER_SECRET_BASE`,
+  `SPECIAL_BATTLE_SECRET_BASE` e os testes que os usam continuam no código, só nunca acontecem.
+- `secretBaseVisit` e `secretBaseSecrets` continuam na union `TVShow` até a fase 4: o `secretBaseSecrets` é o único
+  membro com `u32`, e tirá-lo muda o alinhamento da union e o layout do `SaveBlock1`.
+- Ficam sem uso, mas no código: os efeitos de campo `FLDEFF_SAND_PILLAR` e `FLDEFF_PCTURN_ON` (tirar renumeraria a tabela),
+  os menus `MULTI_BASE_PC_*`/`MULTI_REGISTER_MENU`, as falas do Giddy e do Storyteller.
+- `VAR_SECRET_BASE_INITIALIZED` também foi renomeada (`VAR_PLAYER_ROOM_DECOR_INITIALIZED`), porque só o quarto usa.
+- Os ramos de base de `decoration.c` que leem `secretBases[0]` ficam para a fase 3.
+
 ## Progresso
 
 - [x] Levantamento aprovado (2026-11-17)
 - [x] Fase 1: implementação, build, `make check`, teste no emulador, commit
-- [ ] Fase 2: remoção da secret base
+- [x] Fase 2: remoção da secret base (build, `make check`, teste no emulador, commit)
 - [ ] Fase 3: decorações só no quarto
 - [ ] Fase 4: encolher o `SaveBlock1`
 - [ ] Merge na `master`
@@ -282,6 +327,11 @@ Nomes herdados que a fase 2 renomeia: `FLAG_HIDE_SECRET_BASE_TRAINER` (esconde o
   hidden ability, local de encontro, esvaziar ao fugir, whiteout, save/load e o enchimento por passos. Testado sem som,
   então o grito e a música não foram ouvidos. **Não testados:** passo 1 (texto do NPC do Route 111) e o enchimento pelo
   reset diário (avançar o dia).
+- 2026-11-17: fase 2 escrita (ver Pontos de código). **Não compilada e não testada.** Conferido só por leitura e por
+  script: todo `def_special` tem função em C, nenhuma função do antigo `secret_base.c` é mais referenciada, nenhum rótulo
+  de script usado ficou sem definição, e nenhuma função `static` nova ficou sem uso (o build usa `-Werror`).
+- 2026-11-17: fase 2 — build e `make check` passaram, e os 7 passos do roteiro da fase 2 funcionaram no emulador
+  (rodados pelo usuário).
 
 ## Pendências
 
@@ -291,9 +341,8 @@ Para o usuário revisar depois (fora deste plano):
 
 - Lojas e prêmios de decoração da tabela "Fontes de decoração" no Levantamento.
 - Diálogos que mencionam secret base ou decoração de base:
-  - `data/maps/MossdeepCity_House4/scripts.inc:7-28, 51-58`: pergunta se você tem base e onde. Este precisa de lógica
-    nova, não só texto, porque chama `CheckPlayerHasSecretBase` e `GetSecretBaseNearbyMapName`, que serão removidos.
-    Até o usuário decidir, ele fica sempre no ramo "você ainda não tem base".
+  - `data/maps/MossdeepCity_House4/scripts.inc`: o menino agora sempre diz "faça uma secret base" (fase 2), e a irmã
+    fala de visitar bases. Precisam de falas novas.
   - `data/maps/Route119/scripts.inc:462-466, 591-605`: placa de Trainer Tips e falas sobre decorar a base.
   - `data/maps/SlateportCity/scripts.inc:191, 201`: menina que, depois do Secret Power, fala de comprar tijolos.
   - `data/maps/FortreeCity_DecorationShop/scripts.inc`: falas dos NPCs da loja.
@@ -323,3 +372,20 @@ Precisa de um **jogo novo** (o enchimento inicial acontece no new game) ou de um
     o dia pelo menu de debug e conferir que todas enchem.
 11. Sair da grotto pela seta: volta para a rota, na frente da entrada, e a entrada aparece fechada.
 12. Ambiente da batalha: fundo `MAP_BATTLE_SCENE_FRONTIER` e música `MUS_FORTREE` vêm do mapa antigo; avaliar se servem.
+
+### Fase 2
+
+Build: `make -j20`, depois `make check -j20`. O `SaveBlock1` ainda não muda de tamanho nesta fase.
+
+Um save da fase 1 serve (nenhum offset do save mudou), mas um jogo novo testa o quarto do zero.
+
+1. Repetir os passos 2, 3, 4, 7 e 11 da fase 1: entrada pelo botão A e pelo menu, nas 3 formas (fenda, árvore,
+   arbusto), recusar o Secret Power (deve só fechar a mensagem), entrar, sair pela seta.
+2. Salvar dentro de uma grotto, recarregar e sair: volta para a rota certa.
+3. Quarto do jogador: colocar um boneco e uma almofada pelo PC, sair e voltar ao quarto (aparecem no lugar), guardar
+   pelo PC (somem). Cancelar o menu de decoração volta ao menu do PC.
+4. Batalha normal de treinador: nome, classe, foto e dinheiro do treinador continuam certos.
+5. TV de casa e de outra cidade: liga e mostra programas normalmente.
+6. Mossdeep, casa 4: o menino fala "make a SECRET BASE" sem travar.
+7. Pisar nos tiles de árvore/arbusto/fenda de outras rotas e usar Cut na grama alta de Fortree (usa metatiles com nome
+   de secret base) para ver que nada mudou.
