@@ -50,6 +50,19 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
 - 2026-11-17: um plano único cobre tudo: grottos, remoção da secret base, redução das decorações e encolhimento do
   `SaveBlock1`. Para o usuário, as grottos só estão prontas quando a secret base sair do save; o espaço liberado é o
   objetivo principal, por causa da gen 10 (espécies, golpes e habilidades novas).
+- 2026-11-17: whiteout na batalha da grotto também esvazia a grotto (esvaziar antes de começar a batalha).
+- 2026-11-17: sem popup de nome ao entrar na grotto. Hoje o popup não aparece na primeira entrada numa base
+  (`SecretBaseMapPopupEnabled`, `secret_base.c:452-458`), e toda entrada em grotto é desse tipo. Os 24 interiores
+  passam a ter `show_map_name: false`.
+- 2026-11-17: decoração de categoria removida, comprada ou ganha, cai no caminho de "sem espaço" que já existe
+  (inventário de tamanho 0). Nenhum script de loja ou prêmio muda neste plano.
+- 2026-11-17: o código de colocação de móveis que não são sprite é apagado (não funciona no quarto).
+- 2026-11-17: diálogos de NPC que mencionam secret base ficam anotados em Pendências para o usuário revisar depois.
+- 2026-11-17: aceito o fim do record mixing com Ruby/Sapphire/Emerald originais.
+- 2026-11-17: tabelas das grottos num campo novo `grotto_mons` do `src/data/wild_encounters.json`.
+- 2026-11-17: o local de encontro na ficha do Pokémon é o nome da rota da entrada, não "SECRET BASE". O local é gravado
+  quando o Pokémon é criado (`pokemon.c:1010-1011`, mapsec do mapa atual, que seria o interior); o special da grotto
+  sobrescreve com o mapsec da rota guardada no `dynamicWarp`.
 
 ## Levantamento
 
@@ -226,15 +239,20 @@ Menus que acompanham esses prêmios: `field_specials.c:2495-2543`, `src/data/bat
 
 ## Pendências
 
-Decisões pedidas ao usuário junto com a aprovação do levantamento:
+Para o usuário revisar depois (fora deste plano):
 
-- Whiteout na batalha da grotto: esvaziar antes da batalha (a grotto some mesmo se o jogador perder) ou deixar cheia?
-- Nome no popup ao entrar: qual texto (ex.: "HIDDEN GROTTO")?
-- Enquanto as lojas não forem trocadas, o que acontece ao comprar ou ganhar uma decoração de categoria removida?
-- Código de colocação de móveis que não são sprite: apagar (morto) ou deixar?
-- NPC de Mossdeep (`MossdeepCity_House4`), que fala da sua base: que diálogo ele passa a ter?
-- Aceitar o fim do record mixing com os jogos originais?
-- Tabelas em `grotto_mons` no `wild_encounters.json` (proposta) em vez de tabela C.
+- Lojas e prêmios de decoração da tabela "Fontes de decoração" no Levantamento.
+- Diálogos que mencionam secret base ou decoração de base:
+  - `data/scripts/secret_power_tm.inc`: o NPC do Route 111 que dá a TM explica como fazer uma base.
+  - `data/maps/MossdeepCity_House4/scripts.inc:7-28, 51-58`: pergunta se você tem base e onde. Este precisa de lógica
+    nova, não só texto, porque chama `CheckPlayerHasSecretBase` e `GetSecretBaseNearbyMapName`, que serão removidos.
+    Até o usuário decidir, ele fica sempre no ramo "você ainda não tem base".
+  - `data/maps/Route119/scripts.inc:462-466, 591-605`: placa de Trainer Tips e falas sobre decorar a base.
+  - `data/maps/SlateportCity/scripts.inc:191, 201`: menina que, depois do Secret Power, fala de comprar tijolos.
+  - `data/maps/FortreeCity_DecorationShop/scripts.inc`: falas dos NPCs da loja.
+  - `data/text/mauville_man.inc:61` e `src/mauville_old_man.c:70`: pergunta do Giddy "SECRET BASES are so wonderful".
+  - Storyteller de Mauville (`mauville_old_man.c:1060`, `data/scripts/mauville_man.inc:496-505`): a história de
+    "mudou de base" fica inalcançável.
 
 ## Como testar
 
