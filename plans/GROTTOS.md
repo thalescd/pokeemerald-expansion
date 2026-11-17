@@ -63,6 +63,8 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
 - 2026-11-17: o local de encontro na ficha do Pokémon é o nome da rota da entrada, não "SECRET BASE". O local é gravado
   quando o Pokémon é criado (`pokemon.c:1010-1011`, mapsec do mapa atual, que seria o interior); o special da grotto
   sobrescreve com o mapsec da rota guardada no `dynamicWarp`.
+- 2026-11-17: o NPC do Route 111 que dá a TM do Secret Power (`data/scripts/secret_power_tm.inc`) passa a explicar as
+  hidden grottos, com o mesmo papel de antes. Só o texto muda; script e movimentos ficam. Rascunho a aprovar.
 
 ## Levantamento
 
@@ -243,7 +245,6 @@ Para o usuário revisar depois (fora deste plano):
 
 - Lojas e prêmios de decoração da tabela "Fontes de decoração" no Levantamento.
 - Diálogos que mencionam secret base ou decoração de base:
-  - `data/scripts/secret_power_tm.inc`: o NPC do Route 111 que dá a TM explica como fazer uma base.
   - `data/maps/MossdeepCity_House4/scripts.inc:7-28, 51-58`: pergunta se você tem base e onde. Este precisa de lógica
     nova, não só texto, porque chama `CheckPlayerHasSecretBase` e `GetSecretBaseNearbyMapName`, que serão removidos.
     Até o usuário decidir, ele fica sempre no ramo "você ainda não tem base".
