@@ -10,14 +10,21 @@ EWRAM_DATA struct DecorationInventory gDecorationInventories[DECORCAT_COUNT] = {
     gDecorationInventories[i].size = ARRAY_COUNT(ptr);\
 }
 
+// Only dolls and cushions can be placed in the player's room, so the other categories have no storage:
+// obtaining one of them falls into the usual "no room for it" paths.
+#define SET_EMPTY_DECOR_INV(i) {\
+    gDecorationInventories[i].items = NULL;\
+    gDecorationInventories[i].size = 0;\
+}
+
 void SetDecorationInventoriesPointers(void)
 {
-    SET_DECOR_INV(DECORCAT_DESK, gSaveBlock1Ptr->decorationDesks);
-    SET_DECOR_INV(DECORCAT_CHAIR, gSaveBlock1Ptr->decorationChairs);
-    SET_DECOR_INV(DECORCAT_PLANT, gSaveBlock1Ptr->decorationPlants);
-    SET_DECOR_INV(DECORCAT_ORNAMENT, gSaveBlock1Ptr->decorationOrnaments);
-    SET_DECOR_INV(DECORCAT_MAT, gSaveBlock1Ptr->decorationMats);
-    SET_DECOR_INV(DECORCAT_POSTER, gSaveBlock1Ptr->decorationPosters);
+    SET_EMPTY_DECOR_INV(DECORCAT_DESK);
+    SET_EMPTY_DECOR_INV(DECORCAT_CHAIR);
+    SET_EMPTY_DECOR_INV(DECORCAT_PLANT);
+    SET_EMPTY_DECOR_INV(DECORCAT_ORNAMENT);
+    SET_EMPTY_DECOR_INV(DECORCAT_MAT);
+    SET_EMPTY_DECOR_INV(DECORCAT_POSTER);
     SET_DECOR_INV(DECORCAT_DOLL, gSaveBlock1Ptr->decorationDolls);
     SET_DECOR_INV(DECORCAT_CUSHION, gSaveBlock1Ptr->decorationCushions);
     InitDecorationContextItems();
