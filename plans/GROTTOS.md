@@ -1,7 +1,7 @@
 # Plano: GROTTOS
 
 - **Branch:** `plan/grottos`
-- **Status:** planejado
+- **Status:** em andamento
 - **Criado em:** 2026-11-17
 - **Escopo (pode alterar):** o sistema de secret base inteiro (código, scripts, mapas interiores e tudo que o consome:
   TV, record mixing, batalhas, PC etc.); o sistema de decoração, reduzido ao quarto do jogador; o layout do
@@ -64,7 +64,17 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
   quando o Pokémon é criado (`pokemon.c:1010-1011`, mapsec do mapa atual, que seria o interior); o special da grotto
   sobrescreve com o mapsec da rota guardada no `dynamicWarp`.
 - 2026-11-17: o NPC do Route 111 que dá a TM do Secret Power (`data/scripts/secret_power_tm.inc`) passa a explicar as
-  hidden grottos, com o mesmo papel de antes. Só o texto muda; script e movimentos ficam. Rascunho a aprovar.
+  hidden grottos, com o mesmo papel de antes. Só o texto muda; script e movimentos ficam. Texto aprovado no mesmo dia.
+- 2026-11-17: levantamento aprovado; começar pela fase 1.
+- 2026-11-17: estado das grottos (38 bytes) recortado do `filler1` do `SaveBlock1`, não no lugar de `secretBases` como
+  o levantamento previa. A fase 1 não muda tamanho nem offsets do save; o `test/save.c` continua valendo.
+- 2026-11-17: vars livres 0x40F7 (`VAR_HIDDEN_GROTTO_ID`) e 0x40F8 (`VAR_HIDDEN_GROTTO_STEP_COUNTER`), não a 0x4054
+  como o levantamento propunha: na fase 1 o código da secret base ainda lê a 0x4054 como índice de `secretBases[]`.
+- 2026-11-17: conteúdo provisório das 13 tabelas `grotto_mons` derivado da rota (grama; surf nas rotas 125 e 127). O
+  usuário edita depois no Porymap.
+- 2026-11-17: o reset diário sorteia um Pokémon novo também para as grottos que ainda estavam cheias (aprovado).
+- 2026-11-17: fundo de batalha (`MAP_BATTLE_SCENE_FRONTIER`) e música (`MUS_FORTREE`) dos interiores ficam como estão
+  por enquanto.
 
 ## Levantamento
 
@@ -225,21 +235,57 @@ Menus que acompanham esses prêmios: `field_specials.c:2495-2543`, `src/data/bat
 
 ## Pontos de código
 
-<Arquivos e trechos que serão alterados, depois do levantamento aprovado.>
+### Fase 1 (escrita em 2026-11-17)
+
+- **Novo:** `src/hidden_grotto.c`, `include/hidden_grotto.h`, `data/scripts/hidden_grotto.inc` (map scripts
+  `HiddenGrotto_MapScripts` e o script do Pokémon).
+- **Save:** `include/global.h` — `hiddenGrottoStates[38]` recortado do `filler1`; `include/constants/global.h` —
+  `HIDDEN_GROTTO_COUNT`, `HIDDEN_GROTTO_STATE_BYTES`.
+- **Vars:** `VAR_HIDDEN_GROTTO_ID` (0x40F7), `VAR_HIDDEN_GROTTO_STEP_COUNTER` (0x40F8).
+- **Tabelas:** campo `grotto_mons` em `src/data/wild_encounters.json` (13 rotas); membro `grottoMonsInfo` em
+  `include/wild_encounter.h`; `ChooseWildMonIndex_Grotto` e `GetGrottoMonsInfo` em `src/wild_encounter.c`.
+- **RNG:** `RNG_HIDDEN_GROTTO_SLOT`, `_REFILL`, `_LEVEL` em `include/random.h`.
+- **Ganchos:** `DoDailyEvents` (`src/clock.c`), `NewGameInitData` (`src/new_game.c`), `TryStartStepCountScript`
+  (`src/field_control_avatar.c`).
+- **Entrada:** botão A sempre abre (`field_control_avatar.c`); Secret Power pelo menu sem o bloqueio de "já tem base"
+  (`fldeff_misc.c`); `CheckEntrance` sem o desvio de mudança de base e `InitSecretBase` reduzido
+  (`data/scripts/secret_base.inc`); `EnterSecretBase` grava a grotto e `Task_EnterSecretBase` não conta mais visitas
+  (`secret_base.c`); `InitSecretBaseAppearance` só troca o PC por chão; `SetOccupiedSecretBaseEntranceMetatiles` não é
+  mais chamada (`fieldmap.c`).
+- **Interiores:** os 24 `map.json` — `shared_scripts_map: HiddenGrotto`, `show_map_name: false`, objeto 1 com
+  `HiddenGrotto_EventScript_Pokemon`, objetos de decoração 2-15 removidos.
+- **Specials:** `SetupHiddenGrottoInterior`, `CreateHiddenGrottoMon`, `ClearHiddenGrottoMon` no fim de
+  `data/specials.inc`.
+- **Texto:** NPC do Route 111 (`data/scripts/secret_power_tm.inc`).
+
+Nomes herdados que a fase 2 renomeia: `FLAG_HIDE_SECRET_BASE_TRAINER` (esconde o Pokémon), `VAR_INIT_SECRET_BASE`
+(controla os 2 passos de entrada), `SecretBase_EventScript_CheckEntrance` e os blocos Cave/Tree/Shrub.
 
 ## Progresso
 
-- [ ] Levantamento aprovado
-- [ ] Implementação
-- [ ] Build e `make check`
-- [ ] Teste no emulador
-- [ ] Commits
+- [x] Levantamento aprovado (2026-11-17)
+- [x] Fase 1: implementação, build, `make check`, teste no emulador, commit
+- [ ] Fase 2: remoção da secret base
+- [ ] Fase 3: decorações só no quarto
+- [ ] Fase 4: encolher o `SaveBlock1`
 - [ ] Merge na `master`
 
 - 2026-11-17: levantamento escrito (4 frentes: entrada, dependentes, encontro, decoração). Só leitura de código, nada
   compilado. Aguardando aprovação e as decisões em Pendências.
+- 2026-11-17: fase 1 escrita (ver Pontos de código). **Não compilada e não testada.** Conferido só por leitura: o JSON
+  só ganhou linhas (round-trip idêntico), os 24 `map.json` mantêm o formato, nenhum Pokémon fica no caminho dos 2 passos
+  de entrada, e nenhum script do repo usa batalha selvagem dupla roteirizada (o `dowildbattle` da grotto sempre é
+  simples). Escolha de implementação: o reset diário sorteia um Pokémon novo também para as grottos que ainda estavam
+  cheias.
+- 2026-11-17: fase 1 — build e `make check` passaram (rodados pelo usuário). Teste no emulador pendente.
+- 2026-11-17: fase 1 testada no emulador pelo usuário, jogo novo. Passos 2 a 11 do roteiro funcionaram, inclusive
+  hidden ability, local de encontro, esvaziar ao fugir, whiteout, save/load e o enchimento por passos. Testado sem som,
+  então o grito e a música não foram ouvidos. **Não testados:** passo 1 (texto do NPC do Route 111) e o enchimento pelo
+  reset diário (avançar o dia).
 
 ## Pendências
+
+- Fase 1, ainda não testado: texto do NPC do Route 111 (passo 1) e enchimento pelo reset diário (passo 10).
 
 Para o usuário revisar depois (fora deste plano):
 
@@ -257,4 +303,23 @@ Para o usuário revisar depois (fora deste plano):
 
 ## Como testar
 
-<Roteiro passo a passo para o usuário conferir no emulador.>
+### Fase 1
+
+Build: `make -j20`. O `test/save.c` deve continuar passando sem mudar o número (o `SaveBlock1` não muda de tamanho).
+
+Precisa de um **jogo novo** (o enchimento inicial acontece no new game) ou de um save onde o reset diário já rodou.
+
+1. Route 111: falar com o NPC do Secret Power. Conferir o texto novo (linhas cabem na caixa?) e que ele entrega a TM.
+2. Numa entrada (árvore, parede com fenda ou arbusto) virado para o norte, apertar A: pergunta do Secret Power, animação,
+   mensagem de descoberta, entra no interior e anda 2 passos para cima. Sem popup de nome.
+3. Repetir pela opção Secret Power no menu do Pokémon, de frente para outra entrada.
+4. Dentro: não há PC, não há decoração; o Pokémon da tabela da rota aparece com o sprite certo.
+5. Falar com ele: grito, batalha simples. Conferir que a habilidade é a hidden ability da espécie.
+6. Capturar: ficha mostra o nome da rota como local de encontro, não "SECRET BASE".
+7. Fugir em outra grotto: o Pokémon some; sair e entrar de novo: continua vazia.
+8. Perder a batalha numa grotto (whiteout): voltar lá, deve estar vazia.
+9. Salvar dentro de uma grotto cheia, recarregar: o mesmo Pokémon continua lá.
+10. Grotto vazia: andar uns milhares de passos fora (5% a cada 256 por grotto) e conferir que às vezes enche; ou avançar
+    o dia pelo menu de debug e conferir que todas enchem.
+11. Sair da grotto pela seta: volta para a rota, na frente da entrada, e a entrada aparece fechada.
+12. Ambiente da batalha: fundo `MAP_BATTLE_SCENE_FRONTIER` e música `MUS_FORTREE` vêm do mapa antigo; avaliar se servem.
