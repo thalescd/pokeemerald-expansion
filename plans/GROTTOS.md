@@ -306,12 +306,31 @@ Escolhas de implementação da fase 2 (fora do levantamento):
 - `VAR_SECRET_BASE_INITIALIZED` também foi renomeada (`VAR_PLAYER_ROOM_DECOR_INITIALIZED`), porque só o quarto usa.
 - Os ramos de base de `decoration.c` que leem `secretBases[0]` ficam para a fase 3.
 
+### Fase 3 (escrita em 2026-11-17)
+
+- **Inventários** (`src/decoration_inventory.c`): só boneco e almofada apontam para o save; as outras 6 categorias ficam
+  com tamanho 0. Comprar, ganhar ou trocar com o Trader uma decoração dessas cai no "sem espaço" que já existe.
+- **`src/decoration.c`, ramos de base:** saíram `isPlayerRoom`, `sSecretBaseItemsIndicesBuffer`,
+  `IsDecorationIndexInSecretBase` e todo acesso a `secretBases[0]`; o buffer de rearranjo usa `DECOR_MAX_PLAYERS_HOUSE`.
+  Nomes `SecretBasePC_*` do menu trocados por nomes neutros.
+- **`src/decoration.c`, móveis de metatile** (não cabem no quarto): saíram `ShowDecorationOnMap` (também do header),
+  as tabelas de elevação do STAND e do SLIDE, os casos de chão/parede de `CanPlaceDecoration` e seus helpers, o cursor
+  de colocação feito de metatiles, `ClearRearrangementNonSprites` e a retirada de móvel com bonecos em cima.
+
+Escolhas de implementação da fase 3 (fora do levantamento):
+
+- Os 6 arrays de inventário continuam no `SaveBlock1` (sem uso) e saem na fase 4, junto com `secretBases`, para que toda
+  mudança de layout do save fique num lugar só.
+- Fica o código que monta o ícone de um móvel a partir dos metatiles (`AddDecorationIconObjectFromObjectEvent`): as lojas
+  e o Trader ainda mostram esses móveis enquanto o usuário não trocar o conteúdo deles.
+- O menu de categorias continua com as 8 categorias; as 6 sem espaço aparecem como `0/0` (e desabilitadas ao decorar).
+
 ## Progresso
 
 - [x] Levantamento aprovado (2026-11-17)
 - [x] Fase 1: implementação, build, `make check`, teste no emulador, commit
 - [x] Fase 2: remoção da secret base (build, `make check`, teste no emulador, commit)
-- [ ] Fase 3: decorações só no quarto
+- [x] Fase 3: decorações só no quarto (build, `make check`, teste no emulador, commit)
 - [ ] Fase 4: encolher o `SaveBlock1`
 - [ ] Merge na `master`
 
@@ -332,10 +351,16 @@ Escolhas de implementação da fase 2 (fora do levantamento):
   de script usado ficou sem definição, e nenhuma função `static` nova ficou sem uso (o build usa `-Werror`).
 - 2026-11-17: fase 2 — build e `make check` passaram, e os 7 passos do roteiro da fase 2 funcionaram no emulador
   (rodados pelo usuário).
+- 2026-11-17: fase 3 escrita (ver Pontos de código). **Não compilada e não testada.** Conferido por script que nenhuma
+  função `static` ficou sem uso e que todo acesso a `gCurDecorationItems` passa antes pela contagem da categoria
+  (inventário de tamanho 0 nunca é indexado).
+- 2026-11-17: fase 3 — build e `make check` passaram, e os passos 1 a 7 do roteiro da fase 3 funcionaram no emulador
+  (rodados pelo usuário). **Não testado:** passo 8 (Trader de Mauville).
 
 ## Pendências
 
 - Fase 1, ainda não testado: texto do NPC do Route 111 (passo 1) e enchimento pelo reset diário (passo 10).
+- Fase 3, ainda não testado: Trader de Mauville (passo 8).
 
 Para o usuário revisar depois (fora deste plano):
 
@@ -389,3 +414,17 @@ Um save da fase 1 serve (nenhum offset do save mudou), mas um jogo novo testa o 
 6. Mossdeep, casa 4: o menino fala "make a SECRET BASE" sem travar.
 7. Pisar nos tiles de árvore/arbusto/fenda de outras rotas e usar Cut na grama alta de Fortree (usa metatiles com nome
    de secret base) para ver que nada mudou.
+
+### Fase 3
+
+Build: `make -j20`, depois `make check -j20`. O `SaveBlock1` ainda não muda de tamanho.
+
+1. PC do quarto → Decoração: as 8 categorias aparecem; DESK a POSTER mostram `0/0`; DOLL e CUSHION mostram o normal.
+2. Colocar um boneco pequeno, um boneco grande e uma almofada; sair e voltar ao quarto (continuam lá).
+3. Tentar colocar fora de uma mesa/tapete do quarto: "não pode ser colocado aqui".
+4. Guardar (Put Away) um de cada; a lista mostra a bolinha azul de "em uso" antes de guardar e some depois.
+5. Jogar fora (Toss) uma decoração que não está em uso.
+6. Comprar numa loja de decoração algo de categoria removida (ex.: Fortree, uma mesa; ou Lilycove, um tapete): a loja
+   deve dizer que não há espaço e não cobrar. O ícone do item na lista da loja continua aparecendo.
+7. Comprar um boneco ou almofada: vai para o PC normalmente.
+8. Se der para chegar ao Trader de Mauville: abrir o menu de troca (as categorias removidas aparecem `0/0`).
