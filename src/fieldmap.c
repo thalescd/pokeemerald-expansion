@@ -5,13 +5,13 @@
 #include "fldeff.h"
 #include "fldeff_misc.h"
 #include "frontier_util.h"
+#include "hidden_grotto.h"
 #include "menu.h"
 #include "mirage_tower.h"
 #include "overworld.h"
 #include "palette.h"
 #include "pokenav.h"
 #include "script.h"
-#include "secret_base.h"
 #include "trainer_hill.h"
 #include "tv.h"
 #include "constants/rgb.h"
@@ -45,7 +45,6 @@ static void FillWestConnection(struct MapHeader const *mapHeader, struct MapHead
 static void FillEastConnection(struct MapHeader const *mapHeader, struct MapHeader const *connectedMapHeader, s32 offset);
 static void InitBackupMapLayoutConnections(const struct MapHeader *mapHeader);
 static void LoadSavedMapView(void);
-static bool8 SkipCopyingMetatileFromSavedMap(u16 *mapBlock, u16 mapWidth, u8 yMode);
 static const struct MapConnection *GetIncomingConnection(enum Connection direction, s32 x, s32 y);
 static bool8 IsPosInIncomingConnectingMap(enum Connection direction, s32 x, s32 y, const struct MapConnection *connection);
 static bool8 IsCoordInIncomingConnectingMap(s32 coord, s32 srcMax, s32 destMax, s32 offset);
@@ -141,7 +140,7 @@ void InitMap(void)
 void InitMapFromSavedGame(void)
 {
     InitMapLayoutData(&gMapHeader);
-    InitSecretBaseAppearance(FALSE);
+    InitHiddenGrottoMetatiles();
     LoadSavedMapView();
     RunOnLoadMapScript();
     UpdateTVScreensOnMap(gBackupMapLayout.width, gBackupMapLayout.height);
@@ -567,7 +566,6 @@ static void ClearSavedMapView(void)
 
 static void LoadSavedMapView(void)
 {
-    u8 yMode;
     s32 i, j;
     s32 x, y;
     u16 *mapView;
@@ -581,17 +579,9 @@ static void LoadSavedMapView(void)
     y = gSaveBlock1Ptr->pos.y;
     for (i = y; i < y + MAP_OFFSET_H; i++)
     {
-        if (i == y && i != 0)
-            yMode = 0;
-        else if (i == y + MAP_OFFSET_H - 1 && i != gMapHeader.mapLayout->height - 1)
-            yMode = 1;
-        else
-            yMode = 0xFF;
-
         for (j = x; j < x + MAP_OFFSET_W; j++)
         {
-            if (!SkipCopyingMetatileFromSavedMap(&sBackupMapData[j + width * i], width, yMode))
-                sBackupMapData[j + width * i] = *mapView;
+            sBackupMapData[j + width * i] = *mapView;
             mapView++;
         }
     }
@@ -925,21 +915,6 @@ void MapGridSetMetatileImpassabilityAt(s32 x, s32 y, bool32 impassable)
         else
             gBackupMapLayout.map[x + gBackupMapLayout.width * y] &= ~MAPGRID_COLLISION_MASK;
     }
-}
-
-static bool8 SkipCopyingMetatileFromSavedMap(u16 *mapBlock, u16 mapWidth, u8 yMode)
-{
-    if (yMode == 0xFF)
-        return FALSE;
-
-    if (yMode == 0)
-        mapBlock -= mapWidth;
-    else
-        mapBlock += mapWidth;
-
-    if (IsLargeBreakableDecoration(UNPACK_METATILE(*mapBlock), yMode) == TRUE)
-        return TRUE;
-    return FALSE;
 }
 
 static void CopyTilesetToVram(struct Tileset const *tileset, u16 numTiles, u16 offset)

@@ -24,7 +24,6 @@
 #include "palette.h"
 #include "player_pc.h"
 #include "script.h"
-#include "secret_base.h"
 #include "sound.h"
 #include "string_util.h"
 #include "strings.h"
@@ -656,16 +655,6 @@ static void InitDecorationActionsWindow(void)
     PrintCurMainMenuDescription();
 }
 
-void DoSecretBaseDecorationMenu(u8 taskId)
-{
-    InitDecorationActionsWindow();
-    sDecorationContext.items = gSaveBlock1Ptr->secretBases[0].decorations;
-    sDecorationContext.pos = gSaveBlock1Ptr->secretBases[0].decorationPositions;
-    sDecorationContext.size = DECOR_MAX_SECRET_BASE;
-    sDecorationContext.isPlayerRoom = FALSE;
-    gTasks[taskId].func = HandleDecorationActionsMenuInput;
-}
-
 void DoPlayerRoomDecorationMenu(u8 taskId)
 {
     InitDecorationActionsWindow();
@@ -756,15 +745,7 @@ static void DecorationMenuAction_Toss(u8 taskId)
 static void DecorationMenuAction_Cancel(u8 taskId)
 {
     RemoveDecorationWindow(WINDOW_MAIN_MENU);
-    if (!sDecorationContext.isPlayerRoom)
-    {
-        ScriptContext_SetupScript(SecretBase_EventScript_PCCancel);
-        DestroyTask(taskId);
-    }
-    else
-    {
-        ReshowPlayerPC(taskId);
-    }
+    ReshowPlayerPC(taskId);
 }
 
 static void ReturnToDecorationActionsAfterInvalidSelection(u8 taskId)
@@ -1693,13 +1674,10 @@ static void PlaceDecoration(u8 taskId)
     {
         sCurDecorMapX = gTasks[taskId].tCursorX - MAP_OFFSET;
         sCurDecorMapY = gTasks[taskId].tCursorY - MAP_OFFSET;
-        ScriptContext_SetupScript(SecretBase_EventScript_SetDecoration);
+        ScriptContext_SetupScript(PlayerRoom_EventScript_SetDecoration);
     }
 
     gSprites[sDecor_CameraSpriteObjectIdx1].y += 2;
-    if (gMapHeader.regionMapSectionId == MAPSEC_SECRET_BASE)
-        TryPutSecretBaseVisitOnAir();
-
     CancelDecorating_(taskId);
 }
 
@@ -1782,17 +1760,81 @@ static void c1_overworld_prev_quest(u8 taskId)
     }
 }
 
+// Special: spawns the doll and cushion objects of the player's room at their saved positions.
+// VAR_0x8004 must be 0 on entry; it counts the decoration objects used so far.
+void InitPlayerRoomDecorationSprites(void)
+{
+    u8 i;
+    u8 objectEventId;
+    u8 metatileBehavior;
+    const u8 *decorations = gSaveBlock1Ptr->playerRoomDecorations;
+    const u8 *decorationPositions = gSaveBlock1Ptr->playerRoomDecorationPositions;
+
+    for (i = 0; i < DECOR_MAX_PLAYERS_HOUSE; i++)
+    {
+        if (decorations[i] == DECOR_NONE)
+            continue;
+
+        if (gDecorations[decorations[i]].permission != DECORPERM_SPRITE)
+            continue;
+
+        for (objectEventId = 0; objectEventId < gMapHeader.events->objectEventCount; objectEventId++)
+        {
+            if (gMapHeader.events->objectEvents[objectEventId].flagId == FLAG_DECORATION_1 + gSpecialVar_0x8004)
+                break;
+        }
+
+        if (objectEventId == gMapHeader.events->objectEventCount)
+            continue;
+
+        gSpecialVar_0x8006 = decorationPositions[i] >> 4;
+        gSpecialVar_0x8007 = decorationPositions[i] & 0xF;
+        metatileBehavior = MapGridGetMetatileBehaviorAt(gSpecialVar_0x8006 + MAP_OFFSET, gSpecialVar_0x8007 + MAP_OFFSET);
+        if (MetatileBehavior_HoldsSmallDecoration(metatileBehavior) == TRUE
+         || MetatileBehavior_HoldsLargeDecoration(metatileBehavior) == TRUE)
+        {
+            gSpecialVar_Result = VAR_OBJ_GFX_ID_0 + (gMapHeader.events->objectEvents[objectEventId].graphicsId - OBJ_EVENT_GFX_VAR_0);
+            VarSet(gSpecialVar_Result, gDecorations[decorations[i]].tiles[0]);
+            gSpecialVar_Result = gMapHeader.events->objectEvents[objectEventId].localId;
+            FlagClear(FLAG_DECORATION_1 + gSpecialVar_0x8004);
+            TrySpawnObjectEvent(gSpecialVar_Result, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+            TryMoveObjectEventToMapCoords(gSpecialVar_Result, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, gSpecialVar_0x8006, gSpecialVar_0x8007);
+            TryOverrideObjectEventTemplateCoords(gSpecialVar_Result, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+            gSpecialVar_0x8004++;
+        }
+    }
+}
+
+static void HidePlayerRoomDecorationSprites(void)
+{
+    u8 objectEventId;
+    u16 flag;
+
+    for (objectEventId = 0; objectEventId < gMapHeader.events->objectEventCount; objectEventId++)
+    {
+        flag = gMapHeader.events->objectEvents[objectEventId].flagId;
+        if (flag >= FLAG_DECORATION_1 && flag <= FLAG_DECORATION_14)
+        {
+            RemoveObjectEventByLocalIdAndMap(
+                gMapHeader.events->objectEvents[objectEventId].localId,
+                gSaveBlock1Ptr->location.mapNum,
+                gSaveBlock1Ptr->location.mapGroup);
+            FlagSet(flag);
+        }
+    }
+}
+
 static void Task_InitDecorationItemsWindow(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
     switch (tState)
     {
     case 0:
-        HideSecretBaseDecorationSprites();
+        HidePlayerRoomDecorationSprites();
         tState++;
         break;
     case 1:
-        ScriptContext_SetupScript(SecretBase_EventScript_InitDecorations);
+        ScriptContext_SetupScript(PlayerRoom_EventScript_InitDecorations);
         tState++;
         break;
     case 2:
@@ -2298,7 +2340,7 @@ static void Task_PutAwayDecoration(u8 taskId)
         if (!gPaletteFade.active)
         {
             DrawWholeMapView();
-            ScriptContext_SetupScript(SecretBase_EventScript_PutAwayDecoration);
+            ScriptContext_SetupScript(PlayerRoom_EventScript_PutAwayDecoration);
             ClearDialogWindowAndFrame(0, TRUE);
             gTasks[taskId].tState = 2;
         }
@@ -2314,8 +2356,6 @@ static void Task_PutAwayDecoration(u8 taskId)
         {
             StringExpandPlaceholders(gStringVar4, gText_DecorationReturnedToPC);
             DisplayItemMessageOnField(taskId, gStringVar4, ContinuePuttingAwayDecorationsPrompt);
-            if (gMapHeader.regionMapSectionId == MAPSEC_SECRET_BASE)
-                TryPutSecretBaseVisitOnAir();
         }
         break;
     }
@@ -2646,11 +2686,11 @@ static void Task_ReinitializeDecorationMenuHandler(u8 taskId)
     switch (tState)
     {
     case 0:
-        HideSecretBaseDecorationSprites();
+        HidePlayerRoomDecorationSprites();
         tState++;
         break;
     case 1:
-        ScriptContext_SetupScript(SecretBase_EventScript_InitDecorations);
+        ScriptContext_SetupScript(PlayerRoom_EventScript_InitDecorations);
         tState++;
         break;
     case 2:

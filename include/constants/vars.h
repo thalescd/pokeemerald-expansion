@@ -55,7 +55,7 @@
 #define VAR_STARTER_MON                                  0x4023 // 0=Treecko, 1=Torchic, 2=Mudkip
 
 
-#define VAR_SECRET_BASE_MAP                              0x4026
+#define VAR_UNUSED_0x4026                                0x4026 // Unused Var
 #define VAR_CYCLING_ROAD_RECORD_COLLISIONS               0x4027
 #define VAR_CYCLING_ROAD_RECORD_TIME_L                   0x4028
 #define VAR_CYCLING_ROAD_RECORD_TIME_H                   0x4029
@@ -103,7 +103,7 @@
 #define VAR_OLDALE_TOWN_STATE                            0x4051
 #define VAR_DEWFORD_TOWN_STATE                           0x4052 // Unused Var
 #define VAR_LAVARIDGE_TOWN_STATE                         0x4053
-#define VAR_CURRENT_SECRET_BASE                          0x4054 // was probably allocated for VAR_FALLARBOR_TOWN_STATE at one point
+#define VAR_UNUSED_0x4054                                0x4054 // Unused Var
 #define VAR_VERDANTURF_TOWN_STATE                        0x4055 // Unused Var
 #define VAR_PACIFIDLOG_TOWN_STATE                        0x4056 // Unused Var
 #define VAR_PETALBURG_CITY_STATE                         0x4057
@@ -156,7 +156,7 @@
 #define VAR_CONTEST_HALL_STATE                           0x4086
 #define VAR_CABLE_CLUB_STATE                             0x4087
 #define VAR_CONTEST_TYPE                                 0x4088
-#define VAR_SECRET_BASE_INITIALIZED                      0x4089
+#define VAR_PLAYER_ROOM_DECOR_INITIALIZED                0x4089
 #define VAR_CONTEST_PRIZE_PICKUP                         0x408A
 #define VAR_UNUSED_0x408B                                0x408B // Unused Var
 #define VAR_LITTLEROOT_HOUSES_STATE_BRENDAN              0x408C
@@ -170,7 +170,7 @@
 #define VAR_LILYCOVE_MUSEUM_2F_STATE                     0x4094
 #define VAR_LILYCOVE_FAN_CLUB_STATE                      0x4095
 #define VAR_BRINEY_LOCATION                              0x4096
-#define VAR_INIT_SECRET_BASE                             0x4097
+#define VAR_HIDDEN_GROTTO_WALKED_IN                      0x4097 // FALSE until the player has stepped in off the exit arrow
 #define VAR_PETALBURG_WOODS_STATE                        0x4098
 #define VAR_LILYCOVE_CONTEST_LOBBY_STATE                 0x4099
 #define VAR_RUSTURF_TUNNEL_STATE                         0x409A
@@ -255,11 +255,11 @@
 #define VAR_DAILY_PLANTED_BERRIES                        0x40E9
 #define VAR_DAILY_PICKED_BERRIES                         0x40EA
 #define VAR_DAILY_ROULETTE                               0x40EB
-#define VAR_SECRET_BASE_STEP_COUNTER                     0x40EC // Used by Secret Base TV programs
-#define VAR_SECRET_BASE_LAST_ITEM_USED                   0x40ED // Used by Secret Base TV programs
-#define VAR_SECRET_BASE_LOW_TV_FLAGS                     0x40EE // Used by Secret Base TV programs
-#define VAR_SECRET_BASE_HIGH_TV_FLAGS                    0x40EF // Used by Secret Base TV programs
-#define VAR_SECRET_BASE_IS_NOT_LOCAL                     0x40F0 // Set to TRUE while in another player's secret base.
+#define VAR_UNUSED_0x40EC                                0x40EC // Unused Var
+#define VAR_UNUSED_0x40ED                                0x40ED // Unused Var
+#define VAR_UNUSED_0x40EE                                0x40EE // Unused Var
+#define VAR_UNUSED_0x40EF                                0x40EF // Unused Var
+#define VAR_UNUSED_0x40F0                                0x40F0 // Unused Var
 #define VAR_DAILY_BP                                     0x40F1
 #define VAR_WALLY_CALL_STEP_COUNTER                      0x40F2
 #define VAR_SCOTT_FORTREE_CALL_STEP_COUNTER              0x40F3

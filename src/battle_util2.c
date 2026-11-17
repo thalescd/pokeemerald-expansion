@@ -51,7 +51,6 @@ void AllocateBattleResources(void)
 #endif
 
     gBattleResources = AllocZeroed(sizeof(*gBattleResources));
-    gBattleResources->secretBase = AllocZeroed(sizeof(*gBattleResources->secretBase));
     gBattleResources->battleScriptsStack = AllocZeroed(sizeof(*gBattleResources->battleScriptsStack));
     gBattleResources->battleCallbackStack = AllocZeroed(sizeof(*gBattleResources->battleCallbackStack));
     gBattleResources->beforeLvlUp = AllocZeroed(sizeof(*gBattleResources->beforeLvlUp));
@@ -60,12 +59,6 @@ void AllocateBattleResources(void)
     gLinkBattleRecvBuffer = AllocZeroed(BATTLE_BUFFER_LINK_SIZE);
 
     AllocateBattleGfxResources();
-
-    if (gBattleTypeFlags & BATTLE_TYPE_SECRET_BASE)
-    {
-        u16 currSecretBaseId = VarGet(VAR_CURRENT_SECRET_BASE);
-        CreateSecretBaseEnemyParty(&gSaveBlock1Ptr->secretBases[currSecretBaseId]);
-    }
 }
 
 void FreeBattleResources(void)
@@ -85,7 +78,6 @@ void FreeBattleResources(void)
         FREE_AND_SET_NULL(gAiPartyData);
         FREE_AND_SET_NULL(gBattleHistory);
 
-        FREE_AND_SET_NULL(gBattleResources->secretBase);
         FREE_AND_SET_NULL(gBattleResources->battleScriptsStack);
         FREE_AND_SET_NULL(gBattleResources->battleCallbackStack);
         FREE_AND_SET_NULL(gBattleResources->beforeLvlUp);

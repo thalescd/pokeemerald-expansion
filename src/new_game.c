@@ -41,7 +41,6 @@
 #include "pokemon_storage_system.h"
 #include "pokemon_jump.h"
 #include "decoration_inventory.h"
-#include "secret_base.h"
 #include "hidden_grotto.h"
 #include "string_util.h"
 #include "player_pc.h"
@@ -187,7 +186,6 @@ void NewGameInitData(void)
     InitEventData();
     ClearTVShowData();
     ResetGabbyAndTy();
-    ClearSecretBases();
     RefillAllHiddenGrottos(); // The daily reset only runs once the clock is set
     ClearBerryTrees();
     SetMoney(&gSaveBlock1Ptr->money, 3000);

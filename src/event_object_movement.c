@@ -3757,15 +3757,6 @@ void OverrideTemplateCoordsForObjectEvent(const struct ObjectEvent *objectEvent)
     }
 }
 
-static void OverrideObjectEventTemplateScript(const struct ObjectEvent *objectEvent, const u8 *script)
-{
-    struct ObjectEventTemplate *objectEventTemplate;
-
-    objectEventTemplate = GetBaseTemplateForObjectEvent(objectEvent);
-    if (objectEventTemplate)
-        objectEventTemplate->script = script;
-}
-
 void TryOverrideTemplateCoordsForObjectEvent(const struct ObjectEvent *objectEvent, u8 movementType)
 {
     struct ObjectEventTemplate *objectEventTemplate;
@@ -3780,23 +3771,6 @@ void TryOverrideObjectEventTemplateCoords(u8 localId, u8 mapNum, u8 mapGroup)
     u8 objectEventId;
     if (!TryGetObjectEventIdByLocalIdAndMap(localId, mapNum, mapGroup, &objectEventId))
         OverrideTemplateCoordsForObjectEvent(&gObjectEvents[objectEventId]);
-}
-
-void OverrideSecretBaseDecorationSpriteScript(u8 localId, u8 mapNum, u8 mapGroup, u8 decorationCategory)
-{
-    u8 objectEventId;
-    if (!TryGetObjectEventIdByLocalIdAndMap(localId, mapNum, mapGroup, &objectEventId))
-    {
-        switch (decorationCategory)
-        {
-        case DECORCAT_DOLL:
-            OverrideObjectEventTemplateScript(&gObjectEvents[objectEventId], SecretBase_EventScript_DollInteract);
-            break;
-        case DECORCAT_CUSHION:
-            OverrideObjectEventTemplateScript(&gObjectEvents[objectEventId], SecretBase_EventScript_CushionInteract);
-            break;
-        }
-    }
 }
 
 void InitObjectEventPalettes(u8 reflectionType)

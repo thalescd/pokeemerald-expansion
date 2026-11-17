@@ -35,7 +35,6 @@
 #include "safari_zone.h"
 #include "script.h"
 #include "script_pokemon_util.h"
-#include "secret_base.h"
 #include "sound.h"
 #include "starter_choose.h"
 #include "strings.h"
@@ -1771,10 +1770,7 @@ const u8 *GetTrainerALoseText(void)
 {
     const u8 *string;
 
-    if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_SECRET_BASE)
-        string = GetSecretBaseTrainerLoseText();
-    else
-        string = TRAINER_BATTLE_PARAM.defeatTextA;
+    string = TRAINER_BATTLE_PARAM.defeatTextA;
 
     StringExpandPlaceholders(gStringVar4, ReturnEmptyStringIfNull(string));
     return gStringVar4;

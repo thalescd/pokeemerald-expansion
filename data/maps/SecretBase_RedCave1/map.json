@@ -27,7 +27,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "HiddenGrotto_EventScript_Pokemon",
-      "flag": "FLAG_HIDE_SECRET_BASE_TRAINER"
+      "flag": "FLAG_HIDE_HIDDEN_GROTTO_POKEMON"
     }
   ],
   "warp_events": [

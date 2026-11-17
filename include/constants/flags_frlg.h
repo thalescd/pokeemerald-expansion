@@ -1598,7 +1598,7 @@
 #define FLAG_RECEIVED_TM_AERIAL_ACE          0
 #define FLAG_RECEIVED_TM_CALM_MIND           0
 #define FLAG_RECEIVED_TM_WATER_PULSE         0
-#define FLAG_HIDE_SECRET_BASE_TRAINER        0
+#define FLAG_HIDE_HIDDEN_GROTTO_POKEMON      0
 #define FLAG_DECORATION_1                    0
 #define FLAG_DECORATION_2                    0
 #define FLAG_DECORATION_3                    0
@@ -1695,7 +1695,7 @@
 #define FLAG_RECEIVED_TM_TORMENT             0
 #define FLAG_RECEIVED_LAVARIDGE_EGG          0
 #define FLAG_RECEIVED_REVIVED_FOSSIL_MON     0
-#define FLAG_SECRET_BASE_REGISTRY_ENABLED    0
+#define FLAG_UNUSED_0x10C                    0
 #define FLAG_RECEIVED_TM_THIEF               0
 #define FLAG_CONTEST_SKETCH_CREATED          0  // Set but never read
 #define FLAG_EVIL_TEAM_ESCAPED_STERN_SPOKE   0
@@ -2655,7 +2655,7 @@
 // The start and end are byte-aligned because the flags are cleared in byte increments
 #define FLAG_UNUSED_0x920                           0
 #define FLAG_DAILY_CONTEST_LOBBY_RECEIVED_BERRY     0
-#define FLAG_DAILY_SECRET_BASE                      0
+#define FLAG_UNUSED_0x922                           0
 #define FLAG_UNUSED_0x923                           0
 #define FLAG_UNUSED_0x924                           0
 #define FLAG_UNUSED_0x925                           0

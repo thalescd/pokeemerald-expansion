@@ -1,11 +1,23 @@
 #include "global.h"
 #include "event_data.h"
+#include "field_camera.h"
+#include "field_player_avatar.h"
+#include "field_screen_effect.h"
+#include "field_weather.h"
+#include "fieldmap.h"
 #include "hidden_grotto.h"
+#include "main.h"
 #include "overworld.h"
+#include "palette.h"
 #include "pokemon.h"
 #include "random.h"
+#include "script.h"
+#include "task.h"
 #include "wild_encounter.h"
+#include "constants/event_bg.h"
 #include "constants/event_objects.h"
+#include "constants/metatile_behaviors.h"
+#include "constants/metatile_labels.h"
 #include "constants/secret_bases.h"
 #include "constants/wild_encounter.h"
 
@@ -107,6 +119,53 @@ static const u8 sHiddenGrottoSecretBaseIds[HIDDEN_GROTTO_COUNT] =
     SECRET_BASE_SHRUB4_3,
 };
 
+// Interior map of each secret base group, indexed by secret base id / 10.
+// SECRET_BASE_GROUP() multiplies the group by 4, hence the division in the designators.
+static const u8 sGrottoInteriorMapNums[NUM_SECRET_BASE_GROUPS] =
+{
+    [SECRET_BASE_RED_CAVE1 / 4]    = MAP_NUM(MAP_SECRET_BASE_RED_CAVE1),
+    [SECRET_BASE_RED_CAVE2 / 4]    = MAP_NUM(MAP_SECRET_BASE_RED_CAVE2),
+    [SECRET_BASE_RED_CAVE3 / 4]    = MAP_NUM(MAP_SECRET_BASE_RED_CAVE3),
+    [SECRET_BASE_RED_CAVE4 / 4]    = MAP_NUM(MAP_SECRET_BASE_RED_CAVE4),
+    [SECRET_BASE_BROWN_CAVE1 / 4]  = MAP_NUM(MAP_SECRET_BASE_BROWN_CAVE1),
+    [SECRET_BASE_BROWN_CAVE2 / 4]  = MAP_NUM(MAP_SECRET_BASE_BROWN_CAVE2),
+    [SECRET_BASE_BROWN_CAVE3 / 4]  = MAP_NUM(MAP_SECRET_BASE_BROWN_CAVE3),
+    [SECRET_BASE_BROWN_CAVE4 / 4]  = MAP_NUM(MAP_SECRET_BASE_BROWN_CAVE4),
+    [SECRET_BASE_BLUE_CAVE1 / 4]   = MAP_NUM(MAP_SECRET_BASE_BLUE_CAVE1),
+    [SECRET_BASE_BLUE_CAVE2 / 4]   = MAP_NUM(MAP_SECRET_BASE_BLUE_CAVE2),
+    [SECRET_BASE_BLUE_CAVE3 / 4]   = MAP_NUM(MAP_SECRET_BASE_BLUE_CAVE3),
+    [SECRET_BASE_BLUE_CAVE4 / 4]   = MAP_NUM(MAP_SECRET_BASE_BLUE_CAVE4),
+    [SECRET_BASE_YELLOW_CAVE1 / 4] = MAP_NUM(MAP_SECRET_BASE_YELLOW_CAVE1),
+    [SECRET_BASE_YELLOW_CAVE2 / 4] = MAP_NUM(MAP_SECRET_BASE_YELLOW_CAVE2),
+    [SECRET_BASE_YELLOW_CAVE3 / 4] = MAP_NUM(MAP_SECRET_BASE_YELLOW_CAVE3),
+    [SECRET_BASE_YELLOW_CAVE4 / 4] = MAP_NUM(MAP_SECRET_BASE_YELLOW_CAVE4),
+    [SECRET_BASE_TREE1 / 4]        = MAP_NUM(MAP_SECRET_BASE_TREE1),
+    [SECRET_BASE_TREE2 / 4]        = MAP_NUM(MAP_SECRET_BASE_TREE2),
+    [SECRET_BASE_TREE3 / 4]        = MAP_NUM(MAP_SECRET_BASE_TREE3),
+    [SECRET_BASE_TREE4 / 4]        = MAP_NUM(MAP_SECRET_BASE_TREE4),
+    [SECRET_BASE_SHRUB1 / 4]       = MAP_NUM(MAP_SECRET_BASE_SHRUB1),
+    [SECRET_BASE_SHRUB2 / 4]       = MAP_NUM(MAP_SECRET_BASE_SHRUB2),
+    [SECRET_BASE_SHRUB3 / 4]       = MAP_NUM(MAP_SECRET_BASE_SHRUB3),
+    [SECRET_BASE_SHRUB4 / 4]       = MAP_NUM(MAP_SECRET_BASE_SHRUB4),
+};
+
+struct GrottoEntranceMetatiles
+{
+    u16 closedMetatileId;
+    u16 openMetatileId;
+};
+
+static const struct GrottoEntranceMetatiles sGrottoEntranceMetatiles[] =
+{
+    {.closedMetatileId = METATILE_General_SecretBase_TreeLeft,  .openMetatileId = METATILE_General_SecretBase_VineLeft},
+    {.closedMetatileId = METATILE_General_SecretBase_TreeRight, .openMetatileId = METATILE_General_SecretBase_VineRight},
+    {.closedMetatileId = METATILE_General_RedCaveIndent,        .openMetatileId = METATILE_General_RedCaveOpen},
+    {.closedMetatileId = METATILE_General_YellowCaveIndent,     .openMetatileId = METATILE_General_YellowCaveOpen},
+    {.closedMetatileId = METATILE_General_BlueCaveIndent,       .openMetatileId = METATILE_General_BlueCaveOpen},
+    {.closedMetatileId = METATILE_Fallarbor_BrownCaveIndent,    .openMetatileId = METATILE_Fallarbor_BrownCaveOpen},
+    {.closedMetatileId = METATILE_Fortree_SecretBase_Shrub,     .openMetatileId = METATILE_Fortree_SecretBase_ShrubOpen},
+};
+
 static u32 GetGrottoState(u32 grotto)
 {
     u32 stateByte = gSaveBlock1Ptr->hiddenGrottoStates[grotto / 2];
@@ -143,9 +202,147 @@ static u32 GetHiddenGrottoIndex(u32 secretBaseId)
 }
 
 // The grotto is saved in a var so it survives saving and reloading inside the grotto.
+// It is set when the player faces an entrance, before Secret Power is used.
 void SetCurrentHiddenGrotto(u32 secretBaseId)
 {
     VarSet(VAR_HIDDEN_GROTTO_ID, GetHiddenGrottoIndex(secretBaseId));
+}
+
+void SetCurrentHiddenGrottoFromPosition(const struct MapPosition *position, const struct MapEvents *events)
+{
+    for (u32 i = 0; i < events->bgEventCount; i++)
+    {
+        if (events->bgEvents[i].kind == BG_EVENT_SECRET_BASE
+         && position->x == events->bgEvents[i].x + MAP_OFFSET
+         && position->y == events->bgEvents[i].y + MAP_OFFSET)
+        {
+            SetCurrentHiddenGrotto(events->bgEvents[i].bgUnion.secretBaseId);
+            return;
+        }
+    }
+}
+
+// Special: sets VAR_0x8007 to the SECRET_BASE_* entrance type in front of the player, or 0.
+void GetHiddenGrottoEntranceType(void)
+{
+    s16 x, y;
+    u32 behavior;
+
+    GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
+    behavior = MapGridGetMetatileBehaviorAt(x, y) & 0xFFF;
+
+    if (behavior == MB_SECRET_BASE_SPOT_RED_CAVE || behavior == MB_SECRET_BASE_SPOT_RED_CAVE_OPEN)
+        gSpecialVar_0x8007 = SECRET_BASE_RED_CAVE;
+    else if (behavior == MB_SECRET_BASE_SPOT_BROWN_CAVE || behavior == MB_SECRET_BASE_SPOT_BROWN_CAVE_OPEN)
+        gSpecialVar_0x8007 = SECRET_BASE_BROWN_CAVE;
+    else if (behavior == MB_SECRET_BASE_SPOT_BLUE_CAVE || behavior == MB_SECRET_BASE_SPOT_BLUE_CAVE_OPEN)
+        gSpecialVar_0x8007 = SECRET_BASE_BLUE_CAVE;
+    else if (behavior == MB_SECRET_BASE_SPOT_YELLOW_CAVE || behavior == MB_SECRET_BASE_SPOT_YELLOW_CAVE_OPEN)
+        gSpecialVar_0x8007 = SECRET_BASE_YELLOW_CAVE;
+    else if (behavior == MB_SECRET_BASE_SPOT_TREE_LEFT  || behavior == MB_SECRET_BASE_SPOT_TREE_LEFT_OPEN
+          || behavior == MB_SECRET_BASE_SPOT_TREE_RIGHT || behavior == MB_SECRET_BASE_SPOT_TREE_RIGHT_OPEN)
+        gSpecialVar_0x8007 = SECRET_BASE_TREE;
+    else if (behavior == MB_SECRET_BASE_SPOT_SHRUB || behavior == MB_SECRET_BASE_SPOT_SHRUB_OPEN)
+        gSpecialVar_0x8007 = SECRET_BASE_SHRUB;
+    else
+        gSpecialVar_0x8007 = 0;
+}
+
+// Opens or closes the entrance metatile in front of the player (Secret Power animations).
+void ToggleHiddenGrottoEntranceMetatile(void)
+{
+    u32 i;
+    s16 x, y;
+    u32 metatileId;
+
+    GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
+    metatileId = MapGridGetMetatileIdAt(x, y);
+
+    for (i = 0; i < ARRAY_COUNT(sGrottoEntranceMetatiles); i++)
+    {
+        if (sGrottoEntranceMetatiles[i].closedMetatileId == metatileId)
+        {
+            MapGridSetMetatileIdAt(x, y, sGrottoEntranceMetatiles[i].openMetatileId | MAPGRID_IMPASSABLE);
+            CurrentMapDrawMetatileAt(x, y);
+            return;
+        }
+    }
+
+    for (i = 0; i < ARRAY_COUNT(sGrottoEntranceMetatiles); i++)
+    {
+        if (sGrottoEntranceMetatiles[i].openMetatileId == metatileId)
+        {
+            MapGridSetMetatileIdAt(x, y, sGrottoEntranceMetatiles[i].closedMetatileId | MAPGRID_IMPASSABLE);
+            CurrentMapDrawMetatileAt(x, y);
+            return;
+        }
+    }
+}
+
+#define tState data[0]
+
+static void Task_EnterHiddenGrotto(u8 taskId)
+{
+    u32 secretBaseId;
+
+    switch (gTasks[taskId].tState)
+    {
+    case 0:
+        if (!gPaletteFade.active)
+            gTasks[taskId].tState = 1;
+        break;
+    case 1:
+        secretBaseId = sHiddenGrottoSecretBaseIds[VarGet(VAR_HIDDEN_GROTTO_ID)];
+        SetWarpDestinationToMapWarp(MAP_GROUP(MAP_SECRET_BASE_RED_CAVE1), sGrottoInteriorMapNums[secretBaseId / 10], 0);
+        WarpIntoMap();
+        gFieldCallback = FieldCB_ContinueScriptHandleMusic;
+        SetMainCallback2(CB2_LoadMap);
+        DestroyTask(taskId);
+        break;
+    }
+}
+
+#undef tState
+
+// Special (waitstate): warps into the current grotto. The interior's exit warp leads back here.
+void EnterHiddenGrotto(void)
+{
+    if (VarGet(VAR_HIDDEN_GROTTO_ID) >= HIDDEN_GROTTO_COUNT)
+    {
+        ScriptContext_Enable();
+        return;
+    }
+
+    CreateTask(Task_EnterHiddenGrotto, 0);
+    FadeScreen(FADE_TO_BLACK, 0);
+    SetDynamicWarp(0, gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, WARP_ID_NONE);
+}
+
+bool32 CurMapIsHiddenGrotto(void)
+{
+    return gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SECRET_BASE_RED_CAVE1)
+        && (u8)gSaveBlock1Ptr->location.mapNum <= MAP_NUM(MAP_SECRET_BASE_SHRUB4);
+}
+
+// The interiors are the old secret base maps: their PC becomes plain ground.
+void InitHiddenGrottoMetatiles(void)
+{
+    const struct MapLayout *mapLayout = gMapHeader.mapLayout;
+
+    if (!CurMapIsHiddenGrotto())
+        return;
+
+    for (s32 y = 0; y < mapLayout->height; y++)
+    {
+        for (s32 x = 0; x < mapLayout->width; x++)
+        {
+            if ((mapLayout->map[y * mapLayout->width + x] & MAPGRID_METATILE_ID_MASK) == METATILE_SecretBase_PC)
+            {
+                MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, METATILE_SecretBase_Ground | MAPGRID_IMPASSABLE);
+                return;
+            }
+        }
+    }
 }
 
 // Daily reset and new game: every grotto gets a fresh Pokemon, including the ones still full.
@@ -198,12 +395,12 @@ void SetupHiddenGrottoInterior(void)
 
     if (wildMon == NULL)
     {
-        FlagSet(FLAG_HIDE_SECRET_BASE_TRAINER);
+        FlagSet(FLAG_HIDE_HIDDEN_GROTTO_POKEMON);
         return;
     }
 
     VarSet(VAR_OBJ_GFX_ID_F, wildMon->species + OBJ_EVENT_MON);
-    FlagClear(FLAG_HIDE_SECRET_BASE_TRAINER);
+    FlagClear(FLAG_HIDE_HIDDEN_GROTTO_POKEMON);
 }
 
 // Creates the grotto Pokemon as the scripted wild battle opponent.

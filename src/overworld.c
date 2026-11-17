@@ -29,6 +29,7 @@
 #include "follower_npc.h"
 #include "gpu_regs.h"
 #include "heal_location.h"
+#include "hidden_grotto.h"
 #include "io_reg.h"
 #include "item.h"
 #include "item_icon.h"
@@ -59,7 +60,6 @@
 #include "save_location.h"
 #include "script.h"
 #include "script_pokemon_util.h"
-#include "secret_base.h"
 #include "sound.h"
 #include "sprite.h"
 #include "start_menu.h"
@@ -947,7 +947,6 @@ static void LoadMapFromWarp(bool32 a1)
     isOutdoors = IsMapTypeOutdoors(gMapHeader.mapType);
     isIndoors = IsMapTypeIndoors(gMapHeader.mapType);
 
-    CheckLeftFriendsSecretBase();
     TrySetMapSaveWarpStatus();
     ClearTempFieldEventData();
     ResetDexNavSearch();
@@ -984,7 +983,7 @@ static void LoadMapFromWarp(bool32 a1)
     if (a1 != TRUE && isIndoors)
     {
         UpdateTVScreensOnMap(gBackupMapLayout.width, gBackupMapLayout.height);
-        InitSecretBaseAppearance(TRUE);
+        InitHiddenGrottoMetatiles();
     }
     SetMinimumOWESpawnTimer();
 }
@@ -2099,7 +2098,7 @@ void CB2_ReturnToFieldFadeFromBlack(void)
 
 static void FieldCB_FadeTryShowMapPopup(void)
 {
-    if (gMapHeader.showMapName == TRUE && SecretBaseMapPopupEnabled() == TRUE)
+    if (gMapHeader.showMapName == TRUE)
         ShowMapNamePopup();
     FieldCB_WarpExitFadeFromBlack();
 }
@@ -2352,7 +2351,7 @@ static bool32 LoadMapInStepsLocal(u8 *state, bool32 a2)
             MapPreview_LoadGfx(gMapHeader.regionMapSectionId);
             RunMapPreviewScreenFadeIn(gMapHeader.regionMapSectionId);
         }
-        else if (gMapHeader.showMapName == TRUE && SecretBaseMapPopupEnabled() == TRUE)
+        else if (gMapHeader.showMapName == TRUE)
             ShowMapNamePopup();
         (*state)++;
         break;

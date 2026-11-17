@@ -15,7 +15,6 @@
 #include "battle_tower.h"
 #include "window.h"
 #include "mystery_event_script.h"
-#include "secret_base.h"
 #include "mauville_old_man.h"
 #include "sound.h"
 #include "constants/songs.h"
@@ -49,9 +48,9 @@ struct RecordMixingHallRecords
     struct RankingHall2P hallRecords2P[FRONTIER_LVL_MODE_COUNT][HALL_RECORDS_COUNT * 2];
 };
 
+// Secret bases were removed from both records, so mixing with the original games no longer works.
 struct PlayerRecordRS
 {
-    struct SecretBase secretBases[SECRET_BASES_COUNT];
     TVShow tvShows[TV_SHOWS_COUNT];
     PokeNews pokeNews[POKE_NEWS_COUNT];
     OldMan oldMan;
@@ -64,19 +63,18 @@ struct PlayerRecordRS
 
 struct PlayerRecordEmerald
 {
-    /* 0x0000 */ struct SecretBase secretBases[SECRET_BASES_COUNT];
-    /* 0x0C80 */ TVShow tvShows[TV_SHOWS_COUNT];
-    /* 0x1004 */ PokeNews pokeNews[POKE_NEWS_COUNT];
-    /* 0x1044 */ OldMan oldMan;
-    /* 0x1084 */ struct DewfordTrend dewfordTrends[SAVED_TRENDS_COUNT];
-    /* 0x10AC */ struct RecordMixingDaycareMail daycareMail;
-    /* 0x1124 */ struct EmeraldBattleTowerRecord battleTowerRecord;
-    /* 0x1210 */ enum Item giftItem;
-    /* 0x1214 */ LilycoveLady lilycoveLady;
-    /* 0x1254 */ struct Apprentice apprentices[2];
-    /* 0x12DC */ struct PlayerHallRecords hallRecords;
-    /* 0x1434 */ u8 filler_1434[16];
-}; // 0x1444
+    TVShow tvShows[TV_SHOWS_COUNT];
+    PokeNews pokeNews[POKE_NEWS_COUNT];
+    OldMan oldMan;
+    struct DewfordTrend dewfordTrends[SAVED_TRENDS_COUNT];
+    struct RecordMixingDaycareMail daycareMail;
+    struct EmeraldBattleTowerRecord battleTowerRecord;
+    enum Item giftItem;
+    LilycoveLady lilycoveLady;
+    struct Apprentice apprentices[2];
+    struct PlayerHallRecords hallRecords;
+    u8 filler_1434[16];
+};
 
 union PlayerRecord
 {
@@ -85,7 +83,6 @@ union PlayerRecord
 };
 
 static bool8 sReadyToReceive;
-static struct SecretBase *sSecretBasesSave;
 static TVShow *sTvShowsSave;
 static PokeNews *sPokeNewsSave;
 static OldMan *sOldManSave;
@@ -173,7 +170,6 @@ void RecordMixingPlayerSpotTriggered(void)
 // these variables were const in R/S, but had to become changeable because of saveblocks changing RAM position
 static void SetSrcLookupPointers(void)
 {
-    sSecretBasesSave = gSaveBlock1Ptr->secretBases;
     sTvShowsSave = gSaveBlock1Ptr->tvShows;
     sPokeNewsSave = gSaveBlock1Ptr->pokeNews;
     sOldManSave = &gSaveBlock1Ptr->oldMan;
@@ -187,7 +183,6 @@ static void SetSrcLookupPointers(void)
 
 static void PrepareUnknownExchangePacket(struct PlayerRecordRS *dest)
 {
-    memcpy(dest->secretBases, sSecretBasesSave, sizeof(dest->secretBases));
     memcpy(dest->tvShows, sTvShowsSave, sizeof(dest->tvShows));
     SanitizeTVShowLocationsForRuby(dest->tvShows);
     memcpy(dest->pokeNews, sPokeNewsSave, sizeof(dest->pokeNews));
@@ -202,8 +197,6 @@ static void PrepareUnknownExchangePacket(struct PlayerRecordRS *dest)
 
 static void PrepareExchangePacketForRubySapphire(struct PlayerRecordRS *dest)
 {
-    memcpy(dest->secretBases, sSecretBasesSave, sizeof(dest->secretBases));
-    ClearJapaneseSecretBases(dest->secretBases);
     memcpy(dest->tvShows, sTvShowsSave, sizeof(dest->tvShows));
     SanitizeTVShowsForRuby(dest->tvShows);
     memcpy(dest->pokeNews, sPokeNewsSave, sizeof(dest->pokeNews));
@@ -221,7 +214,6 @@ static void PrepareExchangePacketForRubySapphire(struct PlayerRecordRS *dest)
 
 static void PrepareExchangePacket(void)
 {
-    SetPlayerSecretBaseParty();
     DeactivateAllNormalTVShows();
     SetSrcLookupPointers();
 
@@ -234,7 +226,6 @@ static void PrepareExchangePacket(void)
     }
     else
     {
-        memcpy(sSentRecord->emerald.secretBases, sSecretBasesSave, sizeof(sSentRecord->emerald.secretBases));
         memcpy(sSentRecord->emerald.tvShows, sTvShowsSave, sizeof(sSentRecord->emerald.tvShows));
         memcpy(sSentRecord->emerald.pokeNews, sPokeNewsSave, sizeof(sSentRecord->emerald.pokeNews));
         memcpy(&sSentRecord->emerald.oldMan, sOldManSave, sizeof(sSentRecord->emerald.oldMan));
@@ -258,7 +249,6 @@ static void ReceiveExchangePacket(u32 multiplayerId)
     {
         // Ruby/Sapphire
         CalculateDaycareMailRandSum((void *)sReceivedRecords->ruby.tvShows);
-        ReceiveSecretBasesData(sReceivedRecords->ruby.secretBases, sizeof(sReceivedRecords->ruby), multiplayerId);
         ReceiveDaycareMailData(&sReceivedRecords->ruby.daycareMail, sizeof(sReceivedRecords->ruby), multiplayerId, sReceivedRecords->ruby.tvShows);
         ReceiveBattleTowerData(&sReceivedRecords->ruby.battleTowerRecord, sizeof(sReceivedRecords->ruby), multiplayerId);
         ReceiveTvShowsData(sReceivedRecords->ruby.tvShows, sizeof(sReceivedRecords->ruby), multiplayerId);
@@ -271,7 +261,6 @@ static void ReceiveExchangePacket(u32 multiplayerId)
     {
         // Emerald
         CalculateDaycareMailRandSum((void *)sReceivedRecords->emerald.tvShows);
-        ReceiveSecretBasesData(sReceivedRecords->emerald.secretBases, sizeof(sReceivedRecords->emerald), multiplayerId);
         ReceiveTvShowsData(sReceivedRecords->emerald.tvShows, sizeof(sReceivedRecords->emerald), multiplayerId);
         ReceivePokeNewsData(sReceivedRecords->emerald.pokeNews, sizeof(sReceivedRecords->emerald), multiplayerId);
         ReceiveOldManData(&sReceivedRecords->emerald.oldMan, sizeof(sReceivedRecords->emerald), multiplayerId);

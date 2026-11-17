@@ -23,9 +23,9 @@ LittlerootTown_BrendansHouse_2F_OnTransition:
 # 12 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 4, PlayersHouse_2F_EventScript_BlockStairsUntilClockIsSet
 # 13 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	call SecretBase_EventScript_SetDecorationFlags
+	call PlayerRoom_EventScript_SetDecorationFlags
 # 14 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	setvar VAR_SECRET_BASE_INITIALIZED, 0
+	setvar VAR_PLAYER_ROOM_DECOR_INITIALIZED, FALSE
 # 15 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	end
 # 16 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
@@ -85,7 +85,7 @@ LittlerootTown_BrendansHouse_2F_EventScript_SetReadyToMeetBrendan::
 # 43 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 LittlerootTown_BrendansHouse_2F_OnWarp:
 # 44 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	map_script_2 VAR_SECRET_BASE_INITIALIZED, 0, LittlerootTown_BrendansHouse_2F_EventScript_CheckInitDecor
+	map_script_2 VAR_PLAYER_ROOM_DECOR_INITIALIZED, FALSE, LittlerootTown_BrendansHouse_2F_EventScript_CheckInitDecor
 # 45 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.2byte 0
 # 46 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
@@ -95,7 +95,7 @@ LittlerootTown_BrendansHouse_2F_EventScript_CheckInitDecor::
 # 48 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	checkplayergender
 # 49 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	goto_if_eq VAR_RESULT, MALE, SecretBase_EventScript_InitDecorations
+	goto_if_eq VAR_RESULT, MALE, PlayerRoom_EventScript_InitDecorations
 # 50 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	end
 # 51 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"

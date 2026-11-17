@@ -9,7 +9,6 @@
 #include "trig.h"
 #include "overworld.h"
 #include "event_data.h"
-#include "secret_base.h"
 #include "string_util.h"
 #include "international_string_util.h"
 #include "strings.h"
@@ -1893,11 +1892,7 @@ u8 *GetMapName(u8 *dest, mapsec_u16_t regionMapId, u16 padLength)
     u8 *str;
     u16 i;
 
-    if (regionMapId == MAPSEC_SECRET_BASE)
-    {
-        str = GetSecretBaseMapName(dest);
-    }
-    else if (regionMapId < MAPSEC_NONE)
+    if (regionMapId < MAPSEC_NONE)
     {
         str = StringCopy(dest, gRegionMapEntries[regionMapId].name);
     }
