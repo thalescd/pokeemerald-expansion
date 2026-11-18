@@ -90,6 +90,8 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
   trocado pelo record mixing). O velho fica como está. A fase 5 passa a ser só: o Trader deixa de oferecer decorações de
   categorias que não são mais aceitas. A ideia do NPC da hidden ability foi para Pendências.
 - 2026-11-18: levantamento da fase 5 aprovado: TIRE → LOTAD DOLL e PRETTY FLOWERS → SEEDOT DOLL nos padrões do Trader.
+- 2026-11-18: o Pokémon da grotto fica olhando em volta (`MOVEMENT_TYPE_LOOK_AROUND`) em vez de parado virado para
+  baixo. Pedido do usuário; entra junto com a fase 5.
 
 ## Levantamento
 
@@ -464,6 +466,9 @@ Escolhas de implementação da fase 3 (fora do levantamento):
   categoria removida. Levantamento novo aguardando aprovação.
 - 2026-11-18: fase 5 escrita: `sDefaultTraderDecorations` em `src/trader.c` com LOTAD DOLL e SEEDOT DOLL no lugar de
   TIRE e PRETTY FLOWERS. **Não compilada e não testada.**
+- 2026-11-18: os 24 interiores (`data/maps/SecretBase_*/map.json`) com o objeto do Pokémon em
+  `MOVEMENT_TYPE_LOOK_AROUND` (era `FACE_DOWN`; alcance continua 0). O script dele já faz `lock` e `faceplayer`, então
+  ele para e encara o jogador ao conversar. **Não compilado e não testado.**
 
 ## Pendências
 
@@ -570,3 +575,5 @@ jogos novos até cair num ID assim (1 em 5).
 3. Com um boneco ou almofada no PC: escolher o LOTAD DOLL, dar o seu. A troca acontece e o LOTAD DOLL aparece no PC.
 4. O menu das suas decorações mostra as 8 categorias, as 6 removidas como `0/0`.
 5. Falar de novo: ele diz que vocês já trocaram (só uma troca por save; o record mixing libera outra).
+6. Grottos (sem precisar do Trader): entrar numa grotto cheia e esperar uns segundos. O Pokémon vira para vários lados
+   sem sair do lugar; ao falar com ele, ele encara o jogador antes do grito.
