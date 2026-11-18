@@ -185,6 +185,46 @@ Feito em 2026-11-17, só leitura, sem compilar. Os números de linha valem para 
 - Remover `secretBases`, `struct SecretBase`/`SecretBaseParty` e `SECRET_BASES_COUNT`. O `STATIC_ASSERT` de tamanho
   (`src/save.c:82`) continua valendo. Medir os offsets com sonda de `offsetof` (os comentários de `global.h` mentem).
 
+Detalhado em 2026-11-17, depois da fase 3. Aprovado pelo usuário em 2026-11-18, inclusive mover `hiddenGrottoStates`:
+
+- **O que sai do `SaveBlock1`** (`include/global.h`):
+  - `secretBases[SECRET_BASES_COUNT]` (`:1146`), 20 × 160 = 3.200 bytes;
+  - os 6 inventários sem uso desde a fase 3, `decorationDesks` a `decorationPosters` (`:1149-1154`), 100 bytes;
+  - as definições `struct SecretBaseParty` e `struct SecretBase` (`:632-659`).
+- **Constantes** (`include/constants/global.h:97,103`): saem `SECRET_BASES_COUNT` e `DECOR_MAX_SECRET_BASE`. Nenhum
+  outro arquivo as usa (conferido por grep em `src`, `include`, `test`, `tools` e `data`).
+- **TV** (`include/global.tv.h:350-364, 447-460`): saem os membros `secretBaseVisit` e `secretBaseSecrets` da union
+  `TVShow`. Nenhum código os lê desde a fase 2. A union continua com 0x24 bytes (o membro `common` fixa o tamanho), mas
+  o alinhamento pode cair de 4 para 2, porque o `u32 flags` do `secretBaseSecrets` é o único campo de 4 bytes. As
+  constantes `TVSHOW_SECRET_BASE_VISIT` e `TVSHOW_SECRET_BASE_SECRETS` ficam: são números de tipo de programa, e
+  renumerar mexeria nas faixas que o `tv.c` usa.
+- **`hiddenGrottoStates`:** proposta de mover para onde estava `secretBases` (depois de `berryTrees`) e devolver o
+  `filler1` ao tamanho original `0x2C`. O recorte do `filler1` só existia para não deslocar offsets, e eles vão
+  deslocar de qualquer jeito. De quebra, o bloco do `filler1` volta a ser igual ao do upstream, o que evita conflito
+  nos merges.
+- **Teste** `test/save.c`: o `T_SAVEBLOCK1_SIZE` (15092) muda. Em vez de sonda de `offsetof`, o próprio `make check`
+  mostra o número novo quando o teste falha; o valor esperado é cerca de 3.300 bytes a menos (~11.790), com uns bytes
+  de diferença por alinhamento. Se o número fugir muito disso, paro e olho antes de abençoar.
+- **Comentários de offset** em `global.h`: as linhas removidas levam os seus; os outros já estão defasados (ver
+  memória do save) e ficam como estão.
+
+Espaço: o `SaveBlock1` ocupa 4 setores de 3.968 bytes (15.872). Hoje sobram cerca de 780 bytes; depois da fase 4,
+cerca de 4.080.
+
+O que é compartilhado e pode quebrar:
+
+- **Saves existentes ficam inválidos:** tudo depois de `berryTrees` desloca (vars e flags vêm antes e não mudam, mas
+  TV, correio, creche, dex etc. vêm depois). Precisa de jogo novo. Segue a decisão em vigor de abençoar o tamanho
+  conforme o save muda, enquanto não houver save de jogador para preservar.
+- **Record mixing** entre cópias deste ROM: os programas de TV trocados usam a mesma union dos dois lados, continua
+  consistente. Com os jogos originais já tinha deixado de funcionar na fase 2.
+- **`FREE_EXTRA_SEEN_FLAGS_SAVEBLOCK1`:** `hiddenGrottoStates` fica fora do `#if`, então ligar a flag continua
+  funcionando.
+
+O que não será tocado: `playerRoomDecorations`/`Positions`, `decorationDolls`, `decorationCushions`,
+`DECOR_MAX_PLAYERS_HOUSE`, `include/constants/secret_bases.h`, os mapas, os tipos de batalha de secret base e o resto do
+save.
+
 ### O que é compartilhado e pode quebrar
 
 - **Quarto do jogador:** usa funções e scripts com nome de secret base que **não podem ser apagados**:
@@ -325,13 +365,28 @@ Escolhas de implementação da fase 3 (fora do levantamento):
   e o Trader ainda mostram esses móveis enquanto o usuário não trocar o conteúdo deles.
 - O menu de categorias continua com as 8 categorias; as 6 sem espaço aparecem como `0/0` (e desabilitadas ao decorar).
 
+### Fase 4 (escrita em 2026-11-18)
+
+- **`include/global.h`:** saíram `struct SecretBaseParty`, `struct SecretBase`, `secretBases[]` e os 6 inventários
+  `decorationDesks` a `decorationPosters`. `hiddenGrottoStates` foi para logo depois de `berryTrees` (onde estava
+  `secretBases`), e o `filler1` voltou a `0x2C`, igual ao upstream.
+- **`include/constants/global.h`:** saíram `SECRET_BASES_COUNT` e `DECOR_MAX_SECRET_BASE`.
+- **`include/global.tv.h`:** saíram os membros `secretBaseVisit` e `secretBaseSecrets` da union `TVShow`.
+- **`test/save.c`:** `T_SAVEBLOCK1_SIZE` de 15092 para 11828 (3.264 bytes a menos). A conta: −3.200 (`secretBases`)
+  −100 (inventários) +38 (o `filler1` recuperou os bytes que as grottos ocupavam) = −3.262; os 2 bytes restantes são
+  alinhamento (a union `TVShow` perdeu o único campo de 4 bytes). Número lido do cabeçalho da ROM compilada pelo
+  usuário (`saveBlock1Size` em `sGFRomHeader`, 0x0800018C), que também confirmou o `SaveBlock2` em 3884.
+- Conferido: nenhum outro arquivo usa os nomes removidos; o cabeçalho da ROM (`rom_header_gf.c`) calcula offsets e
+  tamanho com `offsetof`/`sizeof` e se ajusta sozinho; nenhuma cópia de 32 bits (`CpuFastCopy`, DMA) depende do
+  alinhamento dos programas de TV.
+
 ## Progresso
 
 - [x] Levantamento aprovado (2026-11-17)
 - [x] Fase 1: implementação, build, `make check`, teste no emulador, commit
 - [x] Fase 2: remoção da secret base (build, `make check`, teste no emulador, commit)
 - [x] Fase 3: decorações só no quarto (build, `make check`, teste no emulador, commit)
-- [ ] Fase 4: encolher o `SaveBlock1`
+- [x] Fase 4: encolher o `SaveBlock1` (build, teste no emulador, commit; `make check` com o número novo não rodado)
 - [ ] Merge na `master`
 
 - 2026-11-17: levantamento escrito (4 frentes: entrada, dependentes, encontro, decoração). Só leitura de código, nada
@@ -356,6 +411,14 @@ Escolhas de implementação da fase 3 (fora do levantamento):
   (inventário de tamanho 0 nunca é indexado).
 - 2026-11-17: fase 3 — build e `make check` passaram, e os passos 1 a 7 do roteiro da fase 3 funcionaram no emulador
   (rodados pelo usuário). **Não testado:** passo 8 (Trader de Mauville).
+- 2026-11-17: levantamento da fase 4 detalhado (Levantamento → Fase 4). Só leitura e grep. Aguardando aprovação.
+- 2026-11-18: usuário aprovou a fase 4 como proposta, inclusive mover `hiddenGrottoStates` e devolver o `filler1`.
+- 2026-11-18: fase 4 escrita (ver Pontos de código). **Não compilada e não testada.** O `T_SAVEBLOCK1_SIZE` ainda está
+  com o valor antigo, de propósito: o `make check` vai mostrar o tamanho novo.
+- 2026-11-18: fase 4 — build passou; no `make check` só o teste de tamanho do `SaveBlock1` falhou, como esperado
+  (rodados pelo usuário). Jogo novo no emulador: grottos e quarto do jogador funcionando. Tamanho novo (11828) lido do
+  cabeçalho da ROM e gravado em `test/save.c`. **Não rodado:** `make check` com o número novo; passos 4 (TV) e 5 do
+  roteiro não foram citados pelo usuário.
 
 ## Pendências
 
@@ -428,3 +491,18 @@ Build: `make -j20`, depois `make check -j20`. O `SaveBlock1` ainda não muda de 
    deve dizer que não há espaço e não cobrar. O ícone do item na lista da loja continua aparecendo.
 7. Comprar um boneco ou almofada: vai para o PC normalmente.
 8. Se der para chegar ao Trader de Mauville: abrir o menu de troca (as categorias removidas aparecem `0/0`).
+
+### Fase 4
+
+Build: `make -j20`, depois `make check -j20`. Desta vez o teste `SaveBlock1 is backwards compatible` **deve falhar**:
+o número que ele mostra (esperado perto de 11.830) vai para `T_SAVEBLOCK1_SIZE` em `test/save.c`. Os outros 3 testes de
+tamanho devem passar sem mudança.
+
+Precisa de **jogo novo**: saves anteriores não carregam direito (tudo depois de `berryTrees` deslocou).
+
+1. Jogo novo, conferir que o quarto do jogador inicia normalmente e que o PC → Decoração abre.
+2. Grottos: entrar numa grotto cheia, salvar, recarregar (Pokémon continua lá); fugir, salvar, recarregar (continua
+   vazia).
+3. Colocar um boneco no quarto, salvar, recarregar: continua no lugar.
+4. TV de casa: liga e mostra programas.
+5. Conferir que dinheiro, mochila, Pokémon e posição continuam certos depois de salvar e recarregar.
