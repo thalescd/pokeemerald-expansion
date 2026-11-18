@@ -89,6 +89,7 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
   usuário só quer NPCs que estão sempre lá, e o velho de Mauville continuaria sorteado entre as versões restantes (e
   trocado pelo record mixing). O velho fica como está. A fase 5 passa a ser só: o Trader deixa de oferecer decorações de
   categorias que não são mais aceitas. A ideia do NPC da hidden ability foi para Pendências.
+- 2026-11-18: levantamento da fase 5 aprovado: TIRE → LOTAD DOLL e PRETTY FLOWERS → SEEDOT DOLL nos padrões do Trader.
 
 ## Levantamento
 
@@ -241,7 +242,7 @@ save.
 
 ### Fase 5 — o Trader só oferece bonecos e almofadas
 
-Feito em 2026-11-18, só leitura e grep, sem compilar. Aguardando aprovação. (Substitui a proposta anterior desta fase,
+Feito em 2026-11-18, só leitura e grep, sem compilar. Aprovado em 2026-11-18. (Substitui a proposta anterior desta fase,
 que removia o Trader; ver Decisões.)
 
 - **O que o jogador dá** ao Trader só pode ser decoração que ele tem; desde a fase 3, só bonecos e almofadas. Nada a
@@ -420,7 +421,7 @@ Escolhas de implementação da fase 3 (fora do levantamento):
 - [x] Fase 2: remoção da secret base (build, `make check`, teste no emulador, commit)
 - [x] Fase 3: decorações só no quarto (build, `make check`, teste no emulador, commit)
 - [x] Fase 4: encolher o `SaveBlock1` (build, testes de tamanho do save, teste no emulador, commit)
-- [ ] Fase 5: o Trader só oferece bonecos e almofadas (levantamento aguardando aprovação)
+- [ ] Fase 5: o Trader só oferece bonecos e almofadas (escrita, falta build e teste)
 - [ ] Merge na `master`
 
 - 2026-11-17: levantamento escrito (4 frentes: entrada, dependentes, encontro, decoração). Só leitura de código, nada
@@ -461,6 +462,8 @@ Escolhas de implementação da fase 3 (fora do levantamento):
   do levantamento e dos textos.
 - 2026-11-18: fase 5 refeita depois que o usuário cancelou a remoção do Trader: agora só troca as 2 decorações padrão de
   categoria removida. Levantamento novo aguardando aprovação.
+- 2026-11-18: fase 5 escrita: `sDefaultTraderDecorations` em `src/trader.c` com LOTAD DOLL e SEEDOT DOLL no lugar de
+  TIRE e PRETTY FLOWERS. **Não compilada e não testada.**
 
 ## Pendências
 
@@ -553,3 +556,17 @@ Precisa de **jogo novo**: saves anteriores não carregam direito (tudo depois de
 3. Colocar um boneco no quarto, salvar, recarregar: continua no lugar.
 4. TV de casa: liga e mostra programas.
 5. Conferir que dinheiro, mochila, Pokémon e posição continuam certos depois de salvar e recarregar.
+
+### Fase 5
+
+Build: `make -j20`. O save não muda.
+
+O Trader só aparece quando o ID No. do cartão de treinador termina em 4 ou 5, e isso é sorteado no jogo novo. Começar
+jogos novos até cair num ID assim (1 em 5).
+
+1. Pokémon Center de Mauville, 1º andar, o velho à esquerda: aceitar a troca. A lista dele mostra DUSKULL DOLL,
+   BALL CUSHION, LOTAD DOLL e SEEDOT DOLL.
+2. Sem nenhuma decoração: escolher uma, ele diz que você não tem decoração para trocar.
+3. Com um boneco ou almofada no PC: escolher o LOTAD DOLL, dar o seu. A troca acontece e o LOTAD DOLL aparece no PC.
+4. O menu das suas decorações mostra as 8 categorias, as 6 removidas como `0/0`.
+5. Falar de novo: ele diz que vocês já trocaram (só uma troca por save; o record mixing libera outra).
