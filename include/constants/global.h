@@ -94,13 +94,11 @@ enum Language
 #define POKEBLOCKS_COUNT 40
 #define OBJECT_EVENTS_COUNT 16
 #define MAIL_COUNT (10 + PARTY_SIZE)
-#define SECRET_BASES_COUNT 20
 #define HIDDEN_GROTTO_COUNT 75 // One per secret base entrance (see include/constants/secret_bases.h)
 #define HIDDEN_GROTTO_STATE_BYTES ((HIDDEN_GROTTO_COUNT + 1) / 2) // 4 bits per grotto
 #define POKE_NEWS_COUNT 16
 #define PC_ITEMS_COUNT 50
 #define OBJECT_EVENT_TEMPLATES_COUNT 64
-#define DECOR_MAX_SECRET_BASE 16
 #define DECOR_MAX_PLAYERS_HOUSE 12
 #define APPRENTICE_COUNT 4
 #define APPRENTICE_MAX_QUESTIONS 9

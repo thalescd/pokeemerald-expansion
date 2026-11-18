@@ -11,7 +11,7 @@
 // them (trainerHillTimes onwards). That is expected here while no save has to survive.
 // Before blessing a new number, check whether include/global.h moved too: if it did,
 // the shift may be a misplaced new field instead, and those belong in filler1.
-#define T_SAVEBLOCK1_SIZE 15092
+#define T_SAVEBLOCK1_SIZE 11828
 #define T_SAVEBLOCK2_SIZE 3884
 #define T_SAVEBLOCK3_SIZE 4
 #define T_POKEMONSTORAGE_SIZE 34144

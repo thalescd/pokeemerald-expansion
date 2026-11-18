@@ -629,35 +629,6 @@ extern struct SaveBlock2 *gSaveBlock2Ptr;
 
 extern u8 UpdateSpritePaletteWithTime(u8);
 
-struct SecretBaseParty
-{
-    u32 personality[PARTY_SIZE];
-    enum Move moves[PARTY_SIZE * MAX_MON_MOVES];
-    enum Species species[PARTY_SIZE];
-    enum Item heldItems[PARTY_SIZE];
-    u8 levels[PARTY_SIZE];
-    u8 EVs[PARTY_SIZE];
-};
-
-struct SecretBase
-{
-    /*0x1A9C*/ u8 secretBaseId;
-    /*0x1A9D*/ bool8 toRegister:4;
-    /*0x1A9D*/ u8 gender:1;
-    /*0x1A9D*/ u8 battledOwnerToday:1;
-    /*0x1A9D*/ u8 registryStatus:2;
-    /*0x1A9E*/ u8 trainerName[PLAYER_NAME_LENGTH];
-    /*0x1AA5*/ u8 trainerId[TRAINER_ID_LENGTH]; // byte 0 is used for determining trainer class
-    /*0x1AA9*/ u8 language;
-    /*0x1AAA*/ u16 numSecretBasesReceived;
-    /*0x1AAC*/ u8 numTimesEntered;
-    /*0x1AAD*/ u8 unused;
-    /*0x1AAE*/ u8 decorations[DECOR_MAX_SECRET_BASE];
-    /*0x1ABE*/ u8 decorationPositions[DECOR_MAX_SECRET_BASE];
-    /*0x1ACE*/ //u8 padding[2];
-    /*0x1AD0*/ struct SecretBaseParty party;
-};
-
 #include "constants/game_stat.h"
 #include "global.fieldmap.h"
 #include "global.berry.h"
@@ -1124,10 +1095,9 @@ struct SaveBlock1
     /*0x560*/ struct Bag bag;
     /*0x848*/ struct Pokeblock pokeblocks[POKEBLOCKS_COUNT];
 #if FREE_EXTRA_SEEN_FLAGS_SAVEBLOCK1 == FALSE
-    /*0x988*/ u8 filler1[0x2C - HIDDEN_GROTTO_STATE_BYTES]; // Previously Dex Flags, feel free to remove.
+    /*0x988*/ u8 filler1[0x2C]; // Previously Dex Flags, feel free to remove.
 #endif //FREE_EXTRA_SEEN_FLAGS_SAVEBLOCK1
     // Carved out of filler1 so that every offset below stays where vanilla put it.
-              u8 hiddenGrottoStates[HIDDEN_GROTTO_STATE_BYTES]; // see src/hidden_grotto.c
     /*0x9B4*/ u16 registeredItems[MAX_REGISTERED_ITEMS]; // registered for use with SELECT button
     /*0x9BC*/ u16 berryBlenderRecords[3];
     /*0x9C2*/ u8 unused_9C2[2];
@@ -1143,15 +1113,9 @@ struct SaveBlock1
     /*0x139C*/ u16 vars[VARS_COUNT];
     /*0x159C*/ u32 gameStats[NUM_GAME_STATS];
     /*0x169C*/ struct BerryTree berryTrees[BERRY_TREES_COUNT];
-    /*0x1A9C*/ struct SecretBase secretBases[SECRET_BASES_COUNT];
+               u8 hiddenGrottoStates[HIDDEN_GROTTO_STATE_BYTES]; // see src/hidden_grotto.c
     /*0x271C*/ u8 playerRoomDecorations[DECOR_MAX_PLAYERS_HOUSE];
     /*0x2728*/ u8 playerRoomDecorationPositions[DECOR_MAX_PLAYERS_HOUSE];
-    /*0x2734*/ u8 decorationDesks[10];
-    /*0x273E*/ u8 decorationChairs[10];
-    /*0x2748*/ u8 decorationPlants[10];
-    /*0x2752*/ u8 decorationOrnaments[30];
-    /*0x2770*/ u8 decorationMats[30];
-    /*0x278E*/ u8 decorationPosters[10];
     /*0x2798*/ u8 decorationDolls[40];
     /*0x27C0*/ u8 decorationCushions[10];
     /*0x27CC*/ TVShow tvShows[TV_SHOWS_COUNT];
