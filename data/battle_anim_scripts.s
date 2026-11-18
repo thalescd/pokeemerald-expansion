@@ -16789,6 +16789,15 @@ gBattleAnimMove_Cragfang::
 gBattleAnimMove_ZoneShift::
 	goto gBattleAnimMove_TrickRoom
 
+@ Iron Defense's metallic shine (without the background flash), then the healing sparkles.
+gBattleAnimMove_Reforge::
+	loopsewithpan SE_SHINY, SOUND_PAN_ATTACKER, 28, 2
+	metallic_shine permanent=0
+	waitforvisualfinish
+	call HealingEffect
+	waitforvisualfinish
+	end
+
 @ Supersonic Skystrike without its charge-up intro: the user takes off immediately.
 gBattleAnimMove_SupersonicDive::
 	createvisualtask AnimTask_AllBattlersInvisibleExceptAttackerAndTarget, 10

@@ -22252,7 +22252,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
-        .battleAnimScript = gBattleAnimMove_Recover, // Placeholder until Reforge gets its own animation.
+        .battleAnimScript = gBattleAnimMove_Reforge,
     },
 
     // Z-Moves
