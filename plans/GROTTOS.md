@@ -386,7 +386,7 @@ Escolhas de implementação da fase 3 (fora do levantamento):
 - [x] Fase 1: implementação, build, `make check`, teste no emulador, commit
 - [x] Fase 2: remoção da secret base (build, `make check`, teste no emulador, commit)
 - [x] Fase 3: decorações só no quarto (build, `make check`, teste no emulador, commit)
-- [x] Fase 4: encolher o `SaveBlock1` (build, teste no emulador, commit; `make check` com o número novo não rodado)
+- [x] Fase 4: encolher o `SaveBlock1` (build, testes de tamanho do save, teste no emulador, commit)
 - [ ] Merge na `master`
 
 - 2026-11-17: levantamento escrito (4 frentes: entrada, dependentes, encontro, decoração). Só leitura de código, nada
@@ -419,6 +419,9 @@ Escolhas de implementação da fase 3 (fora do levantamento):
   (rodados pelo usuário). Jogo novo no emulador: grottos e quarto do jogador funcionando. Tamanho novo (11828) lido do
   cabeçalho da ROM e gravado em `test/save.c`. **Não rodado:** `make check` com o número novo; passos 4 (TV) e 5 do
   roteiro não foram citados pelo usuário.
+- 2026-11-18: `make check TESTS="SaveBlock"` com o número novo: os 3 testes de tamanho do `SaveBlock1`/`2`/`3`
+  passaram (rodado pelo usuário). O `make check` completo e o teste do `PokemonStorage` não foram rodados de novo depois
+  da troca do número; o `PokemonStorage` não mudou nesta fase.
 
 ## Pendências
 
