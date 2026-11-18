@@ -1062,13 +1062,6 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleTvScore = 0, // TODO: Assign points
     },
 
-    [EFFECT_ROOST] =
-    {
-        .battleScript = BattleScript_EffectRoost,
-        .battleTvScore = 0, // TODO: Assign points
-        .encourageEncore = TRUE,
-    },
-
     [EFFECT_GRAVITY] =
     {
         .battleScript = BattleScript_EffectGravity,

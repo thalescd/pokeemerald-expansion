@@ -178,7 +178,7 @@ SINGLE_BATTLE_TEST("Transform returns the user to normal at the end of the battl
 DOUBLE_BATTLE_TEST("Transform copies a target's Flying type but not its active Roost state")
 {
     GIVEN {
-        ASSUME(GetMoveEffect(MOVE_ROOST) == EFFECT_ROOST);
+        ASSUME(MoveHasAdditionalEffect(MOVE_ROOST, MOVE_EFFECT_SUPPRESS_TYPE));
         ASSUME(GetMoveType(MOVE_MUD_SHOT) == TYPE_GROUND);
         ASSUME(GetSpeciesType(SPECIES_SWELLOW, 0) == TYPE_NORMAL);
         ASSUME(GetSpeciesType(SPECIES_SWELLOW, 1) == TYPE_FLYING);

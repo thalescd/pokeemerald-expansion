@@ -1435,12 +1435,6 @@ BattleScript_GravityLoopEnd:
 	restoretarget
 	return
 
-BattleScript_EffectRoost::
-	attackcanceler
-	tryhealhalfhealth BS_TARGET, BattleScript_AlreadyAtFullHp
-	setroost
-	goto BattleScript_HealTarget
-
 BattleScript_EffectHealBlock::
 	attackcanceler
 	jumpifvolatile BS_TARGET, VOLATILE_HEAL_BLOCK_TIMER, BattleScript_ButItFailed
@@ -1688,6 +1682,7 @@ BattleScript_EffectRestoreHp::
 	tryhealhalfhealth BS_ATTACKER, BattleScript_AlreadyAtFullHp
 	attackanimation
 	waitanimation
+	setadditionaleffects
 BattleScript_RestoreHp:
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER, ASSURANCE_DOUBLE
