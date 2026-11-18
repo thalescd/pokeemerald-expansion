@@ -1,7 +1,7 @@
 # Plano: MOVE REFORGE
 
 - **Branch:** `plan/move-reforge`
-- **Status:** em andamento
+- **Status:** concluído (2026-11-18; falta só o merge na `master`, quando o usuário pedir)
 - **Criado em:** 2026-11-13
 - **Escopo (pode alterar):** o novo move Reforge (constante, dados, animação) e a refatoração do Roost para dentro de `EFFECT_RESTORE_HP` (efeito do move, efeito adicional, volátil, script de batalha, IA e testes que citam `EFFECT_ROOST`).
 - **Fora de escopo:** os outros moves de cura (Recover, Slack Off, Purify etc.), Burn Up e Double Shock (só leitura, serviram apenas de exemplo de efeito adicional configurável), learnsets/TMs (a decisão de quem aprende o Reforge fica para depois).
@@ -30,6 +30,8 @@ só com dados.
 - 2026-11-13: PP e descrição do Reforge iguais às do Roost.
 - 2026-11-13: o Reforge se comporta como o Roost com mono-tipo (mesma config `B_ROOST_PURE_FLYING`), usa a animação do Recover por enquanto, e o handler/constante de fim de turno e o volátil ganham nomes genéricos.
 - 2026-11-13: o campo do tipo se chama `.argument.suppressedType` e o efeito não usa `.self` (sempre atua no usuário).
+- 2026-11-18: terceiro tipo (`types[2]`, de Trick-or-Treat/Forest's Curse): **fica assim**. O Reforge não remove o Aço do terceiro slot, igual ao Roost original com o Voador.
+- 2026-11-18: scripts de debug revertidos (o teste no emulador terminou).
 - 2026-11-18: IA (`ShouldRecordStatusMove`): **fica como está**. O Roost sai das odds "médias" e cai nas odds padrão, igual ao Recover e ao Slack Off; o Reforge também. Hoje não tem efeito no jogo: nenhum treinador usa `AI_FLAG_ASSUME_STATUS_MOVES`.
 - 2026-11-18: animação do Reforge conferida no jogo pelo usuário: fica essa (brilho metálico + cura).
 - 2026-11-16: o Reforge ganha animação própria (antes era a do Recover, provisória): **brilho metálico do Iron Defense + brilho de cura**. Só reaproveita o que já existe, sem gráfico novo.
@@ -95,7 +97,7 @@ A ideia é viável, mas **não dá para reaproveitar `MOVE_EFFECT_REMOVE_ARG_TYP
 ### Riscos e dúvidas
 
 - **Mono-tipo Aço (Aço puro, como o Registeel):** o Roost vira Normal (Gen 5+) quando o mon é Voador puro. O Reforge em um Aço puro deveria virar Normal também? Precisa de decisão.
-- **Terceiro tipo:** o Roost atual só olha `types[0]` e `types[1]`, não `types[2]` (tipo dado por Trick-or-Treat/Forest's Curse). Manter igual para não mudar comportamento, mas o Reforge em um mon com Aço no terceiro slot não o removeria. Aceitável?
+- **Terceiro tipo:** o Roost atual só olha `types[0]` e `types[1]`, não `types[2]` (tipo dado por Trick-or-Treat/Forest's Curse). Manter igual para não mudar comportamento, mas o Reforge em um mon com Aço no terceiro slot não o removeria. **Aceito pelo usuário em 2026-11-18.**
 - **Volátil guardando o tipo:** um mon só usa um move por turno, então um único tipo basta. Casos de borda: Instruct/Dancer repetindo um dos dois (mesmo tipo, sem problema).
 - **Não compilo e não rodo teste** (regra do CLAUDE.md). A validação é do usuário: `make -j20` e depois `make check TESTS="roost"` etc. no WSL.
 
@@ -138,7 +140,7 @@ Ver a lista de arquivos no item de implementação em Progresso.
 - [x] Teste no emulador (2026-11-16, parcial; ver nota)
 - [x] Animação própria do Reforge (2026-11-18; **conferida no jogo pelo usuário e aprovada**, fica essa)
 - [x] Commits (2026-11-13; sem push)
-- [ ] Scripts 1, 2 e 3 do debug descartados (agora **commitados**, num commit à parte; descartar = reverter esse commit ou voltar o arquivo ao estado da `master`)
+- [x] Scripts 1, 2 e 3 do debug descartados (2026-11-18: commit `8b1c138c1c` revertido em `1438faaf05`; `data/scripts/debug.inc` igual ao da `master`)
 - [ ] Merge na `master`
 
 - 2026-11-18: animação do Reforge escrita conforme o levantamento 2: `gBattleAnimMove_Reforge` em `data/battle_anim_scripts.s` (depois do Zone Shift), `extern` em `include/battle_anim_scripts.h`, e `MOVE_REFORGE` aponta para ela em `src/data/moves_info.h`. Não compilado, não testado.
@@ -166,7 +168,7 @@ Ver a lista de arquivos no item de implementação em Progresso.
 
 ## Pendências
 
-- **Descartar os Scripts 1, 2 e 3 do debug** (`Debug_EventScript_Script_1/2/3` em `data/scripts/debug.inc`) ao terminar o plano. Decisão de 2026-11-13 (revista no mesmo dia): eles **são commitados** num commit `chore` próprio, para o teste em outro PC; antes do merge na `master`, reverter esse commit (`git revert <hash>`), não deixar os scripts irem junto.
+- ~~**Descartar os Scripts 1, 2 e 3 do debug**~~ — feito em 2026-11-18 (revert `1438faaf05`). (`Debug_EventScript_Script_1/2/3` em `data/scripts/debug.inc`) Decisão de 2026-11-13 (revista no mesmo dia): eles **são commitados** num commit `chore` próprio, para o teste em outro PC; antes do merge na `master`, reverter esse commit (`git revert <hash>`), não deixar os scripts irem junto.
 
 Decisões que o usuário precisa tomar antes de eu editar código:
 
