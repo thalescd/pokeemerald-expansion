@@ -422,10 +422,11 @@ Escolhas de implementação da fase 3 (fora do levantamento):
 - 2026-11-18: `make check TESTS="SaveBlock"` com o número novo: os 3 testes de tamanho do `SaveBlock1`/`2`/`3`
   passaram (rodado pelo usuário). O `make check` completo e o teste do `PokemonStorage` não foram rodados de novo depois
   da troca do número; o `PokemonStorage` não mudou nesta fase.
+- 2026-11-18: passo 1 da fase 1 testado pelo usuário: o texto do NPC do Route 111 ficou bom. Decisão: fica como está.
 
 ## Pendências
 
-- Fase 1, ainda não testado: texto do NPC do Route 111 (passo 1) e enchimento pelo reset diário (passo 10).
+- Fase 1, ainda não testado: enchimento pelo reset diário (passo 10).
 - Fase 3, ainda não testado: Trader de Mauville (passo 8).
 
 Para o usuário revisar depois (fora deste plano):
