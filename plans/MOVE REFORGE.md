@@ -1,7 +1,7 @@
 # Plano: MOVE REFORGE
 
 - **Branch:** `plan/move-reforge`
-- **Status:** planejado
+- **Status:** em andamento
 - **Criado em:** 2026-11-13
 - **Escopo (pode alterar):** o novo move Reforge (constante, dados, animação) e a refatoração do Roost para dentro de `EFFECT_RESTORE_HP` (efeito do move, efeito adicional, volátil, script de batalha, IA e testes que citam `EFFECT_ROOST`).
 - **Fora de escopo:** os outros moves de cura (Recover, Slack Off, Purify etc.), Burn Up e Double Shock (só leitura, serviram apenas de exemplo de efeito adicional configurável), learnsets/TMs (a decisão de quem aprende o Reforge fica para depois).
@@ -30,6 +30,9 @@ só com dados.
 - 2026-11-13: PP e descrição do Reforge iguais às do Roost.
 - 2026-11-13: o Reforge se comporta como o Roost com mono-tipo (mesma config `B_ROOST_PURE_FLYING`), usa a animação do Recover por enquanto, e o handler/constante de fim de turno e o volátil ganham nomes genéricos.
 - 2026-11-13: o campo do tipo se chama `.argument.suppressedType` e o efeito não usa `.self` (sempre atua no usuário).
+- 2026-11-18: IA (`ShouldRecordStatusMove`): **fica como está**. O Roost sai das odds "médias" e cai nas odds padrão, igual ao Recover e ao Slack Off; o Reforge também. Hoje não tem efeito no jogo: nenhum treinador usa `AI_FLAG_ASSUME_STATUS_MOVES`.
+- 2026-11-18: animação do Reforge conferida no jogo pelo usuário: fica essa (brilho metálico + cura).
+- 2026-11-16: o Reforge ganha animação própria (antes era a do Recover, provisória): **brilho metálico do Iron Defense + brilho de cura**. Só reaproveita o que já existe, sem gráfico novo.
 - 2026-11-13: o tipo a remover fica configurado **no efeito adicional** (`additionalEffects`), não no `.argument` do move. Burn Up e Double Shock foram citados só como exemplo de efeito adicional com configuração, não como mecanismo a reutilizar.
 
 ## Levantamento
@@ -96,6 +99,33 @@ A ideia é viável, mas **não dá para reaproveitar `MOVE_EFFECT_REMOVE_ARG_TYP
 - **Volátil guardando o tipo:** um mon só usa um move por turno, então um único tipo basta. Casos de borda: Instruct/Dancer repetindo um dos dois (mesmo tipo, sem problema).
 - **Não compilo e não rodo teste** (regra do CLAUDE.md). A validação é do usuário: `make -j20` e depois `make check TESTS="roost"` etc. no WSL.
 
+### Levantamento 2: animação do Reforge (2026-11-16)
+
+**Aprovado pelo usuário em:** 2026-11-18 ("podemos ir para a animação")
+
+Só leitura de código.
+
+**O que muda**
+- `data/battle_anim_scripts.s`: novo `gBattleAnimMove_Reforge::` logo depois de `gBattleAnimMove_ZoneShift` (área dos moves custom, linha ~16789). Conteúdo proposto:
+  ```
+  gBattleAnimMove_Reforge::
+  	loopsewithpan SE_SHINY, SOUND_PAN_ATTACKER, 28, 2
+  	metallic_shine permanent=0
+  	waitforvisualfinish
+  	call HealingEffect
+  	waitforvisualfinish
+  	end
+  ```
+  É o começo do `gBattleAnimMove_IronDefense` (som + `metallic_shine`) sem o piscar branco do fundo (`complex_palette_blend` em `F_PAL_BG`), seguido do brilho de cura, igual ao fim do Recover e do Roost.
+- `include/battle_anim_scripts.h`: `extern const u8 gBattleAnimMove_Reforge[];` depois do `gBattleAnimMove_ZoneShift`.
+- `src/data/moves_info.h` (`MOVE_REFORGE`, linha ~22255): `.battleAnimScript = gBattleAnimMove_Reforge`, tirando o comentário de "placeholder".
+
+**O que é compartilhado**
+- `metallic_shine` (macro em `asm/macros/battle_anim_script.inc:614`, tarefa `AnimTask_MetallicShine`) e a sub-rotina `HealingEffect` (`data/battle_anim_scripts.s:28249`) só são **chamadas**, não alteradas. Iron Defense, Recover, Roost etc. não mudam.
+- O Recover deixa de ser usado pelo Reforge; a animação dele não é tocada.
+
+**Dúvida a conferir no jogo:** se o piscar branco do fundo do Iron Defense fizer falta, é só acrescentar a linha `complex_palette_blend` de volta.
+
 ## Pontos de código
 
 Ver a lista de arquivos no item de implementação em Progresso.
@@ -105,11 +135,14 @@ Ver a lista de arquivos no item de implementação em Progresso.
 - [x] Levantamento aprovado (2026-11-13)
 - [x] Implementação (2026-11-13, escrita; **não compilada**)
 - [x] Build e `make check` (2026-11-13; ver a nota sobre quais testes rodaram)
-- [ ] Teste no emulador
+- [x] Teste no emulador (2026-11-16, parcial; ver nota)
+- [x] Animação própria do Reforge (2026-11-18; **conferida no jogo pelo usuário e aprovada**, fica essa)
 - [x] Commits (2026-11-13; sem push)
 - [ ] Scripts 1, 2 e 3 do debug descartados (agora **commitados**, num commit à parte; descartar = reverter esse commit ou voltar o arquivo ao estado da `master`)
 - [ ] Merge na `master`
 
+- 2026-11-18: animação do Reforge escrita conforme o levantamento 2: `gBattleAnimMove_Reforge` em `data/battle_anim_scripts.s` (depois do Zone Shift), `extern` em `include/battle_anim_scripts.h`, e `MOVE_REFORGE` aponta para ela em `src/data/moves_info.h`. Não compilado, não testado.
+- 2026-11-16: **teste no emulador pelo usuário:** Reforge funciona; Roost, Recover e Slack Off continuam funcionando. Não foi relatado se foram conferidos: perda do tipo só naquele turno, mono-tipo virando Normal, falha com HP cheio e com Heal Block, Purify (item 3 de "Como testar").
 - 2026-11-13: adicionados **Script 2** (batalha selvagem contra Snorlax nv 20 com **só** Flamethrower; `move2` a `move4` = `MOVE_NONE`) e **Script 3** (idem com Thunderbolt) no menu de debug (`data/scripts/debug.inc`), usando `setwildbattle` + `createmon B_SIDE_OPPONENT` + `dowildbattle`. Temporários, como o Script 1. Não compilado, não testado.
 - 2026-11-13: Script 1 do debug ajustado: Snorlax nv 50 agora tem Recover, Slack Off, Roost e Reforge; e dá também um Corviknight nv 50 com Roost, Reforge, Recover e Drill Peck. Não compilado, não testado.
 - 2026-11-13: adicionado o **Script 1** do menu de debug (`data/scripts/debug.inc`): dá um Snorlax nv 50 com Recover, Slack Off e Roost, para comparar as animações. É **temporário**: deve ser removido (voltar a `release` + `end`) antes de fechar o plano. Não compilado, não testado.
@@ -128,7 +161,7 @@ Ver a lista de arquivos no item de implementação em Progresso.
   - `src/data/moves_info.h`: Roost em `EFFECT_RESTORE_HP` + efeito adicional (Voador); novo `MOVE_REFORGE` (Aço, mesmos dados do Roost, animação do Recover); `include/constants/moves.h`: `MOVE_REFORGE` depois de `MOVE_ZONE_SHIFT`.
   - `data/battle_anim_scripts.s`: `gBattleAnimMove_Roost` termina com `call HealingEffect` + `waitforvisualfinish`.
   - Testes: 4 `ASSUME` trocados para `MoveHasAdditionalEffect(MOVE_ROOST, MOVE_EFFECT_SUPPRESS_TYPE)` (`roost.c`, `revelation_dance.c`, `transform.c`, `dancer.c`); `case EFFECT_ROOST` removido de `values_moves_over_splash.c`; novo `test/battle/move_effect/reforge.c` (3 testes, nunca rodados).
-  - **Mudança de comportamento da IA (decidir):** `ShouldRecordStatusMove` (`src/battle_ai_util.c`) tinha `EFFECT_ROOST` na lista de "Medium odds". Sem ele, o Roost cai nas odds padrão (`ASSUME_ALL_STATUS_ODDS`). Não preservei de propósito para não criar código novo; se quiser manter, dá para checar `MoveHasAdditionalEffect(move, MOVE_EFFECT_SUPPRESS_TYPE)`.
+  - **Mudança de comportamento da IA (decidido em 2026-11-18: fica como está, ver Decisões):** `ShouldRecordStatusMove` (`src/battle_ai_util.c`) tinha `EFFECT_ROOST` na lista de "Medium odds". Sem ele, o Roost cai nas odds padrão (`ASSUME_ALL_STATUS_ODDS`). Não preservei de propósito para não criar código novo; se quiser manter, dá para checar `MoveHasAdditionalEffect(move, MOVE_EFFECT_SUPPRESS_TYPE)`.
 - 2026-11-13: plano criado e levantamento escrito. Nenhum código foi editado. Nada compilado nem testado.
 
 ## Pendências
