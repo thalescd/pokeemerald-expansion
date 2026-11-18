@@ -6,7 +6,8 @@
 - **Escopo (pode alterar):** o sistema de secret base inteiro (código, scripts, mapas interiores e tudo que o consome:
   TV, record mixing, batalhas, PC etc.); o sistema de decoração, reduzido ao quarto do jogador; o layout do
   `SaveBlock1`; as tabelas de encontro e a ferramenta que as gera; o código novo das grottos e os ganchos de passos e
-  reset diário.
+  reset diário; o Trader de Mauville e o NPC da hidden ability que entra no lugar dele (fase 5, incluída em
+  2026-11-18).
 - **Fora de escopo:** trocar o conteúdo das lojas e fontes de decoração (só listar); mover as entradas ou redesenhar os
   mapas interiores (eles podem ganhar objetos e scripts); DexNav; outras partes do save que não sejam secret base e
   decoração.
@@ -75,6 +76,16 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
 - 2026-11-17: o reset diário sorteia um Pokémon novo também para as grottos que ainda estavam cheias (aprovado).
 - 2026-11-17: fundo de batalha (`MAP_BATTLE_SCENE_FRONTIER`) e música (`MUS_FORTREE`) dos interiores ficam como estão
   por enquanto.
+- 2026-11-18: fase 4 aprovada como proposta, inclusive mover `hiddenGrottoStates` para o lugar de `secretBases` e
+  devolver o `filler1` ao tamanho do upstream.
+- 2026-11-18: o texto do NPC do Route 111 fica como está (testado).
+- 2026-11-18: nova fase 5 neste plano, antes do merge: sai o Trader de Mauville, e entra um NPC ligado às grottos. Ele diz
+  que sempre quis ver um Pokémon com hidden ability; se o jogador mostrar um, ele agradece e dá uma Ability Capsule (que
+  troca a habilidade entre as duas normais e nunca dá a hidden).
+- 2026-11-18: o NPC novo aparece sempre, como NPC comum, no Pokémon Center de Mauville onde o Trader podia aparecer. Não é
+  uma 5ª versão do velho de Mauville.
+- 2026-11-18: a Ability Capsule é dada uma vez só.
+- 2026-11-18: o Trader sai por inteiro (código, scripts, textos, specials e a struct dele no save).
 
 ## Levantamento
 
@@ -224,6 +235,86 @@ O que é compartilhado e pode quebrar:
 O que não será tocado: `playerRoomDecorations`/`Positions`, `decorationDolls`, `decorationCushions`,
 `DECOR_MAX_PLAYERS_HOUSE`, `include/constants/secret_bases.h`, os mapas, os tipos de batalha de secret base e o resto do
 save.
+
+### Fase 5 — NPC da hidden ability no lugar do Trader
+
+Feito em 2026-11-18, só leitura e grep, sem compilar. Aguardando aprovação.
+
+**Trader — o que sai:**
+
+- `src/trader.c` (215 linhas) e `include/trader.h`, apagados. O Makefile pega `src/*.c` por wildcard, não há lista para
+  editar.
+- Specials (`data/specials.inc:119-124`): `TraderMenuGetDecoration`, `GetTraderTradedFlag`,
+  `DoesPlayerHaveNoDecorations`, `IsDecorationCategoryFull`, `TraderShowDecorationMenu`, `TraderDoDecorationTrade`. Só o
+  script do Trader os usa.
+- `data/scripts/mauville_man.inc`: o `case MAUVILLE_MAN_TRADER` do switch (`:6`), os textos (`:88-147`) e os scripts
+  (`:148-220`).
+- `src/mauville_old_man.c`: `SetupTrader` (`:108-111`), `ResetTraderFlag` e o seu `case` (`:384-408`), e os `case
+  MAUVILLE_MAN_TRADER` das funções de idioma do record mixing (`:749`, `:788`, `:876`). Sai o `#include "trader.h"`.
+- `include/global.h:759-765`: `struct MauvilleOldManTrader`, e o membro `trader` da union `OldMan` (`:774`). A union é
+  fixada em 0x40 bytes pelo membro `filler`, então **o save não muda de tamanho nem de layout**.
+- `NUM_TRADER_ITEMS` (`include/constants/global.h:186`), que só o Trader usa.
+- `src/decoration.c`: o comando `DECOR_MENU_TRADE` e o que só ele usa: a linha da tabela `sDecorationItemsMenuActions`
+  (`:249`), o texto "EXIT" no lugar de "CANCEL" (`:748`), o desvio em `ExitDecorationCategoriesMenu` (`:836`),
+  `ShowDecorationCategoriesWindow` (`:851-858`), `ExitTraderDecorationMenu` (`:865-869`) e
+  `CopyDecorationCategoryName` (`:860`, só o Trader usa). Sai o `#include "trader.h"` e as declarações em
+  `include/decoration.h`.
+
+**Rotação do velho de Mauville** (`src/mauville_old_man.c:113-136`): hoje o último dígito do ID escolhe entre 5 versões
+(`(trainerId % 10) / 2`). Proposta: uma tabela com as 4 que ficam (Bard, Hipster, Storyteller, Giddy) indexada por
+`trainerId % 4`, 25% cada. O número `MAUVILLE_MAN_TRADER` (2) **fica** em `include/constants/mauville_old_man.h`, com
+comentário de removido: Storyteller (3) e Giddy (4) são gravados no save e indexam a tabela de sprites
+`gMauvilleOldManGraphicsInfoPointers`; renumerar mexeria nos dois. O sprite do Trader (`gObjectEventGraphicsInfo_Trader`)
+fica nessa tabela, sem uso.
+
+**NPC novo:**
+
+- Mapa: um objeto novo em `data/maps/MauvilleCity_PokemonCenter_1F/map.json`. O velho de Mauville continua no tile
+  (2, 3) para as outras 4 versões, então o NPC novo precisa de outro tile. Proposta: (4, 5), parado olhando em volta;
+  é um tile que outros Pokémon Centers usam para NPC e está livre neste. O usuário pode mover no Porymap.
+- Sprite: proposta `OBJ_EVENT_GFX_SCIENTIST_1` (pesquisador curioso). O usuário pode trocar.
+- Script em `data/maps/MauvilleCity_PokemonCenter_1F/scripts.inc` (`lock`, `faceplayer`):
+  1. Se a flag da recompensa já está ligada: fala de agradecimento e encerra.
+  2. Fala: existem Pokémon com uma habilidade oculta, ele sempre quis ver um com os próprios olhos; pergunta se o
+     jogador quer mostrar um (SIM/NÃO).
+  3. `special ChoosePartyMon` + `waitstate` (abre a escolha do grupo); cancelou: fala e encerra.
+  4. Special novo confere o Pokémon escolhido; se não tem hidden ability (ou é ovo): fala "não é esse" e encerra.
+  5. Tem: fala de agradecimento e `giveitem ITEM_ABILITY_CAPSULE`; mochila cheia:
+     `Common_EventScript_ShowBagIsFull` sem ligar a flag; deu: liga a flag.
+- Special novo `IsChosenMonHiddenAbility` em `src/hidden_grotto.c` (o upstream não mexe nele, ao contrário de
+  `field_specials.c`): `VAR_RESULT` = TRUE se o Pokémon em `gSpecialVar_0x8004` não é ovo, tem `MON_DATA_ABILITY_NUM`
+  igual a 2 e a espécie tem hidden ability de fato (`GetSpeciesAbility(species, 2) != ABILITY_NONE`; sem isso o jogo
+  usa a habilidade 1).
+- Flag: `FLAG_UNUSED_0x10C` (livre desde a fase 2) vira `FLAG_RECEIVED_ABILITY_CAPSULE_MAUVILLE`, também em
+  `flags_frlg.h`.
+- Textos em inglês, propostos abaixo para o usuário aprovar antes do código.
+
+**Menu de decoração:** sem o Trader, o menu de categorias só existe no PC do quarto. A pergunta de mostrar só DOLL e
+CUSHION (em vez das 8 categorias com `0/0`) fica mais simples; ver Pendências.
+
+**O que é compartilhado e pode quebrar:**
+
+- **Saves com o Trader:** num save cujo velho já é o Trader, o NPC deixa de responder (o switch do script não tem mais o
+  caso). Pela decisão de jogo novo da fase 4, não há save a preservar. Record mixing com outra cópia deste ROM não traz
+  Trader, porque nenhuma cópia cria mais.
+- **Record mixing do velho:** as funções de idioma continuam tratando as outras 4 versões.
+- **Ability Capsule:** já existe e já faz o que o diálogo descreve (`src/party_menu.c:5063-5076`: alterna as habilidades
+  0 e 1; num Pokémon com hidden ability não tem efeito). Nada muda nela. Já aparece em Petalburg, Route 106 e Route 115.
+
+**O que não será tocado:** as outras 4 versões do velho de Mauville, o tile (2, 3) e o script de entrada dele (fora o
+`case` do Trader), a Ability Capsule, os outros NPCs do Pokémon Center.
+
+**Textos propostos** (caixa de 2 linhas; `\n` quebra a linha, `\p` troca de caixa, `\l` rola):
+
+- Intro: "There are POKéMON with a hidden\nability, you know.\pI've always wanted to see one with\nmy own eyes.\pDo you
+  have one you could show me?"
+- Recusou ou cancelou: "Oh… If you ever find one, please\ncome back and show me."
+- Pokémon sem hidden ability: "Hmm… That one has a normal ability.\nIt's not the one I'm looking for."
+- Mostrou: "Oh! So that's a hidden ability!\nI can finally see it with my own eyes!\pThank you! Please, take this.\nIt's the
+  least I can do."
+- Depois de dar a cápsula: "That ABILITY CAPSULE switches a\nPOKéMON's ability to its other one.\pBut it can never bring
+  out a hidden\nability. Those are truly special."
+- Já recebeu (falando de novo): o mesmo texto de depois de dar a cápsula.
 
 ### O que é compartilhado e pode quebrar
 
@@ -387,6 +478,7 @@ Escolhas de implementação da fase 3 (fora do levantamento):
 - [x] Fase 2: remoção da secret base (build, `make check`, teste no emulador, commit)
 - [x] Fase 3: decorações só no quarto (build, `make check`, teste no emulador, commit)
 - [x] Fase 4: encolher o `SaveBlock1` (build, testes de tamanho do save, teste no emulador, commit)
+- [ ] Fase 5: Trader sai, NPC da hidden ability entra (levantamento aguardando aprovação)
 - [ ] Merge na `master`
 
 - 2026-11-17: levantamento escrito (4 frentes: entrada, dependentes, encontro, decoração). Só leitura de código, nada
@@ -423,11 +515,15 @@ Escolhas de implementação da fase 3 (fora do levantamento):
   passaram (rodado pelo usuário). O `make check` completo e o teste do `PokemonStorage` não foram rodados de novo depois
   da troca do número; o `PokemonStorage` não mudou nesta fase.
 - 2026-11-18: passo 1 da fase 1 testado pelo usuário: o texto do NPC do Route 111 ficou bom. Decisão: fica como está.
+- 2026-11-18: fase 5 decidida (ver Decisões) e levantada (Levantamento → Fase 5). Só leitura e grep. Aguardando aprovação
+  do levantamento e dos textos.
 
 ## Pendências
 
 - Fase 1, ainda não testado: enchimento pelo reset diário (passo 10).
-- Fase 3, ainda não testado: Trader de Mauville (passo 8).
+- Fase 3, ainda não testado: Trader de Mauville (passo 8). Fica sem efeito: o Trader sai na fase 5.
+- Menu de decoração: mostrar só DOLL e CUSHION em vez das 8 categorias com `0/0`. Ideia do usuário em 2026-11-18,
+  adiada até decidir o Trader; com a fase 5, o menu só existe no quarto.
 
 Para o usuário revisar depois (fora deste plano):
 
