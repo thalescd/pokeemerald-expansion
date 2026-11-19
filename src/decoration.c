@@ -214,6 +214,13 @@ static const u8 *const sDecorationCategoryNames[] =
     gText_Cushion
 };
 
+// The categories listed in the decoration categories menu. The others have empty inventories.
+static const u8 sShownDecorationCategories[] =
+{
+    DECORCAT_DOLL,
+    DECORCAT_CUSHION,
+};
+
 static const struct MenuAction sDecorationMainMenuActions[] =
 {
     {
@@ -654,7 +661,7 @@ static void DecorationMenuAction_Decorate(u8 taskId)
     else
     {
         gTasks[taskId].tDecorationMenuCommand = DECOR_MENU_PLACE;
-        sCurDecorationCategory = DECORCAT_DESK;
+        sCurDecorationCategory = DECORCAT_DOLL;
         PrepMenuForSelectingStoredDecors(taskId);
     }
 }
@@ -686,7 +693,7 @@ static void DecorationMenuAction_Toss(u8 taskId)
     else
     {
         gTasks[taskId].tDecorationMenuCommand = DECOR_MENU_TOSS;
-        sCurDecorationCategory = DECORCAT_DESK;
+        sCurDecorationCategory = DECORCAT_DOLL;
         PrepMenuForSelectingStoredDecors(taskId);
     }
 }
@@ -711,11 +718,24 @@ static void PrepMenuForSelectingStoredDecors(u8 taskId)
     InitDecorationCategoriesWindow(taskId);
 }
 
+// Menu position of the current category in sShownDecorationCategories.
+static u8 GetDecorationCategoryMenuPos(void)
+{
+    u8 i;
+
+    for (i = 0; i < ARRAY_COUNT(sShownDecorationCategories); i++)
+    {
+        if (sShownDecorationCategories[i] == sCurDecorationCategory)
+            return i;
+    }
+    return 0;
+}
+
 static void InitDecorationCategoriesWindow(u8 taskId)
 {
     u8 windowId = AddDecorationWindow(WINDOW_DECORATION_CATEGORIES);
     PrintDecorationCategoryMenuItems(taskId);
-    InitMenuInUpperLeftCornerNormal(windowId, DECORCAT_COUNT + 1, sCurDecorationCategory);
+    InitMenuInUpperLeftCornerNormal(windowId, ARRAY_COUNT(sShownDecorationCategories) + 1, GetDecorationCategoryMenuPos());
     gTasks[taskId].func = HandleDecorationCategoriesMenuInput;
 }
 
@@ -723,27 +743,17 @@ static void ReinitDecorationCategoriesWindow(u8 taskId)
 {
     FillWindowPixelBuffer(sDecorMenuWindowIds[WINDOW_DECORATION_CATEGORIES], PIXEL_FILL(1));
     PrintDecorationCategoryMenuItems(taskId);
-    InitMenuInUpperLeftCornerNormal(sDecorMenuWindowIds[WINDOW_DECORATION_CATEGORIES], DECORCAT_COUNT + 1, sCurDecorationCategory);
+    InitMenuInUpperLeftCornerNormal(sDecorMenuWindowIds[WINDOW_DECORATION_CATEGORIES], ARRAY_COUNT(sShownDecorationCategories) + 1, GetDecorationCategoryMenuPos());
     gTasks[taskId].func = HandleDecorationCategoriesMenuInput;
 }
 
 static void PrintDecorationCategoryMenuItems(u8 taskId)
 {
     u8 i;
-    s16 *data = gTasks[taskId].data;
     u8 windowId = sDecorMenuWindowIds[WINDOW_DECORATION_CATEGORIES];
-    bool8 shouldDisable = FALSE;
-    if (tDecorationMenuCommand == DECOR_MENU_PLACE)
-        shouldDisable = TRUE;
 
-    for (i = 0; i < DECORCAT_COUNT; i++)
-    {
-        // Only DOLL and CUSHION decorations are enabled when decorating the player's room.
-        if (shouldDisable == TRUE && i != DECORCAT_DOLL && i != DECORCAT_CUSHION)
-            PrintDecorationCategoryMenuItem(windowId, i, 8, i * 16, TRUE, TEXT_SKIP_DRAW);
-        else
-            PrintDecorationCategoryMenuItem(windowId, i, 8, i * 16, FALSE, TEXT_SKIP_DRAW);
-    }
+    for (i = 0; i < ARRAY_COUNT(sShownDecorationCategories); i++)
+        PrintDecorationCategoryMenuItem(windowId, sShownDecorationCategories[i], 8, i * 16, FALSE, TEXT_SKIP_DRAW);
 
     AddTextPrinterParameterized(windowId, FONT_NORMAL, gTasks[taskId].tDecorationMenuCommand == DECOR_MENU_TRADE ? gText_Exit : gText_Cancel, 8, i * 16 + 1, 0, NULL);
     ScheduleBgCopyTilemapToVram(0);
@@ -790,7 +800,7 @@ static void HandleDecorationCategoriesMenuInput(u8 taskId)
         switch (input)
         {
         case MENU_B_PRESSED:
-        case DECORCAT_COUNT: // CANCEL
+        case ARRAY_COUNT(sShownDecorationCategories): // CANCEL
             PlaySE(SE_SELECT);
             ExitDecorationCategoriesMenu(taskId);
             break;
@@ -798,7 +808,7 @@ static void HandleDecorationCategoriesMenuInput(u8 taskId)
             break;
         default:
             PlaySE(SE_SELECT);
-            sCurDecorationCategory = input;
+            sCurDecorationCategory = sShownDecorationCategories[input];
             SelectDecorationCategory(taskId);
             break;
         }
@@ -853,7 +863,7 @@ void ShowDecorationCategoriesWindow(u8 taskId)
     LoadPalette(sDecorationMenuPalette, BG_PLTT_ID(13), sizeof(sDecorationMenuPalette));
     ClearDialogWindowAndFrame(0, FALSE);
     gTasks[taskId].tDecorationMenuCommand = DECOR_MENU_TRADE;
-    sCurDecorationCategory = DECORCAT_DESK;
+    sCurDecorationCategory = DECORCAT_DOLL;
     InitDecorationCategoriesWindow(taskId);
 }
 
