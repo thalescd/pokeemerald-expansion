@@ -92,6 +92,9 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
 - 2026-11-18: levantamento da fase 5 aprovado: TIRE → LOTAD DOLL e PRETTY FLOWERS → SEEDOT DOLL nos padrões do Trader.
 - 2026-11-18: o Pokémon da grotto fica olhando em volta (`MOVEMENT_TYPE_LOOK_AROUND`) em vez de parado virado para
   baixo. Pedido do usuário; entra junto com a fase 5.
+- 2026-11-19: nova fase 6: o menu de decoração mostra só DOLL e CUSHION, sem as 6 categorias vazias. A intenção do
+  usuário é que essas categorias deixem de existir para o jogador. Depois da fase 6, o usuário revisa todas as formas de
+  conseguir decoração dessas categorias (ver Pendências).
 
 ## Levantamento
 
@@ -261,6 +264,46 @@ que removia o Trader; ver Decisões.)
 - **O que não será tocado:** o resto do Trader (scripts, textos, specials, o cheque de "sem espaço"), as outras versões
   do velho de Mauville e o sorteio entre elas.
 
+### Fase 6 — menu de decoração só com DOLL e CUSHION
+
+Feito em 2026-11-19, só leitura e grep, sem compilar. Aguardando aprovação.
+
+**Onde o menu aparece:** o mesmo menu de categorias serve o PC do quarto (DECORATE e TOSS) e a troca com o Trader
+(`ShowDecorationCategoriesWindow`). A mudança vale para os dois. O PUT AWAY não passa por ele.
+
+**O que muda, só em `src/decoration.c`:**
+
+- Tabela nova com as categorias que aparecem, `{ DECORCAT_DOLL, DECORCAT_CUSHION }`. A posição no menu passa a ser o
+  índice nessa tabela, não mais o número da categoria; o CANCEL (EXIT no Trader) fica logo depois dela.
+- `PrintDecorationCategoryMenuItems` (`:730-748`): percorre a tabela. Sai a cor de desabilitado: as 2 categorias que
+  sobram sempre podem ser postas no quarto.
+- `HandleDecorationCategoriesMenuInput` (`:785-805`): o CANCEL deixa de ser o índice `DECORCAT_COUNT`; a escolha vira a
+  categoria da tabela.
+- Cursor: `InitDecorationCategoriesWindow` e `ReinitDecorationCategoriesWindow` (`:714-728`) passam a posição na
+  tabela. A categoria inicial vira DOLL em vez de DESK (`:111`, `:657`, `:689`, `:856`).
+- **Tamanho da janela:** a janela das categorias (13×18, 9 linhas) é a mesma que depois mostra a lista de itens da
+  categoria. Duas opções:
+  - **A, só a lista:** a janela fica do tamanho atual, com DOLL, CUSHION e CANCEL no topo e o resto vazio. Menos código.
+  - **B, janela baixa (recomendada):** as categorias abrem numa janela de 3 linhas. Ao escolher a categoria, ela é
+    trocada pela janela alta da lista (o código já tem `Task_ShowDecorationItemsWindow`, que faz isso); ao voltar da
+    lista, a alta é trocada pela baixa. Umas 10 linhas a mais que a A.
+
+**O que é compartilhado e pode quebrar:**
+
+- **Trader:** o menu dele também fica só com DOLL e CUSHION. Ele só aceita o que o jogador tem, e desde a fase 3 isso já
+  é boneco ou almofada; o texto "sem espaço" do Trader continua usando o nome da categoria
+  (`CopyDecorationCategoryName`), por isso `sDecorationCategoryNames` e os textos DESK, CHAIR etc. ficam.
+- **Lista de itens, colocar e jogar fora:** não mudam. Os cheques de "não pode pôr no quarto" (`:896`, `:1200`) ficam
+  sem caminho até eles, mas continuam como guarda; não mexo.
+
+**O que não será tocado:** os 6 inventários de tamanho 0 (`decoration_inventory.c`), as constantes `DECORCAT_*`, o
+`header.h` das decorações, as lojas e os prêmios (ver Pendências), o PUT AWAY.
+
+**Fontes dessas categorias hoje:** nenhuma entrega de fato. A loja deixa escolher, mas como o inventário da categoria
+tem tamanho 0, `DecorationAdd` falha e ela mostra "a lista de X está cheia" sem cobrar (`src/shop.c:1163-1173`). Os
+prêmios por script usam a mesma checagem de espaço. Ou seja, depois da fase 6 o jogador não vê essas categorias em lugar
+nenhum, mas ainda vê os itens à venda nas lojas, e é isso que fica para a revisão.
+
 ### O que é compartilhado e pode quebrar
 
 - **Quarto do jogador:** usa funções e scripts com nome de secret base que **não podem ser apagados**:
@@ -424,6 +467,7 @@ Escolhas de implementação da fase 3 (fora do levantamento):
 - [x] Fase 3: decorações só no quarto (build, `make check`, teste no emulador, commit)
 - [x] Fase 4: encolher o `SaveBlock1` (build, testes de tamanho do save, teste no emulador, commit)
 - [ ] Fase 5: o Trader só oferece bonecos e almofadas (escrita, falta build e teste)
+- [ ] Fase 6: menu de decoração só com DOLL e CUSHION (levantamento aguardando aprovação)
 - [ ] Merge na `master`
 
 - 2026-11-17: levantamento escrito (4 frentes: entrada, dependentes, encontro, decoração). Só leitura de código, nada
@@ -471,20 +515,23 @@ Escolhas de implementação da fase 3 (fora do levantamento):
   ele para e encara o jogador ao conversar. **Não compilado e não testado.**
 - 2026-11-19: usuário liberou o look-around para commit; commitado em `97059ea604`, separado da fase 5. A fase 5
   (`src/trader.c`) continua sem commit, esperando o teste do Trader.
+- 2026-11-19: fase 6 pedida pelo usuário e levantada (Levantamento → Fase 6). Só leitura e grep. Aguardando aprovação e
+  a escolha do tamanho da janela (A ou B).
 
 ## Pendências
 
 - Fase 1, ainda não testado: enchimento pelo reset diário (passo 10).
 - Fase 3, ainda não testado: Trader de Mauville (passo 8). Entra no teste da fase 5.
-- Menu de decoração: mostrar só DOLL e CUSHION em vez das 8 categorias com `0/0`. Ideia do usuário em 2026-11-18,
-  adiada até decidir o Trader. O Trader fica, então o menu também aparece na troca com ele.
 - Ideia para depois (2026-11-18): NPC sempre presente que pede para ver um Pokémon com hidden ability e dá uma Ability
   Capsule uma vez. Levantamento já feito (ver histórico do plano no commit `3ed8ae1282`): special novo em
   `hidden_grotto.c`, flag 0x10C, textos propostos. Faltaria escolher onde ele fica, já que o Trader não sai.
 
 Para o usuário revisar depois (fora deste plano):
 
-- Lojas e prêmios de decoração da tabela "Fontes de decoração" no Levantamento.
+- Depois da fase 6 (pedido do usuário em 2026-11-19): revisar todas as formas de conseguir decoração das 6
+  categorias que saíram (DESK, CHAIR, PLANT, ORNAMENT, MAT, POSTER), para que nenhuma delas exista mais no jogo. A lista
+  está na tabela "Fontes de decoração" no Levantamento; a maioria são lojas. Hoje elas aparecem à venda mas a compra
+  falha com "a lista está cheia" sem cobrar. A linha do Trader já foi resolvida pela fase 5.
 - Diálogos que mencionam secret base ou decoração de base:
   - `data/maps/MossdeepCity_House4/scripts.inc`: o menino agora sempre diz "faça uma secret base" (fase 2), e a irmã
     fala de visitar bases. Precisam de falas novas.
