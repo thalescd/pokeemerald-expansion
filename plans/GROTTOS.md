@@ -543,13 +543,14 @@ Só `src/decoration.c`:
   mochila, Pokémon e posição depois de salvar e recarregar) ok; passo 4 (TV) só por cima, sem nada errado.
   Commitados: fase 6 em `a82513a498`, pesos em `ace7c953e7`. **Não testado:** passo 7 da fase 6 e passos 1 a 5 da
   fase 5 (Trader); `src/trader.c` continua sem commit.
+- 2026-11-19: `make check -j20` completo passou (rodado pelo usuário), com a fase 6, os pesos novos e o `src/trader.c`
+  ainda sem commit no build.
 
 ## Pendências
 
 - Fase 1, ainda não testado: enchimento pelo reset diário (passo 10).
 - Fase 3, ainda não testado: Trader de Mauville (passo 8). Entra no teste da fase 5, junto com o passo 7 da fase 6.
 - Fase 4, testado só por cima: TV de casa (passo 4).
-- `make check -j20` completo não rodou desde a fase 4 (só o filtro `SaveBlock`).
 - Ideia para depois (2026-11-18): NPC sempre presente que pede para ver um Pokémon com hidden ability e dá uma Ability
   Capsule uma vez. Levantamento já feito (ver histórico do plano no commit `3ed8ae1282`): special novo em
   `hidden_grotto.c`, flag 0x10C, textos propostos. Faltaria escolher onde ele fica, já que o Trader não sai.
