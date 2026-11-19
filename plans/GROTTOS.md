@@ -97,6 +97,8 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
   conseguir decoração dessas categorias (ver Pendências).
 - 2026-11-19: fase 6 aprovada com a opção A (a janela das categorias continua do tamanho atual). O usuário vai ver como
   fica; a opção B (janela baixa) fica como alternativa.
+- 2026-11-19: pesos dos 5 slots das grottos mudam de 60/30/5/4/1 para 32/32/16/16/4 (soma 100). As tabelas por rota não
+  mudam; Pokémon repetidos em dois slots somam os pesos novos.
 
 ## Levantamento
 
@@ -534,6 +536,8 @@ Só `src/decoration.c`:
 - 2026-11-19: fase 6 escrita com a opção A (ver Pontos de código). **Não compilada e não testada.** A categoria inicial
   em `EWRAM_DATA` (`:111`) ficou DESK: valor inicial diferente de zero não vale em EWRAM, e os 3 caminhos que abrem o menu
   já põem DOLL antes.
+- 2026-11-19: pesos das grottos em `src/data/wild_encounters.json` (`encounter_rates` do campo `grotto_mons`) trocados
+  para 32/32/16/16/4. Só o JSON: o build regenera as constantes. **Não compilado e não testado.**
 
 ## Pendências
 
