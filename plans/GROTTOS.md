@@ -95,6 +95,8 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
 - 2026-11-19: nova fase 6: o menu de decoração mostra só DOLL e CUSHION, sem as 6 categorias vazias. A intenção do
   usuário é que essas categorias deixem de existir para o jogador. Depois da fase 6, o usuário revisa todas as formas de
   conseguir decoração dessas categorias (ver Pendências).
+- 2026-11-19: fase 6 aprovada com a opção A (a janela das categorias continua do tamanho atual). O usuário vai ver como
+  fica; a opção B (janela baixa) fica como alternativa.
 
 ## Levantamento
 
@@ -266,7 +268,7 @@ que removia o Trader; ver Decisões.)
 
 ### Fase 6 — menu de decoração só com DOLL e CUSHION
 
-Feito em 2026-11-19, só leitura e grep, sem compilar. Aguardando aprovação.
+Feito em 2026-11-19, só leitura e grep, sem compilar. Aprovado em 2026-11-19 com a opção A.
 
 **Onde o menu aparece:** o mesmo menu de categorias serve o PC do quarto (DECORATE e TOSS) e a troca com o Trader
 (`ShowDecorationCategoriesWindow`). A mudança vale para os dois. O PUT AWAY não passa por ele.
@@ -459,6 +461,18 @@ Escolhas de implementação da fase 3 (fora do levantamento):
   tamanho com `offsetof`/`sizeof` e se ajusta sozinho; nenhuma cópia de 32 bits (`CpuFastCopy`, DMA) depende do
   alinhamento dos programas de TV.
 
+### Fase 6 (escrita em 2026-11-19)
+
+Só `src/decoration.c`:
+
+- `sShownDecorationCategories` (DOLL, CUSHION), logo depois de `sDecorationCategoryNames`.
+- `GetDecorationCategoryMenuPos`: posição da categoria atual nessa tabela (0 se não está nela).
+- `InitDecorationCategoriesWindow` e `ReinitDecorationCategoriesWindow`: menu com `ARRAY_COUNT + 1` linhas e cursor
+  pela posição na tabela.
+- `PrintDecorationCategoryMenuItems`: percorre a tabela; sem a cor de desabilitado.
+- `HandleDecorationCategoriesMenuInput`: CANCEL é a linha depois da tabela; a escolha vira a categoria da tabela.
+- DECORATE, TOSS e o menu do Trader começam em DOLL.
+
 ## Progresso
 
 - [x] Levantamento aprovado (2026-11-17)
@@ -467,7 +481,7 @@ Escolhas de implementação da fase 3 (fora do levantamento):
 - [x] Fase 3: decorações só no quarto (build, `make check`, teste no emulador, commit)
 - [x] Fase 4: encolher o `SaveBlock1` (build, testes de tamanho do save, teste no emulador, commit)
 - [ ] Fase 5: o Trader só oferece bonecos e almofadas (escrita, falta build e teste)
-- [ ] Fase 6: menu de decoração só com DOLL e CUSHION (levantamento aguardando aprovação)
+- [ ] Fase 6: menu de decoração só com DOLL e CUSHION (escrita, falta build e teste)
 - [ ] Merge na `master`
 
 - 2026-11-17: levantamento escrito (4 frentes: entrada, dependentes, encontro, decoração). Só leitura de código, nada
@@ -517,6 +531,9 @@ Escolhas de implementação da fase 3 (fora do levantamento):
   (`src/trader.c`) continua sem commit, esperando o teste do Trader.
 - 2026-11-19: fase 6 pedida pelo usuário e levantada (Levantamento → Fase 6). Só leitura e grep. Aguardando aprovação e
   a escolha do tamanho da janela (A ou B).
+- 2026-11-19: fase 6 escrita com a opção A (ver Pontos de código). **Não compilada e não testada.** A categoria inicial
+  em `EWRAM_DATA` (`:111`) ficou DESK: valor inicial diferente de zero não vale em EWRAM, e os 3 caminhos que abrem o menu
+  já põem DOLL antes.
 
 ## Pendências
 
@@ -626,3 +643,16 @@ jogos novos até cair num ID assim (1 em 5).
 5. Falar de novo: ele diz que vocês já trocaram (só uma troca por save; o record mixing libera outra).
 6. Grottos (sem precisar do Trader): entrar numa grotto cheia e esperar uns segundos. O Pokémon vira para vários lados
    sem sair do lugar; ao falar com ele, ele encara o jogador antes do grito.
+
+### Fase 6
+
+Build: `make -j20`. O save não muda.
+
+1. PC do quarto → DECORATION → DECORATE: o menu mostra só DOLL, CUSHION e CANCEL, com o cursor em DOLL e o resto da
+   janela vazio (opção A).
+2. Escolher DOLL com bonecos no PC: a lista abre normal; pôr um no quarto funciona.
+3. Na lista, CANCEL: volta ao menu com o cursor na categoria de onde saiu (CUSHION, se saiu de CUSHION).
+4. Categoria sem nada: a mensagem de que não há decoração e a volta ao menu.
+5. TOSS: o mesmo menu; jogar fora uma almofada funciona.
+6. CANCEL e o botão B no menu de categorias voltam ao menu DECORATE/PUT AWAY/TOSS.
+7. Se der para chegar no Trader (ver Fase 5): o menu de troca também mostra só DOLL, CUSHION e EXIT.
