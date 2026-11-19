@@ -483,7 +483,7 @@ Só `src/decoration.c`:
 - [x] Fase 3: decorações só no quarto (build, `make check`, teste no emulador, commit)
 - [x] Fase 4: encolher o `SaveBlock1` (build, testes de tamanho do save, teste no emulador, commit)
 - [ ] Fase 5: o Trader só oferece bonecos e almofadas (escrita, falta build e teste)
-- [ ] Fase 6: menu de decoração só com DOLL e CUSHION (escrita, falta build e teste)
+- [x] Fase 6: menu de decoração só com DOLL e CUSHION (build, teste no emulador, commit; falta o passo 7, do Trader)
 - [ ] Merge na `master`
 
 - 2026-11-17: levantamento escrito (4 frentes: entrada, dependentes, encontro, decoração). Só leitura de código, nada
@@ -538,11 +538,18 @@ Só `src/decoration.c`:
   já põem DOLL antes.
 - 2026-11-19: pesos das grottos em `src/data/wild_encounters.json` (`encounter_rates` do campo `grotto_mons`) trocados
   para 32/32/16/16/4. Só o JSON: o build regenera as constantes. **Não compilado e não testado.**
+- 2026-11-19: testado pelo usuário no emulador: fase 6 passos 1 a 6, o look-around (passo 6 da fase 5) e os pesos novos
+  das grottos (conferido que enchem com espécies variadas; a porcentagem não foi medida). Fase 4: passo 5 (dinheiro,
+  mochila, Pokémon e posição depois de salvar e recarregar) ok; passo 4 (TV) só por cima, sem nada errado.
+  Commitados: fase 6 em `a82513a498`, pesos em `ace7c953e7`. **Não testado:** passo 7 da fase 6 e passos 1 a 5 da
+  fase 5 (Trader); `src/trader.c` continua sem commit.
 
 ## Pendências
 
 - Fase 1, ainda não testado: enchimento pelo reset diário (passo 10).
-- Fase 3, ainda não testado: Trader de Mauville (passo 8). Entra no teste da fase 5.
+- Fase 3, ainda não testado: Trader de Mauville (passo 8). Entra no teste da fase 5, junto com o passo 7 da fase 6.
+- Fase 4, testado só por cima: TV de casa (passo 4).
+- `make check -j20` completo não rodou desde a fase 4 (só o filtro `SaveBlock`).
 - Ideia para depois (2026-11-18): NPC sempre presente que pede para ver um Pokémon com hidden ability e dá uma Ability
   Capsule uma vez. Levantamento já feito (ver histórico do plano no commit `3ed8ae1282`): special novo em
   `hidden_grotto.c`, flag 0x10C, textos propostos. Faltaria escolher onde ele fica, já que o Trader não sai.
