@@ -469,6 +469,8 @@ Escolhas de implementação da fase 3 (fora do levantamento):
 - 2026-11-18: os 24 interiores (`data/maps/SecretBase_*/map.json`) com o objeto do Pokémon em
   `MOVEMENT_TYPE_LOOK_AROUND` (era `FACE_DOWN`; alcance continua 0). O script dele já faz `lock` e `faceplayer`, então
   ele para e encara o jogador ao conversar. **Não compilado e não testado.**
+- 2026-11-19: usuário liberou o look-around para commit; commitado em `97059ea604`, separado da fase 5. A fase 5
+  (`src/trader.c`) continua sem commit, esperando o teste do Trader.
 
 ## Pendências
 
