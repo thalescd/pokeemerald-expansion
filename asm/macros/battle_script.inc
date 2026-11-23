@@ -338,10 +338,6 @@
 	.4byte \instr
 	.endm
 
-	.macro setroost
-	.byte B_SCR_OP_SETROOST
-	.endm
-
 	.macro jumpifabilitypresent ability:req, jumpInstr:req
 	.byte B_SCR_OP_JUMPIFABILITYPRESENT
 	.2byte \ability

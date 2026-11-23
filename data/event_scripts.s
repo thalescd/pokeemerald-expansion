@@ -16,6 +16,7 @@
 #include "constants/battle_tent.h"
 #include "constants/battle_tower.h"
 #include "constants/berry.h"
+#include "constants/bug_catching_contest.h"
 #include "constants/cable_club.h"
 #include "constants/coins.h"
 #include "constants/comparison_operators.h"
@@ -1710,6 +1711,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/text/trainers.inc"
 	.include "data/scripts/repel.inc"
 	.include "data/scripts/safari_zone.inc"
+	.include "data/scripts/bug_catching_contest.inc"
 	.include "data/scripts/roulette.inc"
 	.include "data/scripts/pokedex_rating.inc"
 	.include "data/text/pokedex_rating.inc"
@@ -1740,3 +1742,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/apricorn_tree.inc"
 	.include "data/scripts/wild_encounter.inc"
 	.include "data/maps/ScorchedSlab_B1F/scripts.inc"
+
+	.include "data/maps/MothGarden/scripts.inc"
+
+	.include "data/maps/VerdanturfTown_MothGarden_Entrance/scripts.inc"

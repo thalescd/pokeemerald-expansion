@@ -5284,6 +5284,7 @@ static const u16 sKlefkiEggMoveLearnset[] = {
     MOVE_THIEF,
     MOVE_LOCK_ON,
     MOVE_IRON_DEFENSE,
+    MOVE_REFORGE,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_KLEFKI
@@ -6296,6 +6297,7 @@ static const u16 sVaroomEggMoveLearnset[] = {
     MOVE_TORMENT,
     MOVE_TOXIC,
     MOVE_SLAM,
+    MOVE_REFORGE,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_VAROOM

@@ -10,6 +10,7 @@
 #include "battle_partner.h"
 #include "battle_tower.h"
 #include "battle_transition.h"
+#include "bug_catching_contest.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "event_scripts.h"
@@ -400,6 +401,8 @@ static void DoStandardWildBattle(bool32 isDouble)
     StopPlayerAvatar();
     gMain.savedCallback = CB2_EndWildBattle;
     gBattleTypeFlags = 0;
+    if (IsBugContestActive())
+        gBattleTypeFlags |= BATTLE_TYPE_BUG_CONTEST;
     if (IsNPCFollowerWildBattle())
     {
         gBattleTypeFlags |= BATTLE_TYPE_MULTI | BATTLE_TYPE_INGAME_PARTNER | BATTLE_TYPE_DOUBLE;
@@ -707,6 +710,13 @@ static void CB2_EndWildBattle(void)
     if (IsPlayerDefeated(gBattleOutcome) == TRUE && CurrentBattlePyramidLocation() == PYRAMID_LOCATION_NONE && !InBattlePike())
     {
         SetMainCallback2(CB2_WhiteOut);
+    }
+    else if (IsBugContestActive() && gNumBugContestBalls == 0)
+    {
+        // Out of Park Balls, the contest is over
+        ScriptContext_SetupScript(BugContest_EventScript_OutOfBalls);
+        ScriptContext_Stop();
+        SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }
     else
     {

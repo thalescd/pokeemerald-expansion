@@ -1729,6 +1729,10 @@ static void Task_ClosePokedex(u8 taskId)
         DestroyTask(taskId);
         SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
         m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 0x100);
+        // The remaining sprites (scroll bar, arrows, HGSS stat bars background...) have
+        // callbacks that read sPokedexView, and AnimateSprites still runs later this frame.
+        // Remove them before sPokedexView becomes NULL.
+        ResetSpriteData();
         FREE_AND_SET_NULL(sPokedexView);
     }
 }

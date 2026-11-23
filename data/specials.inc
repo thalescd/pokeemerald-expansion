@@ -225,6 +225,15 @@ gSpecials::
 	def_special ResetSSTidalFlag
 	def_special EnterSafariMode
 	def_special ExitSafariMode
+	def_special BugContest_CheckEntry
+	def_special BugContest_Start
+	def_special BugContest_Finish
+	def_special BugContest_CheckBoard
+	def_special BugContest_BufferPlace
+	def_special BugContest_BufferPlayerResult
+	def_special BugContest_GivePlayerMon
+	def_special BugContest_BufferRival
+	def_special BugContest_SetPrizeForPlace
 	def_special GetPokeblockFeederInFront
 	def_special OpenPokeblockCaseOnFeeder, waitstate=1
 	def_special IsMirageIslandPresent

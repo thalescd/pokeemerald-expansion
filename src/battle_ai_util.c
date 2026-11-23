@@ -299,7 +299,6 @@ bool32 ShouldRecordStatusMove(enum Move move)
         case EFFECT_PROTECT:
         case EFFECT_REST:
         case EFFECT_ROAR:
-        case EFFECT_ROOST:
         case EFFECT_SLEEP_TALK:
         case EFFECT_TAUNT:
         case EFFECT_TAILWIND:
