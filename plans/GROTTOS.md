@@ -482,7 +482,7 @@ Só `src/decoration.c`:
 - [x] Fase 2: remoção da secret base (build, `make check`, teste no emulador, commit)
 - [x] Fase 3: decorações só no quarto (build, `make check`, teste no emulador, commit)
 - [x] Fase 4: encolher o `SaveBlock1` (build, testes de tamanho do save, teste no emulador, commit)
-- [ ] Fase 5: o Trader só oferece bonecos e almofadas (escrita, falta build e teste)
+- [x] Fase 5: o Trader só oferece bonecos e almofadas (build, `make check`, commit; Trader não testado no emulador)
 - [x] Fase 6: menu de decoração só com DOLL e CUSHION (build, teste no emulador, commit; falta o passo 7, do Trader)
 - [ ] Merge na `master`
 
@@ -545,11 +545,14 @@ Só `src/decoration.c`:
   fase 5 (Trader); `src/trader.c` continua sem commit.
 - 2026-11-19: `make check -j20` completo passou (rodado pelo usuário), com a fase 6, os pesos novos e o `src/trader.c`
   ainda sem commit no build.
+- 2026-11-23: a pedido do usuário, fase 5 commitada em `51a5c2cfdd` sem o teste do Trader no emulador. Build e `make check`
+  passaram com ela. O teste do Trader (passos 1 a 5 da fase 5 e passo 7 da fase 6) fica em Pendências.
 
 ## Pendências
 
 - Fase 1, ainda não testado: enchimento pelo reset diário (passo 10).
-- Fase 3, ainda não testado: Trader de Mauville (passo 8). Entra no teste da fase 5, junto com o passo 7 da fase 6.
+- Trader de Mauville, nunca testado no emulador: passo 8 da fase 3, passos 1 a 5 da fase 5 e passo 7 da fase 6. Precisa
+  de um jogo novo com o ID No. terminando em 4 ou 5. Código já commitado.
 - Fase 4, testado só por cima: TV de casa (passo 4).
 - Ideia para depois (2026-11-18): NPC sempre presente que pede para ver um Pokémon com hidden ability e dá uma Ability
   Capsule uma vez. Levantamento já feito (ver histórico do plano no commit `3ed8ae1282`): special novo em
