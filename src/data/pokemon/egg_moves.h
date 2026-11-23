@@ -4006,6 +4006,7 @@ static const u16 sTepigEggMoveLearnset[] = {
     MOVE_HEAVY_SLAM,
     MOVE_SUCKER_PUNCH,
     MOVE_BURN_UP,
+    MOVE_SLACK_OFF,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_TEPIG
