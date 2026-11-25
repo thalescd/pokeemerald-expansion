@@ -266,19 +266,6 @@ SafariZone_RestHouse_Text_FatMan:
 	.string "I think POKéMON with the same sort of\n"
 	.string "nature are drawn by a certain {POKEBLOCK}.$"
 
-SafariZone_South_Text_AreaOffLimits1:
-	.string "This area is still under construction.\n"
-	.string "It's off-limits, sorry!$"
-
-SafariZone_Southeast_Text_ExpansionIsFinished:
-	.string "The SAFARI ZONE's expansion project\n"
-	.string "is finished now.\p"
-	.string "We hope you will enjoy the new area.$"
-
-SafariZone_South_Text_AreaOffLimits2:
-	.string "This area is still under construction.\n"
-	.string "It's off-limits, sorry!$"
-
 SafariZone_Southeast_Text_LittleGirl:
 	.string "Wow! Whee! I haven't seen any of\n"
 	.string "these POKéMON before!$"
