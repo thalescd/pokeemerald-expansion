@@ -12299,7 +12299,7 @@ const struct ItemInfo gItemsInfo[] =
     {
         .name = ITEM_NAME("Enigma Berry"),
         .pluralName = ITEM_PLURAL_NAME("Enigma Berries"),
-        .price = (I_BERRY_PRICE >= GEN_8) ? 80 : 20,
+        .price = 500,
         .holdEffect = HOLD_EFFECT_ENIGMA_BERRY,
         .description = COMPOUND_STRING(
             "Restores HP when\n"
@@ -12355,7 +12355,7 @@ const struct ItemInfo gItemsInfo[] =
     {
         .name = ITEM_NAME("Jaboca Berry"),
         .pluralName = ITEM_PLURAL_NAME("Jaboca Berries"),
-        .price = (I_BERRY_PRICE >= GEN_8) ? 80 : 20,
+        .price = 500,
         .holdEffect = HOLD_EFFECT_JABOCA_BERRY,
         .description = COMPOUND_STRING(
             "If hit by a physical\n"
@@ -12373,7 +12373,7 @@ const struct ItemInfo gItemsInfo[] =
     {
         .name = ITEM_NAME("Rowap Berry"),
         .pluralName = ITEM_PLURAL_NAME("Rowap Berries"),
-        .price = (I_BERRY_PRICE >= GEN_8) ? 80 : 20,
+        .price = 500,
         .holdEffect = HOLD_EFFECT_ROWAP_BERRY,
         .description = COMPOUND_STRING(
             "If hit by a special\n"
@@ -12391,7 +12391,7 @@ const struct ItemInfo gItemsInfo[] =
     {
         .name = ITEM_NAME("Kee Berry"),
         .pluralName = ITEM_PLURAL_NAME("Kee Berries"),
-        .price = (I_BERRY_PRICE >= GEN_8) ? 80 : 20,
+        .price = 500,
         .holdEffect = HOLD_EFFECT_KEE_BERRY,
         .description = COMPOUND_STRING(
             "If hit by a physical\n"
@@ -12409,7 +12409,7 @@ const struct ItemInfo gItemsInfo[] =
     {
         .name = ITEM_NAME("Maranga Berry"),
         .pluralName = ITEM_PLURAL_NAME("Maranga Berries"),
-        .price = (I_BERRY_PRICE >= GEN_8) ? 80 : 20,
+        .price = 500,
         .holdEffect = HOLD_EFFECT_MARANGA_BERRY,
         .description = COMPOUND_STRING(
             "If hit by a special\n"

@@ -1453,15 +1453,6 @@ gText_RegisteredTrainerinPokeNav::
 	.string "Registered {STR_VAR_1} {STR_VAR_2}\n"
 	.string "in the POKéNAV.$"
 
-gText_ComeBackWithSecretPower::
-	.string "Do you know the TM SECRET POWER?\p"
-	.string "Our group, we love the TM SECRET\n"
-	.string "POWER.\p"
-	.string "One of our members will give it to you.\n"
-	.string "Come back and show me if you get it.\p"
-	.string "We'll accept you as a member and sell\n"
-	.string "you good stuff in secrecy.$"
-
 gText_PokerusExplanation::
 	.string "Your POKéMON may be infected with\n"
 	.string "POKéRUS.\p"

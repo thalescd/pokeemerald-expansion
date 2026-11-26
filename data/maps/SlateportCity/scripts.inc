@@ -188,7 +188,7 @@ SlateportCity_EventScript_Girl::
 	lock
 	faceplayer
 	call_if_eq VAR_SLATEPORT_CITY_STATE, 1, SlateportCity_EventScript_GirlSternInterview
-	goto_if_set FLAG_RECEIVED_SECRET_POWER, SlateportCity_EventScript_GirlSecretBase
+	goto_if_set FLAG_RECEIVED_SECRET_POWER, SlateportCity_EventScript_GirlDirtyDolls
 	msgbox SlateportCity_Text_SlateportWonderfulPlace, MSGBOX_DEFAULT
 	release
 	end
@@ -198,8 +198,8 @@ SlateportCity_EventScript_GirlSternInterview::
 	release
 	end
 
-SlateportCity_EventScript_GirlSecretBase::
-	msgbox SlateportCity_Text_BuyBricksSoDecorWontGetDirty, MSGBOX_DEFAULT
+SlateportCity_EventScript_GirlDirtyDolls::
+	msgbox SlateportCity_Text_DollsAndCushionsGetDirty, MSGBOX_DEFAULT
 	release
 	end
 
@@ -488,38 +488,23 @@ SlateportCity_PokemartDecor_Dolls:
 	.2byte DECOR_SKITTY_DOLL
 	pokemartlistend
 
-SlateportCity_EventScript_ComeBackWithSecretPower::
-	msgbox gText_ComeBackWithSecretPower, MSGBOX_DEFAULT
-	release
-	end
-
-SlateportCity_EventScript_DecorClerk::
+SlateportCity_EventScript_BerryClerk::
 	lock
 	faceplayer
-	goto_if_unset FLAG_RECEIVED_SECRET_POWER, SlateportCity_EventScript_ComeBackWithSecretPower
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemartdecoration SlateportCity_PokemartDecor
+	pokemart SlateportCity_Pokemart_Berries
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
 	.align 2
-SlateportCity_PokemartDecor:
-	.2byte DECOR_RED_BRICK
-	.2byte DECOR_BLUE_BRICK
-	.2byte DECOR_YELLOW_BRICK
-	.2byte DECOR_RED_BALLOON
-	.2byte DECOR_BLUE_BALLOON
-	.2byte DECOR_YELLOW_BALLOON
-	.2byte DECOR_C_LOW_NOTE_MAT
-	.2byte DECOR_D_NOTE_MAT
-	.2byte DECOR_E_NOTE_MAT
-	.2byte DECOR_F_NOTE_MAT
-	.2byte DECOR_G_NOTE_MAT
-	.2byte DECOR_A_NOTE_MAT
-	.2byte DECOR_B_NOTE_MAT
-	.2byte DECOR_C_HIGH_NOTE_MAT
+SlateportCity_Pokemart_Berries:
+	.2byte ITEM_KEE_BERRY
+	.2byte ITEM_MARANGA_BERRY
+	.2byte ITEM_ENIGMA_BERRY
+	.2byte ITEM_JABOCA_BERRY
+	.2byte ITEM_ROWAP_BERRY
 	pokemartlistend
 
 SlateportCity_EventScript_PowerTMClerk::
@@ -1005,12 +990,9 @@ SlateportCity_Text_SlateportWonderfulPlace:
 	.string "scent of the ocean…\p"
 	.string "SLATEPORT is such a wonderful place!$"
 
-SlateportCity_Text_BuyBricksSoDecorWontGetDirty:
+SlateportCity_Text_DollsAndCushionsGetDirty:
 	.string "If you put DOLLS or CUSHIONS on\n"
-	.string "the floor, they'll get dirty.\p"
-	.string "I'm going to buy some BRICKS so my\n"
-	.string "DOLLS and CUSHIONS won't get dirty\l"
-	.string "when I leave them out.$"
+	.string "the floor, they'll get dirty…$"
 
 SlateportCity_Text_GoingToCompeteInBattleTent:
 	.string "Wroooar! I'm going to compete in\n"
