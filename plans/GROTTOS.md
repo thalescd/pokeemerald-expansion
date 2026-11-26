@@ -99,6 +99,9 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
   fica; a opção B (janela baixa) fica como alternativa.
 - 2026-11-19: pesos dos 5 slots das grottos mudam de 60/30/5/4/1 para 32/32/16/16/4 (soma 100). As tabelas por rota não
   mudam; Pokémon repetidos em dois slots somam os pesos novos.
+- 2026-11-26: nova fase 7: o vendedor de decoração do mercado de Slateport passa a vender as berries Kee, Maranga, Enigma,
+  Jaboca e Rowap. Feita nesta branch porque envolve diretamente as secret bases (a Pretty Petal foi feita na `master` por
+  outros motivos). A Enigma é a `ITEM_ENIGMA_BERRY` (cura 1/4 do HP ao levar golpe super efetivo), não a do e-Reader.
 
 ## Levantamento
 
@@ -308,6 +311,44 @@ tem tamanho 0, `DecorationAdd` falha e ela mostra "a lista de X está cheia" sem
 prêmios por script usam a mesma checagem de espaço. Ou seja, depois da fase 6 o jogador não vê essas categorias em lugar
 nenhum, mas ainda vê os itens à venda nas lojas, e é isso que fica para a revisão.
 
+### Fase 7 — vendedor de Slateport vende berries
+
+Feito em 2026-11-26, só leitura e grep, sem compilar. Aguardando aprovação dos textos e dos preços.
+
+**Como é hoje:** no mercado de Slateport, o vendedor `SlateportCity_EventScript_DecorClerk`
+(`data/maps/SlateportCity/scripts.inc:497-523`) só vende depois do Secret Power (`FLAG_RECEIVED_SECRET_POWER`). Antes
+disso ele diz `gText_ComeBackWithSecretPower` (`data/event_scripts.s:1456`), que só ele usa. Vende 6 tijolos/balões e 8
+tapetes de nota, e a compra hoje falha com "a lista está cheia".
+
+**O que muda:**
+
+- `pokemartdecoration` → `pokemart`, com a lista `ITEM_KEE_BERRY`, `ITEM_MARANGA_BERRY`, `ITEM_ENIGMA_BERRY`,
+  `ITEM_JABOCA_BERRY`, `ITEM_ROWAP_BERRY`. É o mesmo formato da loja de berries da Pretty Petal na `master`.
+- A trava do Secret Power continua.
+- Nomes: `SlateportCity_EventScript_DecorClerk` → `SlateportCity_EventScript_BerryClerk` e `SlateportCity_PokemartDecor`
+  → `SlateportCity_Pokemart_Berries`, com o `"script"` do objeto em `data/maps/SlateportCity/map.json:303`.
+- **Enigma:** `ITEM_ENIGMA_BERRY` tem `HOLD_EFFECT_ENIGMA_BERRY` (cura 25% do HP máximo,
+  `battle_hold_effects.c:357`). A `ITEM_ENIGMA_BERRY_E_READER` não tem efeito de batalha segurada; é a berry
+  configurável do e-Reader.
+- **Preços:** hoje as 5 custam 20 (`I_BERRY_PRICE` é GEN_7). Na `master`, as 10 berries da Pretty Petal ganharam preço
+  fixo em `src/data/items.h` (de Oran 100 a Lum 2000). As 5 daqui são outras entradas do mesmo arquivo, então não devem
+  conflitar no merge. Falta o usuário decidir os preços.
+
+**Textos:**
+
+1. `gText_ComeBackWithSecretPower` não fala de secret base: fala de um grupo que gosta do Secret Power e vende "good
+   stuff in secrecy". Proposta mínima: trocar só o fim, "sell you good stuff in secrecy" → "sell you rare BERRIES in
+   secrecy".
+2. A menina de Slateport (`SlateportCity_EventScript_GirlSecretBase`, `:201-204`, texto
+   `SlateportCity_Text_BuyBricksSoDecorWontGetDirty`, `:1008`), depois do Secret Power, fala de comprar BRICKS para os
+   bonecos não sujarem. Precisa de fala nova. Proposta, com os rótulos renomeados para `..._GirlSecretBerries` e
+   `SlateportCity_Text_ManSellsRareBerries`:
+   "There's a man at the market who sells\nrare BERRIES.\pBut he only sells them to people who\nknow the TM SECRET
+   POWER.\pI wonder where he finds them…"
+
+**O que não muda:** o vendedor de bonecos ao lado (Azurill, Marill, Skitty), o vendedor de TMs que aparece com o Secret
+Power (`FLAG_HIDE_SLATEPORT_CITY_TM_SALESMAN`), as outras falas da menina.
+
 ### O que é compartilhado e pode quebrar
 
 - **Quarto do jogador:** usa funções e scripts com nome de secret base que **não podem ser apagados**:
@@ -484,6 +525,7 @@ Só `src/decoration.c`:
 - [x] Fase 4: encolher o `SaveBlock1` (build, testes de tamanho do save, teste no emulador, commit)
 - [x] Fase 5: o Trader só oferece bonecos e almofadas (build, `make check`, commit; Trader não testado no emulador)
 - [x] Fase 6: menu de decoração só com DOLL e CUSHION (build, teste no emulador, commit; falta o passo 7, do Trader)
+- [ ] Fase 7: vendedor de Slateport vende berries (levantamento aguardando aprovação)
 - [ ] Merge na `master`
 
 - 2026-11-17: levantamento escrito (4 frentes: entrada, dependentes, encontro, decoração). Só leitura de código, nada
@@ -545,6 +587,8 @@ Só `src/decoration.c`:
   fase 5 (Trader); `src/trader.c` continua sem commit.
 - 2026-11-19: `make check -j20` completo passou (rodado pelo usuário), com a fase 6, os pesos novos e o `src/trader.c`
   ainda sem commit no build.
+- 2026-11-26: fase 7 pedida pelo usuário e levantada (Levantamento → Fase 7). Só leitura e grep. Aguardando aprovação
+  dos textos e dos preços.
 - 2026-11-23: a pedido do usuário, fase 5 commitada em `51a5c2cfdd` sem o teste do Trader no emulador. Build e `make check`
   passaram com ela. O teste do Trader (passos 1 a 5 da fase 5 e passo 7 da fase 6) fica em Pendências.
 
