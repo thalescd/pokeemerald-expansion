@@ -102,6 +102,11 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
 - 2026-11-26: nova fase 7: o vendedor de decoração do mercado de Slateport passa a vender as berries Kee, Maranga, Enigma,
   Jaboca e Rowap. Feita nesta branch porque envolve diretamente as secret bases (a Pretty Petal foi feita na `master` por
   outros motivos). A Enigma é a `ITEM_ENIGMA_BERRY` (cura 1/4 do HP ao levar golpe super efetivo), não a do e-Reader.
+- 2026-11-26: as 5 berries custam 500 cada.
+- 2026-11-26: o vendedor de berries de Slateport não exige mais o Secret Power; vende normalmente desde o início. Com
+  isso, a fala dele sobre o grupo do Secret Power (`gText_ComeBackWithSecretPower`) fica sem uso e sai.
+- 2026-11-26: a menina de Slateport, depois do Secret Power, diz só "If you put DOLLS or CUSHIONS on the floor, they'll
+  get dirty…" (corta a parte de comprar BRICKS; fica pensativa em vez de dar dica de compra). Ideia do usuário.
 
 ## Levantamento
 
@@ -313,7 +318,8 @@ nenhum, mas ainda vê os itens à venda nas lojas, e é isso que fica para a rev
 
 ### Fase 7 — vendedor de Slateport vende berries
 
-Feito em 2026-11-26, só leitura e grep, sem compilar. Aguardando aprovação dos textos e dos preços.
+Feito em 2026-11-26, só leitura e grep, sem compilar. Aprovado em 2026-11-26 com mudanças do usuário: preço 500, sem a
+trava do Secret Power e fala mais curta para a menina (ver Decisões). As propostas de texto abaixo ficaram superadas.
 
 **Como é hoje:** no mercado de Slateport, o vendedor `SlateportCity_EventScript_DecorClerk`
 (`data/maps/SlateportCity/scripts.inc:497-523`) só vende depois do Secret Power (`FLAG_RECEIVED_SECRET_POWER`). Antes
@@ -384,7 +390,7 @@ Decoração que continua útil (boneco ou almofada) não precisa mudar. As que v
 | `LilycoveCity_DepartmentStore_5F/scripts.inc:95-111` | 10 tapetes (balconista da direita) | Mat |
 | `LilycoveCity_DepartmentStoreRooftop/scripts.inc:31-42` | 12 ornamentos da liquidação (os 2 bonecos `:43-44` ficam) | Ornament |
 | `FortreeCity_DecorationShop/scripts.inc:24-31, 46-53` | loja inteira: 8 mesas e 8 cadeiras | Desk, Chair |
-| `SlateportCity/scripts.inc:509-522` | 6 tijolos/balões e 8 tapetes de nota (os bonecos `:486-488` ficam) | Ornament, Mat |
+| ~~`SlateportCity/scripts.inc:509-522`~~ | ~~6 tijolos/balões e 8 tapetes de nota~~ — fase 7: vende berries | Ornament, Mat |
 | ~~`Route104_PrettyPetalFlowerShop/scripts.inc:54-59`~~ | ~~6 plantas~~ — resolvido na `master` pelo usuário (`3713cd0829`, a loja virou loja de berries; anotado em 2026-11-26) | Plant |
 | `BattleFrontier_ExchangeServiceCorner/scripts.inc:110` | KISS_POSTER (o resto da loja é boneco/almofada) | Poster |
 | `BattleFrontier_ScottsHouse/scripts.inc:99, 129` | escudos de prata e ouro (sequências de 50 e 100 vitórias) | Ornament |
@@ -516,6 +522,19 @@ Só `src/decoration.c`:
 - `HandleDecorationCategoriesMenuInput`: CANCEL é a linha depois da tabela; a escolha vira a categoria da tabela.
 - DECORATE, TOSS e o menu do Trader começam em DOLL.
 
+### Fase 7 (escrita em 2026-11-26)
+
+- `data/maps/SlateportCity/scripts.inc`: `SlateportCity_EventScript_DecorClerk` → `SlateportCity_EventScript_BerryClerk`,
+  sem o `goto_if_unset FLAG_RECEIVED_SECRET_POWER` e com `pokemart SlateportCity_Pokemart_Berries` (Kee, Maranga,
+  Enigma, Jaboca, Rowap). Sai `SlateportCity_EventScript_ComeBackWithSecretPower`.
+- Mesmo arquivo: `SlateportCity_EventScript_GirlSecretBase` → `SlateportCity_EventScript_GirlDirtyDolls` e
+  `SlateportCity_Text_BuyBricksSoDecorWontGetDirty` → `SlateportCity_Text_DollsAndCushionsGetDirty`, com o texto curto.
+  A condição continua a mesma (depois do Secret Power).
+- `data/maps/SlateportCity/map.json`: o `"script"` do objeto aponta para `SlateportCity_EventScript_BerryClerk`.
+- `data/event_scripts.s`: sai `gText_ComeBackWithSecretPower` (só o vendedor usava).
+- `src/data/items.h`: `.price = 500` em `ITEM_KEE_BERRY`, `ITEM_MARANGA_BERRY`, `ITEM_ENIGMA_BERRY`, `ITEM_JABOCA_BERRY`
+  e `ITEM_ROWAP_BERRY` (eram 20 pela config GEN_7).
+
 ## Progresso
 
 - [x] Levantamento aprovado (2026-11-17)
@@ -525,7 +544,7 @@ Só `src/decoration.c`:
 - [x] Fase 4: encolher o `SaveBlock1` (build, testes de tamanho do save, teste no emulador, commit)
 - [x] Fase 5: o Trader só oferece bonecos e almofadas (build, `make check`, commit; Trader não testado no emulador)
 - [x] Fase 6: menu de decoração só com DOLL e CUSHION (build, teste no emulador, commit; falta o passo 7, do Trader)
-- [ ] Fase 7: vendedor de Slateport vende berries (levantamento aguardando aprovação)
+- [ ] Fase 7: vendedor de Slateport vende berries (escrita, falta build e teste)
 - [ ] Merge na `master`
 
 - 2026-11-17: levantamento escrito (4 frentes: entrada, dependentes, encontro, decoração). Só leitura de código, nada
@@ -589,6 +608,8 @@ Só `src/decoration.c`:
   ainda sem commit no build.
 - 2026-11-26: fase 7 pedida pelo usuário e levantada (Levantamento → Fase 7). Só leitura e grep. Aguardando aprovação
   dos textos e dos preços.
+- 2026-11-26: fase 7 escrita (ver Pontos de código). **Não compilada e não testada.** Conferido por grep que nenhum
+  rótulo removido ou renomeado ficou referenciado (o `events.inc` é gerado pelo build a partir do `map.json`).
 - 2026-11-23: a pedido do usuário, fase 5 commitada em `51a5c2cfdd` sem o teste do Trader no emulador. Build e `make check`
   passaram com ela. O teste do Trader (passos 1 a 5 da fase 5 e passo 7 da fase 6) fica em Pendências.
 
@@ -612,7 +633,8 @@ Para o usuário revisar depois (fora deste plano):
   - `data/maps/MossdeepCity_House4/scripts.inc`: o menino agora sempre diz "faça uma secret base" (fase 2), e a irmã
     fala de visitar bases. Precisam de falas novas.
   - `data/maps/Route119/scripts.inc:462-466, 591-605`: placa de Trainer Tips e falas sobre decorar a base.
-  - `data/maps/SlateportCity/scripts.inc:191, 201`: menina que, depois do Secret Power, fala de comprar tijolos.
+  - ~~`data/maps/SlateportCity/scripts.inc:191, 201`: menina que, depois do Secret Power, fala de comprar tijolos.~~
+    Resolvido na fase 7.
   - `data/maps/FortreeCity_DecorationShop/scripts.inc`: falas dos NPCs da loja.
   - `data/text/mauville_man.inc:61` e `src/mauville_old_man.c:70`: pergunta do Giddy "SECRET BASES are so wonderful".
   - Storyteller de Mauville (`mauville_old_man.c:1060`, `data/scripts/mauville_man.inc:496-505`): a história de
@@ -715,3 +737,15 @@ Build: `make -j20`. O save não muda.
 5. TOSS: o mesmo menu; jogar fora uma almofada funciona.
 6. CANCEL e o botão B no menu de categorias voltam ao menu DECORATE/PUT AWAY/TOSS.
 7. Se der para chegar no Trader (ver Fase 5): o menu de troca também mostra só DOLL, CUSHION e EXIT.
+
+### Fase 7
+
+Build: `make -j20`. O save não muda.
+
+1. Mercado de Slateport, antes de pegar o Secret Power: o vendedor (o que vendia tijolos, ao lado do de bonecos) já
+   vende, sem pedir o TM.
+2. A lista mostra KEE, MARANGA, ENIGMA, JABOCA e ROWAP BERRY, cada uma por 500. Comprar uma: vai para a bolsa de berries.
+3. A ENIGMA BERRY comprada tem a descrição "Restores HP when hit by a super effective move".
+4. Menina de Slateport antes do Secret Power: fala normal. Depois do Secret Power: "If you put DOLLS or CUSHIONS on the
+   floor, they'll get dirty…" numa caixa só.
+5. Opcional: segurar a ENIGMA numa batalha e levar um golpe super efetivo: cura 1/4 do HP.
