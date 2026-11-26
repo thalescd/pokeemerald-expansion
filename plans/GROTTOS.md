@@ -544,7 +544,7 @@ Só `src/decoration.c`:
 - [x] Fase 4: encolher o `SaveBlock1` (build, testes de tamanho do save, teste no emulador, commit)
 - [x] Fase 5: o Trader só oferece bonecos e almofadas (build, `make check`, commit; Trader não testado no emulador)
 - [x] Fase 6: menu de decoração só com DOLL e CUSHION (build, teste no emulador, commit; falta o passo 7, do Trader)
-- [ ] Fase 7: vendedor de Slateport vende berries (escrita, falta build e teste)
+- [x] Fase 7: vendedor de Slateport vende berries (commit; build e teste não confirmados)
 - [ ] Merge na `master`
 
 - 2026-11-17: levantamento escrito (4 frentes: entrada, dependentes, encontro, decoração). Só leitura de código, nada
@@ -610,6 +610,8 @@ Só `src/decoration.c`:
   dos textos e dos preços.
 - 2026-11-26: fase 7 escrita (ver Pontos de código). **Não compilada e não testada.** Conferido por grep que nenhum
   rótulo removido ou renomeado ficou referenciado (o `events.inc` é gerado pelo build a partir do `map.json`).
+- 2026-11-26: usuário pediu o commit da fase 7; commitada em `815669732c`. O usuário não disse se buildou ou testou, então
+  o roteiro "Como testar → Fase 7" continua em aberto.
 - 2026-11-23: a pedido do usuário, fase 5 commitada em `51a5c2cfdd` sem o teste do Trader no emulador. Build e `make check`
   passaram com ela. O teste do Trader (passos 1 a 5 da fase 5 e passo 7 da fase 6) fica em Pendências.
 
