@@ -344,7 +344,7 @@ Decoração que continua útil (boneco ou almofada) não precisa mudar. As que v
 | `LilycoveCity_DepartmentStoreRooftop/scripts.inc:31-42` | 12 ornamentos da liquidação (os 2 bonecos `:43-44` ficam) | Ornament |
 | `FortreeCity_DecorationShop/scripts.inc:24-31, 46-53` | loja inteira: 8 mesas e 8 cadeiras | Desk, Chair |
 | `SlateportCity/scripts.inc:509-522` | 6 tijolos/balões e 8 tapetes de nota (os bonecos `:486-488` ficam) | Ornament, Mat |
-| `Route104_PrettyPetalFlowerShop/scripts.inc:54-59` | 6 plantas | Plant |
+| ~~`Route104_PrettyPetalFlowerShop/scripts.inc:54-59`~~ | ~~6 plantas~~ — resolvido na `master` pelo usuário (`3713cd0829`, a loja virou loja de berries; anotado em 2026-11-26) | Plant |
 | `BattleFrontier_ExchangeServiceCorner/scripts.inc:110` | KISS_POSTER (o resto da loja é boneco/almofada) | Poster |
 | `BattleFrontier_ScottsHouse/scripts.inc:99, 129` | escudos de prata e ouro (sequências de 50 e 100 vitórias) | Ornament |
 | `LilycoveCity_LilycoveMuseum_2F/scripts.inc:125` | GLASS_ORNAMENT | Ornament |
