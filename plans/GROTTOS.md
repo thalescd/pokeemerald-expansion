@@ -113,6 +113,9 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
   as recompensas da Trick House de uma vez, em outro momento.
 - 2026-11-27: as fontes de decoração do Battle Frontier (KISS_POSTER do Exchange Service Corner e os escudos da casa do
   Scott) saem da revisão deste plano: o foco agora é o jogo até a Elite Four, e o Battle Frontier é pós-jogo.
+- 2026-11-27: nova fase 9: o prêmio do curador do museu de Lilycove (5 quadros de concurso rank Master) deixa de ser o
+  GLASS ORNAMENT e passa a ser o SHINY CHARM, que hoje não existe em nenhum mapa. Ideia sugerida e aceita pelo usuário.
+- 2026-11-27: levantamento da fase 9 aprovado como estava, inclusive a renomeação da flag 0xEC.
 - 2026-11-27: os dois orbs custam 500 de cinza cada (não 1200/1600). O resto do levantamento da fase 8 foi aprovado como
   estava: TOXIC no lugar da CHAIR, FLAME no da DESK, o ramo de decoração sai e nenhuma fala muda.
 
@@ -411,6 +414,42 @@ não são de vidro no original, mas fica como está a menos que o usuário queir
 
 **O que não muda:** a SOOT SACK e a contagem de cinza, os estados 1, 2 e 10-14, as falas, o ajudante (NinjaBoy).
 
+### Fase 9 — curador do museu dá o SHINY CHARM
+
+Feito em 2026-11-27, só leitura e grep, sem compilar. Aprovado em 2026-11-27 sem mudanças.
+
+**Como é hoje:** depois que o jogador aceita ver a ala do 2º andar (o curador do 1º andar some,
+`FLAG_HIDE_LILYCOVE_MUSEUM_CURATOR`), cada vitória em concurso rank Master com 1º lugar e 800+ pontos
+(`ShouldReadyContestArtist`, `src/contest_util.c:2255-2267`) faz o artista aparecer no saguão e, se o jogador aceitar, o
+quadro vai para o museu (um por categoria). Com os 5 quadros, o curador do 2º andar
+(`data/maps/LilycoveCity_LilycoveMuseum_2F/scripts.inc:96-142`) agradece e faz `givedecoration DECOR_GLASS_ORNAMENT`.
+Como ORNAMENT tem 0 espaços desde a fase 3, a entrega falha sempre: ele diz "I will keep this for you until we meet
+again", a `FLAG_RECEIVED_GLASS_ORNAMENT` (0xEC) nunca é marcada e a cena se repete a cada conversa.
+
+**O que muda:**
+
+- `scripts.inc:122-135`: `..._EventScript_GiveGlassOrnament` → `..._EventScript_GiveShinyCharm`, com
+  `giveitem ITEM_SHINY_CHARM` no lugar do `givedecoration`. Se a bolsa estiver cheia (o SHINY CHARM vai para KEY ITEMS),
+  `..._EventScript_NoRoomForGlassOrnament` → `..._EventScript_NoRoomForShinyCharm`, com `Common_EventScript_BagIsFull`
+  no lugar de `Common_EventScript_NoRoomForDecor`; a fala "I will keep this for you until we meet again" continua e
+  serve igual.
+- `..._EventScript_ReceivedGlassOrnament` → `..._EventScript_ReceivedShinyCharm` (a fala "so good to see you" não muda).
+- Flag: renomear `FLAG_RECEIVED_GLASS_ORNAMENT` → `FLAG_RECEIVED_SHINY_CHARM`, mesmo valor 0xEC, em
+  `include/constants/flags.h:270` e `include/constants/flags_frlg.h:1666` (lá vale 0, é só o nome). Só o script do
+  museu usa a flag.
+- Textos: nenhum muda. "This is merely a token of my gratitude." serve para qualquer item, e o `giveitem` já mostra
+  "Obtained the SHINY CHARM" com a fanfarra.
+
+**Efeito do SHINY CHARM:** basta estar na bolsa. `ComputePlayerShinyOdds` (`src/pokemon.c:852-885`) dá
+`I_SHINY_CHARM_ADDITIONAL_ROLLS` = 2 sorteios extras a todo Pokémon cujo OT é o jogador (selvagens, grottos, ovos,
+presentes) e aos Pokémon que aparecem no overworld (`src/wild_encounter_ow.c:860`). A chance base é 8/65536 (1/8192);
+com o charm, cerca de 1/2731.
+
+**Saves existentes:** a flag 0xEC só estaria marcada num save que recebeu o GLASS ORNAMENT antes da fase 3; esse save
+não ganharia o SHINY CHARM. Nos demais, quem já tem os 5 quadros recebe o charm na próxima conversa.
+
+**O que não muda:** os concursos, o artista, os quadros, a estrela do Trainer Card, os visitantes do museu, as falas.
+
 ### O que é compartilhado e pode quebrar
 
 - **Quarto do jogador:** usa funções e scripts com nome de secret base que **não podem ser apagados**:
@@ -450,7 +489,7 @@ Decoração que continua útil (boneco ou almofada) não precisa mudar. As que v
 | ~~`Route104_PrettyPetalFlowerShop/scripts.inc:54-59`~~ | ~~6 plantas~~ — resolvido na `master` pelo usuário (`3713cd0829`, a loja virou loja de berries; anotado em 2026-11-26) | Plant |
 | ~~`BattleFrontier_ExchangeServiceCorner/scripts.inc:110`~~ | ~~KISS_POSTER (o resto da loja é boneco/almofada)~~ — fora deste plano: Battle Frontier é pós-jogo, fica para depois | Poster |
 | ~~`BattleFrontier_ScottsHouse/scripts.inc:99, 129`~~ | ~~escudos de prata e ouro (sequências de 50 e 100 vitórias)~~ — fora deste plano: Battle Frontier é pós-jogo, fica para depois | Ornament |
-| `LilycoveCity_LilycoveMuseum_2F/scripts.inc:125` | GLASS_ORNAMENT | Ornament |
+| ~~`LilycoveCity_LilycoveMuseum_2F/scripts.inc:125`~~ | ~~GLASS_ORNAMENT~~ — fase 9: SHINY CHARM | Ornament |
 | ~~`Route113_GlassWorkshop/scripts.inc:133-157, 206, 268-281`~~ | ~~PRETTY_CHAIR e PRETTY_DESK (troca de cinzas)~~ — fase 8: TOXIC ORB e FLAME ORB | Chair, Desk |
 | ~~`Route110_TrickHouseEnd/scripts.inc:172-176` e `Route110_TrickHouseEntrance/scripts.inc:422-426`~~ | ~~RED_TENT / BLUE_TENT~~ — fora deste plano: o usuário vai refazer todas as recompensas da Trick House depois | Ornament |
 | `data/scripts/mauville_man.inc:148-215` + `src/trader.c:26-32` | Trader de Mauville: troca qualquer decoração; padrões incluem TIRE e PRETTY_FLOWERS | vários |
@@ -603,6 +642,15 @@ Só `src/decoration.c`:
   porque agora entregam também os orbs (renomeação não prevista no levantamento; só rótulos internos do arquivo).
 - `src/field_specials.c:2497-2498`: menu com "TOXIC ORB" e "FLAME ORB".
 
+### Fase 9 (escrita em 2026-11-27)
+
+- `data/maps/LilycoveCity_LilycoveMuseum_2F/scripts.inc`: `givedecoration DECOR_GLASS_ORNAMENT` →
+  `giveitem ITEM_SHINY_CHARM`; `Common_EventScript_NoRoomForDecor` → `Common_EventScript_BagIsFull`; rótulos
+  `..._GiveGlassOrnament`/`NoRoomForGlassOrnament`/`ReceivedGlassOrnament` → `..._GiveShinyCharm`/`NoRoomForShinyCharm`/
+  `ReceivedShinyCharm`.
+- `include/constants/flags.h:270` e `include/constants/flags_frlg.h:1666`: `FLAG_RECEIVED_GLASS_ORNAMENT` →
+  `FLAG_RECEIVED_SHINY_CHARM` (valores mantidos).
+
 ## Progresso
 
 - [x] Levantamento aprovado (2026-11-17)
@@ -614,6 +662,7 @@ Só `src/decoration.c`:
 - [x] Fase 6: menu de decoração só com DOLL e CUSHION (build, teste no emulador, commit; falta o passo 7, do Trader)
 - [x] Fase 7: vendedor de Slateport vende berries (commit; build e teste não confirmados)
 - [x] Fase 8: Glass Workshop com preços / 5 e orbs (commit; build e teste não confirmados)
+- [x] Fase 9: curador do museu dá o SHINY CHARM (commit; usuário disse "tudo certo", roteiro não detalhado)
 - [ ] Merge na `master`
 
 - 2026-11-17: levantamento escrito (4 frentes: entrada, dependentes, encontro, decoração). Só leitura de código, nada
@@ -686,6 +735,11 @@ Só `src/decoration.c`:
 - 2026-11-27: passo 10 da fase 1 testado pelo usuário no emulador: o enchimento pelo reset diário (avançar o dia)
   funcionou. Sai das Pendências.
 - 2026-11-27: fase 8 pedida pelo usuário e levantada (Levantamento → Fase 8). Só leitura e grep. Aguardando aprovação.
+- 2026-11-27: fase 9 pedida pelo usuário e levantada (Levantamento → Fase 9). Só leitura e grep. Aguardando aprovação.
+- 2026-11-27: fase 9 aprovada e escrita (ver Pontos de código). **Não compilada e não testada.** `git grep` confirma que
+  o nome antigo da flag não é usado em mais nenhum lugar.
+- 2026-11-27: usuário respondeu "tudo certo" e pediu o commit; fase 9 commitada em `6c92a25800`. Não ficou claro quais
+  passos de "Como testar → Fase 9" foram feitos (a entrega exige os 5 quadros rank Master).
 - 2026-11-27: fase 8 aprovada com os orbs a 500 e escrita (ver Pontos de código). **Não compilada e não testada.**
   Conferido por grep que nenhum rótulo removido ou renomeado ficou referenciado e que o script não usa mais `DECOR_`
   nem `VAR_0x8009`.
@@ -839,3 +893,15 @@ Build: `make -j20`. O save não muda. Para não andar 500 passos, dá para come�
 4. Trocar uma flauta: desconta o preço novo (50/100/100/200/200) e a flauta vai para a bolsa.
 5. Trocar o TOXIC ORB e o FLAME ORB: cada um desconta 500 e o item vai para a bolsa, com o nome certo nas falas.
 6. Opcional: com a bolsa cheia, trocar um orb: ele diz que guarda; liberar espaço e falar de novo: entrega o orb.
+
+### Fase 9
+
+Build: `make -j20`. O save não muda. Testar de verdade exige ganhar os 5 concursos rank Master com 800+ pontos; o atalho
+é um save que já tenha os 5 quadros, ou dar `setflag`/quadros pelo menu de debug, se houver.
+
+1. Museu de Lilycove, 2º andar, com 1 a 4 quadros: o curador só agradece, como antes.
+2. Com os 5 quadros: a cena de agradecimento, "This is merely a token of my gratitude." e "Obtained the SHINY CHARM"
+   com fanfarra. O SHINY CHARM aparece em KEY ITEMS.
+3. Falar de novo: "so good to see you", sem repetir a entrega.
+4. Opcional: com KEY ITEMS cheio, ele diz que a bolsa está cheia e "I will keep this for you until we meet again";
+   liberar espaço e falar de novo: entrega.
