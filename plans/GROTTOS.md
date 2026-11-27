@@ -116,6 +116,13 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
 - 2026-11-27: nova fase 9: o prêmio do curador do museu de Lilycove (5 quadros de concurso rank Master) deixa de ser o
   GLASS ORNAMENT e passa a ser o SHINY CHARM, que hoje não existe em nenhum mapa. Ideia sugerida e aceita pelo usuário.
 - 2026-11-27: levantamento da fase 9 aprovado como estava, inclusive a renomeação da flag 0xEC.
+- 2026-11-27: nova fase 10: os encontros das grottos passam a depender do tipo da entrada (caverna, árvore, arbusto), para
+  evitar Pokémon estranhos em árvores ou cavernas. As 4 cores de caverna contam como um tipo só.
+- 2026-11-27: cada tipo tem 3 slots (em vez de 5), com pesos 55/35/10, para que rotas com vários tipos não fiquem com
+  espécies demais.
+- 2026-11-27: as tabelas novas começam com os 3 primeiros slots da tabela atual de cada rota, copiados para todos os tipos
+  que a rota tem. O usuário vai reorganizar as espécies aos poucos.
+- 2026-11-27: levantamento da fase 10 aprovado como estava.
 - 2026-11-27: os dois orbs custam 500 de cinza cada (não 1200/1600). O resto do levantamento da fase 8 foi aprovado como
   estava: TOXIC no lugar da CHAIR, FLAME no da DESK, o ramo de decoração sai e nenhuma fala muda.
 
@@ -450,6 +457,69 @@ não ganharia o SHINY CHARM. Nos demais, quem já tem os 5 quadros recebe o char
 
 **O que não muda:** os concursos, o artista, os quadros, a estrela do Trainer Card, os visitantes do museu, as falas.
 
+### Fase 10 — encontros das grottos por tipo de entrada
+
+Feito em 2026-11-27, só leitura e grep, sem compilar. Aprovado em 2026-11-27 sem mudanças.
+
+**Como é hoje:** um campo `grotto_mons` em `src/data/wild_encounters.json` (5 slots, 32/32/16/16/4), uma tabela por rota.
+Toda grotto da rota sorteia dessa tabela, seja qual for a entrada. O gerador
+(`tools/wild_encounters/wild_encounters_to_header.py`) cria, para cada `type` em `fields`, o membro `<tipo>Info`, as
+constantes `ENCOUNTER_CHANCE_<TIPO>_SLOT_n` e `NUM_<TIPO>_ENCOUNTER_SLOTS`; só a struct `WildEncounterTypes`
+(`include/wild_encounter.h:32-40`) é escrita à mão. `grottoMonsInfo` só é usado em `src/wild_encounter.c` e
+`src/hidden_grotto.c` (DexNav, área da Pokédex e Match Call não leem).
+
+**Tipo de cada grotto:** sai do id da secret base da entrada (`sHiddenGrottoSecretBaseIds`): `id / 10` de 0 a 15 é
+caverna (vermelha, marrom, azul, amarela), 16 a 19 é árvore, 20 a 23 é arbusto (`include/constants/secret_bases.h`).
+
+**Tipos por rota** (contados nos `map.json`):
+
+| Rota | Caverna | Árvore | Arbusto |
+|---|---|---|---|
+| 110 | | 2 | |
+| 111 | 6 | 2 | |
+| 113 | 1 | | |
+| 114 | 5 | 2 | |
+| 115 | 9 | 2 | |
+| 116 | 4 | | |
+| 118 | 3 | 2 | |
+| 119 | 3 | 2 | 8 |
+| 120 | 3 | | 5 |
+| 121 | 2 | 2 | |
+| 123 | 3 | | |
+| 125 | 4 | | |
+| 127 | 5 | | |
+
+**O que muda:**
+
+- `src/data/wild_encounters.json`: o campo `grotto_mons` sai e entram `grotto_cave_mons`, `grotto_tree_mons` e
+  `grotto_shrub_mons`, cada um com `encounter_rates` `[55, 35, 10]`. Em cada uma das 13 rotas, o bloco `grotto_mons`
+  vira um bloco por tipo que a rota tem (tabela acima), todos com os 3 primeiros slots de hoje (espécie e níveis) e
+  `encounter_rate` 0 como hoje. Edição por texto, sem reformatar o resto do arquivo.
+- `include/wild_encounter.h`: na struct, `grottoMonsInfo` → `grottoCaveMonsInfo`, `grottoTreeMonsInfo`,
+  `grottoShrubMonsInfo` (os nomes que o gerador produz). `GetGrottoMonsInfo` e `ChooseWildMonIndex_Grotto` passam a
+  receber o tipo.
+- `include/hidden_grotto.h`: enum novo `GROTTO_TYPE_CAVE`, `GROTTO_TYPE_TREE`, `GROTTO_TYPE_SHRUB`.
+- `src/wild_encounter.c:321-343`: o sorteio usa os pesos do tipo (`ENCOUNTER_CHANCE_GROTTO_<TIPO>_MONS_SLOT_n`) e a busca
+  devolve o membro do tipo. `STATIC_ASSERT` de 3 slots para cada um dos três campos.
+- `src/hidden_grotto.c`: função nova que dá o tipo de uma grotto pelo id da entrada; `RefillHiddenGrotto` e
+  `GetHiddenGrottoWildMon` passam o tipo. Comentários do topo (`:27-30`) atualizados. O `STATIC_ASSERT` do slot em 3 bits
+  continua valendo.
+
+**Espécies que saem por enquanto** (slots 4 e 5 de hoje, que não entram nas tabelas novas): Route 110 CHATOT; 111
+GIBLE; 113 SKARMORY; 114 SLOWPOKE de Galar; 115 TANGELA; 116 SMOOCHUM e KLINK; 118 DURANT; 119 SINISTEA;
+120 ABSOL e KECLEON; 121 TINKATUFF; 123 ABOMASNOW e SNORLAX; 125 e 127 PELIPPER. O 3º slot de hoje vira o raro (10%).
+Com os 3 primeiros slots, a Route 120 fica com só 2 espécies (TRUMBEAK nos slots 1 e 2) e as rotas 125 e 127 também
+(TENTACOOL, WINGULL, WINGULL); essas duas têm hoje a mesma tabela, com cara de provisória.
+
+**Save:** não muda. Uma grotto que estiver cheia com o slot 3 ou 4 (de antes da fase) aparece vazia até o próximo
+enchimento (por passos ou pelo dia), porque o slot passa do tamanho da tabela; não trava nada.
+
+**Armadilha:** uma grotto cujo tipo não tem tabela na rota fica sempre vazia, sem erro no build. Conferir por script, antes
+do commit, que toda rota tem tabela para cada tipo de entrada que possui.
+
+**O que não muda:** o enchimento (diário e 5% a cada 256 passos), hidden ability, shiny, esvaziar ao fugir, as entradas,
+os mapas interiores, os outros tipos de encontro.
+
 ### O que é compartilhado e pode quebrar
 
 - **Quarto do jogador:** usa funções e scripts com nome de secret base que **não podem ser apagados**:
@@ -651,6 +721,21 @@ Só `src/decoration.c`:
 - `include/constants/flags.h:270` e `include/constants/flags_frlg.h:1666`: `FLAG_RECEIVED_GLASS_ORNAMENT` →
   `FLAG_RECEIVED_SHINY_CHARM` (valores mantidos).
 
+### Fase 10 (escrita em 2026-11-27)
+
+- `src/data/wild_encounters.json`: campo `grotto_mons` → `grotto_cave_mons`, `grotto_tree_mons`, `grotto_shrub_mons`
+  (`[55, 35, 10]`). Nas 13 rotas, um bloco por tipo de entrada da rota, com os 3 primeiros slots de antes. Feito por
+  script: os tipos saem dos `secret_base_id` dos `map.json`; conferido que nada fora das grottos mudou no JSON e que toda
+  rota tem tabela de 3 slots para cada tipo de entrada que possui.
+- `include/hidden_grotto.h`: `enum GrottoType` (`GROTTO_TYPE_CAVE`, `GROTTO_TYPE_TREE`, `GROTTO_TYPE_SHRUB`).
+- `include/wild_encounter.h`: struct com `grottoCaveMonsInfo`, `grottoTreeMonsInfo`, `grottoShrubMonsInfo`;
+  `ChooseWildMonIndex_Grotto(u32 grottoType)` e `GetGrottoMonsInfo(mapGroup, mapNum, u32 grottoType)`. O parâmetro é
+  `u32` e não o enum porque `wild_encounter.h` é incluído em arquivos que não veem `hidden_grotto.h`.
+- `src/wild_encounter.c`: inclui `hidden_grotto.h`; sorteio e busca por tipo; `STATIC_ASSERT` de 3 slots por tipo.
+- `src/hidden_grotto.c`: `GetHiddenGrottoType` (pelo grupo da secret base: `>= SECRET_BASE_SHRUB1 / 4` arbusto,
+  `>= SECRET_BASE_TREE1 / 4` árvore, senão caverna) e `GetHiddenGrottoSlotCount`; `RefillHiddenGrotto` e
+  `GetHiddenGrottoWildMon` usam o tipo; comentário do topo e `STATIC_ASSERT` do slot por tipo.
+
 ## Progresso
 
 - [x] Levantamento aprovado (2026-11-17)
@@ -663,6 +748,7 @@ Só `src/decoration.c`:
 - [x] Fase 7: vendedor de Slateport vende berries (commit; build e teste não confirmados)
 - [x] Fase 8: Glass Workshop com preços / 5 e orbs (commit; build e teste não confirmados)
 - [x] Fase 9: curador do museu dá o SHINY CHARM (commit; usuário disse "tudo certo", roteiro não detalhado)
+- [x] Fase 10: encontros das grottos por tipo de entrada (build ok, commit; `make check` e emulador não confirmados)
 - [ ] Merge na `master`
 
 - 2026-11-17: levantamento escrito (4 frentes: entrada, dependentes, encontro, decoração). Só leitura de código, nada
@@ -736,6 +822,12 @@ Só `src/decoration.c`:
   funcionou. Sai das Pendências.
 - 2026-11-27: fase 8 pedida pelo usuário e levantada (Levantamento → Fase 8). Só leitura e grep. Aguardando aprovação.
 - 2026-11-27: fase 9 pedida pelo usuário e levantada (Levantamento → Fase 9). Só leitura e grep. Aguardando aprovação.
+- 2026-11-27: fase 10 pedida pelo usuário e levantada (Levantamento → Fase 10). Só leitura e grep. Aguardando aprovação.
+- 2026-11-27: fase 10 aprovada e escrita (ver Pontos de código). **Não compilada e não testada.** `git grep` confirma que
+  não sobrou uso de `grotto_mons`, `grottoMonsInfo` nem das constantes antigas; os headers gerados
+  (`src/data/wild_encounters.h`, `include/constants/wild_encounter.h`) são refeitos pelo build.
+- 2026-11-27: usuário confirmou que o build passou e pediu o commit; fase 10 commitada em `aa2837b32d`. **Ainda não
+  testada no emulador** ("Como testar → Fase 10"); `make check` não confirmado.
 - 2026-11-27: fase 9 aprovada e escrita (ver Pontos de código). **Não compilada e não testada.** `git grep` confirma que
   o nome antigo da flag não é usado em mais nenhum lugar.
 - 2026-11-27: usuário respondeu "tudo certo" e pediu o commit; fase 9 commitada em `6c92a25800`. Não ficou claro quais
@@ -905,3 +997,16 @@ Build: `make -j20`. O save não muda. Testar de verdade exige ganhar os 5 concur
 3. Falar de novo: "so good to see you", sem repetir a entrega.
 4. Opcional: com KEY ITEMS cheio, ele diz que a bolsa está cheia e "I will keep this for you until we meet again";
    liberar espaço e falar de novo: entrega.
+
+### Fase 10
+
+Build: `make -j20` e `make check -j20`. O save não muda. Para ver o efeito logo, avançar o dia (enche todas as grottos).
+
+1. Route 110 (só árvores): as duas grottos dão só ELECTRIKE, PONYTA ou GULPIN.
+2. Route 119 (caverna, árvore e arbusto): entrar em grottos dos três tipos; todas dão STEENEE, ZOROARK ou TREVENANT
+   (mesma tabela copiada para os três tipos por enquanto), nenhuma fica sempre vazia.
+3. Route 120 (caverna e arbusto) e Route 111 (caverna e árvore): idem, sem grotto sempre vazia.
+4. Save de antes da fase: uma grotto que estava cheia com CHATOT, GIBLE etc. (slots 4 e 5) aparece vazia; depois de
+   avançar o dia ela enche normalmente.
+5. Depois, ao editar uma tabela de um tipo (por exemplo `grotto_tree_mons` da Route 119), só as grottos daquele tipo
+   mudam.
