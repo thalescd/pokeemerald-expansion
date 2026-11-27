@@ -614,10 +614,11 @@ Só `src/decoration.c`:
   o roteiro "Como testar → Fase 7" continua em aberto.
 - 2026-11-23: a pedido do usuário, fase 5 commitada em `51a5c2cfdd` sem o teste do Trader no emulador. Build e `make check`
   passaram com ela. O teste do Trader (passos 1 a 5 da fase 5 e passo 7 da fase 6) fica em Pendências.
+- 2026-11-27: passo 10 da fase 1 testado pelo usuário no emulador: o enchimento pelo reset diário (avançar o dia)
+  funcionou. Sai das Pendências.
 
 ## Pendências
 
-- Fase 1, ainda não testado: enchimento pelo reset diário (passo 10).
 - Trader de Mauville, nunca testado no emulador: passo 8 da fase 3, passos 1 a 5 da fase 5 e passo 7 da fase 6. Precisa
   de um jogo novo com o ID No. terminando em 4 ou 5. Código já commitado.
 - Fase 4, testado só por cima: TV de casa (passo 4).
