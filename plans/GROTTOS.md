@@ -107,6 +107,10 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
   isso, a fala dele sobre o grupo do Secret Power (`gText_ComeBackWithSecretPower`) fica sem uso e sai.
 - 2026-11-26: a menina de Slateport, depois do Secret Power, diz só "If you put DOLLS or CUSHIONS on the floor, they'll
   get dirty…" (corta a parte de comprar BRICKS; fica pensativa em vez de dar dica de compra). Ideia do usuário.
+- 2026-11-27: nova fase 8: a Glass Workshop (Route 113) cobra 1/5 da cinza em todas as trocas, e as duas decorações
+  (PRETTY CHAIR e PRETTY DESK) viram TOXIC ORB e FLAME ORB.
+- 2026-11-27: os dois orbs custam 500 de cinza cada (não 1200/1600). O resto do levantamento da fase 8 foi aprovado como
+  estava: TOXIC no lugar da CHAIR, FLAME no da DESK, o ramo de decoração sai e nenhuma fala muda.
 
 ## Levantamento
 
@@ -355,6 +359,54 @@ tapetes de nota, e a compra hoje falha com "a lista está cheia".
 **O que não muda:** o vendedor de bonecos ao lado (Azurill, Marill, Skitty), o vendedor de TMs que aparece com o Secret
 Power (`FLAG_HIDE_SLATEPORT_CITY_TM_SALESMAN`), as outras falas da menina.
 
+### Fase 8 — Glass Workshop: preços / 5 e orbs no lugar das decorações
+
+Feito em 2026-11-27, só leitura e grep, sem compilar. Aprovado em 2026-11-27 com os orbs a 500 (ver Decisões).
+
+**Como é hoje:** `data/maps/Route113_GlassWorkshop/scripts.inc` troca cinza da SOOT SACK (1 por passo em grama com cinza,
+teto 9999, `src/field_tasks.c:775-790`) por 5 flautas (itens) e 2 decorações. A cinza é descontada antes da entrega; as
+decorações vão por `givedecoration`, que hoje falha sempre (CHAIR e DESK têm 0 espaços desde a fase 3), então o
+vidreiro guarda a peça (estado 15/16 em `VAR_GLASS_WORKSHOP_STATE`) e nunca consegue entregar.
+
+**O que muda:**
+
+| Opção | Hoje | Depois |
+|---|---|---|
+| 0 | BLUE FLUTE 250 | BLUE FLUTE 50 |
+| 1 | YELLOW FLUTE 500 | YELLOW FLUTE 100 |
+| 2 | RED FLUTE 500 | RED FLUTE 100 |
+| 3 | WHITE FLUTE 1000 | WHITE FLUTE 200 |
+| 4 | BLACK FLUTE 1000 | BLACK FLUTE 200 |
+| 5 | PRETTY CHAIR 6000 | TOXIC ORB 500 |
+| 6 | PRETTY DESK 8000 | FLAME ORB 500 |
+
+A ordem segue a do pedido (TOXIC no lugar da CHAIR, FLAME no da DESK). A proposta era cada orb herdar o preço / 5 da
+peça que substitui (1200 e 1600); o usuário fixou 500 para os dois.
+
+- `scripts.inc:5-12`: os `.set` dos preços. `PRETTY_CHAIR_PRICE`/`PRETTY_DESK_PRICE` → `TOXIC_ORB_PRICE`/`FLAME_ORB_PRICE`.
+  `LOWEST_ASH_PRICE` continua sendo o da BLUE FLUTE (passa a 50).
+- `scripts.inc:133-157`: `..._EventScript_PrettyChair`/`PrettyDesk` → `..._ToxicOrb`/`FlameOrb`, com `VAR_0x8009` = 0,
+  `ITEM_TOXIC_ORB`/`ITEM_FLAME_ORB` e `bufferitemname` (mesmo formato das flautas). Os `case 5`/`case 6` do menu e do
+  `GiveItemAfterNoRoom` apontam para os nomes novos; os estados 15 e 16 continuam os mesmos.
+- `scripts.inc:268-281`: `..._GivePrettyChair`/`GivePrettyDesk` → `..._GiveToxicOrb`/`GiveFlameOrb`, como as flautas.
+- Ramo de decoração sem uso, sai: `..._EventScript_GiveGlassDecor`, `..._EventScript_NoRoomForDecor`,
+  `..._Text_NoRoomInPC` e as duas linhas `call_if_eq VAR_0x8009, 1, ...GiveGlassDecor`. Com isso `VAR_0x8009` fica
+  sempre 0; proposta: tirar também os `setvar VAR_0x8009` e trocar os `call_if_eq VAR_0x8009, 0, ...GiveGlassFlute` por
+  `call` direto. `Common_EventScript_NoRoomForDecor` fica (é de uso comum).
+- `src/field_specials.c:2497-2498`: os textos do menu, "PRETTY CHAIR"/"PRETTY DESK" → "TOXIC ORB"/"FLAME ORB". Cabem na
+  largura 9 do menu (`:2349`), já que "YELLOW FLUTE" é maior.
+
+**Saves existentes:** quem está com o estado 15 ou 16 (peça presa) recebe o orb na próxima conversa. A cinza já gasta
+(6000 ou 8000) não volta; isso só existe em save de teste.
+
+**Fontes:** nenhum mapa dá TOXIC ORB ou FLAME ORB hoje (grep em `data/`); a Glass Workshop vira a única fonte.
+
+**Textos:** nenhum muda. As falas usam `{STR_VAR_1}` para o nome do item ("A TOXIC ORB, huff-puff?") e a da cinza
+insuficiente cita a BLUE FLUTE, que continua a mais barata. A placa diz "Turning Volcanic Ash into Glass Items"; os orbs
+não são de vidro no original, mas fica como está a menos que o usuário queira mudar.
+
+**O que não muda:** a SOOT SACK e a contagem de cinza, os estados 1, 2 e 10-14, as falas, o ajudante (NinjaBoy).
+
 ### O que é compartilhado e pode quebrar
 
 - **Quarto do jogador:** usa funções e scripts com nome de secret base que **não podem ser apagados**:
@@ -395,7 +447,7 @@ Decoração que continua útil (boneco ou almofada) não precisa mudar. As que v
 | `BattleFrontier_ExchangeServiceCorner/scripts.inc:110` | KISS_POSTER (o resto da loja é boneco/almofada) | Poster |
 | `BattleFrontier_ScottsHouse/scripts.inc:99, 129` | escudos de prata e ouro (sequências de 50 e 100 vitórias) | Ornament |
 | `LilycoveCity_LilycoveMuseum_2F/scripts.inc:125` | GLASS_ORNAMENT | Ornament |
-| `Route113_GlassWorkshop/scripts.inc:133-157, 206, 268-281` | PRETTY_CHAIR e PRETTY_DESK (troca de cinzas) | Chair, Desk |
+| ~~`Route113_GlassWorkshop/scripts.inc:133-157, 206, 268-281`~~ | ~~PRETTY_CHAIR e PRETTY_DESK (troca de cinzas)~~ — fase 8: TOXIC ORB e FLAME ORB | Chair, Desk |
 | `Route110_TrickHouseEnd/scripts.inc:172-176` e `Route110_TrickHouseEntrance/scripts.inc:422-426` | RED_TENT / BLUE_TENT | Ornament |
 | `data/scripts/mauville_man.inc:148-215` + `src/trader.c:26-32` | Trader de Mauville: troca qualquer decoração; padrões incluem TIRE e PRETTY_FLOWERS | vários |
 
@@ -535,6 +587,18 @@ Só `src/decoration.c`:
 - `src/data/items.h`: `.price = 500` em `ITEM_KEE_BERRY`, `ITEM_MARANGA_BERRY`, `ITEM_ENIGMA_BERRY`, `ITEM_JABOCA_BERRY`
   e `ITEM_ROWAP_BERRY` (eram 20 pela config GEN_7).
 
+### Fase 8 (escrita em 2026-11-27)
+
+- `data/maps/Route113_GlassWorkshop/scripts.inc`: preços das flautas / 5 (50, 100, 100, 200, 200);
+  `PRETTY_CHAIR_PRICE`/`PRETTY_DESK_PRICE` → `TOXIC_ORB_PRICE`/`FLAME_ORB_PRICE`, 500 cada.
+- Mesmo arquivo: `..._EventScript_PrettyChair`/`PrettyDesk` → `..._ToxicOrb`/`FlameOrb` e
+  `..._GivePrettyChair`/`GivePrettyDesk` → `..._GiveToxicOrb`/`GiveFlameOrb`, no formato das flautas (`ITEM_*` e
+  `bufferitemname`). Estados 15 e 16 mantidos.
+- Saem `..._GiveGlassDecor`, `..._NoRoomForDecor`, `..._Text_NoRoomInPC` e todo uso de `VAR_0x8009`. Os dois pontos de
+  entrega fazem `call` direto. `..._GiveGlassFlute` → `..._GiveGlassItem` e `..._NoRoomForFlute` → `..._NoRoomForItem`,
+  porque agora entregam também os orbs (renomeação não prevista no levantamento; só rótulos internos do arquivo).
+- `src/field_specials.c:2497-2498`: menu com "TOXIC ORB" e "FLAME ORB".
+
 ## Progresso
 
 - [x] Levantamento aprovado (2026-11-17)
@@ -545,6 +609,7 @@ Só `src/decoration.c`:
 - [x] Fase 5: o Trader só oferece bonecos e almofadas (build, `make check`, commit; Trader não testado no emulador)
 - [x] Fase 6: menu de decoração só com DOLL e CUSHION (build, teste no emulador, commit; falta o passo 7, do Trader)
 - [x] Fase 7: vendedor de Slateport vende berries (commit; build e teste não confirmados)
+- [x] Fase 8: Glass Workshop com preços / 5 e orbs (commit; build e teste não confirmados)
 - [ ] Merge na `master`
 
 - 2026-11-17: levantamento escrito (4 frentes: entrada, dependentes, encontro, decoração). Só leitura de código, nada
@@ -616,6 +681,12 @@ Só `src/decoration.c`:
   passaram com ela. O teste do Trader (passos 1 a 5 da fase 5 e passo 7 da fase 6) fica em Pendências.
 - 2026-11-27: passo 10 da fase 1 testado pelo usuário no emulador: o enchimento pelo reset diário (avançar o dia)
   funcionou. Sai das Pendências.
+- 2026-11-27: fase 8 pedida pelo usuário e levantada (Levantamento → Fase 8). Só leitura e grep. Aguardando aprovação.
+- 2026-11-27: fase 8 aprovada com os orbs a 500 e escrita (ver Pontos de código). **Não compilada e não testada.**
+  Conferido por grep que nenhum rótulo removido ou renomeado ficou referenciado e que o script não usa mais `DECOR_`
+  nem `VAR_0x8009`.
+- 2026-11-27: usuário pediu o commit da fase 8; commitada em `5093c2c7f3`. O usuário não disse se buildou ou testou, então
+  o roteiro "Como testar → Fase 8" continua em aberto.
 
 ## Pendências
 
@@ -752,3 +823,15 @@ Build: `make -j20`. O save não muda.
 4. Menina de Slateport antes do Secret Power: fala normal. Depois do Secret Power: "If you put DOLLS or CUSHIONS on the
    floor, they'll get dirty…" numa caixa só.
 5. Opcional: segurar a ENIGMA numa batalha e levar um golpe super efetivo: cura 1/4 do HP.
+
+### Fase 8
+
+Build: `make -j20`. O save não muda. Para não andar 500 passos, dá para começar de um save que já tenha cinza.
+
+1. Glass Workshop (Route 113), com cinza: o menu mostra BLUE, YELLOW, RED, WHITE, BLACK FLUTE, TOXIC ORB, FLAME ORB e
+   EXIT.
+2. Com menos de 50 de cinza: ele diz quantos passos faltam para a BLUE FLUTE (50 menos o que você tem).
+3. Escolher um item caro demais: ele diz quanto falta e volta ao menu.
+4. Trocar uma flauta: desconta o preço novo (50/100/100/200/200) e a flauta vai para a bolsa.
+5. Trocar o TOXIC ORB e o FLAME ORB: cada um desconta 500 e o item vai para a bolsa, com o nome certo nas falas.
+6. Opcional: com a bolsa cheia, trocar um orb: ele diz que guarda; liberar espaço e falar de novo: entrega o orb.
