@@ -109,6 +109,8 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
   get dirty…" (corta a parte de comprar BRICKS; fica pensativa em vez de dar dica de compra). Ideia do usuário.
 - 2026-11-27: nova fase 8: a Glass Workshop (Route 113) cobra 1/5 da cinza em todas as trocas, e as duas decorações
   (PRETTY CHAIR e PRETTY DESK) viram TOXIC ORB e FLAME ORB.
+- 2026-11-27: as tendas da Trick House (RED_TENT / BLUE_TENT) saem da revisão deste plano: o usuário vai editar todas
+  as recompensas da Trick House de uma vez, em outro momento.
 - 2026-11-27: os dois orbs custam 500 de cinza cada (não 1200/1600). O resto do levantamento da fase 8 foi aprovado como
   estava: TOXIC no lugar da CHAIR, FLAME no da DESK, o ramo de decoração sai e nenhuma fala muda.
 
@@ -448,7 +450,7 @@ Decoração que continua útil (boneco ou almofada) não precisa mudar. As que v
 | `BattleFrontier_ScottsHouse/scripts.inc:99, 129` | escudos de prata e ouro (sequências de 50 e 100 vitórias) | Ornament |
 | `LilycoveCity_LilycoveMuseum_2F/scripts.inc:125` | GLASS_ORNAMENT | Ornament |
 | ~~`Route113_GlassWorkshop/scripts.inc:133-157, 206, 268-281`~~ | ~~PRETTY_CHAIR e PRETTY_DESK (troca de cinzas)~~ — fase 8: TOXIC ORB e FLAME ORB | Chair, Desk |
-| `Route110_TrickHouseEnd/scripts.inc:172-176` e `Route110_TrickHouseEntrance/scripts.inc:422-426` | RED_TENT / BLUE_TENT | Ornament |
+| ~~`Route110_TrickHouseEnd/scripts.inc:172-176` e `Route110_TrickHouseEntrance/scripts.inc:422-426`~~ | ~~RED_TENT / BLUE_TENT~~ — fora deste plano: o usuário vai refazer todas as recompensas da Trick House depois | Ornament |
 | `data/scripts/mauville_man.inc:148-215` + `src/trader.c:26-32` | Trader de Mauville: troca qualquer decoração; padrões incluem TIRE e PRETTY_FLOWERS | vários |
 
 Menus que acompanham esses prêmios: `field_specials.c:2495-2543`, `src/data/battle_frontier/battle_frontier_exchange_corner.h`,
