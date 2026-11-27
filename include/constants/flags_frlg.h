@@ -1663,7 +1663,7 @@
 
 #define FLAG_RECEIVED_TM_REST                0
 #define FLAG_RECEIVED_TM_ATTRACT             0
-#define FLAG_RECEIVED_GLASS_ORNAMENT         0
+#define FLAG_RECEIVED_SHINY_CHARM            0
 #define FLAG_RECEIVED_SILVER_SHIELD          0
 #define FLAG_RECEIVED_GOLD_SHIELD            0
 #define FLAG_USED_STORAGE_KEY                0

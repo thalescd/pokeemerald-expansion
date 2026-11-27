@@ -267,7 +267,7 @@
 
 #define FLAG_RECEIVED_TM_REST                0xEA
 #define FLAG_RECEIVED_VERDANTURF_SUN_STONE   0xEB
-#define FLAG_RECEIVED_GLASS_ORNAMENT         0xEC
+#define FLAG_RECEIVED_SHINY_CHARM            0xEC
 #define FLAG_RECEIVED_SILVER_SHIELD          0xED
 #define FLAG_RECEIVED_GOLD_SHIELD            0xEE
 #define FLAG_USED_STORAGE_KEY                0xEF
