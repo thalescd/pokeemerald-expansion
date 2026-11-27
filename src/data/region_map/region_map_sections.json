@@ -1634,6 +1634,10 @@
       "y": 5,
       "width": 1,
       "height": 2
+    },
+    {
+      "id": "MAPSEC_MOTH_GARDEN",
+      "name": "MOTH GARDEN"
     }
   ]
 }

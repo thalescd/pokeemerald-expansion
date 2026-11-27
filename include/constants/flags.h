@@ -62,16 +62,16 @@
 #define FLAG_ITEM_ROUTE_119_TM_62                0x28
 #define FLAG_ITEM_FORTREE_TM_86                  0x29
 #define FLAG_GUESSED_FOSSIL_MON                  0x2A
-#define FLAG_UNUSED_0x02B                        0x2B // Unused Flag
-#define FLAG_UNUSED_0x02C                        0x2C // Unused Flag
-#define FLAG_UNUSED_0x02D                        0x2D // Unused Flag
-#define FLAG_UNUSED_0x02E                        0x2E // Unused Flag
-#define FLAG_UNUSED_0x02F                        0x2F // Unused Flag
-#define FLAG_UNUSED_0x030                        0x30 // Unused Flag
-#define FLAG_UNUSED_0x031                        0x31 // Unused Flag
-#define FLAG_UNUSED_0x032                        0x32 // Unused Flag
-#define FLAG_UNUSED_0x033                        0x33 // Unused Flag
-#define FLAG_UNUSED_0x034                        0x34 // Unused Flag
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_1            0x2B // Hidden Bug Catching Contest rival 1
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_2            0x2C // Hidden Bug Catching Contest rival 2
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_3            0x2D // Hidden Bug Catching Contest rival 3
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_4            0x2E // Hidden Bug Catching Contest rival 4
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_5            0x2F // Hidden Bug Catching Contest rival 5
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_6            0x30 // Hidden Bug Catching Contest rival 6
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_7            0x31 // Hidden Bug Catching Contest rival 7
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_8            0x32 // Hidden Bug Catching Contest rival 8
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_9            0x33 // Hidden Bug Catching Contest rival 9
+#define FLAG_HIDE_BUG_CONTEST_RIVAL_10           0x34 // Hidden Bug Catching Contest rival 10
 #define FLAG_UNUSED_0x035                        0x35 // Unused Flag
 #define FLAG_UNUSED_0x036                        0x36 // Unused Flag
 #define FLAG_UNUSED_0x037                        0x37 // Unused Flag
@@ -763,7 +763,7 @@
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_4               0x2CA
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_5               0x2CB
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_6               0x2CC
-#define FLAG_HIDE_SAFARI_ZONE_SOUTH_CONSTRUCTION_WORKERS            0x2CD
+#define FLAG_UNUSED_0x2CD                                           0x2CD // Unused Flag
 #define FLAG_HIDE_MEW                                               0x2CE
 #define FLAG_HIDE_ROUTE_104_RIVAL                                   0x2CF
 #define FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE                  0x2D0
@@ -795,7 +795,7 @@
 #define FLAG_HIDE_ROUTE_109_MR_BRINEY_BOAT                          0x2E8
 #define FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_BRENDAN            0x2E9
 #define FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY                    0x2EA
-#define FLAG_HIDE_SAFARI_ZONE_SOUTH_EAST_EXPANSION                  0x2EB
+#define FLAG_UNUSED_0x2EB                                           0x2EB // Unused Flag
 #define FLAG_HIDE_LILYCOVE_HARBOR_EVENT_TICKET_TAKER                0x2EC
 #define FLAG_HIDE_SLATEPORT_CITY_SCOTT                              0x2ED
 #define FLAG_HIDE_ROUTE_101_ZIGZAGOON                               0x2EE

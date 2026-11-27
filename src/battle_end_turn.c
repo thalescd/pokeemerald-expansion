@@ -1019,14 +1019,13 @@ static bool32 HandleEndTurnPerishSong(enum BattlerId battler)
     return effect;
 }
 
-static bool32 HandleEndTurnRoost(enum BattlerId battler)
+static bool32 HandleEndTurnSuppressedType(enum BattlerId battler)
 {
     bool32 effect = FALSE;
 
     gBattleStruct->eventState.endTurnBattler++;
 
-    if (gBattleMons[battler].volatiles.roostActive)
-        gBattleMons[battler].volatiles.roostActive = FALSE;
+    gBattleMons[battler].volatiles.suppressedType = TYPE_NONE;
 
     return effect;
 }
@@ -1589,7 +1588,7 @@ static bool32 (*const sEndTurnEffectHandlers[])(enum BattlerId battler) =
     [ENDTURN_EMBARGO] = HandleEndTurnEmbargo,
     [ENDTURN_YAWN] = HandleEndTurnYawn,
     [ENDTURN_PERISH_SONG] = HandleEndTurnPerishSong,
-    [ENDTURN_ROOST] = HandleEndTurnRoost,
+    [ENDTURN_SUPPRESSED_TYPE] = HandleEndTurnSuppressedType,
     [ENDTURN_SEND_OUT_REPLACEMENTS_3] = HandleEndTurnSendOutReplacements,
     [ENDTURN_SECOND_EVENT_BLOCK] = HandleEndTurnSecondEventBlock,
     [ENDTURN_TRICK_ROOM] = HandleEndTurnTrickRoom,

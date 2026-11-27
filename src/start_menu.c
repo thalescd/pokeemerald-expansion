@@ -4,6 +4,7 @@
 #include "battle_pyramid.h"
 #include "battle_pyramid_bag.h"
 #include "bg.h"
+#include "bug_catching_contest.h"
 #include "debug.h"
 #include "event_data.h"
 #include "event_object_movement.h"
@@ -292,7 +293,7 @@ static void BuildStartMenuActions(void)
     {
         BuildUnionRoomStartMenu();
     }
-    else if (GetSafariZoneFlag() == TRUE)
+    else if (GetSafariZoneFlag() == TRUE || IsBugContestActive())
     {
         BuildSafariZoneStartMenu();
     }
@@ -433,7 +434,15 @@ static void ShowSafariBallsWindow(void)
     sSafariBallsWindowId = AddWindow(&sWindowTemplate_SafariBalls);
     PutWindowTilemap(sSafariBallsWindowId);
     DrawStdWindowFrame(sSafariBallsWindowId, FALSE);
-    if (IS_FRLG)
+    if (IsBugContestActive())
+    {
+        ConvertIntToDecimalStringN(gStringVar1, gBugContestStepCounter, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        ConvertIntToDecimalStringN(gStringVar2, BUG_CONTEST_STEPS, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        ConvertIntToDecimalStringN(gStringVar3, gNumBugContestBalls, STR_CONV_MODE_RIGHT_ALIGN, 2);
+        StringExpandPlaceholders(gStringVar4, gText_MenuSafariStats);
+        AddTextPrinterParameterized(sSafariBallsWindowId, FONT_NORMAL, gStringVar4, 4, 3, 0xFF, NULL);
+    }
+    else if (IS_FRLG)
     {
         ConvertIntToDecimalStringN(gStringVar1, gSafariZoneStepCounter, STR_CONV_MODE_RIGHT_ALIGN, 3);
         ConvertIntToDecimalStringN(gStringVar2, 600, STR_CONV_MODE_RIGHT_ALIGN, 3);
@@ -467,7 +476,7 @@ static void ShowPyramidFloorWindow(void)
 
 static void RemoveExtraStartMenuWindows(void)
 {
-    if (GetSafariZoneFlag())
+    if (GetSafariZoneFlag() || IsBugContestActive())
     {
         ClearStdWindowAndFrameToTransparent(sSafariBallsWindowId, FALSE);
         CopyWindowToVram(sSafariBallsWindowId, COPYWIN_GFX);
@@ -531,7 +540,7 @@ static bool32 InitStartMenuStep(void)
         sInitStartMenuData[0]++;
         break;
     case 3:
-        if (GetSafariZoneFlag())
+        if (GetSafariZoneFlag() || IsBugContestActive())
             ShowSafariBallsWindow();
         if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE)
             ShowPyramidFloorWindow();
@@ -808,7 +817,10 @@ static bool8 StartMenuSafariZoneRetireCallback(void)
 {
     RemoveExtraStartMenuWindows();
     HideStartMenu();
-    SafariZoneRetirePrompt();
+    if (IsBugContestActive())
+        BugContestRetirePrompt();
+    else
+        SafariZoneRetirePrompt();
 
     return TRUE;
 }

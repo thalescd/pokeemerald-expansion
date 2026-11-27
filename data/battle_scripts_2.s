@@ -198,6 +198,7 @@ BattleScript_TryPrintCaughtMonInfo:
 	setbyte gBattleCommunication, 0
 	displaydexinfo
 BattleScript_TryNicknameCaughtMon::
+	jumpifword CMP_COMMON_BITS, gBattleTypeFlags, BATTLE_TYPE_BUG_CONTEST, BattleScript_BugContestGiveCaughtMon
 	printstring STRINGID_GIVENICKNAMECAPTURED
 	waitstate
 	setbyte gBattleCommunication, 0
@@ -207,6 +208,9 @@ BattleScript_TryNicknameCaughtMon::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_SuccessBallThrowEnd
 BattleScript_GiveCaughtMonEnd::
+	givecaughtmon BattleScript_SuccessBallThrowEnd
+BattleScript_BugContestGiveCaughtMon::
+	setbyte gBattleCommunication, 0
 	givecaughtmon BattleScript_SuccessBallThrowEnd
 BattleScript_SuccessBallThrowEnd::
 	setbyte gBattleOutcome, B_OUTCOME_CAUGHT
@@ -224,6 +228,7 @@ BattleScript_ShakeBallThrow::
 	waitanimation
 	waitmessage B_WAIT_TIME_LONG
 	handlefailedvictorycatch
+	jumpifword CMP_COMMON_BITS, gBattleTypeFlags, BATTLE_TYPE_BUG_CONTEST, BattleScript_BugContestCheckBallsLeft
 	jumpifword CMP_NO_COMMON_BITS, gBattleTypeFlags, BATTLE_TYPE_SAFARI, BattleScript_ShakeBallThrowEnd
 	jumpifbyte CMP_NOT_EQUAL, gNumSafariBalls, 0, BattleScript_ShakeBallThrowEnd
 	printstring STRINGID_OUTOFSAFARIBALLS
@@ -231,6 +236,13 @@ BattleScript_ShakeBallThrow::
 	setbyte gBattleOutcome, B_OUTCOME_NO_SAFARI_BALLS
 BattleScript_ShakeBallThrowEnd::
 	finishaction
+
+BattleScript_BugContestCheckBallsLeft::
+	jumpifbyte CMP_NOT_EQUAL, gNumBugContestBalls, 0, BattleScript_ShakeBallThrowEnd
+	printstring STRINGID_OUTOFPARKBALLS
+	waitmessage B_WAIT_TIME_LONG
+	setbyte gBattleOutcome, B_OUTCOME_NO_SAFARI_BALLS
+	goto BattleScript_ShakeBallThrowEnd
 
 BattleScript_TrainerBallBlock::
 	waitmessage B_WAIT_TIME_LONG
