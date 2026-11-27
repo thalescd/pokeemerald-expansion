@@ -16,7 +16,7 @@ Route104_PrettyPetalFlowerShop_EventScript_MoveShopOwner::
 Route104_PrettyPetalFlowerShop_EventScript_ShopOwner::
 	lock
 	faceplayer
-	goto_if_set FLAG_TEMP_1, Route104_PrettyPetalFlowerShop_EventScript_SellDecorations
+	goto_if_set FLAG_TEMP_1, Route104_PrettyPetalFlowerShop_EventScript_SellBerries
 	msgbox Route104_PrettyPetalFlowerShop_Text_ThisIsPrettyPetalFlowerShop, MSGBOX_DEFAULT
 	goto_if_set FLAG_MET_PRETTY_PETAL_SHOP_OWNER, Route104_PrettyPetalFlowerShop_EventScript_AlreadyMet
 	setflag FLAG_MET_PRETTY_PETAL_SHOP_OWNER
@@ -41,22 +41,45 @@ Route104_PrettyPetalFlowerShop_EventScript_DontExplainBerries::
 	msgbox Route104_PrettyPetalFlowerShop_Text_FlowersBringHappiness, MSGBOX_DEFAULT
 	return
 
-Route104_PrettyPetalFlowerShop_EventScript_SellDecorations::
+Route104_PrettyPetalFlowerShop_EventScript_SellBerries::
 	message gText_PlayerWhatCanIDoForYou
 	waitmessage
-	pokemartdecoration2 Route104_PrettyPetalFlowerShop_Pokemart_Plants
+	goto_if_set FLAG_BADGE05_GET, Route104_PrettyPetalFlowerShop_EventScript_SellBerriesExpanded
+	pokemart Route104_PrettyPetalFlowerShop_Pokemart_Berries
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_PrettyPetalFlowerShop_EventScript_SellBerriesExpanded::
+	pokemart Route104_PrettyPetalFlowerShop_Pokemart_BerriesExpanded
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
 	.align 2
-Route104_PrettyPetalFlowerShop_Pokemart_Plants:
-	.2byte DECOR_RED_PLANT
-	.2byte DECOR_TROPICAL_PLANT
-	.2byte DECOR_PRETTY_FLOWERS
-	.2byte DECOR_COLORFUL_PLANT
-	.2byte DECOR_BIG_PLANT
-	.2byte DECOR_GORGEOUS_PLANT
+Route104_PrettyPetalFlowerShop_Pokemart_Berries:
+	.2byte ITEM_ORAN_BERRY
+	.2byte ITEM_PECHA_BERRY
+	.2byte ITEM_CHERI_BERRY
+	.2byte ITEM_RAWST_BERRY
+	.2byte ITEM_ASPEAR_BERRY
+	.2byte ITEM_LEPPA_BERRY
+	.2byte ITEM_PERSIM_BERRY
+	.2byte ITEM_CHESTO_BERRY
+	pokemartlistend
+
+	.align 2
+Route104_PrettyPetalFlowerShop_Pokemart_BerriesExpanded:
+	.2byte ITEM_ORAN_BERRY
+	.2byte ITEM_PECHA_BERRY
+	.2byte ITEM_CHERI_BERRY
+	.2byte ITEM_RAWST_BERRY
+	.2byte ITEM_ASPEAR_BERRY
+	.2byte ITEM_LEPPA_BERRY
+	.2byte ITEM_PERSIM_BERRY
+	.2byte ITEM_CHESTO_BERRY
+	.2byte ITEM_SITRUS_BERRY
+	.2byte ITEM_LUM_BERRY
 	pokemartlistend
 
 Route104_PrettyPetalFlowerShop_EventScript_WailmerPailGirl::

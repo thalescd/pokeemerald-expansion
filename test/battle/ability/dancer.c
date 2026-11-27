@@ -236,7 +236,7 @@ SINGLE_BATTLE_TEST("Dancer-called attacks do not trigger Life Orb if target is i
     GIVEN {
         ASSUME(IsDanceMove(MOVE_REVELATION_DANCE));
         ASSUME(GetMoveEffect(MOVE_REVELATION_DANCE) == EFFECT_REVELATION_DANCE);
-        ASSUME(GetMoveEffect(MOVE_ROOST) == EFFECT_ROOST);
+        ASSUME(MoveHasAdditionalEffect(MOVE_ROOST, MOVE_EFFECT_SUPPRESS_TYPE));
         ASSUME(GetItemHoldEffect(ITEM_LIFE_ORB) == HOLD_EFFECT_LIFE_ORB);
         ASSUME(GetSpeciesType(SPECIES_ORICORIO_POM_POM, 0) == TYPE_ELECTRIC || GetSpeciesType(SPECIES_ORICORIO_POM_POM, 1) == TYPE_ELECTRIC);
         PLAYER(SPECIES_RAICHU) { Ability(ABILITY_LIGHTNING_ROD); }

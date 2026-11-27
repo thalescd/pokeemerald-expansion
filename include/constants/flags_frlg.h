@@ -2018,7 +2018,6 @@
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_4               0
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_5               0
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_6               0
-#define FLAG_HIDE_SAFARI_ZONE_SOUTH_CONSTRUCTION_WORKERS            0
 #define FLAG_HIDE_MEW                                               0
 #define FLAG_HIDE_ROUTE_104_RIVAL                                   0
 #define FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE                  0
@@ -2048,7 +2047,6 @@
 #define FLAG_HIDE_ROUTE_109_MR_BRINEY_BOAT                          0
 #define FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_BRENDAN            0
 #define FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY                    0
-#define FLAG_HIDE_SAFARI_ZONE_SOUTH_EAST_EXPANSION                  0
 #define FLAG_HIDE_LILYCOVE_HARBOR_EVENT_TICKET_TAKER                0
 #define FLAG_HIDE_SLATEPORT_CITY_SCOTT                              0
 #define FLAG_HIDE_ROUTE_101_ZIGZAGOON                               0

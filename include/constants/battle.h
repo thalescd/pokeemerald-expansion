@@ -112,7 +112,7 @@ enum BattleSide
 #define BATTLE_TYPE_EREADER_TRAINER    (1 << 11)
 #define BATTLE_TYPE_RAID               (1 << 12)
 #define BATTLE_TYPE_LEGENDARY          (1 << 13)
-#define BATTLE_TYPE_14                 (1 << 14)
+#define BATTLE_TYPE_BUG_CONTEST       (1 << 14) // Bug Catching Contest wild battle
 #define BATTLE_TYPE_TWO_OPPONENTS      (1 << 15)
 #define BATTLE_TYPE_DOME               (1 << 16)
 #define BATTLE_TYPE_PALACE             (1 << 17)
@@ -306,7 +306,7 @@ enum VolatileFlags
     F(VOLATILE_FLASH_FIRE_BOOSTED,          flashFireBoosted,              (u32, 1)) \
     F(VOLATILE_BOOSTER_ENERGY_ACTIVATED,    boosterEnergyActivated,        (u32, 1)) \
     F(VOLATILE_OVERWRITTEN_ABILITY,         overwrittenAbility,            (enum Ability, ABILITIES_COUNT)) \
-    F(VOLATILE_ROOST_ACTIVE,                roostActive,                   (u32, 1)) \
+    F(VOLATILE_SUPPRESSED_TYPE,             suppressedType,                (enum Type, NUMBER_OF_MON_TYPES - 1)) \
     F(VOLATILE_UNBURDEN_ACTIVE,             unburdenActive,                (u32, 1)) \
     F(VOLATILE_NEUTRALIZING_GAS,            neutralizingGas,               (u32, 1)) \
     F(VOLATILE_UNNERVE_ACTIVATED,           unnerveActivated,              (u32, 1)) \

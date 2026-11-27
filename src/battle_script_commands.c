@@ -7,6 +7,7 @@
 #include "battle_ai_record.h"
 #include "battle_ai_util.h"
 #include "battle_scripts.h"
+#include "bug_catching_contest.h"
 #include "battle_switch_in.h"
 #include "battle_environment.h"
 #include "battle_gimmick.h"
@@ -323,6 +324,8 @@ enum GiveCaughtMonStates
     GIVECAUGHTMON_DO_CHOOSE_MON,
     GIVECAUGHTMON_HANDLE_CHOSEN_MON,
     GIVECAUGHTMON_GIVE_AND_SHOW_MSG,
+    GIVECAUGHTMON_CONTEST_ASK_SWITCH,
+    GIVECAUGHTMON_CONTEST_HANDLE_INPUT,
 };
 
 #define LEVEL_UP_BANNER_START 416
@@ -403,7 +406,6 @@ static void Cmd_end(void);
 static void Cmd_end3(void);
 static void Cmd_setchargingturn(void);
 static void Cmd_call(void);
-static void Cmd_setroost(void);
 static void Cmd_jumpifabilitypresent(void);
 static void Cmd_endselectionscript(void);
 static void Cmd_playanimation(void);
@@ -616,7 +618,6 @@ void (*const gBattleScriptingCommandsTable[])(void) =
     [B_SCR_OP_END3]                                  = Cmd_end3,
     [B_SCR_OP_SETCHARGINGTURN]                       = Cmd_setchargingturn,
     [B_SCR_OP_CALL]                                  = Cmd_call,
-    [B_SCR_OP_SETROOST]                              = Cmd_setroost,
     [B_SCR_OP_JUMPIFABILITYPRESENT]                  = Cmd_jumpifabilitypresent,
     [B_SCR_OP_ENDSELECTIONSCRIPT]                    = Cmd_endselectionscript,
     [B_SCR_OP_PLAYANIMATION]                         = Cmd_playanimation,
@@ -3002,14 +3003,6 @@ static void Cmd_call(void)
 
     BattleScriptPush(cmd->nextInstr);
     gBattlescriptCurrInstr = cmd->instr;
-}
-
-static void Cmd_setroost(void)
-{
-    CMD_ARGS();
-
-    gBattleMons[gBattlerAttacker].volatiles.roostActive = TRUE;
-    gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 static void Cmd_jumpifabilitypresent(void)
@@ -8017,6 +8010,10 @@ static void ComputeBallData(u32 wildMonBattler, u32 playerBattler, struct BallDa
         if (B_SPORT_BALL_MODIFIER <= GEN_7)
             ball->multiplier = 150;
         break;
+    case BALL_PARK:
+        // Park Ball of the Bug Catching Contest, 1.5x like in Gold and Silver
+        ball->multiplier = 150;
+        break;
     case BALL_BEAST:
         ball->multiplier = 410;
         ball->divider = 4096;
@@ -8266,7 +8263,25 @@ static void Cmd_givecaughtmon(void)
     switch (state)
     {
     case GIVECAUGHTMON_CHECK_PARTY_SIZE:
-        if (CalculatePlayerPartyCount() == PARTY_SIZE && B_CATCH_SWAP_INTO_PARTY >= GEN_7)
+        if (gBattleTypeFlags & BATTLE_TYPE_BUG_CONTEST)
+        {
+            // Only one Pokémon can be kept in the Bug Catching Contest
+            struct Pokemon *contestMon = GetBattlerMon(GetCatchingBattler());
+
+            if (BugContest_HasCaughtMon())
+            {
+                BugContest_BufferSwitchPrompt(contestMon);
+                PrepareStringBattleWithWait(STRINGID_BUGCONTESTSWITCH, gBattlerAttacker);
+                gBattleCommunication[MULTIUSE_STATE] = GIVECAUGHTMON_CONTEST_ASK_SWITCH;
+            }
+            else
+            {
+                BugContest_StoreCaughtMon(contestMon);
+                gBattleCommunication[MULTIUSE_STATE] = 0;
+                gBattlescriptCurrInstr = cmd->passInstr;
+            }
+        }
+        else if (CalculatePlayerPartyCount() == PARTY_SIZE && B_CATCH_SWAP_INTO_PARTY >= GEN_7)
         {
             PrepareStringBattleWithWait(STRINGID_SENDCAUGHTMONPARTYORBOX, gBattlerAttacker);
             gBattleCommunication[MULTIUSE_STATE] = GIVECAUGHTMON_ASK_ADD_TO_PARTY;
@@ -8355,6 +8370,40 @@ static void Cmd_givecaughtmon(void)
                     gBattleCommunication[MULTIUSE_STATE] = GIVECAUGHTMON_GIVE_AND_SHOW_MSG;
                 }
             }
+        }
+        break;
+    case GIVECAUGHTMON_CONTEST_ASK_SWITCH:
+        HandleBattleWindow(YESNOBOX_X_Y, 0);
+        BattlePutTextOnWindow(gText_BattleYesNoChoice, B_WIN_YESNO);
+        gBattleCommunication[MULTIUSE_STATE] = GIVECAUGHTMON_CONTEST_HANDLE_INPUT;
+        gBattleCommunication[CURSOR_POSITION] = 0;
+        BattleCreateYesNoCursorAt(0);
+        break;
+    case GIVECAUGHTMON_CONTEST_HANDLE_INPUT:
+        if (JOY_NEW(DPAD_UP) && gBattleCommunication[CURSOR_POSITION] != 0)
+        {
+            PlaySE(SE_SELECT);
+            BattleDestroyYesNoCursorAt(gBattleCommunication[CURSOR_POSITION]);
+            gBattleCommunication[CURSOR_POSITION] = 0;
+            BattleCreateYesNoCursorAt(0);
+        }
+        if (JOY_NEW(DPAD_DOWN) && gBattleCommunication[CURSOR_POSITION] == 0)
+        {
+            PlaySE(SE_SELECT);
+            BattleDestroyYesNoCursorAt(gBattleCommunication[CURSOR_POSITION]);
+            gBattleCommunication[CURSOR_POSITION] = 1;
+            BattleCreateYesNoCursorAt(1);
+        }
+        if (JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
+        {
+            PlaySE(SE_SELECT);
+            // Yes switches to the new Pokémon, No (or B) lets it go
+            if (JOY_NEW(A_BUTTON) && gBattleCommunication[CURSOR_POSITION] == 0)
+                BugContest_StoreCaughtMon(GetBattlerMon(GetCatchingBattler()));
+            BattleDestroyYesNoCursorAt(gBattleCommunication[CURSOR_POSITION]);
+            HandleBattleWindow(YESNOBOX_X_Y, WINDOW_CLEAR);
+            gBattleCommunication[MULTIUSE_STATE] = 0;
+            gBattlescriptCurrInstr = cmd->passInstr;
         }
         break;
     case GIVECAUGHTMON_GIVE_AND_SHOW_MSG:
