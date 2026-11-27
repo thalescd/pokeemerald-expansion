@@ -111,6 +111,8 @@ em `secretBases[20]`), que pode ir para conteúdo mais importante. As grottos cu
   (PRETTY CHAIR e PRETTY DESK) viram TOXIC ORB e FLAME ORB.
 - 2026-11-27: as tendas da Trick House (RED_TENT / BLUE_TENT) saem da revisão deste plano: o usuário vai editar todas
   as recompensas da Trick House de uma vez, em outro momento.
+- 2026-11-27: as fontes de decoração do Battle Frontier (KISS_POSTER do Exchange Service Corner e os escudos da casa do
+  Scott) saem da revisão deste plano: o foco agora é o jogo até a Elite Four, e o Battle Frontier é pós-jogo.
 - 2026-11-27: os dois orbs custam 500 de cinza cada (não 1200/1600). O resto do levantamento da fase 8 foi aprovado como
   estava: TOXIC no lugar da CHAIR, FLAME no da DESK, o ramo de decoração sai e nenhuma fala muda.
 
@@ -446,8 +448,8 @@ Decoração que continua útil (boneco ou almofada) não precisa mudar. As que v
 | `FortreeCity_DecorationShop/scripts.inc:24-31, 46-53` | loja inteira: 8 mesas e 8 cadeiras | Desk, Chair |
 | ~~`SlateportCity/scripts.inc:509-522`~~ | ~~6 tijolos/balões e 8 tapetes de nota~~ — fase 7: vende berries | Ornament, Mat |
 | ~~`Route104_PrettyPetalFlowerShop/scripts.inc:54-59`~~ | ~~6 plantas~~ — resolvido na `master` pelo usuário (`3713cd0829`, a loja virou loja de berries; anotado em 2026-11-26) | Plant |
-| `BattleFrontier_ExchangeServiceCorner/scripts.inc:110` | KISS_POSTER (o resto da loja é boneco/almofada) | Poster |
-| `BattleFrontier_ScottsHouse/scripts.inc:99, 129` | escudos de prata e ouro (sequências de 50 e 100 vitórias) | Ornament |
+| ~~`BattleFrontier_ExchangeServiceCorner/scripts.inc:110`~~ | ~~KISS_POSTER (o resto da loja é boneco/almofada)~~ — fora deste plano: Battle Frontier é pós-jogo, fica para depois | Poster |
+| ~~`BattleFrontier_ScottsHouse/scripts.inc:99, 129`~~ | ~~escudos de prata e ouro (sequências de 50 e 100 vitórias)~~ — fora deste plano: Battle Frontier é pós-jogo, fica para depois | Ornament |
 | `LilycoveCity_LilycoveMuseum_2F/scripts.inc:125` | GLASS_ORNAMENT | Ornament |
 | ~~`Route113_GlassWorkshop/scripts.inc:133-157, 206, 268-281`~~ | ~~PRETTY_CHAIR e PRETTY_DESK (troca de cinzas)~~ — fase 8: TOXIC ORB e FLAME ORB | Chair, Desk |
 | ~~`Route110_TrickHouseEnd/scripts.inc:172-176` e `Route110_TrickHouseEntrance/scripts.inc:422-426`~~ | ~~RED_TENT / BLUE_TENT~~ — fora deste plano: o usuário vai refazer todas as recompensas da Trick House depois | Ornament |
