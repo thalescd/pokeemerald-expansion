@@ -1678,29 +1678,29 @@
             "encounter_rate": 0,
             "mons": [
               {
-                "min_level": 8,
-                "max_level": 8,
+                "min_level": 11,
+                "max_level": 13,
                 "species": "SPECIES_PANCHAM"
               },
               {
-                "min_level": 8,
-                "max_level": 8,
-                "species": "SPECIES_PANCHAM"
-              },
-              {
-                "min_level": 8,
-                "max_level": 9,
+                "min_level": 11,
+                "max_level": 13,
                 "species": "SPECIES_MEOWTH_GALAR"
               },
               {
-                "min_level": 8,
-                "max_level": 9,
-                "species": "SPECIES_MUNNA"
+                "min_level": 11,
+                "max_level": 13,
+                "species": "SPECIES_DARUMAKA"
               },
               {
-                "min_level": 8,
-                "max_level": 8,
-                "species": "SPECIES_MUNNA"
+                "min_level": 11,
+                "max_level": 13,
+                "species": "SPECIES_SMOOCHUM"
+              },
+              {
+                "min_level": 11,
+                "max_level": 13,
+                "species": "SPECIES_KLINK"
               }
             ]
           }
