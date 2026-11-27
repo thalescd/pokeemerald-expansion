@@ -34,7 +34,9 @@ struct WildEncounterTypes
     const struct WildPokemonInfo *waterMonsInfo;
     const struct WildPokemonInfo *rockSmashMonsInfo;
     const struct WildPokemonInfo *fishingMonsInfo;
-    const struct WildPokemonInfo *grottoMonsInfo;
+    const struct WildPokemonInfo *grottoCaveMonsInfo;
+    const struct WildPokemonInfo *grottoTreeMonsInfo;
+    const struct WildPokemonInfo *grottoShrubMonsInfo;
     const struct WildPokemonInfo *hiddenMonsInfo;
 };
 
@@ -75,8 +77,8 @@ u32 ChooseWildMonIndex_Land(void);
 u32 ChooseWildMonIndex_Water(void);
 u32 ChooseWildMonIndex_Rocks(void);
 u32 ChooseHiddenMonIndex(void);
-u32 ChooseWildMonIndex_Grotto(void);
-const struct WildPokemonInfo *GetGrottoMonsInfo(u8 mapGroup, u8 mapNum);
+u32 ChooseWildMonIndex_Grotto(u32 grottoType);
+const struct WildPokemonInfo *GetGrottoMonsInfo(u8 mapGroup, u8 mapNum, u32 grottoType);
 bool32 MapHasNoEncounterData(void);
 enum TimeOfDay GetTimeOfDayForEncounters(u32 headerId, enum WildPokemonArea area);
 

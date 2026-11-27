@@ -26,8 +26,9 @@
 //
 // Each grotto keeps 4 bits in gSaveBlock1Ptr->hiddenGrottoStates:
 //   bit 3    - the grotto has a Pokemon
-//   bits 0-2 - the grotto_mons slot rolled when it was refilled
-// Species and level come from the grotto_mons table of the route the entrance is on.
+//   bits 0-2 - the encounter slot rolled when it was refilled
+// Species and level come from the route the entrance is on, from the table of the entrance's type:
+// grotto_cave_mons, grotto_tree_mons or grotto_shrub_mons.
 
 #define GROTTO_STATE_FULL       (1 << 3)
 #define GROTTO_STATE_SLOT_MASK  0x7
@@ -37,7 +38,9 @@
 
 #define GROTTO_NONE             HIDDEN_GROTTO_COUNT
 
-STATIC_ASSERT(NUM_GROTTO_MONS_ENCOUNTER_SLOTS <= GROTTO_STATE_SLOT_MASK + 1, GrottoSlotFitsInState);
+STATIC_ASSERT(NUM_GROTTO_CAVE_MONS_ENCOUNTER_SLOTS <= GROTTO_STATE_SLOT_MASK + 1, GrottoCaveSlotFitsInState);
+STATIC_ASSERT(NUM_GROTTO_TREE_MONS_ENCOUNTER_SLOTS <= GROTTO_STATE_SLOT_MASK + 1, GrottoTreeSlotFitsInState);
+STATIC_ASSERT(NUM_GROTTO_SHRUB_MONS_ENCOUNTER_SLOTS <= GROTTO_STATE_SLOT_MASK + 1, GrottoShrubSlotFitsInState);
 
 // Grotto index -> secret base id of its entrance
 static const u8 sHiddenGrottoSecretBaseIds[HIDDEN_GROTTO_COUNT] =
@@ -185,9 +188,35 @@ static void SetGrottoState(u32 grotto, u32 state)
         *stateByte = (*stateByte & 0xF0) | (state & 0xF);
 }
 
+// The secret base group of the entrance tells the type: the four cave colors, then trees, then shrubs.
+static enum GrottoType GetHiddenGrottoType(u32 grotto)
+{
+    u32 group = sHiddenGrottoSecretBaseIds[grotto] / 10;
+
+    if (group >= SECRET_BASE_SHRUB1 / 4)
+        return GROTTO_TYPE_SHRUB;
+    if (group >= SECRET_BASE_TREE1 / 4)
+        return GROTTO_TYPE_TREE;
+    return GROTTO_TYPE_CAVE;
+}
+
+static u32 GetHiddenGrottoSlotCount(enum GrottoType grottoType)
+{
+    switch (grottoType)
+    {
+    case GROTTO_TYPE_TREE:
+        return NUM_GROTTO_TREE_MONS_ENCOUNTER_SLOTS;
+    case GROTTO_TYPE_SHRUB:
+        return NUM_GROTTO_SHRUB_MONS_ENCOUNTER_SLOTS;
+    case GROTTO_TYPE_CAVE:
+    default:
+        return NUM_GROTTO_CAVE_MONS_ENCOUNTER_SLOTS;
+    }
+}
+
 static void RefillHiddenGrotto(u32 grotto)
 {
-    SetGrottoState(grotto, GROTTO_STATE_FULL | ChooseWildMonIndex_Grotto());
+    SetGrottoState(grotto, GROTTO_STATE_FULL | ChooseWildMonIndex_Grotto(GetHiddenGrottoType(grotto)));
 }
 
 static u32 GetHiddenGrottoIndex(u32 secretBaseId)
@@ -375,13 +404,14 @@ static const struct WildPokemon *GetHiddenGrottoWildMon(void)
     if (grotto >= HIDDEN_GROTTO_COUNT)
         return NULL;
 
+    enum GrottoType grottoType = GetHiddenGrottoType(grotto);
     u32 state = GetGrottoState(grotto);
     u32 slot = state & GROTTO_STATE_SLOT_MASK;
-    if (!(state & GROTTO_STATE_FULL) || slot >= NUM_GROTTO_MONS_ENCOUNTER_SLOTS)
+    if (!(state & GROTTO_STATE_FULL) || slot >= GetHiddenGrottoSlotCount(grottoType))
         return NULL;
 
     // The dynamic warp points back at the entrance's route.
-    const struct WildPokemonInfo *info = GetGrottoMonsInfo(gSaveBlock1Ptr->dynamicWarp.mapGroup, gSaveBlock1Ptr->dynamicWarp.mapNum);
+    const struct WildPokemonInfo *info = GetGrottoMonsInfo(gSaveBlock1Ptr->dynamicWarp.mapGroup, gSaveBlock1Ptr->dynamicWarp.mapNum, grottoType);
     if (info == NULL)
         return NULL;
 

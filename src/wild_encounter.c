@@ -7,6 +7,7 @@
 #include "fieldmap.h"
 #include "fishing.h"
 #include "follower_npc.h"
+#include "hidden_grotto.h"
 #include "item.h"
 #include "random.h"
 #include "field_player_avatar.h"
@@ -318,25 +319,53 @@ u32 ChooseWildMonIndex_Rocks(void)
     return wildMonIndex;
 }
 
-// NUM_GROTTO_MONS_ENCOUNTER_SLOTS
-STATIC_ASSERT(NUM_GROTTO_MONS_ENCOUNTER_SLOTS == 5, GrottoMonsSlotCountMatchesChooser);
-u32 ChooseWildMonIndex_Grotto(void)
+// NUM_GROTTO_CAVE_MONS_ENCOUNTER_SLOTS, NUM_GROTTO_TREE_MONS_ENCOUNTER_SLOTS, NUM_GROTTO_SHRUB_MONS_ENCOUNTER_SLOTS
+STATIC_ASSERT(NUM_GROTTO_CAVE_MONS_ENCOUNTER_SLOTS == 3, GrottoCaveMonsSlotCountMatchesChooser);
+STATIC_ASSERT(NUM_GROTTO_TREE_MONS_ENCOUNTER_SLOTS == 3, GrottoTreeMonsSlotCountMatchesChooser);
+STATIC_ASSERT(NUM_GROTTO_SHRUB_MONS_ENCOUNTER_SLOTS == 3, GrottoShrubMonsSlotCountMatchesChooser);
+u32 ChooseWildMonIndex_Grotto(u32 grottoType)
 {
-    return RandomWeighted(RNG_HIDDEN_GROTTO_SLOT,
-                          ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_0,
-                          ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_1 - ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_0,
-                          ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_2 - ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_1,
-                          ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_3 - ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_2,
-                          ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_4 - ENCOUNTER_CHANCE_GROTTO_MONS_SLOT_3);
+    switch (grottoType)
+    {
+    case GROTTO_TYPE_TREE:
+        return RandomWeighted(RNG_HIDDEN_GROTTO_SLOT,
+                              ENCOUNTER_CHANCE_GROTTO_TREE_MONS_SLOT_0,
+                              ENCOUNTER_CHANCE_GROTTO_TREE_MONS_SLOT_1 - ENCOUNTER_CHANCE_GROTTO_TREE_MONS_SLOT_0,
+                              ENCOUNTER_CHANCE_GROTTO_TREE_MONS_SLOT_2 - ENCOUNTER_CHANCE_GROTTO_TREE_MONS_SLOT_1);
+    case GROTTO_TYPE_SHRUB:
+        return RandomWeighted(RNG_HIDDEN_GROTTO_SLOT,
+                              ENCOUNTER_CHANCE_GROTTO_SHRUB_MONS_SLOT_0,
+                              ENCOUNTER_CHANCE_GROTTO_SHRUB_MONS_SLOT_1 - ENCOUNTER_CHANCE_GROTTO_SHRUB_MONS_SLOT_0,
+                              ENCOUNTER_CHANCE_GROTTO_SHRUB_MONS_SLOT_2 - ENCOUNTER_CHANCE_GROTTO_SHRUB_MONS_SLOT_1);
+    case GROTTO_TYPE_CAVE:
+    default:
+        return RandomWeighted(RNG_HIDDEN_GROTTO_SLOT,
+                              ENCOUNTER_CHANCE_GROTTO_CAVE_MONS_SLOT_0,
+                              ENCOUNTER_CHANCE_GROTTO_CAVE_MONS_SLOT_1 - ENCOUNTER_CHANCE_GROTTO_CAVE_MONS_SLOT_0,
+                              ENCOUNTER_CHANCE_GROTTO_CAVE_MONS_SLOT_2 - ENCOUNTER_CHANCE_GROTTO_CAVE_MONS_SLOT_1);
+    }
 }
 
 // Looked up by the grotto entrance's map, because the player is standing inside the grotto when this is needed.
-const struct WildPokemonInfo *GetGrottoMonsInfo(u8 mapGroup, u8 mapNum)
+const struct WildPokemonInfo *GetGrottoMonsInfo(u8 mapGroup, u8 mapNum, u32 grottoType)
 {
     for (u32 i = 0; gWildMonHeaders[i].mapGroup != MAP_GROUP(MAP_UNDEFINED); i++)
     {
         if (gWildMonHeaders[i].mapGroup == mapGroup && gWildMonHeaders[i].mapNum == mapNum)
-            return gWildMonHeaders[i].encounterTypes[OW_TIME_OF_DAY_FALLBACK].grottoMonsInfo;
+        {
+            const struct WildEncounterTypes *encounterTypes = &gWildMonHeaders[i].encounterTypes[OW_TIME_OF_DAY_FALLBACK];
+
+            switch (grottoType)
+            {
+            case GROTTO_TYPE_TREE:
+                return encounterTypes->grottoTreeMonsInfo;
+            case GROTTO_TYPE_SHRUB:
+                return encounterTypes->grottoShrubMonsInfo;
+            case GROTTO_TYPE_CAVE:
+            default:
+                return encounterTypes->grottoCaveMonsInfo;
+            }
+        }
     }
 
     return NULL;
